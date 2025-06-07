@@ -35,6 +35,7 @@ jobs:
           pip install mkdocs-material==9.5.3
           pip install mkdocs-minify-plugin==0.8.0
           pip install mkdocs-git-revision-date-localized-plugin
+          pip install mkdocs-awesome-pages-plugin
       
       - name: Build
         run: mkdocs build --verbose
