@@ -59,25 +59,17 @@ nav:
   - Getting Started:
     - Installation: getting-started/installation.md
     - Quick Start: getting-started/quickstart.md
-    - Examples: getting-started/examples/
-  - Guides:
-    - Time Zones: guides/timezones.md
-    - Best Practices: guides/best-practices.md
-    - Performance: guides/performance.md
-  - API Reference:
-    - Overview: api/reference/index.md
-    - Chrono: api/reference/chrono.md
-    - Time Zones: api/reference/timezones.md
-    - Formatting: api/reference/formatting.md
-  - Development:
-    - Building: development/building.md
-    - Testing: development/testing.md
-    - Contributing: development/contributing.md
-    - Release Process: development/release-process.md
-  - Community:
-    - Changelog: community/changelog.md
-    - Roadmap: community/roadmap.md
-    - Code of Conduct: community/code-of-conduct.md
+  - Documentation:
+    - README: README.md
+    - Build Instructions: BUILD.md
+    - Changelog: CHANGELOG.md
+    - Roadmap: ROADMAP.md
+    - Technical Debt: TECHNICAL_DEBT.md
+  - Advanced Topics:
+    - Directory Structure: Directory_Structure.md
+    - Implementation Plan: IMPLEMENTATION_PLAN.md
+    - Migration Guide: MIGRATION_GUIDE.md
+    - Test Coverage: TEST_COVERAGE.md
 
 # Custom CSS and JS
 extra_css:
