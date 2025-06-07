@@ -87,6 +87,79 @@ nav:
     - Hello World: examples/hello_world.md
   - Contributing: CONTRIBUTING.md
 
+# Theme configuration
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - search.highlight
+    - content.code.annotate
+    - content.code.copy
+    - content.action.edit
+    - content.tabs
+    - content.tooltips
+    - content.code.select
+    - header.autohide
+    - navigation.footer
+    - navigation.instant
+    - navigation.prune
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tracking
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - search.share
+    - toc.follow
+    - toc.integrate
+    - content.tabs.link
+
+  # Customization
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+
+  # Font
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+  # Logo and favicon
+  logo: assets/logo.svg
+  favicon: assets/favicon.ico
+  
+  # Icons
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+
+  # Custom CSS and JS
+  extra_css:
+    - css/extra.css
+  extra_javascript:
+    - js/extra.js
+
+  # Search
+  search:
+    language: en
+    separator: '[\s\-]+'
+
 # Extra
 extra:
   social:
