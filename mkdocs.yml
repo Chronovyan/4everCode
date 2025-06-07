@@ -10,6 +10,9 @@ repo_name: Chronovyan/Chronovyan.github.io
 repo_url: https://github.com/Chronovyan/Chronovyan.github.io
 edit_uri: edit/main/docs/
 
+# Build configuration
+site_dir: site  # Explicitly set the output directory
+
 # Theme Configuration
 theme:
   name: material
@@ -48,8 +51,8 @@ markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: '!!python/name:material.extensions.emoji.twemoji'
+      emoji_generator: '!!python/name:material.extensions.emoji.to_svg'
   - attr_list
   - md_in_html
   - toc:
@@ -87,10 +90,8 @@ nav:
     - Hello World: examples/hello_world.md
   - Contributing: CONTRIBUTING.md
 
-# Theme configuration
+# Theme features
 theme:
-  name: material
-  language: en
   features:
     - navigation.tabs
     - navigation.sections
@@ -107,16 +108,13 @@ theme:
     - navigation.footer
     - navigation.instant
     - navigation.prune
-    - navigation.sections
-    - navigation.tabs
     - navigation.tracking
-    - navigation.top
-    - search.highlight
     - search.suggest
     - search.share
     - toc.follow
     - toc.integrate
     - content.tabs.link
+  language: en
 
   # Customization
   palette:

@@ -5,11 +5,12 @@ on:
   push:
     branches:
       - gh-pages-new
-    # Only run when files in docs/ or mkdocs.yml change
+    # Only run when documentation files change
     paths:
       - 'docs/**'
       - 'mkdocs.yml'
       - '.github/workflows/gh-pages.yml'
+      - 'docs_old/**'
   workflow_dispatch:  # Allow manual triggering
 
 # Set permissions for the workflow
@@ -28,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deploy.outputs.website_url }}
+      url: https://chronovyan.github.io
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -53,16 +54,20 @@ jobs:
           pip install pygments
       
       - name: Build
-        run: mkdocs build --verbose
+        run: |
+          mkdocs build --verbose --strict
+          # Verify the site directory was created
+          ls -la site/ 2>/dev/null || (echo "Site directory not found!" && exit 1)
       
       - name: Deploy to GitHub Pages
         id: deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages  # The branch the action should deploy to
-          folder: site  # The folder the action should deploy
+          folder: site  # The folder the action should deploy (matches mkdocs default)
           clean: true  # Automatically remove deleted files from the deploy branch
           token: ${{ secrets.GITHUB_TOKEN }}  # Token for the deployment
           # Output the GitHub Pages URL
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           repository-name: ${{ github.repository }}
+          # Set the deployment URL as an output
+          silent: false
