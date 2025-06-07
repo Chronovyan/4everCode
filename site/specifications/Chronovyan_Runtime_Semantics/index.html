@@ -1,0 +1,1940 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for specifications\Chronovyan_Runtime_Semantics.md">
+      
+      
+        <meta name="author" content="Chronovyan Team">
+      
+      
+        <link rel="canonical" href="https://chronovyan.github.io/specifications/Chronovyan_Runtime_Semantics/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Chronovyan and) runtime") Runtime Semantics - Chronovyan</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/timeago.css">
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-XXXXXXXXXX"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-XXXXXXXXXX",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chronovyan-runtime-semantics" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Chronovyan" class="md-header__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chronovyan
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chronovyan and) runtime") Runtime Semantics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Chronovyan/Chronovyan.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../guides/Getting%20Started%20-%20The%20Journey%20of%20a%20Temporal%20Developer/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Language Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../TUTORIAL_ROADMAP/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../api_reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  API Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Chronoscript%20Standard%20Library%20Reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Standard Library
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../chronicle_compiler_design/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Compiler
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Chronoscript%20Runtime%20Mechanics%20Guide/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Runtime
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Chronovyan_Glossary/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Glossary
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../ROADMAP/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Roadmap
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../CONTRIBUTING.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Chronovyan" class="md-nav__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Chronovyan
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Chronovyan/Chronovyan.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quick Start
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Language Guide
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Language Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/Getting%20Started%20-%20The%20Journey%20of%20a%20Temporal%20Developer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Basics
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/Core%20Concepts%20-%20The%20Foundation%20of%20Temporal%20Programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core Concepts
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/Advanced Features - The Art of Temporal Mastery.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Features
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../tutorials/act1/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TUTORIAL_ROADMAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tutorial Roadmap
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/act2/README.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Act 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api_reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chronoscript%20Standard%20Library%20Reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Standard Library
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chronicle_compiler_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Compiler
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chronoscript%20Runtime%20Mechanics%20Guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Runtime
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chronovyan_Glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Glossary
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ROADMAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Roadmap
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CONTRIBUTING.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Execution Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Execution Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#program-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Program Lifecycle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execution-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Execution Context
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable Semantics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variable Semantics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variable-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable Flags
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-interactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable Interactions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Semantics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resource Semantics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chronons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chronons
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aethel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aethel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Interaction
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temporal-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temporal Operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Temporal Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loop-semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loop Semantics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeline-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timeline Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1weave2corecore-concepts-the-foundation-of-temporal-programmingmdweave3_pattern-semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      \1WEAVE\2/core/Core Concepts - The Foundation of Temporal Programming.md#weave\3_PATTERN Semantics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paradox-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paradox Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paradox Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1paradox2corecore-concepts-the-foundation-of-temporal-programmingmdparadox3_level-dynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL Dynamics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paradox-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paradox Detection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Handling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Special Operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Special Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loot-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      LOOT System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dejavu-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      DEJAVU Operation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Constraints
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="chronovyan-runtime-semantics">Chronovyan Runtime Semantics</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This document specifies the runtime behavior of the Chronovyan language, providing a precise definition of how each language construct executes, how state changes propagate, and how temporal operations affect the program. It serves as the authoritative reference for the dynamic semantics of Chronovyan, ensuring consistent behavior across all implementations.</p>
+<p>The semantics are organized to reflect both the philosophical duality of Chronovyan (Order/Conformity and Flux/Rebellion) and the three-phase execution model (ANTECEDENCE, CONCURRENCY, CONSEQUENCE) that defines the language's approach to temporal manipulation.</p>
+<h2 id="execution-model">Execution Model</h2>
+<h3 id="program-lifecycle">Program Lifecycle</h3>
+<p>A Chronovyan program executes in a well-defined sequence:</p>
+<ol>
+<li><strong>Initialization</strong>- Resource allocation (\1AETHEL\2/core/Core Concepts - The Foundation of Temporal Programming.md#aethel\3/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)a)e)t)h)e)l))))) "The energy) that) powers) temporal) operations""), \1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)c)h)r)o)n)o)n))))) "The fundamental unit) of) time) in) Chronovyan"")
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL initialization (baseline of 0.1
+ System stability metrics setup</li>
+</ol>
+<p>2.<strong>ANTECEDENCE Phase</strong>- All declarations processed sequentiall
+ \1WEAVE\2/core/Core Concepts - The Foundation of Temporal Programming.md#weave\3_PATTERNs defined but not execute
+ Resources are harvested and initialize
+ Chronon stream allocatio
+ No execution of actual operations</p>
+<p>3.<strong>CONCURRENCY Phase</strong>- Parallel streams execute concurrentl
+ \1WEAVE\2/core/Core Concepts - The Foundation of Temporal Programming.md#weave\3_PATTERNs applied according to their strategie
+ Temporal operations execute
+ Resource consumption occur
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL updated continuously</p>
+<p>4.<strong>CONSEQUENCE Phase</strong>- \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)p)a)r)a)d)o)x)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)p)a)r)a)d)o)x)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)p)a)r)a)d)o)x))))) "A temporal inconsistency) that) must) be) resolved"") checks evaluate
+ Error handling through CATCH_TEMPORA
+ Rewards determined through LOOT_TABL
+ Timeline auditing via DEJAV
+ Final system state established</p>
+<p>5.<strong>Termination</strong>- Resources released or preserve
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL final assessmen
+ Program output finalized</p>
+<h3 id="execution-context">Execution Context</h3>
+<p>Each operation in Chronovyan executes within a specific context that contains:<strong>Timeline</strong>: The current execution pat
+<em>Temporal Position</em><em>: The current point in the timelin
+</em>Resource State<strong>: Available Aethel and Chrono
+*\1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL</strong>: Current system instabilit
+<em>Variable Environment</em><em>: All accessible variable
+</em>Anchor Points**: Available REWIND_TO destinations</p>
+<p>Contexts can be nested (e.g., within sandboxes) with defined inheritance rules.</p>
+<h2 id="variable-semantics">Variable Semantics</h2>
+<h3 id="type-system">Type System</h3>
+<h4 id="variable-types">Variable Types</h4>
+<ol>
+<li><strong>CONF (Conformist)</strong>- State changes follow strict rule
+ Changes are synchronized across the timelin
+ Cannot exist in superpositio
+ Modifications tracked and validated against \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)p)a)r)a)d)o)x)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)p)a)r)a)d)o)x))))) condition
+ Contributes to system stability</li>
+</ol>
+<p>2.<strong>REB (Rebellious)</strong>- Can exist in multiple states simultaneousl
+ Changes can propagate non-linearl
+ Can be affected by temporal operation
+ Less predictable behavio
+ Higher \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL contribution</p>
+<p>3.<strong>ADAPTIVE</strong>- Can shift between CONF and REB behavior based on contex
+ Behavior determined by \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL and system condition
+ "Middle path" variables that balance stability and flexibility</p>
+<h4 id="variable-flags">Variable Flags</h4>
+<p>1.<strong>::STATIC</strong>- Value cannot change after initializatio
+ Reduces \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL by 0.01 per variabl
+ Exempt from temporal fluctuation
+ Behavior: Any attempt to modify raises <code>StaticModificationError</code></p>
+<p>2.<strong>::\1FLUX\2/core/Core Concepts - The Foundation of Temporal Programming.md#flux\3</strong>- Value can change unpredictabl
+ Increases \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL by 0.02 per variabl
+ Subject to quantum effect
+ Behavior: Value can spontaneously change within defined bounds when \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL &gt; 0.5</p>
+<p>3.<strong>::\1ANCHOR\2/core/Core Concepts - The Foundation of Temporal Programming.md#anchor\3</strong>- Serves as a stability point for timeline
+ Can be targeted by REWIND_TO operation
+ Creates a checkpoint in the execution histor
+ Behavior: When referenced by REWIND_TO, execution state reverts to the point of anchor declaration</p>
+<p>4.<strong>::\1WEAVE\2/core/Core Concepts - The Foundation of Temporal Programming.md#weave\3R</strong>- Can manipulate other variables' temporal propertie
+ Influences timeline branching and mergin
+ Higher Aethel consumptio
+ Behavior: Can be used in operations that modify timeline structure</p>
+<p>5.<strong>::ECHO</strong>- Maintains history of all past value
+ Accessible via temporal access operation
+ Higher memory consumptio
+ Behavior: All past states are preserved and can be retrieved with \1TEMPORAL\2/core/Core Concepts - The Foundation of Temporal Programming.md#temporal\3_ACCESS</p>
+<p>6.<strong>::SOURCE_INFUSED</strong>- Connected to the fundamental power of The Sourc
+ Can modify system-level constraint
+ Extremely high Aethel consumptio
+ Behavior: Can override normal \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)p)a)r)a)d)o)x)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)p)a)r)a)d)o)x))))) constraints with severe \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL consequences</p>
+<p>7.<strong>::VOLATILE</strong>- Rapid state change
+ No guaranteed persistence between operation
+ Unpredictable behavior at high \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVE
+ Behavior: Value may not persist between operations if \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL &gt; 0.7</p>
+<h3 id="variable-interactions">Variable Interactions</h3>
+<p>1.<strong>CONF-CONF Interaction</strong>- Predictable, stable outcome
+ No \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL increas
+ Linear execution flo
+ Operations are atomic and consistent</p>
+<p>2.<strong>REB-REB Interaction</strong>- Potential for superposition of outcome
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL increase of 0.02-0.05 per interactio
+ Non-linear effects possibl
+ Operations may produce multiple potential outcomes</p>
+<p>3.<strong>CONF-REB Interaction</strong>- CONF attempts to stabilize RE
+ REB may corrupt CONF at high \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVE
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL increase of 0.01-0.0
+ Outcome depends on \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL and variable flags</p>
+<p>4.<strong>ADAPTIVE Interaction Rules</strong>- Behaves like CONF when \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL &lt; 0.
+ Exhibits mixed behavior between 0.3-0.
+ Behaves like REB when \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL &gt; 0.
+ Adapts based on interaction partners</p>
+<h2 id="resource-semantics">Resource Semantics</h2>
+<h3 id="chronons">Chronons</h3>
+<p>1.<strong>Allocation</strong>- Allocated at program initializatio
+ Required for all operation
+ Consumed at different rates by different operation
+ Can be harvested from \1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3_STREAM sources</p>
+<p>2.<strong>Consumption Rules</strong>- Basic operations: 1 Chrono
+ Control structures: 2 Chronon
+ Temporal operations: 5-20 Chronons depending on complexit
+ \1WEAVE\2/core/Core Concepts - The Foundation of Temporal Programming.md#weave\3_PATTERN application: Sum of contained operations + 5</p>
+<p>3.<strong>Depletion Effects</strong>- At 20%: Operations slow by 50
+ At 10%: Only CONF operations permitte
+ At 5%: Warning issued, \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL +0.
+ At 0%: Program terminates with ChrononsDepletedError</p>
+<h3 id="aethel">Aethel</h3>
+<p>1.<strong>Generation</strong>- CONF operations generate 0.1 Aethel per operatio
+ Successful \1WEAVE\2/core/Core Concepts - The Foundation of Temporal Programming.md#weave\3_PATTERN execution generates 1-5 Aethe
+ HARVEST operations generate 10-50 Aethe
+ System stability above 0.8 generates 0.5 Aethel per cycle</p>
+<p>2.<strong>Consumption</strong>- REB operations consume 1-10 Aethe
+ Temporal manipulations (REWIND_FLOW, etc.) consume 10-50 Aethe
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL reduction consumes Aethel proportional to reduction amoun
+ SOURCE_INFUSED operations consume 50-100 Aethel</p>
+<p>3.<strong>Depletion Effects</strong>- At 20%: REB operations cost 2x Aethe
+ At 10%: \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL +0.
+ At 5%: Only CONF operations permitte
+ At 0%: AethelDepletionError, forced timeline stabilization</p>
+<h3 id="resource-interaction">Resource Interaction</h3>
+<p>1.<strong>Chronon-Aethel Exchange</strong>- Chronons can be converted to Aethel at 1:0.1 rati
+ Aethel can be converted to Chronons at 10:1 rati
+ Conversion increases \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL by 0.0
+ Conversion requires explicit operation</p>
+<h2 id="temporal-operations">Temporal Operations</h2>
+<h3 id="loop-semantics">Loop Semantics</h3>
+<p>1.<strong>FOR_\1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3</strong>- Conformist, predictable iteratio
+ Consumes 1 Chronon per iteratio
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL impact: +0.01 per 10 iteration
+ Exit conditions evaluated at start of each iteratio
+ Runtime behavior: Standard iterator pattern with consistent progression</p>
+<p>2.<strong>WHILE_EVENT</strong>- Conformist conditional iteratio
+ Consumes 2 Chronons per iteratio
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL impact: +0.01 per 5 iteration
+ Condition evaluated at start of each iteratio
+ Runtime behavior: Continues until condition is false or resources depleted</p>
+<p>3.<strong>REWIND_FLOW</strong>- Rebel operation that resets execution to a previous poin
+ Consumes 10 Aethel per rewin
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL impact: +0.05 per rewin
+ Condition evaluated after each iteratio
+ Runtime behavior: When condition is true, execution jumps back to start of loop bod
+ State preservation: Variables marked ::ECHO retain values, others rese
+ Limit: Maximum of 3 rewinds before \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL +0.1 per additional rewind</p>
+<p>4.<strong>\1TEMPORAL\2/core/Core Concepts - The Foundation of Temporal Programming.md#temporal\3_ECHO_LOOP</strong>- Rebel operation that creates multiple parallel timeline
+ Consumes 20 Aethel per iteratio
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL impact: +0.07 per iteratio
+ Runtime behavior: Each iteration executes in parallel timelin
+ Results from all timelines are merged at completio
+ Conflict resolution: Last-write-wins for CONF, superposition for RE
+ Limit: Maximum parallel timelines = min(10, available Aethel / 20)</p>
+<p>5.<strong>CHRONO_DILATE_LOOP</strong>- Rebel operation that expands temporal perception within loo
+ Consumes 15 Aethel per iteratio
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL impact: +0.06 per iteratio
+ Runtime behavior: Operations within loop execute at "higher resolution
+ Effect: More precise temporal operations, access to sub-Chronon event
+ Limit: Dilation factor limited by available Aethel</p>
+<h3 id="timeline-operations">Timeline Operations</h3>
+<p>1.<strong>REWIND_TO</strong>- Jumps execution to a previously established anchor poin
+ Consumes 30 Aethe
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL impact: +0.
+ Runtime behavior: Execution state reverts to anchor poin
+ State effects: CONF::STATIC variables unchanged, others reset to anchor stat
+ Restrictions: Cannot rewind past ANTECEDENCE phase</p>
+<p>2.<strong>BRANCH_TIMELINE</strong>- Creates a new execution path from current poin
+ Consumes 40 Aethe
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL impact: +0.1
+ Runtime behavior: Creates separate execution contex
+ Resource division: Resources split between original and branc
+ Completion: Branches must be explicitly merged or terminated</p>
+<p>3.<strong>MERGE_TIMELINE</strong>- Combines branched timelines back into single execution pat
+ Consumes 40 Aethe
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL impact: +0.1
+ Runtime behavior: Consolidates execution context
+ State reconciliation: CONF variables must match or ParadoxError occur
+ REB variables may exist in superposition post-merge</p>
+<p>4.<strong>\1TEMPORAL\2/core/Core Concepts - The Foundation of Temporal Programming.md#temporal\3_TRANSFORM</strong>- Modifies a variable through temporal manipulatio
+ Consumes 20 Aethe
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL impact: +0.0
+ Runtime behavior: Variable state changes based on transform functio
+ Historical preservation: Previous states remain accessible if ::ECHO flag se
+ Paradox check: Automatic check for timeline consistency</p>
+<h3 id="1weave2corecore-concepts-the-foundation-of-temporal-programmingmdweave3_pattern-semantics">\1WEAVE\2/core/Core Concepts - The Foundation of Temporal Programming.md#weave\3_PATTERN Semantics</h3>
+<p>1.<strong>Pattern Definition</strong>- Purely declarative, no executio
+ Consumes 1 Chronon per statement in patter
+ Stores operation sequence for later applicatio
+ Validates structure for consistenc
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL assessment for future execution</p>
+<p>2.<strong>SEQUENTIAL Strategy</strong>- Executes operations in strict orde
+ Consumes Chronons sequentiall
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL impact: Sum of individual operation
+ Runtime behavior: Each operation completes before next begin
+ Failure handling: Stops at first failed operation</p>
+<p>3.<strong>PARALLEL Strategy</strong>- Executes operations concurrentl
+ Consumes Chronons simultaneousl
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL impact: max(individual operations) + 0.0
+ Runtime behavior: All operations execute in paralle
+ Failure handling: Independent operation result
+ Conflict resolution required at completion</p>
+<p>4.<strong>CONDITIONAL Strategy</strong>- Selects operations based on condition
+ Consumes 2 Chronons for evaluation plus operation cost
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL impact: Weighted average based on condition probabilit
+ Runtime behavior: Evaluates all conditions, executes matching operation
+ Default behavior: If no conditions match, NoConditionMetError unless default provided</p>
+<p>5.<strong>Sandbox Execution</strong>- All \1WEAVE\2/core/Core Concepts - The Foundation of Temporal Programming.md#weave\3_PATTERNs execute in isolated contex
+ Resource limits based on Instability_Inde
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL contained within sandbo
+ Escalation rules for unhandled paradoxe
+ Context inheritance follows sandbox level</p>
+<h2 id="paradox-management">Paradox Management</h2>
+<h3 id="1paradox2corecore-concepts-the-foundation-of-temporal-programmingmdparadox3_level-dynamics">\1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL Dynamics</h3>
+<p>1.<strong>Initial Value</strong>- Base value: 0.
+ Adjustment for streams: +0.05 per strea
+ Adjustment for \1WEAVE\2/core/Core Concepts - The Foundation of Temporal Programming.md#weave\3_PATTERNs: Based on Instability_Inde
+ Adjustment for resources: +0.1 if low Aethel</p>
+<p>2.<strong>Update Mechanisms</strong>- Temporal operations: Direct increases per operatio
+ Control structures: Accumulated over iteration
+ Resource consumption: Increases on depletion threshold
+ Timeline manipulation: Significant increases</p>
+<p>3.<strong>Reduction Mechanisms</strong>- Natural decay: -0.01 per 5 stable operation
+ INFUSE operation: Reduces by Aethel_Spent* 0.00
+ stabilize_timeline: Targeted reduction consuming Aethe
+ CONF operations: Minimal reductions over time</p>
+<ol>
+<li><strong>Threshold Effects</strong>- 0.0-0.3: Normal operatio
+ 0.31-0.5: Warning level, increased Aethel cost
+ 0.51-0.79: Danger level, restricted operation
+ 0.8+: Critical level, ParadoxOverflowError</li>
+</ol>
+<h3 id="paradox-detection">Paradox Detection</h3>
+<p>1.<strong>Detection Mechanisms</strong>- Dependency tracking through variable acces
+ Resource consumption monitorin
+ Timeline consistency validatio
+ State transition verification</p>
+<p>2.<strong>Conflict Types</strong>- Resource conflicts: Same resource used inconsistentl
+ State conflicts: Incompatible variable state
+ Timeline conflicts: Causality violation
+ Anchor conflicts: Invalid REWIND_TO target</p>
+<p>3.<strong>Detection Timing</strong>- Pre-execution: validate_pattern simulatio
+ During execution: Continuous monitorin
+ Post-operation: State consistency chec
+ On timeline merge: State reconciliation</p>
+<p>4.<strong>paradox_check Operation</strong>- Explicitly validates dependencie
+ Returns boolean indicating safet
+ Consumes 5 Chronon
+ Does not itself affect \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVE
+ Runtime behavior: Examines dependency graph for conflicts</p>
+<h3 id="error-handling">Error Handling</h3>
+<p>1.<strong>CATCH_\1TEMPORAL\2/core/Core Concepts - The Foundation of Temporal Programming.md#temporal\3</strong>- Intercepts specific temporal error
+ Consumes 10 Chronons on setu
+ No direct \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL impac
+ Runtime behavior: Executes handler block when matching error occur
+ Error propagation: Unhandled errors propagate to parent context</p>
+<p>2.<strong>Error Types</strong>- ParadoxOverflowError: \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL exceeds 0.
+ AethelDepletionError: Aethel reserve exhauste
+ TimelineCorruptionAlert: Timeline consistency violate
+ NoConditionMetError: No matching condition in CONDITIONA
+ TemporalInstabilityError: General stability failure</p>
+<p>3.<strong>Recovery Actions</strong>- REWIND_TO: Return to safe stat
+ INFUSE: Stabilize affected component
+ stabilize_timeline: Reduce \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVE
+ Resource reallocation: Manage Aethel/Chronon distribution</p>
+<p>4.<strong>Unrecoverable States</strong>- Simultaneous ParadoxOverflowError and AethelDepletionErro
+ Recursive TimelineCorruptionAler
+ Invalid state after multiple REWIND_TO attempt
+ Corrupted \1ANCHOR\2/core/Core Concepts - The Foundation of Temporal Programming.md#anchor\3 points</p>
+<h2 id="special-operations">Special Operations</h2>
+<h3 id="loot-system">LOOT System</h3>
+<p>1.<strong>LOOT_TABLE Resolution</strong>- Probabilistic reward determinatio
+ Consumes 5 Chronon
+ No direct \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL impac
+ Runtime behavior: Random roll against probability tabl
+ Result: \1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3_STREAM or special item</p>
+<p>2.<strong>LOOT Utilization</strong>- Can be used in INFUSE operation
+ Special properties based on LOOT typ
+ Consumption rules vary by ite
+ Some LOOT reduces \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL when use
+ Rare LOOT may enable prohibited operations</p>
+<h3 id="dejavu-operation">DEJAVU Operation</h3>
+<p>1.<strong>Execution Semantics</strong>- Analyzes execution history of a \1WEAVE\2/core/Core Concepts - The Foundation of Temporal Programming.md#weave\3_PATTER
+ Consumes 15 Chronon
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL impact: +0.0
+ Runtime behavior: Records analysis to specified identifie
+ Optional notification with provided messag
+ No direct modification of execution flow</p>
+<p>2.<strong>Analysis Results</strong>- Execution efficienc
+ Resource consumption pattern
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL contributio
+ Potential optimization strategie
+ Conflict detection</p>
+<h2 id="implementation-constraints">Implementation Constraints</h2>
+<p>1.<strong>Resource Management</strong>- Implementations must track Chronon and Aethel precisel
+ Resource exhaustion must trigger appropriate error
+ Resource transfers must maintain conservation</p>
+<p>2.<strong>Paradox Handling</strong>- \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL calculation must follow specified formula
+ Paradox detection must identify all specified conflict type
+ Error propagation must respect context boundaries</p>
+<p>3.<strong>Timeline Management</strong>- Context isolation must be maintained for sandboxe
+ State preservation and reversion must follow variable flag rule
+ Timeline operations must enforce causality constraints</p>
+<p>4.<strong>Optimization Constraints</strong>- Implementations may optimize execution if semantics preserve
+ Apparent execution order must match specificatio
+ Resource consumption may be optimized but not eliminate
+ \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL effects must be accurately simulated</p>
+<p>This document provides the authoritative specification for how Chronovyan constructs behave at runtime. Implementations must adhere to these semantics to ensure consistent behavior across different environments and platforms.</p>
+<h2 id="examples">Examples</h2>
+<p>The following examples demonstrate the runtime semantics of key Chronovyan constructs:</p>
+<h3 id="_1"></h3>
+<p>``chronovyan</p>
+<div class="highlight"><pre><span></span><code>DECLARE CONF::STATIC anchor_value : INT = 42;
+
+DECLARE REB::\1FLUX\2/core/Core Concepts - The Foundation of Temporal Programming.md#flux\3 quantum_value : INT = 10;
+
+// The following would fail at runtime with StaticModificationError
+
+// anchor_value = 43;
+
+// This is valid and consumes 1 Chronon
+
+quantum_value = 20;
+
+// This pattern has a \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL impact of +0.02 due to REB variable modification
+
+DECLARE CONF::STATIC test_pattern : \1WEAVE\2/core/Core Concepts - The Foundation of Temporal Programming.md#weave\3_PATTERN = define_pattern(&quot;QuantumTest&quot;, [
+
+    quantum_value = quantum_value* 2
+
+]);
+
+// This would execute the pattern, consuming Chronons and Aethel
+
+// The quantum_value would become 40
+
+Success = apply_pattern(test_pattern, standard_context);
+</code></pre></div>
+<p>```text</p>
+<div class="highlight"><pre><span></span><code>###
+
+``chronovyan
+
+    // Conformist loop - predictable execution
+
+    // Consumes 10 Chronons (1 per iteration)
+
+    // \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL impact: +0.01
+
+    FOR_\1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3 (\1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3 c = 0; c &lt; 10; c++) {
+
+        process_data(c);
+
+    }
+
+    // Rebel loop - can rewind execution
+
+    // First iteration consumes 5 Chronons, plus 10 Aethel per rewind
+
+    // \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL impact: +0.05 per rewind
+
+    REWIND_FLOW (validation_failed) {
+
+        attempt_process();
+
+        check_validation();
+
+    }
+</code></pre></div>
+<p>```text</p>
+<div class="highlight"><pre><span></span><code>###
+
+``chronovyan
+
+    // Paradox check consumes 5 Chronons
+
+    // Returns false if dependencies have conflicts
+
+    ?! paradox_check([stability_field, quantum_state, energy_reserve]);
+
+    // Error handler consumes 10 Chronons on setup
+
+    // Executes only if ParadoxOverflowError occurs
+
+    CATCH_\1TEMPORAL\2/core/Core Concepts - The Foundation of Temporal Programming.md#temporal\3 ParadoxOverflowError {
+
+        // REWIND_TO consumes 30 Aethel
+
+        // \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL impact: +0.1
+
+        // Execution state reverts to Origin anchor point
+
+        REWIND_TO @Origin;
+
+        // INFUSE consumes variable Aethel based on parameters
+
+        // Reduces \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL by amount * 0.001
+
+        INFUSE(stability_field, LOOT(&quot;Chronovyan_Tapestry&quot;), &quot;Restabilize&quot;);
+
+    }
+</code></pre></div>
+<p>```chronoscript</p>
+<p>These examples illustrate how Chronovyan's constructs behave at runtime, including resource consumption, \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL impact, and execution semantics.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="June 7, 2025 20:02:02 UTC"><span class="timeago" datetime="2025-06-07T20:02:02+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="June 7, 2025 20:02:02 UTC">2025-06-07</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 Chronovyan Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "search.highlight", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../js/timeago.min.js"></script>
+      
+        <script src="../../js/timeago_mkdocs_material.js"></script>
+      
+    
+  </body>
+</html>

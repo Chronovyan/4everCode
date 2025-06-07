@@ -19,6 +19,9 @@ theme:
     - navigation.indexes
     - search.highlight
     - content.code.annotate
+    - content.tabs.link
+    - content.code.copy
+    - content.action.edit
   palette:
     - scheme: default
       primary: deep purple
@@ -35,6 +38,64 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
+  icon:
+    logo: material/timer-sand
+    repo: fontawesome/brands/github
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+# Plugins
+plugins:
+  - search
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+  - git-revision-date-localized:
+      type: timeago
+      fallback_to_build_date: true
+  - awesome-pages:
+      filename: .pages
+      collapse_single_pages: true
+  - markdownextradata
+  - git-authors
+  - git-committers
+  - redirects:
+      redirect_maps:
+        'index.html': 'getting-started/installation/'
+  - mermaid2:
+      arguments:
+        theme: 'default'
+        themeCSS: |
+          .mermaid { font-family: 'Roboto', sans-serif; }
+  - section-index
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            show_root_heading: true
+            show_source: true
 
 # Navigation
 nav:
@@ -49,57 +110,18 @@ nav:
   - Tutorials: 
     - Tutorial Roadmap: TUTORIAL_ROADMAP.md
     - Act 1: tutorials/act1/README.md
-    - Act 2: tutorials/act2/README.md
-  - API Reference: api_reference.md
-  - Standard Library: Chronoscript Standard Library Reference.md
-  - Compiler: chronicle_compiler_design.md
-  - Runtime: Chronoscript Runtime Mechanics Guide.md
-  - Glossary: Chronovyan_Glossary.md
-  - Roadmap: ROADMAP.md
-  - Contributing: CONTRIBUTING.md
 
-# Plugins
-plugins:
-  - search
-  - minify
-  - git-revision-date-localized:
-      type: timeago
-      locale: en
-  - awesome-pages:
-      collapse_single_pages: true
-
-# Extensions
-markdown_extensions:
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.tabbed
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - attr_list
-  - md_in_html
-  - pymdownx.arithmatex:
-      generic: true
-
-# Build options
-strict: false  # Disabled to prevent build failures from warnings
-use_directory_urls: true
-
-# Customization
-extra_css:
-  - css/extra.css
-
-# Ignore patterns are handled automatically by MkDocs
-
-# Extra context
+# Extra
 extra:
-  version:
-    provider: mike
-  analytics:
-    provider: google
-    property: G-XXXXXXXXXX
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Chronovyan
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/chronovyan
+
+# Copyright
+copyright: >-
+  Copyright &copy; 2023 Chronovyan Team - 
+  <a href="https://github.com/Chronovyan/Chronovyan.github.io/blob/main/LICENSE">
+    MIT License
+  </a>

@@ -1,0 +1,2744 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for ROADMAP.md">
+      
+      
+        <meta name="author" content="Chronovyan Team">
+      
+      
+        <link rel="canonical" href="https://chronovyan.github.io/ROADMAP/">
+      
+      
+        <link rel="prev" href="../Chronovyan_Glossary/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Chronovyan and) runtime") Language Development Roadmap - Chronovyan</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/timeago.css">
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-XXXXXXXXXX"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-XXXXXXXXXX",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chronovyan-language-development-roadmap" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Chronovyan" class="md-header__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chronovyan
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chronovyan and) runtime") Language Development Roadmap
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Chronovyan/Chronovyan.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/installation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../guides/Getting%20Started%20-%20The%20Journey%20of%20a%20Temporal%20Developer/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Language Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../TUTORIAL_ROADMAP/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../api_reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  API Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Chronoscript%20Standard%20Library%20Reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Standard Library
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chronicle_compiler_design/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Compiler
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Chronoscript%20Runtime%20Mechanics%20Guide/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Runtime
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Chronovyan_Glossary/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Glossary
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Roadmap
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CONTRIBUTING.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Chronovyan" class="md-nav__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Chronovyan
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Chronovyan/Chronovyan.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quick Start
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Language Guide
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Language Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/Getting%20Started%20-%20The%20Journey%20of%20a%20Temporal%20Developer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Basics
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core/Core%20Concepts%20-%20The%20Foundation%20of%20Temporal%20Programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core Concepts
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced/Advanced Features - The Art of Temporal Mastery.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Features
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../tutorials/act1/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TUTORIAL_ROADMAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tutorial Roadmap
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/act2/README.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Act 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chronoscript%20Standard%20Library%20Reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Standard Library
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chronicle_compiler_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Compiler
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chronoscript%20Runtime%20Mechanics%20Guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Runtime
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chronovyan_Glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Glossary
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Roadmap
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Roadmap
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#current-status-phase-3-5-in-progress-implementation-documentation-learning-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current Status: Phase 3-5 (In Progress) - Implementation, Documentation &amp; Learning Resources
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Current Status: Phase 3-5 (In Progress) - Implementation, Documentation &amp; Learning Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-components-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Components Status
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Components Status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-core-language-design-specification-completed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 2: Core Language Design &amp; Specification (Completed)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 2: Core Language Design &amp; Specification (Completed)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-reference-implementation-in-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 3: Reference Implementation (In Progress)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 3: Reference Implementation (In Progress)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-standard-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 4: Standard Library
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 4: Standard Library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-5-documentation-testing-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 5: Documentation, Testing &amp; Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 5: Documentation, Testing &amp; Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-6-tooling-community-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 6: Tooling &amp; Community Ecosystem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 6: Tooling &amp; Community Ecosystem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-7-compilation-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 7: Compilation &amp; Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 7: Compilation &amp; Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-aillm-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 AI/LLM Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-table-development-priorities-updated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary Table: Development Priorities (Updated)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#immediate-next-steps-q2-q3-2023" class="md-nav__link">
+    <span class="md-ellipsis">
+      Immediate Next Steps (Q2-Q3 2023)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#medium-term-goals-q4-2023-q1-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      Medium-Term Goals (Q4 2023 - Q1 2024)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CONTRIBUTING.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#current-status-phase-3-5-in-progress-implementation-documentation-learning-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current Status: Phase 3-5 (In Progress) - Implementation, Documentation &amp; Learning Resources
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Current Status: Phase 3-5 (In Progress) - Implementation, Documentation &amp; Learning Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-components-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Components Status
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Components Status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-core-language-design-specification-completed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 2: Core Language Design &amp; Specification (Completed)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 2: Core Language Design &amp; Specification (Completed)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-reference-implementation-in-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 3: Reference Implementation (In Progress)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 3: Reference Implementation (In Progress)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-standard-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 4: Standard Library
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 4: Standard Library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-5-documentation-testing-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 5: Documentation, Testing &amp; Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 5: Documentation, Testing &amp; Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-6-tooling-community-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 6: Tooling &amp; Community Ecosystem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 6: Tooling &amp; Community Ecosystem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-7-compilation-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 7: Compilation &amp; Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 7: Compilation &amp; Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-aillm-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 AI/LLM Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-table-development-priorities-updated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary Table: Development Priorities (Updated)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#immediate-next-steps-q2-q3-2023" class="md-nav__link">
+    <span class="md-ellipsis">
+      Immediate Next Steps (Q2-Q3 2023)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#medium-term-goals-q4-2023-q1-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      Medium-Term Goals (Q4 2023 - Q1 2024)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="chronovyan-language-development-roadmap">Chronovyan Language Development Roadmap</h1>
+<h2 id="current-status-phase-3-5-in-progress-implementation-documentation-learning-resources">Current Status: Phase 3-5 (In Progress) - Implementation, Documentation &amp; Learning Resources</h2>
+<h3 id="core-components-status">Core Components Status</h3>
+<h4 id="_1"></h4>
+<p><strong>Language Specification</strong>- Formal grammar and semantics
+  - Core type system (Value, Number, String, Boolean, Nil, Array, Object)
+  - Basic temporal operations (Clock)
+  - Variable system with CONF/REB types
+  - Loop mechanics and control flow</p>
+<h4 id="_2"></h4>
+<p><strong>Temporal Types</strong>- Basic Clock implementation complete
+  - Missing advanced temporal types (TemporalSequence, TemporalMap)
+  - Partial quantum operations support<strong>Standard Library</strong>- Core data structures implemented
+  - Basic temporal functions available
+  - Incomplete resource management<strong>Documentation</strong>- Core language documentation
+  - Partial API reference
+  - Basic tutorials (Act 1)</p>
+<h4 id="_3"></h4>
+<p>Advanced temporal manipulation
+- Comprehensive resource management
+- Debugging and profiling tools
+- Advanced documentation and tutorials</p>
+<h3 id="_4"></h3>
+<p>Refactored Value class implementation
+- Standardized type system interfaces
+- Improved error handling and type safety
+- Enhanced documentation structure</p>
+<h2 id="phase-2-core-language-design-specification-completed">Phase 2: Core Language Design &amp; Specification (Completed)</h2>
+<h3 id="_5"></h3>
+<p>[x]<strong>Formal Grammar (BNF/EBNF)</strong>: Write a complete, precise description of Chronovyan's syntax
+- [x] <strong>Semantics Document</strong>: Define exactly how each construct behaves at runtime
+- [x] <strong>Standard Library Design</strong>: List essential built-in functions, types, and modules
+- [x] Collect and formalize all Chronovyan syntax from documentation and examples
+- [x] Write a "language specification" document: keywords, grammar, variable declarations, loops, temporal commands, and data types
+- [x] For each construct, specify its runtime behavior (e.g., how does <code>REWIND_FLOW</code> manipulate state?)
+- [x] Decide on standard data types and temporal resource models (\1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)c)h)r)o)n)o)n))))) "The fundamental unit) of) time) in) Chronovyan""), \1AETHEL\2/core/Core Concepts - The Foundation of Temporal Programming.md#aethel\3/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)a)e)t)h)e)l))))) "The energy) that) powers) temporal) operations""), etc)</p>
+<h3 id="_6"></h3>
+<p>[x] Define CONF and REB variable types
+- [x] Implement variable flags (::STATIC, ::VOLATILE, ::\1ANCHOR\2/core/Core Concepts - The Foundation of Temporal Programming.md#anchor\3, ::\1WEAVE\2/core/Core Concepts - The Foundation of Temporal Programming.md#weave\3R)
+- [x] Design temporal variable properties
+- [x] Create variable interaction rules</p>
+<h3 id="_7"></h3>
+<p>[x] Design standard loop constructs (FOR_\1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3, WHILE_EVENT)
+- [x] Implement rebel loops (REWIND_FLOW, \1TEMPORAL\2/core/Core Concepts - The Foundation of Temporal Programming.md#temporal\3_ECHO_LOOP)
+- [x] Define loop control mechanisms
+- [x] Create loop stability metrics</p>
+<h3 id="_8"></h3>
+<p>[x] Define Chronon allocation and consumption
+- [x] Design Aethel generation and spending
+- [x] Implement temporal debt mechanics
+- [x] Create resource monitoring tools</p>
+<h2 id="phase-3-reference-implementation-in-progress">Phase 3: Reference Implementation (In Progress)</h2>
+<h3 id="_9"></h3>
+<p>[x] <strong>Choose Implementation Language</strong>: Select a host language for the interpreter (Python, C++, Rust, etc.)
+- [x] <strong>Design the Interpreter Structure</strong>:
+  - <strong>Lexer</strong>: Converts Chronovyan code into tokens
+  - <strong>Parser</strong>: Turns tokens into an Abstract Syntax Tree (AST)
+  - <strong>Evaluator/Executor</strong>: Walks the AST to execute Chronovyan code
+- [x] <strong>Build AST Node Classes</strong>: Define classes for each Chronovyan construct
+- [x] <strong>REPL or Batch Runner</strong>: Create tools to run <code>.cvy</code> files or accept code interactively</p>
+<h3 id="_10"></h3>
+<p>[x] <strong>Implement the Lexer</strong>: Recognize keywords, identifiers, symbols, literals, and comments
+- [x] <strong>Implement the Parser</strong>: Parse variable declarations, assignments, expressions, and control structures
+- [x] <strong>Implement the Evaluator</strong>: Start with variable storage and simple arithmetic, add execution for loops and conditionals
+- [x] <strong>Resource Tracking</strong>: Implement temporal resource tracking (Chronons, Aethel)
+- [x] <strong>Temporal Commands</strong>: Add support for temporal commands with defined effects</p>
+<h3 id="_11"></h3>
+<p>[x] <strong>Loot System</strong>: Design loot types and properties, implement discovery mechanics
+- [x] <strong>Error Handling</strong>: Design temporal \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)p)a)r)a)d)o)x)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)p)a)r)a)d)o)x)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)p)a)r)a)d)o)x))))) "A temporal inconsistency) that) must) be) resolved"") detection, implement glitch handling
+- [x] <strong>Resource Management</strong>: Track and enforce resource consumption, handle temporal debt
+  - [x] Basic resource tracking (Chronons, Aethel)
+  - [x] Advanced resource optimization
+    - [x] Design algorithm for optimal Chronon usage
+    - [x] Implement Aethel efficiency metrics
+    - [x] Create visualization of resource usage patterns
+  - [x] Resource visualization
+    - [x] Build graphical representation of temporal resources
+    - [x] Implement real-time monitoring dashboard
+    - [x] Create exportable resource usage reports
+  - [x] Temporal debt system
+    - [x] Design debt accrual mechanics based on Rebel operations
+    - [x] Implement debt repayment strategies
+    - [x] Create debt impact visualization
+- [x] <strong>Custom Types</strong>: Support for arrays, functions, modules, etc.
+  - [x] Complete implementation of VECTOR type
+  - [x] Add MAP data structure for key-value storage
+    - [x] Key-value pairs with temporal semantics
+    - [x] Efficient lookups and modifications
+    - [x] Temporal map transformations
+    - [x] Historical state tracking
+  - [x] Implement \1TEMPORAL\2/core/Core Concepts - The Foundation of Temporal Programming.md#temporal\3_SEQUENCE for time-variant collections
+    - [x] Time-indexed value storage
+    - [x] Temporal interpolation
+    - [x] Sequence analysis and statistics
+    - [x] Pattern detection and projection
+  - [x] Create user-definable TYPE system</p>
+<h3 id="_12"></h3>
+<p>[x] Design Chronicle Compiler
+  - [x] Define compilation targets (.chron files)
+  - [x] Design basic compilation pipeline
+  - [x] Plan optimization passes
+  - [x] Implement compiler components</p>
+<h3 id="_13"></h3>
+<p>[x] Build state history tracking
+- [x] Create debugger UI
+- [x] Implement temporal debugging features
+- [x] Add timeline visualization</p>
+<h3 id="_14"></h3>
+<p>[x] Design testing framework for temporal correctness
+- [x] Implement \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)p)a)r)a)d)o)x)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)p)a)r)a)d)o)x))))) detection suite
+- [x] Build benchmark system
+- [x] Integration with compiler pipeline
+- [ ] Create example test suites</p>
+<h3 id="_15"></h3>
+<p>[x] Workspace cleanup and organization
+  - [x] Remove build artifacts and temporary files
+  - [x] Identify and document technical debt
+  - [x] Organize documentation structure
+  - [x] Clean up debug and fix files</p>
+<p>[ ] Develop resource monitoring tools
+  - [ ] Create Chronon usage analyzer
+  - [ ] Implement Aethel efficiency tools
+  - [ ] Build resource leak detector</p>
+<h2 id="phase-4-standard-library">Phase 4: Standard Library</h2>
+<h3 id="_16"></h3>
+<p>[ ] Design basic I/O operations
+  - [ ] Create file reading/writing capabilities
+  - [ ] Implement console interaction
+  - [ ] Design network communication primitives
+- [ ] Implement data structures
+  - [ ] Build queue, stack, and deque implementations
+  - [ ] Create tree and graph structures
+  - [ ] Implement hash-based collections
+- [ ] Create string manipulation
+  - [ ] Design temporal string operations
+  - [ ] Implement pattern matching
+  - [ ] Create string transformation utilities
+- [ ] Define file operations
+  - [ ] Implement file creation, reading, and writing
+  - [ ] Create directory management
+  - [ ] Design serialization formats</p>
+<h3 id="_17"></h3>
+<p>[ ] Design time manipulation functions
+  - [ ] Create timeline branching utilities
+  - [ ] Implement state snapshots
+  - [ ] Design causality verification
+- [ ] Implement resource monitoring
+  - [ ] Build Chronon tracking tools
+  - [ ] Create Aethel efficiency analyzers
+  - [ ] Implement temporal debt management
+- [ ] Create stability analysis tools
+  - [ ] Design \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)p)a)r)a)d)o)x)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)p)a)r)a)d)o)x))))) prediction algorithms
+  - [ ] Implement stability metrics
+  - [ ] Create optimization suggestions
+- [ ] Define temporal event handling
+  - [ ] Build event registration system
+  - [ ] Implement event propagation across timelines
+  - [ ] Create event filtering and prioritization</p>
+<h3 id="_18"></h3>
+<p>[ ] Design Conformist utilities
+  - [ ] Create optimization tools for static pathways
+  - [ ] Implement verification mechanisms
+  - [ ] Design safety guarantees
+- [ ] Implement Rebel tools
+  - [ ] Build timeline manipulation utilities
+  - [ ] Create \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)p)a)r)a)d)o)x)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)p)a)r)a)d)o)x))))) management tools
+  - [ ] Implement debt optimization strategies
+- [ ] Create hybrid path support
+  - [ ] Design controlled rebellion interfaces
+  - [ ] Implement safe temporal experimentation
+  - [ ] Create path transition utilities
+- [ ] Define path-specific optimizations
+  - [ ] Implement Conformist pattern recognition
+  - [ ] Create Rebel shortcut detection
+  - [ ] Design adaptive optimization based on path</p>
+<h2 id="phase-5-documentation-testing-examples">Phase 5: Documentation, Testing &amp; Examples</h2>
+<h3 id="_19"></h3>
+<p>[x] Complete the Manifesto
+- [x] Write language specification
+- [ ] Create API documentation
+  - [ ] Document core language functions
+  - [ ] Create standard library reference
+  - [ ] Build search and navigation system
+- [ ] Develop best practices guide
+  - [ ] Write Conformist best practices
+  - [ ] Create Rebel safety guidelines
+  - [ ] Design hybrid approach recommendations</p>
+<h3 id="_20"></h3>
+<p>[x] Build a Test Suite: Automated tests for syntax, execution, and error conditions
+- [x] Create minimal test framework for core components
+  - [x] Implement basic resource management tests
+  - [x] Create environment tests with isolated dependencies
+  - [x] Design ultra-minimal tests for focused validation
+- [ ] Create verification tools for temporal mechanics
+  - [ ] Implement timeline consistency checks
+  - [ ] Build causality verification
+  - [ ] Design temporal edge case tests
+- [ ] Implement \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)p)a)r)a)d)o)x)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)p)a)r)a)d)o)x))))) detection tests
+  - [ ] Create tests for common \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)p)a)r)a)d)o)x)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)p)a)r)a)d)o)x))))) patterns
+  - [ ] Build automated detection of unstable code
+  - [ ] Implement \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)p)a)r)a)d)o)x)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)p)a)r)a)d)o)x))))) severity analysis
+- [ ] Design stability testing framework
+  - [ ] Create long-running stability tests
+  - [ ] Implement resource leak detection
+  - [ ] Build performance degradation analysis</p>
+<h3 id="_21"></h3>
+<p>[x] Create Conformist examples
+- [x] Develop Rebel demonstrations
+- [x] Build hybrid approach examples
+- [ ] Create comprehensive tutorial series
+  - [ ] Beginner's guide to temporal programming
+  - [ ] Advanced temporal patterns
+  - [ ] Performance optimization techniques
+  - [ ] Build practical applications
+  - [ ] Create industry-specific examples
+  - [ ] Implement simulation and modeling examples</p>
+<h3 id="_22"></h3>
+<p>[x] Write tutorials for beginners (Act 1, Chapters 1-5)
+  - [x] Chapter 1: Variables and basic data types
+  - [x] Chapter 2: Conditionals and decision making
+  - [x] Chapter 3: Loops and repetition
+  - [x] Chapter 4: Functions and modularity
+  - [x] Chapter 5: Integrated challenges
+- [ ] Create intermediate tutorials (Act 2)
+  - [ ] Chapter 1: Advanced data structures
+  - [ ] Chapter 2: Resource management
+  - [ ] Chapter 3: Error handling and \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)p)a)r)a)d)o)x)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)p)a)r)a)d)o)x))))) prevention
+  - [ ] Chapter 4: Modular programming
+  - [ ] Chapter 5: Optimization techniques
+- [ ] Develop advanced tutorials (Act 3)
+  - [ ] Chapter 1: Temporal manipulation
+  - [ ] Chapter 2: Path specialization
+  - [ ] Chapter 3: Custom type creation
+  - [ ] Chapter 4: Advanced resource techniques
+  - [ ] Chapter 5: Real-world application development
+- [ ] Build community resources
+  - [ ] Create question and answer repository
+  - [ ] Develop code sharing platform
+  - [ ] Build challenge library</p>
+<h2 id="phase-6-tooling-community-ecosystem">Phase 6: Tooling &amp; Community Ecosystem</h2>
+<h3 id="_23"></h3>
+<p>[ ] Develop syntax highlighting extensions for VSCode, Sublime, or similar
+  - [ ] Create VSCode extension
+  - [ ] Build Sublime Text package
+  - [ ] Implement Vim/Emacs syntax highlighting
+- [ ] Create linting and error checking integration
+  - [ ] Build static analyzer for common issues
+  - [ ] Implement \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)p)a)r)a)d)o)x)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)p)a)r)a)d)o)x))))) detection in editor
+  - [ ] Create style guide enforcement
+- [ ] Implement IDE integration
+  - [ ] Design project templates
+  - [ ] Create code completion providers
+  - [ ] Build refactoring tools
+- [ ] Develop build system
+  - [ ] Create dependency management
+  - [ ] Implement incremental builds
+  - [ ] Design optimization pipelines</p>
+<h3 id="_24"></h3>
+<p>[ ] Allow interactive code execution and debugging
+  - [ ] Build interactive REPL with history
+  - [ ] Create breakpoint system
+  - [ ] Implement variable inspection
+- [ ] Support for inspecting temporal state and variable histories
+  - [ ] Create timeline visualization
+  - [ ] Implement state history navigation
+  - [ ] Build variable mutation tracking
+- [ ] Build visualization tools for temporal flow
+  - [ ] Design timeline branching diagrams
+  - [ ] Create resource usage graphs
+  - [ ] Implement causality visualization
+- [ ] Create runtime analysis tools
+  - [ ] Build performance profiling
+  - [ ] Implement memory analysis
+  - [ ] Create \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)p)a)r)a)d)o)x)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)p)a)r)a)d)o)x))))) risk assessment</p>
+<h3 id="_25"></h3>
+<p>[ ] Plan for code sharing and dependency management
+  - [ ] Design package format and metadata
+  - [ ] Create version specification system
+  - [ ] Implement security verification
+- [ ] Implement package repository
+  - [ ] Build package hosting infrastructure
+  - [ ] Create search and discovery system
+  - [ ] Implement package documentation generation
+- [ ] Create versioning system
+  - [ ] Design semantic versioning guidelines
+  - [ ] Implement compatibility checking
+  - [ ] Create update notifications
+- [ ] Build dependency resolution
+  - [ ] Implement dependency graph analysis
+  - [ ] Create conflict resolution strategies
+  - [ ] Design optimization for dependency loading</p>
+<h3 id="_26"></h3>
+<p>[ ] Establish contribution guidelines
+  - [ ] Create code of conduct
+  - [ ] Design contribution workflow
+  - [ ] Implement review process
+- [ ] Create community resources
+  - [ ] Build official website and documentation
+  - [ ] Create forums or discussion platforms
+  - [ ] Implement showcase for community projects
+- [ ] Develop governance model
+  - [ ] Design decision-making process
+  - [ ] Create roles and responsibilities
+  - [ ] Implement transparency mechanisms
+- [ ] Build communication channels
+  - [ ] Create mailing lists or newsletters
+  - [ ] Implement real-time chat platforms
+  - [ ] Design community events calendar</p>
+<h2 id="phase-7-compilation-integration">Phase 7: Compilation &amp; Integration</h2>
+<h3 id="_27"></h3>
+<p>[ ] Compile Chronovyan to bytecode or native code
+  - [ ] Design bytecode specification
+  - [ ] Implement code generation
+  - [ ] Create runtime environment
+- [ ] Implement optimizations for temporal mechanics
+  - [ ] Build timeline optimization
+  - [ ] Create resource usage analysis
+  - [ ] Implement dead code elimination
+- [ ] Create backend for multiple platforms
+  - [ ] Support Windows, macOS, and Linux
+  - [ ] Implement WebAssembly target
+  - [ ] Build mobile platform support
+- [ ] Build performance analysis tools
+  - [ ] Create benchmark suite
+  - [ ] Implement comparative analysis
+  - [ ] Design optimization recommendations</p>
+<h3 id="_28"></h3>
+<p>[ ] Allow calling Chronovyan code from other languages
+  - [ ] Create C/C++ bindings
+  - [ ] Implement Python integration
+  - [ ] Build JavaScript/TypeScript interface
+- [ ] Enable Chronovyan to call external libraries
+  - [ ] Design foreign function interface
+  - [ ] Implement safe resource handling
+  - [ ] Create binding generators
+- [ ] Develop FFI (Foreign Function Interface)
+  - [ ] Build type conversion system
+  - [ ] Implement callback mechanisms
+  - [ ] Create error propagation
+- [ ] Create interoperability standards
+  - [ ] Design data exchange formats
+  - [ ] Implement standard protocols
+  - [ ] Create cross-language testing</p>
+<h3 id="73-aillm-integration">7.3 AI/LLM Integration</h3>
+<h3 id="_29"></h3>
+<p>[ ] <strong>Basic LLM Interface</strong>- [ ] Design LLM API endpoints
+  - [ ] Implement state serialization/deserialization
+  - [ ] Create secure code execution sandbox
+  - [ ] Develop prompt engineering framework</p>
+<p>[ ]<strong>Temporal Reasoning</strong>- [ ] Implement temporal state representation
+  - [ ] Develop timeline branching visualization
+  - [ ] Create \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)p)a)r)a)d)o)x)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)p)a)r)a)d)o)x))))) detection system
+  - [ ] Build temporal reasoning benchmarks</p>
+<h3 id="_30"></h3>
+<p>[ ]<strong>Quantum State Management</strong>- [ ] Implement quantum state serialization
+  - [ ] Develop superposition reasoning
+  - [ ] Create quantum operation planning</p>
+<p>[ ]<strong>Multi-Agent Systems</strong>- [ ] Design agent communication protocols
+  - [ ] Implement shared timeline coordination
+  - [ ] Develop conflict resolution mechanisms</p>
+<h3 id="_31"></h3>
+<p>[ ]<strong>AI-Assisted Development</strong>- [ ] Code completion for temporal patterns
+  - [ ] Temporal logic verification
+  - [ ] Performance optimization suggestions</p>
+<p>[ ]<strong>Visualization &amp; Debugging</strong>- [ ] Timeline visualization tools
+  - [ ] Quantum state visualization
+  - [ ] Interactive debugging with LLM</p>
+<h2 id="_32"></h2>
+<p>[ ] Research advanced features
+  - [ ] Explore quantum computing integration
+  - [ ] Investigate AI-assisted programming
+  - [ ] Research distributed temporal systems
+- [ ] Plan language evolution
+  - [ ] Design versioning strategy
+  - [ ] Create backward compatibility plan
+  - [ ] Implement feature deprecation process
+- [ ] Design extension system
+  - [ ] Create plugin architecture
+  - [ ] Implement language extension points
+  - [ ] Build custom operator support
+- [ ] Create roadmap for future versions
+  - [ ] Identify key enhancement areas
+  - [ ] Set timeline for major releases
+  - [ ] Design milestone achievements</p>
+<h2 id="summary-table-development-priorities-updated">Summary Table: Development Priorities (Updated)</h2>
+<p>| Priority | Gap Area                | Current Status           | Target Milestone       | --- |-------------------------| --- |------------------------| HIGH     | Formal Grammar          | Completed                | Phase 2                | HIGH     | Semantics Document      | Completed                | Phase 2                | HIGH     | Minimal Interpreter     | Completed                | Phase 3                | HIGH     | Beginner Tutorials      | Completed (Act 1)        | Phase 5                | HIGH     | Resource Management     | Completed                | Phase 3                | MEDIUM   | Custom Types            | Completed                | Phase 3                | MEDIUM   | Compiler Design         | Completed                | Phase 3                | MEDIUM   | Standard Library        | In Progress              | Phase 4                | MEDIUM   | Example Programs        | Partially Complete       | Phase 5                | MEDIUM   | Intermediate Tutorials  | Not Started (Act 2)      | Phase 5                | MEDIUM   | Tooling Support         | In Progress              | Phase 6                | LOW      | Compiler Implementation | Not Started              | Phase 7                | LOW      | Interoperability        | Not Started              | Phase 7                |</p>
+<h2 id="immediate-next-steps-q2-q3-2023">Immediate Next Steps (Q2-Q3 2023)</h2>
+<p>1.<strong>Complete the remaining features in Phase 3 Advanced Features</strong>Custom Types
+      Complete the VECTOR implementation with comprehensive methods
+      Add MAP data structure with temporal key versioning
+      Begin work on user-definable types
+    Compiler Implementation
+      Begin work on lexer and parser components based on design
+      Implement AST structure and visitor pattern
+      Create basic semantic analysis framework</p>
+<p>2.<strong>Begin work on the Standard Library (Phase 4)</strong>Start with Core Utilities for basic I/O operations
+    Implement essential data structures (lists, maps, queues)
+    Create string manipulation functions
+    Design file operation capabilities</p>
+<p>3.<strong>Continue developing the Learning Resources (Phase 5)</strong>Begin designing Act 2 tutorials for intermediate users
+    Create interactive examples to accompany tutorials
+    Develop reference documentation for the standard library</p>
+<p>4.<strong>Improve testing infrastructure and examples</strong>Extend test suite with more edge cases
+    Create visualization tools for temporal execution
+    Develop benchmark programs for performance testing</p>
+<h2 id="medium-term-goals-q4-2023-q1-2024">Medium-Term Goals (Q4 2023 - Q1 2024)</h2>
+<p>1.<strong>Complete Standard Library implementation</strong>2.<strong>Finish Act 2 and begin Act 3 tutorials</strong>3.<strong>Start building Code Editor Support (Phase 6)</strong>4.<strong>Begin work on Debugger &amp; REPL tools</strong>## Long-Term Vision (2024 and beyond)</p>
+<p>1.<strong>Complete all phases of the roadmap</strong>2.<strong>Build a thriving community ecosystem</strong>3.<strong>Explore integration with emerging technologies</strong>4.<strong>Establish Chronovyan as a unique programming paradigm</strong>Remember: In Chronovyan, development is not just about building a language – it's about \1WEAVE\2/core/Core Concepts - The Foundation of Temporal Programming.md#weave\3/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)w)e)a)v)e)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)w)e)a)v)e)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)w)e)a)v)e))))) "The fabric of time) that) connects) all) events"") a new reality in code. Our completed Act 1 tutorials represent the first steps in teaching others to become Temporal Weavers.</p>
+<h1 id="chronovyan-project-roadmap">Chronovyan Project Roadmap</h1>
+<p>This document outlines the development roadmap for the Chronovyan temporal programming language and runtime environment. It serves as a guide for planned features, improvements, and milestones.</p>
+<h2 id="phase-1-core-language-features-completed">Phase 1: Core Language Features (COMPLETED)</h2>
+<p>✅ Basic temporal types (\1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3, \1AETHEL\2/core/Core Concepts - The Foundation of Temporal Programming.md#aethel\3)
+- ✅ Core syntax and structure
+- ✅ Primitive operations
+- ✅ Basic I/O capabilities
+- ✅ Error handling mechanism
+- ✅ Simple resource management</p>
+<h2 id="phase-2-runtime-enhancements-completed">Phase 2: Runtime Enhancements (COMPLETED)</h2>
+<p>✅ Improved temporal runtime performance
+- ✅ Memory optimization for temporal types
+- ✅ Enhanced error reporting
+- ✅ Basic debugging tools
+- ✅ Command-line interface improvements
+- ✅ Cross-platform compatibility</p>
+<h2 id="phase-3-advanced-features-in-progress">Phase 3: Advanced Features (IN PROGRESS)</h2>
+<h3 id="resource-management">Resource Management</h3>
+<p>✅ Resource visualization tools
+  - ✅ Line Chart Visualization for resource usage
+  - ✅ Bar Chart Visualization for comparative analysis
+  - ✅ Combined Resource Visualization
+  - ✅ Resource-specific visualizations
+  - ✅ Export capabilities (ASCII, JSON, HTML, SVG)</p>
+<p>✅ Temporal Debt Tracking System with Alerts
+  - ✅ Multi-level alerts (LOW, MEDIUM, HIGH, CRITICAL)
+  - ✅ Real-time monitoring of debt levels
+  - ✅ Alert history tracking
+  - ✅ Visualization of debt trends
+  - ✅ Debt management recommendations</p>
+<p>✅ Advanced Resource Optimization Algorithms
+  - ✅ Pattern detection (repetitive, increasing, decreasing, cyclic, spike)
+  - ✅ Multiple optimization strategies (conservative, balanced, aggressive, adaptive)
+  - ✅ Predictive optimization based on historical data
+  - ✅ Machine learning approaches (neural networks, genetic algorithms)
+  - ✅ Visualization of optimization opportunities
+  - ✅ Efficiency reporting and strategy comparison</p>
+<h3 id="custom-types-completed">Custom Types (COMPLETED)</h3>
+<p>✅ Complete implementation of VECTOR type
+  - ✅ Multi-dimensional vectors
+  - ✅ Vector operations
+  - ✅ Temporal vector transformations
+  - ✅ Optimization for vector operations</p>
+<p>✅ Add MAP data structure
+  - ✅ Key-value pairs with temporal semantics
+  - ✅ Efficient lookups and modifications
+  - ✅ Temporal map transformations
+  - ✅ Historical state tracking</p>
+<p>✅ Implement \1TEMPORAL\2/core/Core Concepts - The Foundation of Temporal Programming.md#temporal\3_SEQUENCE for time-variant collections
+  - ✅ Sequence operations
+  - ✅ Temporal traversal
+  - ✅ State tracking at different points
+  - ✅ Sequence transformations</p>
+<p>✅ Create user-definable TYPE system
+  - ✅ Custom type definitions
+  - ✅ Type validation
+  - ✅ Type conversion
+  - ✅ Type-specific operations</p>
+<h3 id="advanced-control-flow">Advanced Control Flow</h3>
+<p>✅<strong>\1TEMPORAL\2/core/Core Concepts - The Foundation of Temporal Programming.md#temporal\3_LOOP</strong>: Implementation of time-variant iteration with:
+  - ✅ Duration-based iteration (complete loops in specified time)
+  - ✅ Conditional temporal loops (continue until condition or duration)
+  - ✅ Loop optimization (balance between speed and stability)</p>
+<p>✅ <strong>PARALLEL_EXECUTION</strong>: Support for concurrent execution:
+  - ✅ Thread-based parallelism with resource scaling
+  - ✅ Conditional thread execution based on thread ID
+  - ✅ Synchronization points for coordinated execution</p>
+<p>✅ <strong>BRANCH_TIMELINE</strong>: Support for speculative execution:
+  - ✅ Branch creation with configurable count
+  - ✅ Timeline merging with different strategies
+  - ✅ Branch management with identifiers and resources</p>
+<h2 id="phase-4-ecosystem-development-planned">Phase 4: Ecosystem Development (PLANNED)</h2>
+<p>⬜ Standard Library
+  - ✅ Common temporal algorithms
+  - ✅ Utility functions
+  - ⬜ I/O operations
+  - ⬜ Data processing tools</p>
+<p>⬜ Package Management
+  - ⬜ Package format
+  - ⬜ Dependency resolution
+  - ⬜ Version management
+  - ⬜ Package repository</p>
+<p>⬜ Documentation and Examples
+  - ⬜ Comprehensive language reference
+  - ⬜ API documentation
+  - ⬜ Tutorials and guides
+  - ⬜ Example projects</p>
+<p>⬜ Development Tools
+  - ⬜ IDE integration
+  - ⬜ Code formatting tools
+  - ⬜ Advanced debugging tools
+  - ⬜ Profiling tools</p>
+<h2 id="phase-5-interoperability-and-extensions-planned">Phase 5: Interoperability and Extensions (PLANNED)</h2>
+<p>⬜ Foreign Function Interface
+  - ⬜ C/C++ integration
+  - ⬜ Python integration
+  - ⬜ JavaScript integration</p>
+<p>⬜ Web Platform Support
+  - ⬜ WebAssembly compilation
+  - ⬜ Browser runtime
+  - ⬜ Web APIs</p>
+<p>⬜ Distributed Computing
+  - ⬜ Cluster support
+  - ⬜ Remote execution
+  - ⬜ Resource sharing</p>
+<p>⬜ Real-time Systems Integration
+  - ⬜ Real-time constraints
+  - ⬜ Hardware integration
+  - ⬜ Embedded systems support</p>
+<h2 id="phase-6-advanced-applications-and-research-planned">Phase 6: Advanced Applications and Research (PLANNED)</h2>
+<p>⬜ Quantum Computing Integration
+  - ⬜ Quantum temporal types
+  - ⬜ Quantum algorithms
+  - ⬜ Hybrid classical-quantum operations</p>
+<p>⬜ Temporal AI Framework
+  - ⬜ Time-series analysis
+  - ⬜ Predictive modeling
+  - ⬜ Temporal neural networks</p>
+<p>⬜ Simulation Framework
+  - ⬜ Physics simulations
+  - ⬜ Financial modeling
+  - ⬜ System dynamics</p>
+<p>⬜ Extended Reality Applications
+  - ⬜ VR/AR integration
+  - ⬜ Temporal visualization in 3D
+  - ⬜ Interactive temporal environments</p>
+<h2 id="next-immediate-steps">Next Immediate Steps</h2>
+<ol>
+<li>
+<p>Continue designing and implementing Advanced Control Flow features:
+    ✅ Enhance REWIND_FLOW with more precise control
+    Add \1TEMPORAL\2/core/Core Concepts - The Foundation of Temporal Programming.md#temporal\3_BRANCH for creating parallel execution paths
+    Implement TIMELINE_MERGE for combining divergent timelines</p>
+</li>
+<li>
+<p>Complete the remaining Phase 3 features:
+    Implement PARALLEL_EXECUTION capabilities
+    Optimize memory management for temporal operations
+    Enhance error handling for temporal paradoxes</p>
+</li>
+<li>
+<p>Begin design work on Phase 4 features:
+    Draft specifications for distributed timeline processing
+    Research optimization techniques for temporal query operations
+    Define standard libraries for common temporal patterns</p>
+</li>
+<li>
+<p>Improve documentation and examples:
+    Create comprehensive guides for \1TEMPORAL\2/core/Core Concepts - The Foundation of Temporal Programming.md#temporal\3_LOOP and enhanced REWIND_FLOW
+    Develop example applications showcasing advanced temporal programming
+    Document best practices for efficient resource usage in temporal operations</p>
+</li>
+</ol>
+<h2 id="long-term-vision">Long-term Vision</h2>
+<h2 id="the-ultimate-goal-of-chronovyan-is-to-become-the-standard-language-for-temporal-programming-enabling-developers-to-easily-work-with-time-variant-data-and-operations-it-aims-to-provide-powerful-abstractions-for-temporal-concepts-while-maintaining-performance-and-usability">The ultimate goal of Chronovyan is to become the standard language for temporal programming, enabling developers to easily work with time-variant data and operations. It aims to provide powerful abstractions for temporal concepts while maintaining performance and usability</h2>
+<p>This roadmap is subject to change based on user feedback, technical challenges, and emerging priorities. Updates will be made periodically to reflect progress and adjustments to the plan.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="June 7, 2025 20:02:02 UTC"><span class="timeago" datetime="2025-06-07T20:02:02+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="June 7, 2025 20:02:02 UTC">2025-06-07</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 Chronovyan Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../js/timeago.min.js"></script>
+      
+        <script src="../js/timeago_mkdocs_material.js"></script>
+      
+    
+  </body>
+</html>
