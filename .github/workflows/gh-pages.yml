@@ -36,6 +36,7 @@ jobs:
 
 
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages  # The branch the action should deploy to.
