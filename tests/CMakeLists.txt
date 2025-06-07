@@ -5,7 +5,16 @@ set(TEST_OUTPUT_DIR ${CMAKE_BINARY_DIR}/bin/tests)
 file(MAKE_DIRECTORY ${TEST_OUTPUT_DIR})
 
 # Function to add a test with proper configuration
+# Optional arguments:
+#   WORKING_DIR - Set the working directory for the test
+#   ARGS        - Additional command line arguments for the test
 function(chronovyan_add_test TEST_NAME TEST_SRC)
+    # Parse optional arguments
+    set(options)
+    set(oneValueArgs WORKING_DIR)
+    set(multiValueArgs ARGS)
+    cmake_parse_arguments(ARG "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+    
     add_executable(${TEST_NAME} ${TEST_SRC})
     
     target_include_directories(${TEST_NAME}
@@ -33,11 +42,24 @@ function(chronovyan_add_test TEST_NAME TEST_SRC)
         RUNTIME_OUTPUT_DIRECTORY ${TEST_OUTPUT_DIR}
     )
     
+    # Build the test command with arguments
+    set(test_command ${TEST_NAME} --gtest_output=xml:${TEST_OUTPUT_DIR}/${TEST_NAME}.xml)
+    if(DEFINED ARG_ARGS)
+        list(APPEND test_command ${ARG_ARGS})
+    endif()
+    
     # Add the test to CTest with XML output
     add_test(
         NAME ${TEST_NAME}
-        COMMAND ${TEST_NAME} --gtest_output=xml:${TEST_OUTPUT_DIR}/${TEST_NAME}.xml
+        COMMAND ${test_command}
     )
+    
+    # Set working directory if specified
+    if(ARG_WORKING_DIR)
+        set_tests_properties(${TEST_NAME} PROPERTIES
+            WORKING_DIRECTORY ${ARG_WORKING_DIR}
+        )
+    endif()
     
     # Make sure the output directory exists
     add_custom_command(TARGET ${TEST_NAME} POST_BUILD
@@ -81,18 +103,15 @@ target_link_libraries(map_test
 )
 
 # AST Printer Test
-chronovyan_add_test(ast_printer_test test_ast_printer.cpp)
+chronovyan_add_test(ast_printer_test test_ast_printer.cpp
+    WORKING_DIR ${CMAKE_SOURCE_DIR}
+    ARGS "${CMAKE_SOURCE_DIR}/test_ast.chron"
+)
 target_link_libraries(ast_printer_test
     PRIVATE
         chronovyan_compiler_lib
         chronovyan_lib
         chronovyan_parser_lib
-)
-
-# Set custom command for ast_printer_test
-set_tests_properties(ast_printer_test PROPERTIES
-    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-    COMMAND $<TARGET_FILE:ast_printer_test> ${CMAKE_SOURCE_DIR}/test_ast.chron
 )
 
 # Parser tests for legacy and advanced constructs
