@@ -3,6 +3,9 @@ title: 'Act I, Chapter 1: First Echoes in Chronovya'
 description: Documentation for tutorials\act1\chapter1\00_arrival_narrative.md
 weight: 150
 draft: true
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
 ---
 
 # Act I, Chapter 1: First Echoes in Chronovya
@@ -15,4 +18,4 @@ The portal's collapse throws Alex against hard ground, knocking the wind from hi
 
 Alex helps CORA into a more stable position, surveying their landing site with growing apprehension. The physics here seem... different. Shadows fall at odd angles, and occasional motes of light drift upward against gravity. In the near distance, through a gap in the crystal formations, stands what appears to be a structure – possibly ruins, possibly shelter. More immediately concerning, however, is a peculiar stone at the edge of the clearing – roughly spherical, about the size of a basketball, with intricate patterns etched across its surface. Unlike the ambient glow of the surrounding crystals, this stone pulses with rhythmic light, almost like breathing. As Alex approaches it cautiously, CORA's sensor brightens with sudden interest.
 
-"Alex," CORA says, voice stronger now. "That object... preliminary scan suggests it's a Chronovyan artifact. Possibly... yes, it matches fragmented records from Professor Thorne's database. I believe it's what Thorne called a 'Whispering Stone' – a basic atmospheric sensor. If we can interface with it correctly, it might provide crucial environmental data."
+"Alex," CORA says, voice stronger now. "That object... preliminary scan suggests it's a [Chronovyan](https://chronovyan.github.io/h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/) "The) temporal) programming) language) and) runtime") artifact. Possibly... yes, it matches fragmented records from Professor Thorne's database. I believe it's what Thorne called a 'Whispering Stone' – a basic atmospheric sensor. If we can interface with it correctly, it might provide crucial environmental data."

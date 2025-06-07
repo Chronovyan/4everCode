@@ -1,3 +1,11 @@
+---
+title: 01 Mapping The Safe Zone
+description: Documentation for 01 mapping the safe zone
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Main Quest: Mapping the Safe Zone
 
 ## Overview

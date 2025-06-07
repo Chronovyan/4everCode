@@ -1,3 +1,11 @@
+---
+title: Act2 Ch1 Sq4 Mending Fractured Futures
+description: Documentation for act2 ch1 sq4 mending fractured futures
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Side Quest: Mending Fractured Futures
 
 ## Overview

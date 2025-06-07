@@ -1,3 +1,11 @@
+---
+title: Temporal Debt Alert Demo
+description: Documentation for temporal debt alert demo
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Temporal Debt Alert System Demo
 
 This document demonstrates how to use the Temporal Debt Alert System through example code snippets and expected output.

@@ -1,314 +1,239 @@
 ---
-title: 'File Extensions: The Art of Temporal Expression in Chronovyan'
+title: 'File Extensions: The Art of Temporal Expression in Chronovyan and) runtime")'
 description: Documentation for tools\File Extensions - The Art of Temporal Expression.md
 weight: 120
 draft: true
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
 ---
 
 # File Extensions: The Art of Temporal Expression in Chronovyan
 
-
-
 In Chronovyan, even the humble file extension becomes a statement of philosophy, a declaration of intent in the eternal dance between Order and Flux. Let us explore the rich tapestry of file types that make up the Chronovyan ecosystem.
-
-
 
 ## I. Core Source Files
 
+###
 
+``chronovyan
 
-### The Primary Weave
+    // The definitive Chronovyan source file
 
-```chronovyan
+    program.cvy {
 
-// The definitive Chronovyan source file
+        type: SOURCE,
 
-program.cvy {
+        philosophy: {
 
-    type: SOURCE,
+            conf_ratio: 60%,
 
-    philosophy: {
+            reb_ratio: 40%
 
-        conf_ratio: 60%,
+        },
 
-        reb_ratio: 40%
+        metadata: {
 
-    },
+            author: "The Weaver",
 
-    metadata: {
+            timeline: "Current"
 
-        author: "The Weaver",
-
-        timeline: "Current"
-
-    }
-
-}
-
-```
-
-
-
-The `.cvy` extension represents the raw fabric of Chronovyan code, the primary canvas upon which Weavers express their temporal vision. It is the most common extension for source files, embodying the language's core philosophy of duality.
-
-
-
-## II. Compiled Artifacts
-
-
-
-### Conformist Output
-
-```chronovyan
-
-// The anchored, stable executable
-
-program.ancvy {
-
-    type: COMPILED,
-
-    stability: ABSOLUTE,
-
-    characteristics: {
-
-        temporal_laws: ENFORCED,
-
-        causality: STRICT,
-
-        entropy: CONTROLLED
+        }
 
     }
+```chronoscript
 
-}
+    The `.cvy` extension represents the raw fabric of Chronovyan code, the primary canvas upon which Weavers express their temporal vision. It is the most common extension for source files, embodying the language's core philosophy of duality.
 
-```
+    ## II. Compiled Artifacts
 
+    ###
 
+    ``chronovyan
 
-The `.ancvy` extension denotes compiled programs that embrace the Conformist path, producing stable, predictable executables that adhere strictly to temporal laws.
+        // The anchored, stable executable
 
+        program.ancvy {
 
+            type: COMPILED,
 
-### Rebel Output
+            stability: ABSOLUTE,
 
-```chronovyan
+            characteristics: {
 
-// The flux state executable
+                temporal_laws: ENFORCED,
 
-program.flxcvy {
+                causality: STRICT,
 
-    type: COMPILED,
+                entropy: CONTROLLED
 
-    stability: DYNAMIC,
+            }
 
-    characteristics: {
+        }
+```chronoscript
 
-        temporal_laws: ADAPTIVE,
+    The `.ancvy` extension denotes compiled programs that embrace the Conformist path, producing stable, predictable executables that adhere strictly to temporal laws.
 
-        causality: FLEXIBLE,
+    ###
 
-        entropy: MANAGED
+    ``chronovyan
 
-    }
+        // The flux state executable
 
-}
+        program.flxcvy {
 
-```
+            type: COMPILED,
 
+            stability: DYNAMIC,
 
+            characteristics: {
 
-The `.flxcvy` extension represents compiled programs that follow the Rebel path, producing dynamic executables that can adapt to changing temporal conditions.
+                temporal_laws: ADAPTIVE,
 
+                causality: FLEXIBLE,
 
+                entropy: MANAGED
 
-## III. Temporal Artifacts
+            }
 
+        }
+```chronoscript
 
+    The `.flxcvy` extension represents compiled programs that follow the Rebel path, producing dynamic executables that can adapt to changing temporal conditions.
 
-### Loot Definitions
+    ## III. Temporal Artifacts
 
-```chronovyan
+    ###
 
-// Temporal shard definition
+    ``chronovyan
 
-temporal_shard.shdcvy {
+        // Temporal shard definition
 
-    type: LOOT,
+        temporal_shard.shdcvy {
 
-    properties: {
+            type: LOOT,
 
-        power: TEMPORAL,
+            properties: {
 
-        stability: VARIABLE,
+                power: \1TEMPORAL\2/core/Core Concepts - The Foundation of Temporal Programming.md#temporal\3,
 
-        infusion_cost: CALCULATED
+                stability: VARIABLE,
 
-    }
+                infusion_cost: CALCULATED
 
-}
+            }
 
+        }
 
+        // Weaver schematic
 
-// Weaver schematic
+        weaver_schematic.infcvy {
 
-weaver_schematic.infcvy {
+            type: LOOT,
 
-    type: LOOT,
+            properties: {
 
-    properties: {
+                power: \1WEAVE\2/core/Core Concepts - The Foundation of Temporal Programming.md#weave\3R,
 
-        power: WEAVER,
+                stability: \1FLUX\2/core/Core Concepts - The Foundation of Temporal Programming.md#flux\3,
 
-        stability: FLUX,
+                infusion_cost: DYNAMIC
 
-        infusion_cost: DYNAMIC
+            }
 
-    }
+        }
+```chronoscript
 
-}
+    The `.shdcvy` and`.infcvy` extensions define the loot that can be discovered and infused into variables, each carrying its own temporal properties and costs.
 
-```
+    ###
 
+    ``chronovyan
 
+        // Program timeline definition
 
-The `.shdcvy` and `.infcvy` extensions define the loot that can be discovered and infused into variables, each carrying its own temporal properties and costs.
+        program_flow.tcvy {
 
+            type: MANIFEST,
 
+            properties: {
 
-### Temporal Manifests
+                temporal_interactions: DEFINED,
 
-```chronovyan
+                stability_requirements: SPECIFIED,
 
-// Program timeline definition
+                resource_allocations: MAPPED
 
-program_flow.tcvy {
+            }
 
-    type: MANIFEST,
+        }
 
-    properties: {
-
-        temporal_interactions: DEFINED,
-
-        stability_requirements: SPECIFIED,
-
-        resource_allocations: MAPPED
-
-    }
-
-}
-
-```
-
-
+```chronoscript
 
 The `.tcvy` extension describes a program's intended interaction with time, mapping out its temporal journey and resource requirements.
 
-
-
 ## IV. Best Practices
-
-
 
 ### For Conformist Development
 
+1. **File Organization**Use `.cvy` for source files
 
+     Target `.ancvy` for compilation
 
-1. **File Organization**
+     Document with `.tcvy` manifests
 
-    * Use `.cvy` for source files
+2.**Resource Management**Define stable loot in `.shdcvy`
 
-    * Target `.ancvy` for compilation
+     Map temporal flows in `.tcvy`
 
-    * Document with `.tcvy` manifests
+     Track stability in `.ancvy`
 
+3.**Development Strategy**Maintain clear file types
 
+     Document temporal laws
 
-2. **Resource Management**
-
-    * Define stable loot in `.shdcvy`
-
-    * Map temporal flows in `.tcvy`
-
-    * Track stability in `.ancvy`
-
-
-
-3. **Development Strategy**
-
-    * Maintain clear file types
-
-    * Document temporal laws
-
-    * Track stability metrics
-
-
+     Track stability metrics
 
 ### For Rebel Development
 
+1.**File Organization**Use `.cvy` for source files
 
+     Target `.flxcvy` for compilation
 
-1. **File Organization**
+     Document with `.tcvy` manifests
 
-    * Use `.cvy` for source files
+2.**Resource Management**Define dynamic loot in `.infcvy`
 
-    * Target `.flxcvy` for compilation
+     Map temporal flows in `.tcvy`
 
-    * Document with `.tcvy` manifests
+     Track flux states in `.flxcvy`
 
+3.**Development Strategy**Embrace file diversity
 
+     Document temporal risks
 
-2. **Resource Management**
-
-    * Define dynamic loot in `.infcvy`
-
-    * Map temporal flows in `.tcvy`
-
-    * Track flux states in `.flxcvy`
-
-
-
-3. **Development Strategy**
-
-    * Embrace file diversity
-
-    * Document temporal risks
-
-    * Track flux metrics
-
-
+     Track flux metrics
 
 ### For All Developers
 
+1.**File Mastery**Understand file types
 
+     Choose appropriate extensions
 
-1. **File Mastery**
+     Document your choices
 
-    * Understand file types
+2.**Resource Awareness**Track file relationships
 
-    * Choose appropriate extensions
+     Balance stability and flux
 
-    * Document your choices
+     Document temporal flows
 
+3.**Development Evolution**
 
+     Plan for growth
 
-2. **Resource Awareness**
+     Learn from experience
 
-    * Track file relationships
-
-    * Balance stability and flux
-
-    * Document temporal flows
-
-
-
-3. **Development Evolution**
-
-    * Plan for growth
-
-    * Learn from experience
-
-    * Document your journey
-
-
+     Document your journey
 
 Remember: In Chronovyan, your file extensions are not just identifiers â€“ they are declarations of philosophy, your choice between Order and Flux. Choose your extensions wisely, and let them guide your journey in the eternal dance of creation.

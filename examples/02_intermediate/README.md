@@ -1,3 +1,11 @@
+---
+title: Readme
+description: Documentation for README
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Intermediate Examples
 
 This directory contains intermediate-level examples for the Chronovyan language. These examples demonstrate more advanced concepts and practical applications.

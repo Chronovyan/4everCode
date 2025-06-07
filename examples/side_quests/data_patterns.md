@@ -1,3 +1,11 @@
+---
+title: Data Patterns
+description: Documentation for data patterns
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Side Quest: Data Patterns
 
 ## Overview

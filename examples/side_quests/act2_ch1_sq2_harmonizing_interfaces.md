@@ -1,3 +1,11 @@
+---
+title: Act2 Ch1 Sq2 Harmonizing Interfaces
+description: Documentation for act2 ch1 sq2 harmonizing interfaces
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Harmonizing Interfaces
 
 ## Overview

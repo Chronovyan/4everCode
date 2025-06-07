@@ -1,3 +1,11 @@
+---
+title: 04 Radiation Shield
+description: Documentation for 04 radiation shield
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Side Quest: Radiation Shield
 
 ## Overview

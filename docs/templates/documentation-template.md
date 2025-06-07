@@ -1,7 +1,10 @@
 ---
-title: "Document Title"
-description: "Brief description of the content"
+title: Document Title
+description: Brief description of the content
 weight: 10
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
 ---
 
 # Document Title
@@ -14,51 +17,56 @@ weight: 10
 
 ## Prerequisites
 
-[//]: # (List any knowledge or setup required before proceeding)
-- Prerequisite 1
+[//]: #
+
+ Prerequisite 1
 - Prerequisite 2
 
 ## Concepts
 
 [//]: # (Explain key concepts the reader needs to understand)
 
-### Concept 1
-[//]: # (Explanation of concept 1)
+###
 
-### Concept 2
-[//]: # (Explanation of concept 2)
+//]: # (Explanation of concept 1)
+
+###
+
+//]: # (Explanation of concept 2)
 
 ## Usage
 
 [//]: # (Provide examples and common patterns)
 
-### Basic Example
+###
 
-```chronoscript
-// Example code
-const example = "Hello, World!";
-```
+``chronoscript
+    // Example code
+    const example = "Hello, World!";
+```text
 
-### Advanced Example
+###
 
-```chronoscript
-// More complex example
-const advanced = {
-  feature: "value",
-  // Additional configuration
-};
-```
+``chronoscript
+    // More complex example
+    const advanced = {
+      feature: "value",
+      // Additional configuration
+    };
+```text
 
 ## Best Practices
 
-[//]: # (List of recommendations and best practices)
-- Best practice 1
+[//]: #
+
+ Best practice 1
 - Best practice 2
 
 ## Common Pitfalls
 
-[//]: # (List of common mistakes and how to avoid them)
-- Pitfall 1: Description
+[//]: #
+
+ Pitfall 1: Description
   - **Why it happens**: Explanation
   - **How to fix**: Solution
 
@@ -66,23 +74,25 @@ const advanced = {
 
 [//]: # (Common issues and their solutions)
 
-### Issue 1
-**Symptoms**: 
-- Symptom 1
-- Symptom 2
+###
 
-**Solution**:
+*Symptoms**:
+- Symptom 1
+- Symptom 
+*Solution**:
 1. Step 1
 2. Step 2
 
 ## Related Resources
 
-[//]: # (Links to related documentation, tutorials, or external resources)
-- [Related Document 1](./path/to/related.md)
-- [External Resource](https://example.com)
+[//]: #
+
+ [Related Document 1](/).)/)p)a)t)h)/)t)o)/)r)e)l)a)t)e)d).)m)d)
+- [External Resource](https://github.com/Chronovyan/Chronovyan.github.io)t)t)p)s):)/)/)e)x)a)m)p)l)e).)c)o)m)
 
 ## Next Steps
 
-[//]: # (Suggest what to read or do next)
-- [Next Topic](./path/to/next-topic.md)
-- [Related Tutorial](./path/to/tutorial.md)
+[//]: #
+
+ [Next Topic](/).)/)p)a)t)h)/)t)o)/)n)e)x)t)-)t)o)p)i)c).)m)d)
+- [Related Tutorial](/).)/)p)a)t)h)/)t)o)/)t)u)t)o)r)i)a)l).)m)d)

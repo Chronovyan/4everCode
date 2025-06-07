@@ -1,3 +1,11 @@
+---
+title: Readme
+description: Documentation for README
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Chronovyan Language Examples
 
 This directory contains example programs for the Chronovyan language, organized by difficulty level and concept.

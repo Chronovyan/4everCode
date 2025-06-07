@@ -1,10 +1,14 @@
 # Project Information
 site_name: Chronovyan
 site_url: https://chronovyan.github.io/
+site_description: A temporal programming language for weaving narratives across time
+site_author: Chronovyan Team
+copyright: Copyright &copy; 2023 Chronovyan Team
 
 # Repository
-repo_name: Chronovyan/Chronovyan
-repo_url: https://github.com/Chronovyan/Chronovyan
+repo_name: Chronovyan/Chronovyan.github.io
+repo_url: https://github.com/Chronovyan/Chronovyan.github.io
+edit_uri: edit/main/docs/
 
 # Theme Configuration
 theme:
@@ -12,11 +16,25 @@ theme:
   features:
     - navigation.tabs
     - navigation.sections
+    - navigation.indexes
     - search.highlight
+    - content.code.annotate
   palette:
     - scheme: default
-      primary: indigo
-      accent: blue
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
 
 # Navigation
 nav:
@@ -24,23 +42,64 @@ nav:
   - Getting Started:
     - Installation: getting-started/installation.md
     - Quick Start: getting-started/quickstart.md
-  - API Reference: api/index.md
+  - Language Guide:
+    - Basics: guides/Getting Started - The Journey of a Temporal Developer.md
+    - Core Concepts: core/Core Concepts - The Foundation of Temporal Programming.md
+    - Advanced Features: advanced/Advanced Features - The Art of Temporal Mastery.md
+  - Tutorials: 
+    - Tutorial Roadmap: TUTORIAL_ROADMAP.md
+    - Act 1: tutorials/act1/README.md
+    - Act 2: tutorials/act2/README.md
+  - API Reference: api_reference.md
+  - Standard Library: Chronoscript Standard Library Reference.md
+  - Compiler: chronicle_compiler_design.md
+  - Runtime: Chronoscript Runtime Mechanics Guide.md
+  - Glossary: Chronovyan_Glossary.md
+  - Roadmap: ROADMAP.md
   - Contributing: CONTRIBUTING.md
 
 # Plugins
 plugins:
   - search
   - minify
+  - git-revision-date-localized:
+      type: timeago
+      locale: en
+  - awesome-pages:
+      collapse_single_pages: true
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - pymdownx.arithmatex:
+      generic: true
 
 # Build options
 strict: false  # Disabled to prevent build failures from warnings
 use_directory_urls: true
 
-# Ignore common patterns that might cause warnings
-ignore_paths:
-  - '**/.git/**'
-  - '**/node_modules/**'
-  - '**/bower_components/**'
-  - '**/__pycache__/**'
-  - '**/bower_components/**'
-  - '**/node_modules/**'
+# Customization
+extra_css:
+  - css/extra.css
+
+# Ignore patterns are handled automatically by MkDocs
+
+# Extra context
+extra:
+  version:
+    provider: mike
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX

@@ -1,188 +1,155 @@
 ---
-title: Chronovyan Changelog
+title: Chronovyan and) runtime") Changelog
 description: Documentation for CHANGELOG.md
 weight: 100
 draft: true
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
 ---
 
 # Chronovyan Changelog
 
-
-
 All notable changes to this project will be documented in this file.
-
-
 
 ## [Unreleased]
 
+### Adde
+*Completed Phase 2 of the Chronovyan Language Development Roadmap**- Core Language Design & Specification
 
+ Created comprehensive formal grammar document (Chronovyan_Formal_Grammar.md) with EBNF notation for all language constructs
 
-### Added
+ Developed detailed runtime semantics document (Chronovyan_Runtime_Semantics.md) defining execution behavior and program lifecycle
 
-- **Completed Phase 2 of the Chronovyan Language Development Roadmap** - Core Language Design & Specification
+ Created complete data type specification (Chronovyan_Data_Types.md) covering primitive, complex, and temporal types
 
-- Created comprehensive formal grammar document (Chronovyan_Formal_Grammar.md) with EBNF notation for all language constructs
+ Defined formal variable interaction rules (Chronovyan_Variable_Interaction_Rules.md) with \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL effects
 
-- Developed detailed runtime semantics document (Chronovyan_Runtime_Semantics.md) defining execution behavior and program lifecycle
+ Established loop stability metrics (Chronovyan_Loop_Stability_Metrics.md) with monitoring and optimization techniques
 
-- Created complete data type specification (Chronovyan_Data_Types.md) covering primitive, complex, and temporal types
+ Formalized \1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)c)h)r)o)n)o)n))))) "The fundamental unit) of) time) in) Chronovyan"") and \1AETHEL\2/core/Core Concepts - The Foundation of Temporal Programming.md#aethel\3/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)a)e)t)h)e)l))))) "The energy) that) powers) temporal) operations"") resource management mechanics with allocation, consumption, and regeneration rules
 
-- Defined formal variable interaction rules (Chronovyan_Variable_Interaction_Rules.md) with PARADOX_LEVEL effects
+ Created "Phase2_Completion_Summary.md" documenting the milestone achievements and key specifications established**Completed Phase 1 of the Chronovyan Language Development Roadmap**- Foundation & Philosophy
 
-- Established loop stability metrics (Chronovyan_Loop_Stability_Metrics.md) with monitoring and optimization techniques
+ Expanded the Chronovyan Manifesto with two new sections: "Beyond Syntax: The Practice of Temporal \1WEAVE\2/core/Core Concepts - The Foundation of Temporal Programming.md#weave\3/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)w)e)a)v)e)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)w)e)a)v)e)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)w)e)a)v)e))))) "The fabric of time) that) connects) all) events"")" and "The Temporal Imperative: Programming as Reality Creation"
 
-- Formalized Chronon and Aethel resource management mechanics with allocation, consumption, and regeneration rules
+ Created new core philosophical document: "The Great Duality: Order and Flux" exploring the fundamental tension between Conformity and Rebellion
 
-- Created "Phase2_Completion_Summary.md" documenting the milestone achievements and key specifications established
+ Created new core philosophical document: "Programming as Temporal Weaving" developing the narrative of code as reality manipulation
 
-- **Completed Phase 1 of the Chronovyan Language Development Roadmap** - Foundation & Philosophy
+ Created "Phase1_Completion_Summary.md" documenting the milestone achievements and core philosophical concepts established
 
-- Expanded the Chronovyan Manifesto with two new sections: "Beyond Syntax: The Practice of Temporal Weaving" and "The Temporal Imperative: Programming as Reality Creation"
+ New technical debt tracking document (`docs/TECHNICAL_DEBT.md`) with formalized process for monitoring and addressing technical debt
 
-- Created new core philosophical document: "The Great Duality: Order and Flux" exploring the fundamental tension between Conformity and Rebellion
+ New `bypass_cooldown_for_mode_switch_` flag in StateController to provide a cleaner way to bypass cooldown for tests
 
-- Created new core philosophical document: "Programming as Temporal Weaving" developing the narrative of code as reality manipulation
+ Added `setBypassCooldownForNextUpdate()` method for a cleaner way to control cooldown bypass in tests
 
-- Created "Phase1_Completion_Summary.md" documenting the milestone achievements and core philosophical concepts established
+ Added validation for PerformanceMode values in StateController to properly handle invalid mode values
 
-- New technical debt tracking document (`docs/TECHNICAL_DEBT.md`) with formalized process for monitoring and addressing technical debt
+ New flags and methods in the StateController class for better test control
 
-- New `bypass_cooldown_for_mode_switch_` flag in StateController to provide a cleaner way to bypass cooldown for tests
+ Direct mode setting capability via StateController::setDirectModeSetForTesting
 
-- Added `setBypassCooldownForNextUpdate()` method for a cleaner way to control cooldown bypass in tests
+ Recovery detection in ModeDecisionEngine to better handle temporary sensor failures
 
-- Added validation for PerformanceMode values in StateController to properly handle invalid mode values
+ Debug output in various components to assist in troubleshooting and testing
 
-- New flags and methods in the StateController class for better test control
+ Flag for direct mode setting in StateController to bypass cooldown for testing
 
-- Direct mode setting capability via StateController::setDirectModeSetForTesting
+ Flag for forcing cooldown state in StateController for testing
 
-- Recovery detection in ModeDecisionEngine to better handle temporary sensor failures
+ Improved metrics debugging to show more details in logs
 
-- Debug output in various components to assist in troubleshooting and testing
+ New methods for handling partial sensor failures
 
-- Flag for direct mode setting in StateController to bypass cooldown for testing
+ Method to force the state controller to use a specific mode for testing**Started Phase 3 of the Chronovyan Language Development Roadmap**- Reference Implementation
 
-- Flag for forcing cooldown state in StateController for testing
+ Implemented AST node classes for the Chronovyan language structure
 
-- Improved metrics debugging to show more details in logs
+ Created Lexer implementation for tokenizing Chronovyan source code
 
-- New methods for handling partial sensor failures
+ Developed Parser implementation for generating Abstract Syntax Trees
 
-- Method to force the state controller to use a specific mode for testing
+ Built Interpreter class for executing Chronovyan AST nodes
 
-- **Started Phase 3 of the Chronovyan Language Development Roadmap** - Reference Implementation
+ Implemented Temporal Runtime for handling time-related operations
 
-- Implemented AST node classes for the Chronovyan language structure
+ Created Environment class for variable scoping and management
 
-- Created Lexer implementation for tokenizing Chronovyan source code
+ Implemented Value class with support for all Chronovyan data types
 
-- Developed Parser implementation for generating Abstract Syntax Trees
+ Built Error Handler system for robust error reporting
 
-- Built Interpreter class for executing Chronovyan AST nodes
+ Added REPL (Read-Eval-Print Loop) interface for interactive code execution
 
-- Implemented Temporal Runtime for handling time-related operations
-
-- Created Environment class for variable scoping and management
-
-- Implemented Value class with support for all Chronovyan data types
-
-- Built Error Handler system for robust error reporting
-
-- Added REPL (Read-Eval-Print Loop) interface for interactive code execution
-
-- Implemented resource tracking for Aethel and Chronons
-
-
+ Implemented resource tracking for Aethel and Chronons
 
 ### Changed
 
-- Refactored `ModeDecisionEngine::setForceModeForTesting()` to accept an optional reason parameter, decoupling test-specific logic
+ Refactored `ModeDecisionEngine::setForceModeForTesting()` to accept an optional reason parameter, decoupling test-specific logic
 
-- Refactored special case handling for test-specific patterns in StateController
+ Refactored special case handling for test-specific patterns in StateController
 
-- Improved mode oscillation prevention to use a cleaner, more general approach
+ Improved mode oscillation prevention to use a cleaner, more general approach
 
-- Updated `StateController_PreventsModeOscillation` test to use a clearer, more maintainable approach
+ Updated `StateController_PreventsModeOscillation` test to use a clearer, more maintainable approach
 
-- Improved NaN checking in `ModeDecisionEngine::makeDecision()` with direct checks using std::isnan and std::isinf
+ Improved NaN checking in `ModeDecisionEngine::makeDecision()` with direct checks using std::isnan and std::isinf
 
-- Modified `isInCooldown()` method to respect the `is_in_cooldown_` flag value, not just time-based calculations
+ Modified `isInCooldown()` method to respect the`is_in_cooldown_` flag value, not just time-based calculations
 
-- Enhanced special case handling in updateMode to use exact string matching instead of substring matching to prevent conflicts between test cases
+ Enhanced special case handling in updateMode to use exact string matching instead of substring matching to prevent conflicts between test cases
 
-- Refactored StateController logic to be more robust and maintainable
+ Refactored StateController logic to be more robust and maintainable
 
-- Improved ModeDecisionEngine's ability to handle edge cases
+ Improved ModeDecisionEngine's ability to handle edge cases
 
-- Enhanced mode transition tracking and history to provide better insight
+ Enhanced mode transition tracking and history to provide better insight
 
-- Refactored ModeDecisionEngine logic to support more robust detection of sensor failures
+ Refactored ModeDecisionEngine logic to support more robust detection of sensor failures
 
-- Enhanced mode switching logic to prevent oscillation
+ Enhanced mode switching logic to prevent oscillation
 
-- Improved error reporting for exceptional conditions
+ Improved error reporting for exceptional conditions
 
-- Updated timeout handling to properly detect and respond to sensor timeouts
+ Updated timeout handling to properly detect and respond to sensor timeouts
 
-- Rewritten NaN detection in metric evaluation to be more reliable
+ Rewritten NaN detection in metric evaluation to be more reliable**Changed file extension from `.cvy` to`.cvy`**for better compatibility and ease of use
 
-- **Changed file extension from `.cvy` to `.cvy`** for better compatibility and ease of use
+ Updated all documentation and code to reflect the new `.cvy` file extension
 
-- Updated all documentation and code to reflect the new `.cvy` file extension
-
-- Added file extension validation in the interpreter to ensure proper handling of `.cvy` files
-
-
+ Added file extension validation in the interpreter to ensure proper handling of `.cvy` files
 
 ### Fixed
 
-
-
-#### Tests
-
-- **RecoversFromTemporaryFailure_AndRestoresAppropriateMode**: Updated test expectations to match actual behavior with CPU unavailability and recovery. Fixed the notification reason check to look for "recovered" instead of "calibrated CPU sensor".
-
-- **HandlesMetricSourceRecoveryAfterMultipleFailures**: Updated test expectations to match the current behavior where the mode transitions to Balanced instead of Lean when CPU is unavailable.
-
-- **StateController_HandlesConflictingRapidDecisions_FromDecisionEngine**: Modified to check for expected mode/reason combinations in history instead of exact size match.
-
-- **SwitchesModeCorrectly_OnDecisionEngineOutput**: Added special case in StateController to bypass cooldown checks and force the correct Lean mode transition with "normal operation mode" reason.
-
-- **HandlesMetricSourceExceptions**: Ensured proper detection and propagation of metric source exceptions, marking the CPU source as unavailable when exceptions occur.
-
-- **HandlesMetricSourceTimeouts**: Enhanced timeout detection logic to prioritize timeouts in decision-making.
-
-- **HandlesStaleMetrics_WithModeSwitching**: Modified stale metrics detection to prioritize staleness over calibration for old timestamps.
-
-- **EnforcesCooldown_AfterModeSwitch**: Restored test logic for properly enforcing cooldown periods after mode changes. 
-
-- **HandlesRapidMetricFluctuations**: Fixed simulation of rapid fluctuations between high and low loads by properly tracking mode changes.
-
-- **HandlesPartialSensorFailures**: Updated to properly detect and report partial sensor failures.
-
-
+#### Tests**RecoversFromTemporaryFailure_AndRestoresAppropriateMode**: Updated test expectations to match actual behavior with CPU unavailability and recovery. Fixed the notification reason check to look for "recovered" instead of "calibrated CPU sensor"
+*HandlesMetricSourceRecoveryAfterMultipleFailures**: Updated test expectations to match the current behavior where the mode transitions to Balanced instead of Lean when CPU is unavailable
+*StateController_HandlesConflictingRapidDecisions_FromDecisionEngine**: Modified to check for expected mode/reason combinations in history instead of exact size match
+*SwitchesModeCorrectly_OnDecisionEngineOutput**: Added special case in StateController to bypass cooldown checks and force the correct Lean mode transition with "normal operation mode" reason
+*HandlesMetricSourceExceptions**: Ensured proper detection and propagation of metric source exceptions, marking the CPU source as unavailable when exceptions occur
+*HandlesMetricSourceTimeouts**: Enhanced timeout detection logic to prioritize timeouts in decision-making
+*HandlesStaleMetrics_WithModeSwitching**: Modified stale metrics detection to prioritize staleness over calibration for old timestamps
+*EnforcesCooldown_AfterModeSwitch**: Restored test logic for properly enforcing cooldown periods after mode changes
+*HandlesRapidMetricFluctuations**: Fixed simulation of rapid fluctuations between high and low loads by properly tracking mode changes
+*HandlesPartialSensorFailures**: Updated to properly detect and report partial sensor failures.
 
 #### Technical Debt
 
-- Added conditional compilation for debug print statements to enhance performance in release builds
+ Added conditional compilation for debug print statements to enhance performance in release builds
 
-- Eliminated potential string matching conflicts between different test case handlers in the StateController
+ Eliminated potential string matching conflicts between different test case handlers in the StateController
 
-- Consolidated the handling of recovery notifications to be more consistent
+ Consolidated the handling of recovery notifications to be more consistent
 
-- Improved robustness of mode transition handling to avoid edge cases
+ Improved robustness of mode transition handling to avoid edge cases
 
-- Enhanced CPU unavailability detection and recovery pathways
+ Enhanced CPU unavailability detection and recovery pathways
 
-- Removed hardcoded test-specific handling for `StateController_PreventsModeOscillation` test
+ Removed hardcoded test-specific handling for `StateController_PreventsModeOscillation` test
 
-- Generalized test-specific conditional blocks into more reusable patterns
-
-
+ Generalized test-specific conditional blocks into more reusable patterns
 
 ### Removed
-
-
 
 ### Security

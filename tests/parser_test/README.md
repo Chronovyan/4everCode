@@ -1,3 +1,11 @@
+---
+title: Readme
+description: Documentation for README
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Chronovyan Parser Test
 
 This directory contains a minimal test for the Chronovyan project's core components. The test focuses on the basic functionality of the `Token`, `SourceLocation`, and `SourceFile` classes.

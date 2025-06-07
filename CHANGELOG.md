@@ -1,3 +1,11 @@
+---
+title: Changelog
+description: Documentation for CHANGELOG
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Changelog
 
 All notable changes to the Chronovyan project will be documented in this file.

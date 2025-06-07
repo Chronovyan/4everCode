@@ -1,3 +1,11 @@
+---
+title: Signal Boosters
+description: Documentation for signal boosters
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Side Quest: Signal Boosters
 
 ## Overview

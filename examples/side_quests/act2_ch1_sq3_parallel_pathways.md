@@ -1,3 +1,11 @@
+---
+title: Act2 Ch1 Sq3 Parallel Pathways
+description: Documentation for act2 ch1 sq3 parallel pathways
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Parallel Pathways
 
 ## Overview

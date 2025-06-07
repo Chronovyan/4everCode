@@ -1,3 +1,11 @@
+---
+title: Example Mapping
+description: Documentation for example mapping
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Chronovyan Example Mapping
 
 This document maps our existing example files to the game's learning progression, showing how each example will be integrated into side quests and main quests.

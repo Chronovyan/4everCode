@@ -1,3 +1,11 @@
+---
+title: 02 Stabilizing Coras Power Core
+description: Documentation for 02 stabilizing coras power core
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Main Quest: Stabilizing CORA's Power Core
 
 ## Overview

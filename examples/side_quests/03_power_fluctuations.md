@@ -1,3 +1,11 @@
+---
+title: 03 Power Fluctuations
+description: Documentation for 03 power fluctuations
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Side Quest: Power Fluctuations
 
 ## Overview

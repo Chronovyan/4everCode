@@ -1,3 +1,11 @@
+---
+title: Readme
+description: Documentation for README
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 <div align="center">
   <h1>⏳ Chronovyan</h1>
   <h3>A Temporal Programming Language for Weaving Time</h3>
@@ -46,9 +54,10 @@ cmake --build .
 
 Explore the comprehensive documentation to master Chronovyan:
 
-- [Language Specification](docs/Chronoscript%20Language%20Specification.md) - Complete guide to Chronoscript syntax and semantics
-- [Runtime Mechanics](docs/Chronoscript%20Runtime%20Mechanics%20Guide.md) - Understand how Chronovyan manages time and resources
-- [Implementation Guide](docs/implementation_guide.md) - Developer's guide to working with the Chronovyan codebase
+- [Language Guide](https://chronovyan.github.io/guides/Getting%20Started%20-%20The%20Journey%20of%20a%20Temporal%20Developer/) - Introduction to Chronoscript syntax and concepts
+- [Core Concepts](https://chronovyan.github.io/core/Core%20Concepts%20-%20The%20Foundation%20of%20Temporal%20Programming/) - Understand the foundations of temporal programming
+- [Tutorials](https://chronovyan.github.io/tutorials/act1/) - Hands-on guides to learn Chronovyan
+- [API Reference](https://chronovyan.github.io/api/) - Comprehensive API documentation
 - [Glossary](docs/Chronovyan_Glossary.md) - Key terms and concepts in the Chronovyan universe
 - [Roadmap](docs/ROADMAP.md) - Current status and future development plans
 

@@ -3,801 +3,588 @@ title: Common Implementation Tasks
 description: Documentation for ai_helpers\common_tasks.md
 weight: 120
 draft: true
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
 ---
 
 # Common Implementation Tasks
 
+> **Navigation**:
 
+> [Documentation Index](/).).)/)i)n)d)e)x).)m)d) | [AI Quick Reference](/).)/)q)u)i)c)k)_)r)e)f)e)r)e)n)c)e).)m)d) | [Codebase Navigation](/).)/)c)o)d)e)b)a)s)e)_)n)a)v)i)g)a)t)i)o)n).)m)d)
 
-> **Navigation**:  
-
-> [Documentation Index](../index.md) | [AI Quick Reference](./quick_reference.md) | [Codebase Navigation](./codebase_navigation.md)
-
-
-
-This guide provides step-by-step instructions for common implementation tasks in the Chronovyan project, designed to help AI assistants efficiently assist human developers.
-
-
+This guide provides step-by-step instructions for common implementation tasks in the [Chronovyan](https://chronovyan.github.io/h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/) "The) temporal) programming) language) and) runtime") project, designed to help AI assistants efficiently assist human developers.
 
 ## Resource Management Tasks
 
-
-
 ### Adding a New Resource Type
 
+1. **Update Resource Definitions**```cpp
 
+    // In include/resource_management/resource_tracker.h
 
-1. **Update Resource Definitions**
+    enum class ResourceType {
 
-   ```cpp
+        // ... existing resources
 
-   // In include/resource_management/resource_tracker.h
+        NEW_RESOURCE_TYPE,
 
-   enum class ResourceType {
+        // Update count if needed
 
-       // ... existing resources
+        RESOURCE_COUNT
 
-       NEW_RESOURCE_TYPE,
+    };
 
-       // Update count if needed
+```text
 
-       RESOURCE_COUNT
+    2.**Update Resource Properties**```cpp
 
-   };
+    // In src/resource_management/resource_tracker.cpp
 
-   ```
+    void ResourceTracker::initializeResourceProperties() {
 
+        resourceProperties = {
 
+            // ... existing properties
 
-2. **Update Resource Properties**
+            { ResourceType::NEW_RESOURCE_TYPE, {
 
-   ```cpp
+                "NewResourceName",
 
-   // In src/resource_management/resource_tracker.cpp
+                defaultInitialLevel,
 
-   void ResourceTracker::initializeResourceProperties() {
+                defaultMaxLevel,
 
-       resourceProperties = {
+                defaultReplenishRate
 
-           // ... existing properties
+            }}
 
-           { ResourceType::NEW_RESOURCE_TYPE, { 
+        };
 
-               "NewResourceName", 
+    }
 
-               defaultInitialLevel, 
+```text
 
-               defaultMaxLevel,
+    3.**Add Tracking Support**```cpp
 
-               defaultReplenishRate 
+    // In any relevant tracking methods in ResourceTracker
 
-           }}
+    case ResourceType::NEW_RESOURCE_TYPE:
 
-       };
+        // Resource-specific handling if needed
 
-   }
+        break;
 
-   ```
+```text
 
+    4.**Create Tests**```cpp
 
+    // In tests/resource_tracker_test.cpp
 
-3. **Add Tracking Support**
+    TEST_F(ResourceTrackerTest, NewResourceTypeTracking) {
 
-   ```cpp
+        // Test resource tracking and management
 
-   // In any relevant tracking methods in ResourceTracker
+    }
 
-   case ResourceType::NEW_RESOURCE_TYPE:
+```text
 
-       // Resource-specific handling if needed
+    ### Optimizing Resource Consumption
 
-       break;
+    1.**Identify Target Resource**```cpp
 
-   ```
+    // In src/resource_management/resource_optimizer.cpp
 
+    void ResourceOptimizer::optimizeConsumption(ResourceType type) {
 
+        // Add optimization logic
 
-4. **Create Tests**
+    }
 
-   ```cpp
+```text
 
-   // In tests/resource_tracker_test.cpp
+    2.**Update Efficiency Calculations**```cpp
 
-   TEST_F(ResourceTrackerTest, NewResourceTypeTracking) {
+    // In src/resource_management/resource_optimizer.cpp
 
-       // Test resource tracking and management
+    float ResourceOptimizer::calculateEfficiency(ResourceType type, float consumption) {
 
-   }
+        // Add or modify efficiency calculation
 
-   ```
+    }
 
+```text
 
+    3.**Create Tests**```cpp
 
-### Optimizing Resource Consumption
+    // In tests/resource_optimizer_test.cpp
 
+    TEST_F(ResourceOptimizerTest, OptimizationForNewResource) {
 
+        // Test optimization logic
 
-1. **Identify Target Resource**
+    }
 
-   ```cpp
+```chronoscript
 
-   // In src/resource_management/resource_optimizer.cpp
+    ## Temporal Debt Tasks
 
-   void ResourceOptimizer::optimizeConsumption(ResourceType type) {
+    ### Adding a New Debt Alert Level
 
-       // Add optimization logic
+    1.**Update Enum Definition**```cpp
 
-   }
+    // In include/temporal_debt_tracker.h
 
-   ```
+    enum class DebtAlertLevel {
 
+        // ... existing alert levels
 
+        NEW_ALERT_LEVEL,
 
-2. **Update Efficiency Calculations**
+        // Update count if needed
 
-   ```cpp
+        ALERT_LEVEL_COUNT
 
-   // In src/resource_management/resource_optimizer.cpp
+    };
 
-   float ResourceOptimizer::calculateEfficiency(ResourceType type, float consumption) {
+```text
 
-       // Add or modify efficiency calculation
+    2.**Add Alert Threshold**```cpp
 
-   }
+    // In src/temporal_debt_tracker.cpp
 
-   ```
+    void TemporalDebtTracker::initializeAlertThresholds() {
 
+        alertThresholds = {
 
+            // ... existing thresholds
 
-3. **Create Tests**
+            { DebtAlertLevel::NEW_ALERT_LEVEL, newThresholdValue }
 
-   ```cpp
+        };
 
-   // In tests/resource_optimizer_test.cpp
+    }
 
-   TEST_F(ResourceOptimizerTest, OptimizationForNewResource) {
+```text
 
-       // Test optimization logic
+    3.**Update Alert Checking Logic**```cpp
 
-   }
+    // In src/temporal_debt_tracker.cpp
 
-   ```
+    DebtAlertLevel TemporalDebtTracker::checkDebtAlerts(ResourceType type) {
 
+        // Add check for new alert level
 
+    }
 
-## Temporal Debt Tasks
+```text
 
+    4.**Create Tests**```cpp
 
+    // In tests/temporal_debt_test.cpp
 
-### Adding a New Debt Alert Level
+    TEST_F(TemporalDebtTrackerTest, NewAlertLevelTriggering) {
 
+        // Test alert triggering
 
+    }
 
-1. **Update Enum Definition**
+```text
 
-   ```cpp
+    ### Implementing New Debt Accrual Method
 
-   // In include/temporal_debt_tracker.h
+    1.**Add Method Declaration**```cpp
 
-   enum class DebtAlertLevel {
+    // In include/temporal_debt_tracker.h
 
-       // ... existing alert levels
+    class TemporalDebtTracker {
 
-       NEW_ALERT_LEVEL,
+    public:
 
-       // Update count if needed
+        // ... existing methods
 
-       ALERT_LEVEL_COUNT
+        void accrueDebtBasedOnNewMethod(ResourceType type, float amount);
 
-   };
+    };
 
-   ```
+```text
 
+    2.**Implement Method**```cpp
 
+    // In src/temporal_debt_tracker.cpp
 
-2. **Add Alert Threshold**
+    void TemporalDebtTracker::accrueDebtBasedOnNewMethod(ResourceType type, float amount) {
 
-   ```cpp
+        // Implement accrual logic
 
-   // In src/temporal_debt_tracker.cpp
+    }
 
-   void TemporalDebtTracker::initializeAlertThresholds() {
+```text
 
-       alertThresholds = {
+    3.**Create Tests**```cpp
 
-           // ... existing thresholds
+    // In tests/temporal_debt_test.cpp
 
-           { DebtAlertLevel::NEW_ALERT_LEVEL, newThresholdValue }
+    TEST_F(TemporalDebtTrackerTest, NewAccrualMethodTest) {
 
-       };
+        // Test accrual method
 
-   }
+    }
 
-   ```
+```text
 
+    ## Resource Visualization Tasks
 
+    ### Adding a New Visualization Mode
 
-3. **Update Alert Checking Logic**
+    1.**Update Mode Enum**```cpp
 
-   ```cpp
+    // In include/resource_visualization.h
 
-   // In src/temporal_debt_tracker.cpp
+    enum class VisualizationMode {
 
-   DebtAlertLevel TemporalDebtTracker::checkDebtAlerts(ResourceType type) {
+        // ... existing modes
 
-       // Add check for new alert level
+        NEW_MODE,
 
-   }
+        // Update count if needed
 
-   ```
+        MODE_COUNT
 
+    };
 
+```text
 
-4. **Create Tests**
+    2.**Implement Visualization Method**```cpp
 
-   ```cpp
+    // In src/resource_visualization.cpp
 
-   // In tests/temporal_debt_test.cpp
+    void ResourceVisualization::visualizeInNewMode(const ResourceSnapshot& snapshot) {
 
-   TEST_F(TemporalDebtTrackerTest, NewAlertLevelTriggering) {
+        // Implement visualization logic
 
-       // Test alert triggering
+    }
 
-   }
+```text
 
-   ```
+    3.**Update Visualization Dispatcher**```cpp
 
+    // In src/resource_visualization.cpp
 
+    void ResourceVisualization::visualize(VisualizationMode mode) {
 
-### Implementing New Debt Accrual Method
+        switch (mode) {
 
+            // ... existing cases
 
+            case VisualizationMode::NEW_MODE:
 
-1. **Add Method Declaration**
+                visualizeInNewMode(getCurrentSnapshot());
 
-   ```cpp
+                break;
 
-   // In include/temporal_debt_tracker.h
+        }
 
-   class TemporalDebtTracker {
+    }
 
-   public:
+```text
 
-       // ... existing methods
+    4.**Create Tests**```cpp
 
-       void accrueDebtBasedOnNewMethod(ResourceType type, float amount);
+    // In tests/resource_visualization_test.cpp
 
-   };
+    TEST_F(ResourceVisualizationTest, NewModeVisualization) {
 
-   ```
+        // Test visualization mode
 
+    }
 
+```text
 
-2. **Implement Method**
+    ### Adding New Export Format
 
-   ```cpp
+    1.**Update Format Enum**```cpp
 
-   // In src/temporal_debt_tracker.cpp
+    // In include/resource_visualization.h
 
-   void TemporalDebtTracker::accrueDebtBasedOnNewMethod(ResourceType type, float amount) {
+    enum class ReportType {
 
-       // Implement accrual logic
+        // ... existing formats
 
-   }
+        NEW_FORMAT,
 
-   ```
+        // Update count if needed
 
+        FORMAT_COUNT
 
+    };
 
-3. **Create Tests**
+```text
 
-   ```cpp
+    2.**Implement Export Method**```cpp
 
-   // In tests/temporal_debt_test.cpp
+    // In src/resource_visualization.cpp
 
-   TEST_F(TemporalDebtTrackerTest, NewAccrualMethodTest) {
+    std::string ResourceVisualization::generateNewFormatReport(const ResourceSnapshot& snapshot) {
 
-       // Test accrual method
+        // Implement report generation
 
-   }
+    }
 
-   ```
+```text
 
+    3.**Update Export Dispatcher**```cpp
 
+    // In src/resource_visualization.cpp
 
-## Resource Visualization Tasks
+    std::string ResourceVisualization::generateReport(ReportType format) {
 
+        switch (format) {
 
+            // ... existing cases
 
-### Adding a New Visualization Mode
+            case ReportType::NEW_FORMAT:
 
+                return generateNewFormatReport(getCurrentSnapshot());
 
+        }
 
-1. **Update Mode Enum**
+    }
 
-   ```cpp
+```text
 
-   // In include/resource_visualization.h
+    4.**Create Tests**```cpp
 
-   enum class VisualizationMode {
+    // In tests/resource_export_test.cpp
 
-       // ... existing modes
+    TEST_F(ResourceExportTest, NewFormatExport) {
 
-       NEW_MODE,
+        // Test export functionality
 
-       // Update count if needed
+    }
 
-       MODE_COUNT
+```text
 
-   };
+    ## CMake & Build Tasks
 
-   ```
+    ### Adding a New Test File
 
+    1.**Create Test File**```cpp
 
+    // In tests/new_feature_test.cpp
 
-2. **Implement Visualization Method**
+    #include <gtest/gtest.h>
 
-   ```cpp
+    #include "../include/relevant_header.h"
 
-   // In src/resource_visualization.cpp
+    class NewFeatureTest : public ::testing::Test {
 
-   void ResourceVisualization::visualizeInNewMode(const ResourceSnapshot& snapshot) {
+    protected:
 
-       // Implement visualization logic
+        // Setup code
 
-   }
+    };
 
-   ```
+    TEST_F(NewFeatureTest, TestName) {
 
+        // Test implementation
 
+    }
 
-3. **Update Visualization Dispatcher**
+```text
 
-   ```cpp
+    2.**Update CMakeLists.txt**```cmake
 
-   // In src/resource_visualization.cpp
+    # In tests/CMakeLists.txt
 
-   void ResourceVisualization::visualize(VisualizationMode mode) {
+    add_executable(new_feature_test
 
-       switch (mode) {
+        new_feature_test.cpp
 
-           // ... existing cases
+    )
 
-           case VisualizationMode::NEW_MODE:
+    target_link_libraries(new_feature_test
 
-               visualizeInNewMode(getCurrentSnapshot());
+        chronovyan_lib
 
-               break;
+        gtest
 
-       }
+        gtest_main
 
-   }
+    )
 
-   ```
+    add_test(NAME NewFeatureTest COMMAND new_feature_test)
 
+```text
 
+    3.**Build and Run Tests**```bash
 
-4. **Create Tests**
+    cmake --build build
 
-   ```cpp
+    ctest -C Debug -R NewFeatureTest
 
-   // In tests/resource_visualization_test.cpp
+```text
 
-   TEST_F(ResourceVisualizationTest, NewModeVisualization) {
+    ### Adding a New Demo Application
 
-       // Test visualization mode
+    1.**Create Demo File**```cpp
 
-   }
+    // In src/demos/new_feature_demo.cpp
 
-   ```
+    #include "../include/relevant_header.h"
 
+    int main() {
 
+        // Demo implementation
 
-### Adding New Export Format
+        return 0;
 
+    }
 
+```text
 
-1. **Update Format Enum**
+    2.**Update CMakeLists.txt**```cmake
 
-   ```cpp
+    # In CMakeLists.txt
 
-   // In include/resource_visualization.h
+    add_executable(new_feature_demo
 
-   enum class ReportType {
+        src/demos/new_feature_demo.cpp
 
-       // ... existing formats
+    )
 
-       NEW_FORMAT,
+    target_link_libraries(new_feature_demo
 
-       // Update count if needed
+        chronovyan_lib
 
-       FORMAT_COUNT
+    )
 
-   };
+```text
 
-   ```
+    3.**Build Demo**```bash
 
+    cmake --build build
 
+```text
 
-2. **Implement Export Method**
+    ## Documentation Tasks
 
-   ```cpp
+    ### Documenting a New Feature
 
-   // In src/resource_visualization.cpp
+    1.**Create Feature Documentation**```markdown
 
-   std::string ResourceVisualization::generateNewFormatReport(const ResourceSnapshot& snapshot) {
+    # Feature Name
 
-       // Implement report generation
+    ## Overview
 
-   }
+    Brief description of the feature.
 
-   ```
+    ## API Reference
 
+    List of new classes/methods.
 
-
-3. **Update Export Dispatcher**
-
-   ```cpp
-
-   // In src/resource_visualization.cpp
-
-   std::string ResourceVisualization::generateReport(ReportType format) {
-
-       switch (format) {
-
-           // ... existing cases
-
-           case ReportType::NEW_FORMAT:
-
-               return generateNewFormatReport(getCurrentSnapshot());
-
-       }
-
-   }
-
-   ```
-
-
-
-4. **Create Tests**
-
-   ```cpp
-
-   // In tests/resource_export_test.cpp
-
-   TEST_F(ResourceExportTest, NewFormatExport) {
-
-       // Test export functionality
-
-   }
-
-   ```
-
-
-
-## CMake & Build Tasks
-
-
-
-### Adding a New Test File
-
-
-
-1. **Create Test File**
-
-   ```cpp
-
-   // In tests/new_feature_test.cpp
-
-   #include <gtest/gtest.h>
-
-   #include "../include/relevant_header.h"
-
-
-
-   class NewFeatureTest : public ::testing::Test {
-
-   protected:
-
-       // Setup code
-
-   };
-
-
-
-   TEST_F(NewFeatureTest, TestName) {
-
-       // Test implementation
-
-   }
-
-   ```
-
-
-
-2. **Update CMakeLists.txt**
-
-   ```cmake
-
-   # In tests/CMakeLists.txt
-
-   add_executable(new_feature_test
-
-       new_feature_test.cpp
-
-   )
-
-   target_link_libraries(new_feature_test
-
-       chronovyan_lib
-
-       gtest
-
-       gtest_main
-
-   )
-
-   add_test(NAME NewFeatureTest COMMAND new_feature_test)
-
-   ```
-
-
-
-3. **Build and Run Tests**
-
-   ```bash
-
-   cmake --build build
-
-   ctest -C Debug -R NewFeatureTest
-
-   ```
-
-
-
-### Adding a New Demo Application
-
-
-
-1. **Create Demo File**
-
-   ```cpp
-
-   // In src/demos/new_feature_demo.cpp
-
-   #include "../include/relevant_header.h"
-
-   
-
-   int main() {
-
-       // Demo implementation
-
-       return 0;
-
-   }
-
-   ```
-
-
-
-2. **Update CMakeLists.txt**
-
-   ```cmake
-
-   # In CMakeLists.txt
-
-   add_executable(new_feature_demo
-
-       src/demos/new_feature_demo.cpp
-
-   )
-
-   target_link_libraries(new_feature_demo
-
-       chronovyan_lib
-
-   )
-
-   ```
-
-
-
-3. **Build Demo**
-
-   ```bash
-
-   cmake --build build
-
-   ```
-
-
-
-## Documentation Tasks
-
-
-
-### Documenting a New Feature
-
-
-
-1. **Create Feature Documentation**
-
-   ```markdown
-
-   # Feature Name
-
-   
-
-   ## Overview
-
-   Brief description of the feature.
-
-   
-
-   ## API Reference
-
-   List of new classes/methods.
-
-   
-
-   ## Usage Examples
-
-   ```cpp
-
-   // Example code
-
-   ```
-
-   
-
-   ## Best Practices
-
-   Guidelines for using the feature.
-
-   ```
-
-
-
-2. **Update Relevant Index**
-
-   ```markdown
-
-   # Index
-
-   
-
-   ## Features
-
-   - [Existing Feature](existing_feature.md)
-
-   - [New Feature](new_feature.md)
-
-   ```
-
-
-
-3. **Add Cross-References**
-
-   ```markdown
-
-   See also: [Related Feature](related_feature.md)
-
-   ```
-
-
-
-### Updating API Documentation
-
-
-
-1. **Update Class Documentation**
-
-   ```cpp
-
-   /**
-
-    * @class ClassName
-
-    * @brief Brief description
-
-    * 
-
-    * Detailed description
-
-    */
-
-   class ClassName {
-
-   public:
-
-       /**
-
-        * @brief Method description
-
-        * @param paramName Parameter description
-
-        * @return Return value description
-
-        */
-
-       ReturnType methodName(ParamType paramName);
-
-   };
-
-   ```
-
-
-
-2. **Update README References**
-
-   ```markdown
-
-   ## API Reference
-
-   
-
-   ### Updated Components
-
-   - [Class Name](docs/api/class_name.md) - New description
-
-   ```
-
-
-
-## Testing Best Practices
-
-
-
-### Resource Management Tests
-
-
+    ## Usage Examples
 
 ```cpp
 
-TEST_F(ResourceTrackerTest, ResourceConsumptionTest) {
+    // Example code
+```text
 
-    ResourceTracker tracker;
+    ## Best Practices
 
-    
+    Guidelines for using the feature.
 
-    // Initialize with known state
+```text
 
-    tracker.initializeResource(ResourceType::ENERGY, 100.0f);
+    2.**Update Relevant Index**```markdown
 
-    
+    # Index
 
-    // Perform action
+    ## Features
 
-    bool success = tracker.consumeResource(ResourceType::ENERGY, 50.0f);
+     [Existing Feature](/)e)x)i)s)t)i)n)g)_)f)e)a)t)u)r)e).)m)d)
 
-    
+     [New Feature](/)n)e)w)_)f)e)a)t)u)r)e).)m)d)
 
-    // Verify expectations
+```text
 
-    EXPECT_TRUE(success);
+    3.**Add Cross-References**```markdown
 
-    EXPECT_FLOAT_EQ(50.0f, tracker.getResourceLevel(ResourceType::ENERGY));
+    See also: [Related Feature](/)r)e)l)a)t)e)d)_)f)e)a)t)u)r)e).)m)d)
 
-    
+```text
 
-    // Test edge case
+    ### Updating API Documentation
 
-    success = tracker.consumeResource(ResourceType::ENERGY, 60.0f);
+    1.**Update Class Documentation**
+```cpp
 
-    EXPECT_FALSE(success);
+    /** * @class ClassNam
+@brief Brief description
+Detailed description*/
 
-    EXPECT_FLOAT_EQ(50.0f, tracker.getResourceLevel(ResourceType::ENERGY));
+    class ClassName {
 
-}
+    public:
 
-```
+        /** * @brief Method descriptio
+@param paramName Parameter description* @return Return value descriptio
+/
 
+        ReturnType methodName(ParamType paramName);
 
+    };
 
-### Temporal Debt Tests
+```text
 
+    2. **Update README References**
+```markdown
 
+    ## API Reference
+
+    ### Updated Components
+
+     [Class Name](/)d)o)c)s)/)a)p)i)/)c)l)a)s)s)_)n)a)m)e).)m)d) - New description
+
+```text
+
+    ## Testing Best Practices
+
+    ###
+
+    ``cpp
+
+        TEST_F(ResourceTrackerTest, ResourceConsumptionTest) {
+
+            ResourceTracker tracker;
+
+            // Initialize with known state
+
+            tracker.initializeResource(ResourceType::ENERGY, 100.0f);
+
+            // Perform action
+
+            bool success = tracker.consumeResource(ResourceType::ENERGY, 50.0f);
+
+            // Verify expectations
+
+            EXPECT_TRUE(success);
+
+            EXPECT_FLOAT_EQ(50.0f, tracker.getResourceLevel(ResourceType::ENERGY));
+
+            // Test edge case
+
+            success = tracker.consumeResource(ResourceType::ENERGY, 60.0f);
+
+            EXPECT_FALSE(success);
+
+            EXPECT_FLOAT_EQ(50.0f, tracker.getResourceLevel(ResourceType::ENERGY));
+
+        }
+```chronoscript
+
+    ### Temporal Debt Tests
 
 ```cpp
 
@@ -805,19 +592,13 @@ TEST_F(TemporalDebtTrackerTest, DebtAccrualTest) {
 
     TemporalDebtTracker tracker;
 
-    
-
     // Setup initial state
 
     tracker.initializeResource(ResourceType::CHRONO_ENERGY, 100.0f);
 
-    
-
     // Execute operation that should accrue debt
 
     tracker.borrowResource(ResourceType::CHRONO_ENERGY, 50.0f);
-
-    
 
     // Verify debt record was created
 
@@ -828,8 +609,6 @@ TEST_F(TemporalDebtTrackerTest, DebtAccrualTest) {
     EXPECT_EQ(ResourceType::CHRONO_ENERGY, debtRecords[0].resourceType);
 
     EXPECT_FLOAT_EQ(50.0f, debtRecords[0].amount);
-
-    
 
     // Verify resource state
 

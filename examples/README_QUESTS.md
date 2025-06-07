@@ -1,3 +1,11 @@
+---
+title: Readme Quests
+description: Documentation for README QUESTS
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Chronovyan Quests Documentation
 
 This document provides an overview of the quest system in the Chronovyan learning game, explaining how side quests and main quests work together to teach programming concepts through narrative gameplay.

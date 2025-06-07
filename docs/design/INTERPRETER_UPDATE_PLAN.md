@@ -3,6 +3,9 @@ title: Interpreter Update Plan
 description: Documentation for design\INTERPRETER_UPDATE_PLAN.md
 weight: 120
 draft: true
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
 ---
 
 # Interpreter Update Plan
@@ -30,100 +33,94 @@ Update the constructor to:
 - Create instances of each visitor component
 - Pass necessary references to dependencies
 - Initialize the resource manager
-
 ```cpp
-Interpreter::Interpreter() {
-    // Initialize environment and runtime components as before
-    
-    // Create visitor components
-    m_expressionVisitor = std::make_unique<ExpressionVisitor>(*this);
-    m_statementVisitor = std::make_unique<StatementVisitor>(*this);
-    m_temporalVisitor = std::make_unique<TemporalVisitor>(*this);
-    
-    // Create resource manager
-    m_resourceManager = std::make_unique<ResourceManager>(
-        m_runtime, m_optimizer, m_debt_tracker);
-        
-    // Initialize globals, etc.
-}
-```
+    Interpreter::Interpreter() {
+        // Initialize environment and runtime components as before
+
+        // Create visitor components
+        m_expressionVisitor = std::make_unique<ExpressionVisitor>(*this);
+        m_statementVisitor = std::make_unique<StatementVisitor>(*this);
+        m_temporalVisitor = std::make_unique<TemporalVisitor>(*this);
+
+        // Create resource manager
+        m_resourceManager = std::make_unique<ResourceManager>(
+            m_runtime, m_optimizer, m_debt_tracker);
+
+        // Initialize globals, etc.
+    }
+```text
 
 ### 3. Delegate Visitor Methods
 
 Update all visitor method implementations to delegate to the appropriate visitor component:
-
 ```cpp
-void Interpreter::visitLiteralExpr(const LiteralExprNode& expr) {
-    m_expressionVisitor->visitLiteralExpr(expr);
-}
+    void Interpreter::visitLiteralExpr(const LiteralExprNode& expr) {
+        m_expressionVisitor->visitLiteralExpr(expr);
+    }
 
-void Interpreter::visitVariableExpr(const VariableExprNode& expr) {
-    m_expressionVisitor->visitVariableExpr(expr);
-}
+    void Interpreter::visitVariableExpr(const VariableExprNode& expr) {
+        m_expressionVisitor->visitVariableExpr(expr);
+    }
 
-// ... and so on for all visitor methods
-```
+    // ... and so on for all visitor methods
+```text
 
 ### 4. Update Public Methods
 
 Refactor public methods to use the new components:
-
 ```cpp
-Value Interpreter::evaluate(const ExprNode& expr) {
-    return m_expressionVisitor->evaluate(expr);
-}
+    Value Interpreter::evaluate(const ExprNode& expr) {
+        return m_expressionVisitor->evaluate(expr);
+    }
 
-void Interpreter::execute(const StmtNode& stmt) {
-    m_statementVisitor->execute(stmt);
-}
+    void Interpreter::execute(const StmtNode& stmt) {
+        m_statementVisitor->execute(stmt);
+    }
 
-// ... and other public methods
-```
+    // ... and other public methods
+```text
 
 ### 5. Resource Management
 
 Replace direct resource management with calls to the ResourceManager:
-
 ```cpp
-void Interpreter::trackResourceUsage(double aethel, double chronons, const std::string& operation) {
-    m_resourceManager->trackResourceUsage(aethel, chronons, operation);
-}
+    void Interpreter::trackResourceUsage(double \1AETHEL\2/core/Core Concepts - The Foundation of Temporal Programming.md#aethel\3/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)a)e)t)h)e)l))))) "The energy) that) powers) temporal) operations""), double \1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)c)h)r)o)n)o)n))))) "The fundamental unit of time in [Chronovyan](https://chronovyan.github.io/h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)/) "The) temporal) programming) language) and) runtime"")"), const std::string& operation) {
+        m_resourceManager->trackResourceUsage(aethel, chronons, operation);
+    }
 
-bool Interpreter::consumeResources(double amount) {
-    // Determine how to split the amount between aethel and chronons
-    double aethelAmount = amount * 0.6;
-    double chrononsAmount = amount * 0.4;
-    return m_resourceManager->consumeResources(aethelAmount, chrononsAmount, "Generic operation");
-}
-```
+    bool Interpreter::consumeResources(double amount) {
+        // Determine how to split the amount between \1AETHEL\2/core/Core Concepts - The Foundation of Temporal Programming.md#aethel\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)a)e)t)h)e)l))))) and chronons
+        double aethelAmount = amount *0.6;
+        double chrononsAmount = amount* 0.4;
+        return m_resourceManager->consumeResources(aethelAmount, chrononsAmount, "Generic operation");
+    }
+```text
 
 ### 6. Control Flow State Management
 
 Update methods for managing control flow state:
-
 ```cpp
-bool Interpreter::isReturning() const {
-    return m_statementVisitor->isReturning();
-}
+    bool Interpreter::isReturning() const {
+        return m_statementVisitor->isReturning();
+    }
 
-void Interpreter::setReturning(bool flag, const Value& value) {
-    m_statementVisitor->setReturning(flag, value);
-}
+    void Interpreter::setReturning(bool flag, const Value& value) {
+        m_statementVisitor->setReturning(flag, value);
+    }
 
-// ... and similar methods for other control flow states
-```
+    // ... and similar methods for other control flow states
+```text
 
 ### 7. Helper Methods
 
 Refactor helper methods to use the appropriate visitor components:
-
 ```cpp
-Value Interpreter::handleVariableInteraction(const Value& left, const Value& right, TokenType operation) {
-    // This may need to be handled in a special way, perhaps as a method in Interpreter
-    // that delegates to a helper in ExpressionVisitor
-    return m_expressionVisitor->handleVariableInteraction(left, right, operation);
-}
-```
+    Value Interpreter::handleVariableInteraction(const Value& left, const Value& right, TokenType operation) {
+        // This may need to be handled in a special way, perhaps as a method in Interpreter
+        // that delegates to a helper in ExpressionVisitor
+        return m_expressionVisitor->handleVariableInteraction(left, right, operation);
+    }
+```text
 
 ## Migration Strategy
 

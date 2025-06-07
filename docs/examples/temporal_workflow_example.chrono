@@ -1,0 +1,147 @@
+// ==============================================
+// Temporal Workflow Example
+// ==============================================
+// This example demonstrates a complete temporal workflow
+// with proper error handling and resource management.
+
+ANTECEDENCE {
+    // ===== Resource Declarations =====
+    // Critical resources that must be properly managed
+    DECLARE CONF::ANCHOR timeline_anchor : TIMELINE = get_primary_timeline();
+    DECLARE CONF::STATIC max_paradox_threshold : FLOAT = 0.7;
+    
+    // ===== Pattern Definitions =====
+    // Define reusable temporal patterns
+    DECLARE data_processing_pattern : WEAVE_PATTERN = define_pattern("DataProcessing", [
+        { operation: "validate_input" },
+        { operation: "process_temporal_data" },
+        { operation: "verify_temporal_integrity" }
+    ]);
+}
+
+CONCURRENCY {
+    // ===== Main Workflow =====
+    TRY {
+        // 1. Initialize temporal context
+        PARADOX_CHECK("Initialize temporal context") {
+            DECLARE ctx : TEMPORAL_CONTEXT = create_temporal_context(
+                stability_threshold: max_paradox_threshold,
+                enable_paradox_containment: TRUE
+            );
+            
+            // 2. Process data across multiple timelines
+            DECLARE processing_results = TRY {
+                process_across_timelines(ctx);
+            } CATCH (PROCESSING_ERROR e) {
+                LOG_ERROR("Failed to process timelines: " + e.message);
+                STABILIZE("Stabilizing after processing failure");
+                THROW; // Re-throw after cleanup
+            } FINALLY {
+                // Ensure context is always released
+                release_temporal_context(ctx);
+            }
+            
+            // 3. Validate results
+            validate_processing_results(processing_results);
+            
+            RETURN processing_results;
+        }
+    } 
+    CATCH (TEMPORAL_ERROR e) {
+        // Global error handler for temporal anomalies
+        handle_temporal_catastrophe(e);
+    }
+    FINALLY {
+        // Final cleanup
+        cleanup_global_resources();
+    }
+}
+
+CONSEQUENCE {
+    // ===== Cleanup and Finalization =====
+    // Ensure all temporal anomalies are resolved
+    ?! paradox_check(["Final system state validation"]);
+    
+    // Log completion
+    LOG_INFO("Temporal workflow completed successfully");
+}
+
+// ===== Helper Functions =====
+
+FUNCTION process_across_timelines(ctx : TEMPORAL_CONTEXT) {
+    // 1. Create a stable branch for processing
+    DECLARE processing_branch = TRY {
+        create_processing_branch(ctx);
+    } CATCH (TIMELINE_ERROR e) {
+        LOG_ERROR("Failed to create processing branch: " + e.message);
+        THROW PROCESSING_ERROR("Cannot proceed without valid branch");
+    };
+    
+    // 2. Process data in parallel across temporal segments
+    DECLARE results = [];
+    FOR (i IN 1..ctx.segment_count) {
+        DECLARE segment_result = process_temporal_segment(processing_branch, i);
+        results.push(segment_result);
+        
+        // Check paradox levels periodically
+        IF (i % 5 == 0) {
+            PARADOX_CHECK("Periodic stability check") {
+                validate_temporal_stability(processing_branch);
+            }
+        }
+    }
+    
+    // 3. Merge results
+    RETURN merge_temporal_results(results);
+}
+
+FUNCTION create_processing_branch(ctx : TEMPORAL_CONTEXT) {
+    // Create a new timeline branch with stability checks
+    DECLARE source = get_current_timeline();
+    
+    RETURN PARADOX_CHECK("Create processing branch") {
+        DECLARE branch = branch_timeline(
+            source,
+            {
+                stability_threshold: ctx.stability_threshold,
+                enable_paradox_containment: TRUE
+            }
+        );
+        
+        // Verify branch stability
+        IF (!validate_timeline(branch)) {
+            COLLAPSE_TIMELINE(branch);
+            THROW TIMELINE_ERROR("Unstable timeline branch created");
+        }
+        
+        // Set up monitoring
+        monitor_timeline_health(branch);
+        
+        RETURN branch;
+    };
+}
+
+FUNCTION handle_temporal_catastrophe(error : TEMPORAL_ERROR) {
+    // Critical error handling for temporal anomalies
+    LOG_CRITICAL("TEMPORAL CATASTROPHE: " + error.message);
+    
+    // Attempt emergency stabilization
+    TRY {
+        STABILIZE("Emergency stabilization initiated");
+        
+        // Log detailed diagnostics
+        LOG_DEBUG("Current paradox level: " + PARADOX_LEVEL);
+        LOG_DEBUG("Active timelines: " + count_active_timelines());
+        
+        // Notify monitoring systems
+        alert_temporal_authorities({
+            severity: "CRITICAL",
+            message: "Temporal catastrophe in progress",
+            error: error
+        });
+    } CATCH (STABILIZATION_ERROR e) {
+        // Last resort - initiate temporal reset
+        LOG_EMERGENCY("Initiating emergency temporal reset");
+        initiate_temporal_reset();
+    }
+}

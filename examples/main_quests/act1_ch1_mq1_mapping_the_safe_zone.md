@@ -1,3 +1,11 @@
+---
+title: Act1 Ch1 Mq1 Mapping The Safe Zone
+description: Documentation for act1 ch1 mq1 mapping the safe zone
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Main Quest: Mapping the Safe Zone
 
 ## Overview

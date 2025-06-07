@@ -1,3 +1,11 @@
+---
+title: 03 Resource Harvester Activation
+description: Documentation for 03 resource harvester activation
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Main Quest: Resource Harvester Activation
 
 ## Overview

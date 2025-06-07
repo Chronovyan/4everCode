@@ -1,3 +1,11 @@
+---
+title: Contributing
+description: Documentation for CONTRIBUTING
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Contributing to Chronovyan
 
 Thank you for your interest in contributing to Chronovyan! We welcome contributions from the community to help improve this project.

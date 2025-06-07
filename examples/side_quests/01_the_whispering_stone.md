@@ -1,3 +1,11 @@
+---
+title: 01 The Whispering Stone
+description: Documentation for 01 the whispering stone
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Side Quest: The Whispering Stone
 
 ## Overview

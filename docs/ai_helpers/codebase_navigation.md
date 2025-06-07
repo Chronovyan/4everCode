@@ -3,81 +3,105 @@ title: Codebase Navigation for AI Assistants
 description: Documentation for ai_helpers\codebase_navigation.md
 weight: 120
 draft: true
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
 ---
 
 # Codebase Navigation for AI Assistants
 
-> **Navigation**:  
-> [Documentation Index](../index.md) | [AI Quick Reference](./quick_reference.md) | [Common Implementation Tasks](./common_tasks.md)
+> **Navigation**:
+> [Documentation Index](/).).)/)i)n)d)e)x).)m)d) | [AI Quick Reference](/).)/)q)u)i)c)k)_)r)e)f)e)r)e)n)c)e).)m)d) | [Common Implementation Tasks](/).)/)c)o)m)m)o)n)_)t)a)s)k)s).)m)d)
 
-## Overview
-This guide helps AI systems quickly locate relevant code within the Chronovyan codebase. Use these navigation patterns to efficiently search for implementation details, tests, and documentation.
+##
 
-## Root Directory Structure
+his guide helps AI systems quickly locate relevant code within the [Chronovyan](https://chronovyan.github.io/h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/) "The) temporal) programming) language) and) runtime") codebase. Use these navigation patterns to efficiently search for implementation details, tests, and documentation.
 
-```
-chronovyan/
-├── include/              # Header files defining interfaces
-├── src/                  # Implementation files
-├── tests/                # Test files
-├── docs/                 # Documentation
-├── CMakeLists.txt        # Main build configuration
-├── ROADMAP.md            # Development roadmap
-└── README.md             # Project overview
-```
+##
+
+``text
+    chronovyan/
+    ├── include/              #
+
+   ├── src/                  #
+
+   ├── tests/                #
+
+   ├── docs/                 #
+
+   ├── CMakeLists.txt        #
+
+   ├── ROADMAP.md            #
+
+   └── README.md             #
+
+``text
 
 ## Key Directories in Detail
 
-### Include Directory (`include/`)
+###
 
-```
-include/
-├── resource_management/  # Resource management components
-│   ├── resource_tracker.h
-│   ├── resource_processor.h
-│   └── resource_optimizer.h
-├── temporal_debt_tracker.h  # Temporal debt management
-├── resource_visualization.h # Resource visualization
-└── temporal_runtime.h       # Core runtime environment
-```
+``text
+    include/
+    ├── resource_management/  #
 
-#### When to check `include/`:
-- To understand component interfaces
+   │   ├── resource_tracker.h
+    │   ├── resource_processor.h
+    │   └── resource_optimizer.h
+    ├── temporal_debt_tracker.h  #
+
+   ├── resource_visualization.h #
+
+   └── temporal_runtime.h       #
+
+``text
+
+####
+
+ To understand component interfaces
 - To see class definitions and method signatures
 - To check for available public APIs
 
-### Source Directory (`src/`)
+###
 
-```
-src/
-├── resource_management/  # Implementation of resource components
-│   ├── resource_tracker.cpp
-│   ├── resource_processor.cpp
-│   └── resource_optimizer.cpp
-├── demos/                # Demo applications
-├── temporal_debt_tracker.cpp  # Debt tracking implementation
-├── resource_visualization.cpp # Visualization implementation
-└── temporal_runtime.cpp       # Runtime implementation
-```
+``text
+    src/
+    ├── resource_management/  #
 
-#### When to check `src/`:
-- To see implementation details
+   │   ├── resource_tracker.cpp
+    │   ├── resource_processor.cpp
+    │   └── resource_optimizer.cpp
+    ├── demos/                #
+
+   ├── temporal_debt_tracker.cpp  #
+
+   ├── resource_visualization.cpp #
+
+   └── temporal_runtime.cpp       #
+
+``text
+
+####
+
+ To see implementation details
 - To understand algorithm logic
 - To verify how interfaces are implemented
 
-### Tests Directory (`tests/`)
+###
 
-```
-tests/
-├── resource_tracker_test.cpp
-├── resource_visualizer_test.cpp
-├── temporal_debt_test.cpp
-├── real_time_dashboard_test.cpp
-└── CMakeLists.txt  # Test build configuration
-```
+``text
+    tests/
+    ├── resource_tracker_test.cpp
+    ├── resource_visualizer_test.cpp
+    ├── temporal_debt_test.cpp
+    ├── real_time_dashboard_test.cpp
+    └── CMakeLists.txt  #
 
-#### When to check `tests/`:
-- To understand how components should be used
+``text
+
+####
+
+ To understand how components should be used
 - To see expected behavior examples
 - To check test coverage for a feature
 
@@ -86,104 +110,102 @@ tests/
 ### Finding Implementation Details
 
 1. **For Resource Management:**
-   ```
-   Semantic search: "resource management implementation chronovyan"
-   File pattern: include/resource_management/*.h, src/resource_management/*.cpp
-   ```
+```text
+    Semantic search: "resource management implementation chronovyan"
+    File pattern: include/resource_management/*.h, src/resource_management/*.cpp
+```chronoscript
 
-2. **For Temporal Debt:**
-   ```
-   Semantic search: "temporal debt tracker implementation"
-   Files: include/temporal_debt_tracker.h, src/temporal_debt_tracker.cpp
-   ```
+    2. **For Temporal Debt:**```text
+    Semantic search: "temporal debt tracker implementation"
+    Files: include/temporal_debt_tracker.h, src/temporal_debt_tracker.cpp
+```text
 
-3. **For Visualization Features:**
-   ```
-   Semantic search: "resource visualization implementation"
-   Files: include/resource_visualization.h, src/resource_visualization.cpp
-   ```
+    3.**For Visualization Features:**```text
+    Semantic search: "resource visualization implementation"
+    Files: include/resource_visualization.h, src/resource_visualization.cpp
+```text
 
-### Finding Test Examples
+    ### Finding Test Examples
 
-1. **For Resource Tests:**
-   ```
-   Semantic search: "resource visualization test"
-   File pattern: tests/resource_*_test.cpp
-   ```
+    1.**For Resource Tests:**
+```text
+    Semantic search: "resource visualization test"
+    File pattern: tests/resource_*_test.cpp
+```chronoscript
 
-2. **For Temporal Debt Tests:**
-   ```
-   Semantic search: "temporal debt test implementation"
-   File: tests/temporal_debt_test.cpp
-   ```
+    2. **For Temporal Debt Tests:**```text
+    Semantic search: "temporal debt test implementation"
+    File: tests/temporal_debt_test.cpp
+```text
 
-### Finding Build Configuration
+    ### Finding Build Configuration
 
-1. **For Main Build:**
-   ```
-   File: CMakeLists.txt
-   ```
+    1.**For Main Build:**```text
+    File: CMakeLists.txt
+```text
 
-2. **For Test Building:**
-   ```
-   File: tests/CMakeLists.txt
-   ```
+    2.**For Test Building:**```text
+    File: tests/CMakeLists.txt
+```text
 
-## Tracing Component Relationships
+    ## Tracing Component Relationships
 
-### Resource Visualization System
-```
-include/resource_visualization.h  # Interface
-↓
-src/resource_visualization.cpp    # Implementation
-↓
-tests/resource_visualizer_test.cpp  # Tests
-```
+    ###
 
-### Temporal Debt System
-```
-include/temporal_debt_tracker.h   # Interface
-↓
-src/temporal_debt_tracker.cpp     # Implementation
-↓
-tests/temporal_debt_test.cpp      # Core tests
-↓
-tests/temporal_debt_system_test.cpp  # System tests
-```
+    ``text
+    include/resource_visualization.h  #
 
-## Common Code Search Patterns
+    
+    src/resource_visualization.cpp    #
 
-1. **Finding Method Implementations**
-   - If you know the method name (e.g., `accrueRebelDebt`):
-     ```
+    
+    tests/resource_visualizer_test.cpp  #
+
+    ``text
+
+    ###
+
+    ``text
+    include/temporal_debt_tracker.h   #
+
+    
+    src/temporal_debt_tracker.cpp     #
+
+    
+    tests/temporal_debt_test.cpp      #
+
+    
+    tests/temporal_debt_system_test.cpp  #
+
+    ``text
+
+    ## Common Code Search Patterns
+
+    1.**Finding Method Implementations**If you know the method name (e.g., `accrueRebelDebt`):```text
      Semantic search: "accrueRebelDebt implementation"
-     ```
+     ```text
 
-2. **Finding Test Cases**
-   - For a specific feature (e.g., dashboard):
-     ```
+2.**Finding Test Cases**For a specific feature (e.g., dashboard):
+     ```text
      Semantic search: "dashboard test implementation"
-     ```
+     ```text
 
-3. **Finding Documentation**
-   - For a specific concept:
-     ```
+3.**Finding Documentation**For a specific concept:
+```chronoscript
      Semantic search: "temporal debt documentation"
-     ```
+     ```text
 
 ## Suggested Starting Points
 
-1. **Understanding resource management:**
-   - Start with `include/resource_management/resource_tracker.h`
-   - Then check `src/resource_management/resource_tracker.cpp`
-   - Finally review `tests/resource_tracker_test.cpp`
+1.**Understanding resource management:**Start with `include/resource_management/resource_tracker.h`
+    Then check `src/resource_management/resource_tracker.cpp`
+    Finally review `tests/resource_tracker_test.cpp`
 
-2. **Understanding temporal debt:**
-   - Start with `include/temporal_debt_tracker.h`
-   - Then check `src/temporal_debt_tracker.cpp`
-   - Finally review `tests/temporal_debt_test.cpp`
+2.**Understanding temporal debt:**Start with `include/temporal_debt_tracker.h`
+    Then check `src/temporal_debt_tracker.cpp`
+    Finally review `tests/temporal_debt_test.cpp`
 
-3. **Understanding resource visualization:**
-   - Start with `include/resource_visualization.h`
-   - Then check `src/resource_visualization.cpp`
-   - Finally review `tests/resource_visualizer_test.cpp`
+3.**Understanding resource visualization:**
+    Start with `include/resource_visualization.h`
+    Then check `src/resource_visualization.cpp`
+    Finally review `tests/resource_visualizer_test.cpp`

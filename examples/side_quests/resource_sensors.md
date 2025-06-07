@@ -1,3 +1,11 @@
+---
+title: Resource Sensors
+description: Documentation for resource sensors
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Side Quest: Resource Sensors
 
 ## Overview

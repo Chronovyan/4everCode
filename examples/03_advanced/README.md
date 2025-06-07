@@ -1,3 +1,11 @@
+---
+title: Readme
+description: Documentation for README
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Advanced Examples
 
 This directory contains advanced examples for the Chronovyan language. These examples demonstrate complex features, sophisticated algorithms, and real-world applications.

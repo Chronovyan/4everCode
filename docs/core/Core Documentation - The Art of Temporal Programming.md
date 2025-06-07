@@ -3,575 +3,514 @@ title: 'Core Documentation: The Art of Temporal Programming'
 description: Documentation for core\Core Documentation - The Art of Temporal Programming.md
 weight: 120
 draft: true
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
 ---
 
 # Core Documentation: The Art of Temporal Programming
 
-
-
 ## Introduction
 
-Chronovyan is a temporal programming language that embraces the duality between Order and Flux. This documentation provides a comprehensive guide to understanding and mastering the core concepts of Chronovyan programming.
-
-
+[Chronovyan](https://chronovyan.github.io/h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/) "The) temporal) programming) language) and) runtime") is a temporal programming language that embraces the duality between Order and Flux. This documentation provides a comprehensive guide to understanding and mastering the core concepts of Chronovyan programming.
 
 ## Core Concepts
 
+###
 
+``chronovyan
 
-### 1. Temporal Programming Fundamentals
+    // Basic temporal program structure
 
-```chronovyan
+    temporal_program {
 
-// Basic temporal program structure
-
-temporal_program {
-
-    name: "Basic Example";
-
-    type: standard;
-
-    resources: {
-
-        aethel: 10;
-
-        chronon: 5;
-
-    }
-
-    timeline: {
-
-        stability: high;
-
-        flow: forward;
-
-    }
-
-}
-
-
-
-// Program lifecycle
-
-program_lifecycle {
-
-    initialization: {
+        name: "Basic Example";
 
         type: standard;
 
         resources: {
 
-            aethel: 2;
+            \1AETHEL\2/core/Core Concepts - The Foundation of Temporal Programming.md#aethel\3/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)a)e)t)h)e)l))))) "The energy) that) powers) temporal) operations""): 10;
 
-            chronon: 1;
+            \1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)c)h)r)o)n)o)n))))) "The fundamental unit) of) time) in) Chronovyan""): 5;
+
+        }
+
+        timeline: {
+
+            stability: high;
+
+            flow: forward;
 
         }
 
     }
 
-    execution: {
+    // Program lifecycle
 
-        type: continuous;
+    program_lifecycle {
 
-        resources: {
+        initialization: {
 
-            aethel: 5;
+            type: standard;
 
-            chronon: 3;
+            resources: {
 
-        }
+                \1AETHEL\2/core/Core Concepts - The Foundation of Temporal Programming.md#aethel\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)a)e)t)h)e)l))))): 2;
 
-    }
+                \1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)c)h)r)o)n)o)n))))): 1;
 
-    termination: {
-
-        type: graceful;
-
-        resources: {
-
-            aethel: 1;
-
-            chronon: 1;
+            }
 
         }
 
-    }
+        execution: {
 
-}
+            type: continuous;
 
-```
+            resources: {
 
+                \1AETHEL\2/core/Core Concepts - The Foundation of Temporal Programming.md#aethel\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)a)e)t)h)e)l))))): 5;
 
+                \1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)c)h)r)o)n)o)n))))): 3;
 
-### 2. Variable System
-
-```chronovyan
-
-// Variable declarations
-
-variables {
-
-    // Conformist variable
-
-    conf_var: {
-
-        type: CONF;
-
-        flags: [::STATIC, ::ANCHOR];
-
-        value: 42;
-
-    }
-
-    
-
-    // Rebel variable
-
-    reb_var: {
-
-        type: REB;
-
-        flags: [::VOLATILE, ::WEAVER];
-
-        value: dynamic;
-
-    }
-
-}
-
-
-
-// Variable interactions
-
-variable_ops {
-
-    transform: {
-
-        from: conf_var;
-
-        to: reb_var;
-
-        cost: {
-
-            aethel: 3;
-
-            chronon: 2;
+            }
 
         }
 
-    }
+        termination: {
 
-    stabilize: {
+            type: graceful;
 
-        target: reb_var;
+            resources: {
 
-        cost: {
+                \1AETHEL\2/core/Core Concepts - The Foundation of Temporal Programming.md#aethel\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)a)e)t)h)e)l))))): 1;
 
-            aethel: 2;
-
-            chronon: 1;
-
-        }
-
-    }
-
-}
-
-```
-
-
-
-### 3. Loop Mechanics
-
-```chronovyan
-
-// Standard loop
-
-FOR_CHRONON {
-
-    iterations: 5;
-
-    stability: high;
-
-    resources: {
-
-        aethel: 2;
-
-        chronon: 1;
-
-    }
-
-    body: {
-
-        // Loop operations
-
-    }
-
-}
-
-
-
-// Rebel loop
-
-REWIND_FLOW {
-
-    iterations: 3;
-
-    stability: medium;
-
-    resources: {
-
-        aethel: 3;
-
-        chronon: 2;
-
-    }
-
-    body: {
-
-        // Loop operations
-
-    }
-
-}
-
-```
-
-
-
-### 4. Resource Management
-
-```chronovyan
-
-// Resource allocation
-
-resource_management {
-
-    allocation: {
-
-        aethel: 10;
-
-        chronon: 5;
-
-    }
-
-    monitoring: {
-
-        type: continuous;
-
-        threshold: 0.8;
-
-    }
-
-    recovery: {
-
-        type: automatic;
-
-        rate: 0.1;
-
-    }
-
-}
-
-
-
-// Resource optimization
-
-optimization {
-
-    strategy: efficient;
-
-    target: {
-
-        aethel_usage: 0.7;
-
-        chronon_usage: 0.6;
-
-    }
-
-}
-
-```
-
-
-
-## Best Practices
-
-
-
-### 1. Program Structure
-
-- Organize code into logical temporal blocks
-
-- Maintain clear timeline boundaries
-
-- Document resource requirements
-
-
-
-### 2. Variable Usage
-
-- Choose appropriate variable types
-
-- Use flags effectively
-
-- Monitor variable stability
-
-
-
-### 3. Loop Design
-
-- Consider stability implications
-
-- Plan resource allocation
-
-- Handle edge cases
-
-
-
-### 4. Resource Planning
-
-- Estimate resource needs
-
-- Implement monitoring
-
-- Plan for recovery
-
-
-
-## Examples
-
-
-
-### Basic Program
-
-```chronovyan
-
-// Simple temporal program
-
-temporal_program {
-
-    name: "Hello Chronovyan";
-
-    type: standard;
-
-    resources: {
-
-        aethel: 5;
-
-        chronon: 3;
-
-    }
-
-    
-
-    variables: {
-
-        message: {
-
-            type: CONF;
-
-            flags: [::STATIC];
-
-            value: "Hello, Chronovyan!";
-
-        }
-
-    }
-
-    
-
-    execution: {
-
-        FOR_CHRONON {
-
-            iterations: 1;
-
-            body: {
-
-                output: message;
+                \1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)c)h)r)o)n)o)n))))): 1;
 
             }
 
         }
 
     }
+```text
 
-}
+    ###
 
-```
+    ``chronovyan
 
+        // Variable declarations
 
+        variables {
 
-### Advanced Program
+            // Conformist variable
 
-```chronovyan
+            conf_var: {
 
-// Complex temporal program
+                type: CONF;
 
-temporal_program {
+                flags: \1ANCHOR\2/core/Core Concepts - The Foundation of Temporal Programming.md#anchor\3];
 
-    name: "Temporal Calculator";
+                value: 42;
 
-    type: advanced;
+            }
 
-    resources: {
+            // Rebel variable
 
-        aethel: 15;
+            reb_var: {
 
-        chronon: 8;
+                type: REB;
 
-    }
+                flags: \1WEAVE\2/core/Core Concepts - The Foundation of Temporal Programming.md#weave\3R];
 
-    
+                value: dynamic;
 
-    variables: {
-
-        input: {
-
-            type: REB;
-
-            flags: [::VOLATILE];
+            }
 
         }
 
-        result: {
+        // Variable interactions
 
-            type: CONF;
+        variable_ops {
 
-            flags: [::STATIC, ::ANCHOR];
+            transform: {
+
+                from: conf_var;
+
+                to: reb_var;
+
+                cost: {
+
+                    \1AETHEL\2/core/Core Concepts - The Foundation of Temporal Programming.md#aethel\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)a)e)t)h)e)l))))): 3;
+
+                    \1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)c)h)r)o)n)o)n))))): 2;
+
+                }
+
+            }
+
+            stabilize: {
+
+                target: reb_var;
+
+                cost: {
+
+                    \1AETHEL\2/core/Core Concepts - The Foundation of Temporal Programming.md#aethel\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)a)e)t)h)e)l))))): 2;
+
+                    \1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)c)h)r)o)n)o)n))))): 1;
+
+                }
+
+            }
+
+        }
+```text
+
+    ###
+
+    ``chronovyan
+
+        // Standard loop
+
+        FOR_\1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3 {
+
+            iterations: 5;
+
+            stability: high;
+
+            resources: {
+
+                \1AETHEL\2/core/Core Concepts - The Foundation of Temporal Programming.md#aethel\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)a)e)t)h)e)l))))): 2;
+
+                \1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)c)h)r)o)n)o)n))))): 1;
+
+            }
+
+            body: {
+
+                // Loop operations
+
+            }
 
         }
 
-    }
-
-    
-
-    execution: {
+        // Rebel loop
 
         REWIND_FLOW {
 
             iterations: 3;
 
+            stability: medium;
+
+            resources: {
+
+                \1AETHEL\2/core/Core Concepts - The Foundation of Temporal Programming.md#aethel\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)a)e)t)h)e)l))))): 3;
+
+                \1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)c)h)r)o)n)o)n))))): 2;
+
+            }
+
             body: {
 
-                process: input;
+                // Loop operations
 
-                stabilize: result;
+            }
+
+        }
+```text
+
+    ###
+
+    ``chronovyan
+
+        // Resource allocation
+
+        resource_management {
+
+            allocation: {
+
+                \1AETHEL\2/core/Core Concepts - The Foundation of Temporal Programming.md#aethel\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)a)e)t)h)e)l))))): 10;
+
+                \1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)c)h)r)o)n)o)n))))): 5;
+
+            }
+
+            monitoring: {
+
+                type: continuous;
+
+                threshold: 0.8;
+
+            }
+
+            recovery: {
+
+                type: automatic;
+
+                rate: 0.1;
 
             }
 
         }
 
-    }
+        // Resource optimization
 
-}
+        optimization {
 
-```
+            strategy: efficient;
 
+            target: {
 
+                aethel_usage: 0.7;
 
-## Common Patterns
+                chronon_usage: 0.6;
 
+            }
 
+        }
+```text
 
-### 1. Timeline Management
+    ## Best Practices
 
-```chronovyan
+    ### 1. Program Structure
 
-// Timeline creation and management
+     Organize code into logical temporal blocks
 
-timeline_management {
+     Maintain clear timeline boundaries
 
-    create: {
+     Document resource requirements
 
-        type: standard;
+    ### 2. Variable Usage
 
-        stability: high;
+     Choose appropriate variable types
 
-    }
+     Use flags effectively
 
-    monitor: {
+     Monitor variable stability
 
-        type: continuous;
+    ### 3. Loop Design
 
-        metrics: [stability, resources];
+     Consider stability implications
 
-    }
+     Plan resource allocation
 
-    optimize: {
+     Handle edge cases
 
-        type: automatic;
+    ### 4. Resource Planning
 
-        target: efficiency;
+     Estimate resource needs
 
-    }
+     Implement monitoring
 
-}
+     Plan for recovery
 
-```
+    ## Examples
 
+    ###
 
+    ``chronovyan
 
-### 2. State Preservation
+        // Simple temporal program
 
-```chronovyan
+        temporal_program {
 
-// State management
+            name: "Hello Chronovyan";
 
-state_management {
+            type: standard;
 
-    save: {
+            resources: {
 
-        type: atomic;
+                \1AETHEL\2/core/Core Concepts - The Foundation of Temporal Programming.md#aethel\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)a)e)t)h)e)l))))): 5;
 
-        frequency: periodic;
+                \1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)c)h)r)o)n)o)n))))): 3;
 
-    }
+            }
 
-    restore: {
+            variables: {
 
-        type: on_demand;
+                message: {
 
-        validation: strict;
+                    type: CONF;
 
-    }
+                    flags: [::STATIC];
 
-}
+                    value: "Hello, Chronovyan!";
 
-```
+                }
 
+            }
 
+            execution: {
 
-### 3. Error Handling
+                FOR_\1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3 {
 
-```chronovyan
+                    iterations: 1;
 
-// Error management
+                    body: {
 
-error_handling {
+                        output: message;
 
-    prevention: {
+                    }
 
-        type: proactive;
+                }
 
-        monitoring: continuous;
+            }
 
-    }
+        }
+```text
 
-    recovery: {
+    ###
 
-        type: graceful;
+    ``chronovyan
 
-        strategy: rollback;
+        // Complex temporal program
 
-    }
+        temporal_program {
 
-}
+            name: "Temporal Calculator";
 
-```
+            type: advanced;
 
+            resources: {
 
+                \1AETHEL\2/core/Core Concepts - The Foundation of Temporal Programming.md#aethel\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)a)e)t)h)e)l))))): 15;
+
+                \1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)c)h)r)o)n)o)n))))): 8;
+
+            }
+
+            variables: {
+
+                input: {
+
+                    type: REB;
+
+                    flags: [::VOLATILE];
+
+                }
+
+                result: {
+
+                    type: CONF;
+
+                    flags: \1ANCHOR\2/core/Core Concepts - The Foundation of Temporal Programming.md#anchor\3];
+
+                }
+
+            }
+
+            execution: {
+
+                REWIND_FLOW {
+
+                    iterations: 3;
+
+                    body: {
+
+                        process: input;
+
+                        stabilize: result;
+
+                    }
+
+                }
+
+            }
+
+        }
+```text
+
+    ## Common Patterns
+
+    ###
+
+    ``chronovyan
+
+        // Timeline creation and management
+
+        timeline_management {
+
+            create: {
+
+                type: standard;
+
+                stability: high;
+
+            }
+
+            monitor: {
+
+                type: continuous;
+
+                metrics: [stability, resources];
+
+            }
+
+            optimize: {
+
+                type: automatic;
+
+                target: efficiency;
+
+            }
+
+        }
+```text
+
+    ###
+
+    ``chronovyan
+
+        // State management
+
+        state_management {
+
+            save: {
+
+                type: atomic;
+
+                frequency: periodic;
+
+            }
+
+            restore: {
+
+                type: on_demand;
+
+                validation: strict;
+
+            }
+
+        }
+```text
+
+    ###
+
+    ``chronovyan
+
+        // Error management
+
+        error_handling {
+
+            prevention: {
+
+                type: proactive;
+
+                monitoring: continuous;
+
+            }
+
+            recovery: {
+
+                type: graceful;
+
+                strategy: rollback;
+
+            }
+
+        }
+
+```text
 
 ## Conclusion
 

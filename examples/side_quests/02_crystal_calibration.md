@@ -1,3 +1,11 @@
+---
+title: 02 Crystal Calibration
+description: Documentation for 02 crystal calibration
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Side Quest: Crystal Calibration
 
 ## Overview

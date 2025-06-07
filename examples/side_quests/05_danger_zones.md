@@ -1,3 +1,11 @@
+---
+title: 05 Danger Zones
+description: Documentation for 05 danger zones
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Side Quest: Danger Zones
 
 ## Overview

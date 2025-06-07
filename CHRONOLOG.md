@@ -1,3 +1,11 @@
+---
+title: Chronolog
+description: Documentation for CHRONOLOG
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Chronovyan Project - CHRONOLOG
 
 ## Temporal Audit Log

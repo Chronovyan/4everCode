@@ -1,3 +1,11 @@
+---
+title: Contributors
+description: Documentation for CONTRIBUTORS
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Contributors
 
 We would like to thank all the people who have contributed to Chronovyan. Your contributions help make this project better for everyone.

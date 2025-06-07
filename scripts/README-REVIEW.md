@@ -1,3 +1,11 @@
+---
+title: Readme-Review
+description: Documentation for README-REVIEW
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Documentation Review Tool
 
 This tool helps review and analyze the Chronovyan documentation for common issues, generate reports, and ensure consistency across all documentation files.

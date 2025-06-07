@@ -1,3 +1,11 @@
+---
+title: Act2 Ch1 Mq1 Ascent To The Unknown
+description: Documentation for act2 ch1 mq1 ascent to the unknown
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Ascent to the Unknown
 
 ## Overview

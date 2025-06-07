@@ -1,3 +1,11 @@
+---
+title: Act2 Ch1 Sq1 Echoes In The Code
+description: Documentation for act2 ch1 sq1 echoes in the code
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Echoes in the Code
 
 ## Overview

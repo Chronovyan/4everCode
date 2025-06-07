@@ -1,63 +1,69 @@
-# Contributing to Chronovyan
+---
+title: Contributing
+description: Documentation for contributing
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
+# Contributing to [Chronovyan](https://chronovyan.github.io/h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/) "The) temporal) programming) language) and) runtime")
 
 Thank you for your interest in contributing to Chronovyan! We welcome contributions from the community.
 
 ## Code of Conduct
 
-Please review our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing.
+Please review our [Code of Conduct](/)C)O)D)E)_)O)F)_)C)O)N)D)U)C)T).)m)d) before contributing.
 
 ## Getting Started
 
-1. **Fork** the repository on GitHub
-2. **Clone** your fork locally
-3. Create a new **branch** for your changes
+1. **Fork**the repository on GitHub
+2.**Clone**your fork locally
+3. Create a new**branch**for your changes
 4. Make your changes
-5. **Test** your changes
-6. **Commit** and **push** to your fork
-7. Open a **Pull Request**
+5.**Test**your changes
+6.**Commit**and**push**to your fork
+7. Open a**Pull Request**
 
 ## Development Environment
 
 ### Prerequisites
 
-- C++20 compatible compiler
+ C++20 compatible compiler
 - CMake 3.15+
 - Git
 - Python 3.6+ (for documentation)
 
-### Building
+###
 
-```bash
-git clone https://github.com/your-username/Chronovyan.git
-cd Chronovyan
-mkdir build && cd build
-cmake ..
-cmake --build .
-```
+``bash
+    git clone https://github.com/your-username/Chronovyan.git
+    cd Chronovyan
+    mkdir build && cd build
+    cmake ..
+    cmake --build .
+```text
 
-### Running Tests
+###
 
-```bash
-cd build
-ctest --output-on-failure
-```
+``bash
+    cd build
+    ctest --output-on-failure
+```text
 
 ## Code Style
 
-We follow the [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines).
+We follow the [C++ Core Guidelines](https://github.com/Chronovyan/Chronovyan.github.io)t)t)p)s):)/)/)i)s)o)c)p)p).)g)i)t)h)u)b).)i)o)/)C)p)p)C)o)r)e)G)u)i)d)e)l)i)n)e)s)/)C)p)p)C)o)r)e)G)u)i)d)e)l)i)n)e)s).
 
 ### Formatting
 
-We use `clang-format` for code formatting. Run the following before committing:
+We use `clang-format` for code formatting. Run the following before committing:```bash
+    #
 
-```bash
-# Format all source files
-find . -name '*.h' -o -name '*.cpp' | xargs clang-format -i
-```
+   find . -name '*.h' -o -name '*.cpp' | xargs clang-format -i
+```text
 
-### Naming Conventions
-
-- **Classes**: `PascalCase`
+### Naming Convention
+*Classes**: `PascalCase`
 - **Functions**: `camelCase`
 - **Variables**: `snake_case`
 - **Constants**: `UPPER_SNAKE_CASE`
@@ -66,18 +72,19 @@ find . -name '*.h' -o -name '*.cpp' | xargs clang-format -i
 ## Documentation
 
 We use MkDocs for documentation. To build the documentation locally:
-
 ```bash
-# Install dependencies
-pip install -r docs-requirements.txt
+    #
 
-# Serve documentation locally
-mkdocs serve
-```
+   pip install -r docs-requirements.txt
+
+    #
+
+   mkdocs serve
+```text
 
 ### Documentation Guidelines
 
-- Use clear, concise language
+ Use clear, concise language
 - Include examples for all public APIs
 - Document all parameters and return values
 - Keep documentation up-to-date with code changes
@@ -86,17 +93,17 @@ mkdocs serve
 
 ### Writing Tests
 
-- Create a new test file in the `tests` directory
+ Create a new test file in the `tests` directory
 - Use Catch2 for unit tests
 - Test both success and failure cases
 - Include descriptive test names
 
-### Running Tests
+###
 
-```bash
-cd build
-ctest --output-on-failure
-```
+``bash
+    cd build
+    ctest --output-on-failure
+```text
 
 ## Pull Requests
 
@@ -119,4 +126,4 @@ When reporting issues, please include:
 
 ## License
 
-By contributing to Chronovyan, you agree that your contributions will be licensed under the project's [LICENSE](LICENSE) file.
+By contributing to Chronovyan, you agree that your contributions will be licensed under the project's [LICENSE](/)L)I)C)E)N)S)E) file.

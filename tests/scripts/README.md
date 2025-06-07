@@ -1,3 +1,11 @@
+---
+title: Readme
+description: Documentation for README
+date_created: '2025-06-07'
+status: draft
+last_updated: '2025-06-07'
+---
+
 # Chronovyan Script Tests
 
 This directory contains test scripts for the Chronovyan language interpreter. These tests are designed to validate the functionality of the Chronovyan interpreter and ensure that it correctly processes Chronovyan language constructs.
