@@ -34,6 +34,8 @@ jobs:
           pip install mkdocs==1.5.3
           pip install mkdocs-material==9.5.3
           pip install mkdocs-minify-plugin==0.8.0
+          pip install mkdocs-git-revision-date-localized-plugin
+          pip install markdown-extended-data
       
       - name: Build
         run: mkdocs build --verbose
