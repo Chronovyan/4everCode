@@ -56,9 +56,14 @@ add_library(chronovyan_lib ALIAS chronovyan_core_lib)
 # Enable testing
 enable_testing()
 
+# Enable CTest
+include(CTest)
+
 # Add tests if requested
 option(BUILD_TESTS "Build tests" ON)
-if(BUILD_TESTS)
+option(BUILD_TESTING "Build testing tree" ON)
+
+if(BUILD_TESTS AND BUILD_TESTING)
     # Download and build GoogleTest using FetchContent
     include(FetchContent)
 
@@ -91,4 +96,41 @@ if(BUILD_TESTS)
     
     # Add test directory
     add_subdirectory(tests)
+    
+    # Configure CTest for JUnit output
+    set(CTEST_OUTPUT_ON_FAILURE ON)
+    set(CTEST_TEST_TIMEOUT 300)
+    
+    # Enable XML output for tests
+    if(CMAKE_CROSSCOMPILING)
+        set(GTEST_DISABLE_XML_OUTPUT ON)
+    else()
+        set(GTEST_DISABLE_XML_OUTPUT OFF)
+    endif()
+    
+    # Create a test target that will run all tests
+    add_custom_target(run_all_tests
+        COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure -C $<CONFIG>
+        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+        COMMENT "Running all tests..."
+    )
+    
+    # Make sure tests are built before running them
+    add_dependencies(run_all_tests gtest gtest_main)
+    
+    # Make check target depend on run_all_tests
+    add_custom_target(check
+        COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure -C $<CONFIG>
+        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+        DEPENDS run_all_tests
+        COMMENT "Running tests..."
+    )
+    
+    # Enable test coverage if requested
+    option(ENABLE_COVERAGE "Enable coverage reporting" OFF)
+    if(ENABLE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+        message(STATUS "Enabling code coverage")
+        add_compile_options(--coverage -O0 -g)
+        add_link_options(--coverage)
+    endif()
 endif()

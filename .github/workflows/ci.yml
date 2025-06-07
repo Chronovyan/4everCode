@@ -69,7 +69,46 @@ jobs:
       run: |
         mkdir -p build/test-results
         cd build
-        ctest --output-on-failure -C ${{ matrix.build_type }} --output-junit test-results/results.xml || echo "Tests failed"
+        
+        # Set environment variables for test output
+        export GTEST_OUTPUT="xml:test-results/"
+        export CTEST_OUTPUT_ON_FAILURE=1
+        
+        # Run tests with XML output
+        echo "Running tests with XML output..."
+        ctest \
+          --output-on-failure \
+          -C ${{ matrix.build_type }} \
+          --output-junit test-results/results.xml \
+          --test-output-size-passed=1024000 \
+          --test-output-size-failed=1024000 \
+          || echo "Tests failed"
+        
+        # List all XML files for debugging
+        echo "Generated XML files:"
+        find . -name "*.xml" -type f -exec ls -la {} \;
+        
+        # Check if any test results were generated
+        if [ ! -d "test-results" ] || [ -z "$(ls -A test-results/)" ]; then
+          echo "WARNING: No test results were generated!"
+          # Create a dummy test result to avoid failing the artifact upload
+          mkdir -p test-results
+          echo '<?xml version="1.0" encoding="UTF-8"?><testsuites><testsuite name="dummy" tests="0" failures="0" errors="0" skipped="0" time="0"></testsuite></testsuites>' > test-results/dummy.xml
+        fi
+    
+    - name: List build directory
+      if: always()
+      run: |
+        echo "Build directory contents:"
+        ls -la build
+        echo -e "\nTest results directory:"
+        ls -la build/test-results || echo "No test-results directory found"
+        echo -e "\nTesting directory:"
+        ls -la build/Testing || echo "No Testing directory found"
+        
+        # List all XML files with their contents for debugging
+        echo -e "\nTest result files:"
+        find build -name "*.xml" -type f -exec sh -c 'echo "=== $1 ==="; cat "$1"; echo ""' _ {} \;
     
     - name: Upload test results
       if: always()

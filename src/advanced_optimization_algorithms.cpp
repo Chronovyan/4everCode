@@ -5,6 +5,7 @@
 #include <numeric>
 #include <random>
 #include <sstream>
+#include <stdexcept>  // For std::runtime_error
 
 #include "advanced_optimization_algorithms.h"
 
@@ -125,7 +126,7 @@ PatternRecognitionResult AdvancedOptimizationAlgorithms::detectPatternAdvanced(
             bool is_repetitive = true;
             if (chronon_data.size() > 3) {
                 double first_val = chronon_data[0];
-                for (size_t i = 1; i < chronon_data.size(); ++i) {
+                for (std::size_t i = 1; i < chronon_data.size(); ++i) {
                     if (std::abs(chronon_data[i] - first_val) > 0.1 * first_val) {
                         is_repetitive = false;
                         break;
@@ -398,7 +399,7 @@ bool AdvancedOptimizationAlgorithms::isTrendingPattern(const std::vector<double>
     double sum_xy = 0.0;
     double sum_xx = 0.0;
 
-    for (size_t i = 0; i < data.size(); ++i) {
+    for (std::size_t i = 0; i < data.size(); ++i) {
         sum_x += i;
         sum_y += data[i];
         sum_xy += i * data[i];
@@ -443,7 +444,7 @@ std::map<std::string, double> AdvancedOptimizationAlgorithms::slidingWindowAnaly
     pattern_probs["decreasing"] = 0.0;
     pattern_probs["random"] = 0.0;
 
-    if (data.size() < static_cast<size_t>(window_size)) {
+    if (data.size() < static_cast<std::size_t>(window_size)) {
         pattern_probs["random"] = 1.0;
         return pattern_probs;
     }
@@ -453,7 +454,7 @@ std::map<std::string, double> AdvancedOptimizationAlgorithms::slidingWindowAnaly
     std::vector<double> window_variances;
     std::vector<double> window_trends;
 
-    for (size_t i = 0; i <= data.size() - window_size; ++i) {
+    for (std::size_t i = 0; i + window_size <= data.size(); ++i) {
         double sum = 0.0;
         double sum_sq = 0.0;
 
