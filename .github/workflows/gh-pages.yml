@@ -1,20 +1,26 @@
 name: Deploy MkDocs to GitHub Pages
 
+# Only run on push to gh-pages-new branch or manually triggered
 on:
   push:
-    branches: [ gh-pages-new ]
-  pull_request:
-    branches: [ gh-pages-new ]
-  workflow_dispatch:
+    branches:
+      - gh-pages-new
+    # Only run when files in docs/ or mkdocs.yml change
+    paths:
+      - 'docs/**'
+      - 'mkdocs.yml'
+      - '.github/workflows/gh-pages.yml'
+  workflow_dispatch:  # Allow manual triggering
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# Cancel any in-progress runs when a new commit is pushed
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
