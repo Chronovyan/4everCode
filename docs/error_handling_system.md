@@ -3,33 +3,32 @@ title: Error Handling and Source Location System
 description: Documentation for error_handling_system.md
 weight: 100
 draft: true
-date_created: '2025-06-07'
-status: draft
-last_updated: '2025-06-07'
 ---
 
 # Error Handling and Source Location System
 
 ## Overview
 
-The [Chronovyan](https://chronovyan.github.io/h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/)h)t)t)p)s):)/)/)c)h)r)o)n)o)v)y)a)n).)g)i)t)h)u)b).)i)o)/) "The) temporal) programming) language) and) runtime") Error Handling System provides a robust infrastructure for error reporting, management, and debugging. Together with the enhanced Source Location system, it enables precise pinpointing of issues in the source code and detailed error messages that make debugging easier for both developers and users.
+The Chronovyan Error Handling System provides a robust infrastructure for error reporting, management, and debugging. Together with the enhanced Source Location system, it enables precise pinpointing of issues in the source code and detailed error messages that make debugging easier for both developers and users.
 
 ## Key Components
 
 ### 1. Source Location System
 
-The enhanced `SourceLocation` struct now provides
-*Precise Location Information**: Tracks file, line, column, and absolute position within the source.
+The enhanced `SourceLocation` struct now provides:
+
+- **Precise Location Information**: Tracks file, line, column, and absolute position within the source.
 - **Range Support**: Can represent a range of source code (from start location to end location).
-- **Location Comparison**: Methods to compare locations (`isBefore`,`isAfter`, equality operators).
+- **Location Comparison**: Methods to compare locations (`isBefore`, `isAfter`, equality operators).
 - **Detailed Representation**: The `toDetailedString` method provides context-rich location information including the actual line of code.
 - **Location Merging**: The `mergeLocations` utility function creates ranges that span multiple locations.
 - **Fallback Handling**: The `createBestLocation` function intelligently creates a location with whatever information is available.
 
 ### 2. Error Handler
 
-The ErrorHandler class has been enhanced with
-*Improved Error Reporting**: Methods for reporting errors, warnings, \1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)p)a)r)a)d)o)x)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)p)a)r)a)d)o)x)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)p)a)r)a)d)o)x))))) "A temporal inconsistency) that) must) be) resolved""), and glitches with detailed location information.
+The ErrorHandler class has been enhanced with:
+
+- **Improved Error Reporting**: Methods for reporting errors, warnings, paradoxes, and glitches with detailed location information.
 - **Console Output Control**: Settings to control what gets printed to the console and at what severity level.
 - **Detailed Error Messages**: Enhanced error formatting with source code context.
 - **Error Callbacks**: Improved callback system with registration and removal capabilities.
@@ -38,8 +37,9 @@ The ErrorHandler class has been enhanced with
 
 ### 3. Error Types
 
-The system supports various types of issues
-*ChronovyanError**: Standard errors and warnings.
+The system supports various types of issues:
+
+- **ChronovyanError**: Standard errors and warnings.
 - **ParadoxEvent**: Special errors related to temporal paradoxes.
 - **GlitchEvent**: Temporal glitches that may or may not need fixing.
 
@@ -61,46 +61,46 @@ The system supports various types of issues
 
 ## Integration Examples
 
-###
+### Using Enhanced Source Locations
 
-``cpp
-    // Create a source location range
-    SourceLocation startLoc(sourceFile, 10, 5, 100);
-    SourceLocation endLoc(sourceFile, 12, 10, 150);
-    SourceLocation range = startLoc.createRange(endLoc);
+```cpp
+// Create a source location range
+SourceLocation startLoc(sourceFile, 10, 5, 100);
+SourceLocation endLoc(sourceFile, 12, 10, 150);
+SourceLocation range = startLoc.createRange(endLoc);
 
-    // Get a detailed string representation with the source code
-    std::string detailedLocation = range.toDetailedString(true);
-```text
+// Get a detailed string representation with the source code
+std::string detailedLocation = range.toDetailedString(true);
+```
 
-###
+### Reporting Errors with Context
 
-``cpp
-    // Report an error with a specific location
-    ErrorHandler::getInstance().reportError(
-        node->getLocation(),
-        "Invalid operation for type " + typeStr
-    );
+```cpp
+// Report an error with a specific location
+ErrorHandler::getInstance().reportError(
+    node->getLocation(), 
+    "Invalid operation for type " + typeStr
+);
 
-    // Report a fatal error with detailed location information
-    ErrorHandler::getInstance().reportFatalError(
-        expr->getLocation(),
-        "Unrecoverable type mismatch"
-    );
-```text
+// Report a fatal error with detailed location information
+ErrorHandler::getInstance().reportFatalError(
+    expr->getLocation(),
+    "Unrecoverable type mismatch"
+);
+```
 
-###
+### Using Callbacks for Custom Error Handling
 
-``cpp
-    // Register a callback for custom error handling
-    ErrorHandler::getInstance().registerErrorCallback(
-        [](const) ChronovyanError&) error) {
-            // Custom error handling logic
-            std::cerr << "Custom handler: " << error.toDetailedString(true) << std::endl;
-            return true; // Error was handled
-        }
-    );
-```text
+```cpp
+// Register a callback for custom error handling
+ErrorHandler::getInstance().registerErrorCallback(
+    [](const ChronovyanError& error) {
+        // Custom error handling logic
+        std::cerr << "Custom handler: " << error.toDetailedString(true) << std::endl;
+        return true; // Error was handled
+    }
+);
+```
 
 ## Best Practices
 

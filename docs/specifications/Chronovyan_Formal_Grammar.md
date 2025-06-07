@@ -1,267 +1,277 @@
 ---
-title: 'The Sacred Syntax: Chronovyan and) runtime") Formal Grammar (EBNF)'
+title: 'The Sacred Syntax: Chronovyan Formal Grammar (EBNF)'
 description: Documentation for specifications\Chronovyan_Formal_Grammar.md
 weight: 120
 draft: true
-date_created: '2025-06-07'
-status: draft
-last_updated: '2025-06-07'
 ---
 
 # The Sacred Syntax: Chronovyan Formal Grammar (EBNF)
 
-Hail, Weaver, to this ancient text detailing the **Sacred Syntax**of Chronovyan—the formal language through which we commune with the timestream itself. Inscribed in the arcane notation of Extended Backus-Naur Form (EBNF), these patterns form the very foundation of our craft, ensuring that all Weavers speak with one voice when addressing the powers of Chronos Prime.**Purpose**: This hallowed grimoire serves as the definitive reference for the sacred forms of Chronovyan, guiding the hands of all Weavers and the tools they wield, that our patterns might resonate in perfect harmony with the Prime Thread
-*Lore Tidbit**: The First Anchor's journals reveal that the formal grammar was not designed but discovered—revealed through dreams and visions as the fundamental language of time itself, waiting to be transcribed by those with the Weaver's Sight.
+Hail, Weaver, to this ancient text detailing the **Sacred Syntax** of Chronovyan—the formal language through which we commune with the timestream itself. Inscribed in the arcane notation of Extended Backus-Naur Form (EBNF), these patterns form the very foundation of our craft, ensuring that all Weavers speak with one voice when addressing the powers of Chronos Prime.
+
+**Purpose**: This hallowed grimoire serves as the definitive reference for the sacred forms of Chronovyan, guiding the hands of all Weavers and the tools they wield, that our patterns might resonate in perfect harmony with the Prime Thread.
+
+**Lore Tidbit**: The First Anchor's journals reveal that the formal grammar was not designed but discovered—revealed through dreams and visions as the fundamental language of time itself, waiting to be transcribed by those with the Weaver's Sight.
 
 ## The Notation of Power
 
 The sacred EBNF notation used in this text follows these ancient conventions:
 
- `" "` encircles literal text, the direct invocations
+- `" "` encircles literal text, the direct invocations
 - `|` signifies the branching paths of possibility
 - `[ ]` embraces optional elements, those that may or may not manifest
 - `{ }` denotes repetition, the eternal cycle of zero or more
 - `( )` encompasses grouping, the binding of elements into one
 - `;` completes a rule, sealing its power
 
-##
+## The Three-Fold Structure
 
-``ebnf
-    program = temporal_program_declaration, antecedence_block, concurrency_block, consequence_block;
+```ebnf
+program = temporal_program_declaration, antecedence_block, concurrency_block, consequence_block;
 
-    temporal_program_declaration = "\1TEMPORAL\2/core/Core Concepts - The Foundation of Temporal Programming.md#temporal\3_PROGRAM", identifier, ["{", program_attributes, "}", ";"];
+temporal_program_declaration = "TEMPORAL_PROGRAM", identifier, ["{", program_attributes, "}", ";"];
 
-    program_attributes = {attribute_declaration};
+program_attributes = {attribute_declaration};
 
-    attribute_declaration = attribute_name, ":", attribute_value, ";";
+attribute_declaration = attribute_name, ":", attribute_value, ";";
 
-    attribute_name = "name" | "version" | "stability_requirement" | "aethel_requirement" | "chronon_requirement";
+attribute_name = "name" | "version" | "stability_requirement" | "aethel_requirement" | "chronon_requirement";
 
-    attribute_value = string_literal | number_literal | identifier;
+attribute_value = string_literal | number_literal | identifier;
 
-    antecedence_block = "ANTECEDENCE", "{", {antecedent_stmt}, "}";
+antecedence_block = "ANTECEDENCE", "{", {antecedent_stmt}, "}";
 
-    concurrency_block = "CONCURRENCY", "{", {concurrency_stmt}, "}";
+concurrency_block = "CONCURRENCY", "{", {concurrency_stmt}, "}";
 
-    consequence_block = "CONSEQUENCE", "{", {consequence_stmt}, "}";
-```chronoscript
-*Lore Tidbit**: The three-fold structure mirrors the ancient Chronovyan creation myth, where the First Weaver shaped reality through Declaration (Antecedence), Action (Concurrency), and Resolution (Consequence).
+consequence_block = "CONSEQUENCE", "{", {consequence_stmt}, "}";
+```
 
-##
+**Lore Tidbit**: The three-fold structure mirrors the ancient Chronovyan creation myth, where the First Weaver shaped reality through Declaration (Antecedence), Action (Concurrency), and Resolution (Consequence).
 
-``ebnf
-    antecedent_stmt = declaration_stmt | define_pattern_stmt | compose_pattern_stmt | import_stmt | resource_declaration;
+## Declarations and Invocations
 
-    declaration_stmt = "DECLARE", variable_type, ["::", variable_flag], identifier, ":", data_type, ["=", expr], ";";
+```ebnf
+antecedent_stmt = declaration_stmt | define_pattern_stmt | compose_pattern_stmt | import_stmt | resource_declaration;
 
-    variable_type = "CONF" | "REB" | "ADAPTIVE";
+declaration_stmt = "DECLARE", variable_type, ["::", variable_flag], identifier, ":", data_type, ["=", expr], ";";
 
-    variable_flag = "STATIC" | "\1FLUX\2/core/Core Concepts - The Foundation of Temporal Programming.md#flux\3" | "\1ANCHOR\2/core/Core Concepts - The Foundation of Temporal Programming.md#anchor\3" | "\1WEAVE\2/core/Core Concepts - The Foundation of Temporal Programming.md#weave\3R" | "ECHO" | "SOURCE_INFUSED" | "VOLATILE";
+variable_type = "CONF" | "REB" | "ADAPTIVE";
 
-    resource_declaration = "RESOURCE", identifier, ":", resource_type, ["=", resource_initialization], ";";
+variable_flag = "STATIC" | "FLUX" | "ANCHOR" | "WEAVER" | "ECHO" | "SOURCE_INFUSED" | "VOLATILE";
 
-    resource_type = "\1AETHEL\2/core/Core Concepts - The Foundation of Temporal Programming.md#aethel\3_RESERVE" | "\1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3_STREAM" | "\1TEMPORAL\2/core/Core Concepts - The Foundation of Temporal Programming.md#temporal\3_RESOURCE";
+resource_declaration = "RESOURCE", identifier, ":", resource_type, ["=", resource_initialization], ";";
 
-    resource_initialization = "HARVEST", "(", string_literal, ")", | "initiate_harvest", "(", identifier, ")";
-```chronoscript
-*Lore Tidbit**: The Weaver Caste teaches that the most powerful patterns begin with the clearest declarations—for to name a thing properly is to begin to control it.
+resource_type = "AETHEL_RESERVE" | "CHRONON_STREAM" | "TEMPORAL_RESOURCE";
 
-##
+resource_initialization = "HARVEST", "(", string_literal, ")", | "initiate_harvest", "(", identifier, ")";
+```
 
-``ebnf
-    data_type = primitive_type | complex_type | temporal_type;
+**Lore Tidbit**: The Weaver Caste teaches that the most powerful patterns begin with the clearest declarations—for to name a thing properly is to begin to control it.
 
-    primitive_type = "INT" | "FLOAT" | "BOOLEAN" | "STRING" | "VOID";
+## The Sacred Sigils
 
-    complex_type = "ARRAY", "<", data_type, ">" |
-                   "MAP", "<", data_type, ",", data_type, ">" |
-                   "TUPLE", "<", data_type, {",", data_type}, ">";
+```ebnf
+data_type = primitive_type | complex_type | temporal_type;
 
-    temporal_type = "TIMESTAMP" | "\1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3_STREAM" | "\1AETHEL\2/core/Core Concepts - The Foundation of Temporal Programming.md#aethel\3_RESERVE" | "\1TEMPORAL\2/core/Core Concepts - The Foundation of Temporal Programming.md#temporal\3_SIGNATURE" |
-                    "\1WEAVE\2/core/Core Concepts - The Foundation of Temporal Programming.md#weave\3_PATTERN" | "CONF_ARRAY" | "REB_STREAM" | "QUANTUM_STATE" |
-                    "STABILITY_MATRIX" | "TIMELINE" | "\1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL" | "\1TEMPORAL\2/core/Core Concepts - The Foundation of Temporal Programming.md#temporal\3_MARKER";
-```chronoscript
-*Lore Tidbit**: The First Weavers recognized only five primitive types, corresponding to the five elements of Chronovyan philosophy. The complex and temporal types emerged as the craft evolved, each discovered during moments of profound temporal insight.
+primitive_type = "INT" | "FLOAT" | "BOOLEAN" | "STRING" | "VOID";
 
-##
+complex_type = "ARRAY", "<", data_type, ">" | 
+               "MAP", "<", data_type, ",", data_type, ">" |
+               "TUPLE", "<", data_type, {",", data_type}, ">";
 
-``ebnf
-    expr = assignment_expr | conditional_expr | logical_expr | arithmetic_expr | temporal_expr | function_call;
+temporal_type = "TIMESTAMP" | "CHRONON_STREAM" | "AETHEL_RESERVE" | "TEMPORAL_SIGNATURE" | 
+                "WEAVE_PATTERN" | "CONF_ARRAY" | "REB_STREAM" | "QUANTUM_STATE" | 
+                "STABILITY_MATRIX" | "TIMELINE" | "PARADOX_LEVEL" | "TEMPORAL_MARKER";
+```
 
-    assignment_expr = identifier, "=", expr;
+**Lore Tidbit**: The First Weavers recognized only five primitive types, corresponding to the five elements of Chronovyan philosophy. The complex and temporal types emerged as the craft evolved, each discovered during moments of profound temporal insight.
 
-    conditional_expr = "IF", "(", expr, ")", block, ["ELSE", block];
+## Weaving Expressions
 
-    logical_expr = and_expr | or_expr | not_expr | comparison_expr;
+```ebnf
+expr = assignment_expr | conditional_expr | logical_expr | arithmetic_expr | temporal_expr | function_call;
 
-    and_expr = expr, "&&", expr;
+assignment_expr = identifier, "=", expr;
 
-    or_expr = expr, "|", expr;
+conditional_expr = "IF", "(", expr, ")", block, ["ELSE", block];
 
-    not_expr = "!", expr;
+logical_expr = and_expr | or_expr | not_expr | comparison_expr;
 
-    comparison_expr = expr, comparison_operator, expr;
+and_expr = expr, "&&", expr;
 
-    comparison_operator = "==" | "!=" | "<" | ">" | "<=" | ">=";
+or_expr = expr, "||", expr;
 
-    arithmetic_expr = term, {("+" | "-"), term};
+not_expr = "!", expr;
 
-    term = factor, {("*" | "/" | "%"), factor};
+comparison_expr = expr, comparison_operator, expr;
 
-    factor = identifier | literal | "(", expr, ")" | unary_expr;
+comparison_operator = "==" | "!=" | "<" | ">" | "<=" | ">=";
 
-    unary_expr = ("-" | "+"), factor;
+arithmetic_expr = term, {("+" | "-"), term};
 
-    temporal_expr = chronon_expr | aethel_expr | timeline_expr;
+term = factor, {("*" | "/" | "%"), factor};
 
-    chronon_expr = "\1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)c)h)r)o)n)o)n))))) "The fundamental unit) of) time) in) Chronovyan"")", "(", expr, ")";
+factor = identifier | literal | "(", expr, ")" | unary_expr;
 
-    aethel_expr = "\1AETHEL\2/core/Core Concepts - The Foundation of Temporal Programming.md#aethel\3/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)a)e)t)h)e)l))))) "The energy) that) powers) temporal) operations"")", "(", expr, ")";
+unary_expr = ("-" | "+"), factor;
 
-    timeline_expr = "TIMELINE", "(", expr, ")";
+temporal_expr = chronon_expr | aethel_expr | timeline_expr;
 
-    function_call = identifier, "(", [parameter_list], ")";
+chronon_expr = "CHRONON", "(", expr, ")";
 
-    parameter_list = expr, {",", expr};
+aethel_expr = "AETHEL", "(", expr, ")";
 
-    literal = string_literal | number_literal | boolean_literal | null_literal | timestamp_literal;
+timeline_expr = "TIMELINE", "(", expr, ")";
 
-    string_literal = '"', {any_character_except_double_quote}, '"';
+function_call = identifier, "(", [parameter_list], ")";
 
-    number_literal = integer_literal | float_literal;
+parameter_list = expr, {",", expr};
 
-    integer_literal = digit, {digit};
+literal = string_literal | number_literal | boolean_literal | null_literal | timestamp_literal;
 
-    float_literal = integer_literal, ".", integer_literal;
+string_literal = '"', {any_character_except_double_quote}, '"';
 
-    boolean_literal = "TRUE" | "FALSE";
+number_literal = integer_literal | float_literal;
 
-    null_literal = "NULL";
+integer_literal = digit, {digit};
 
-    timestamp_literal = "@", identifier;
-```chronoscript
-*Lore Tidbit**: The Void Compact of the Third Era forbade certain expression combinations that were found to create dangerous temporal resonances. These forbidden patterns are not documented here, but experienced Weavers learn to sense and avoid them.
+float_literal = integer_literal, ".", integer_literal;
 
-##
+boolean_literal = "TRUE" | "FALSE";
 
-``ebnf
-    define_pattern_stmt = "DECLARE", variable_type, "::", variable_flag, identifier, ":", "\1WEAVE\2/core/Core Concepts - The Foundation of Temporal Programming.md#weave\3_PATTERN", "=", "define_pattern", "(", string_literal, ",", "[", stmt_list, "]", ")", ";";
+null_literal = "NULL";
 
-    compose_pattern_stmt = "DECLARE", variable_type, "::", variable_flag, identifier, ":", "\1WEAVE\2/core/Core Concepts - The Foundation of Temporal Programming.md#weave\3_PATTERN", "=", "compose_pattern", "(", string_literal, ",", "[", pattern_list, "]", ",", strategy, [",", "[", condition_list, "]"], ")", ";";
+timestamp_literal = "@", identifier;
+```
 
-    stmt_list = stmt, {",", stmt};
+**Lore Tidbit**: The Void Compact of the Third Era forbade certain expression combinations that were found to create dangerous temporal resonances. These forbidden patterns are not documented here, but experienced Weavers learn to sense and avoid them.
 
-    pattern_list = identifier, {",", identifier};
+## Pattern Crafting and Composition
 
-    strategy = '"', ("SEQUENTIAL" | "PARALLEL" | "CONDITIONAL"), '"';
+```ebnf
+define_pattern_stmt = "DECLARE", variable_type, "::", variable_flag, identifier, ":", "WEAVE_PATTERN", "=", "define_pattern", "(", string_literal, ",", "[", stmt_list, "]", ")", ";";
 
-    condition_list = condition, {",", condition};
+compose_pattern_stmt = "DECLARE", variable_type, "::", variable_flag, identifier, ":", "WEAVE_PATTERN", "=", "compose_pattern", "(", string_literal, ",", "[", pattern_list, "]", ",", strategy, [",", "[", condition_list, "]"], ")", ";";
 
-    condition = temporal_metric | resource_threshold | pattern_outcome | boolean_expr;
+stmt_list = stmt, {",", stmt};
 
-    temporal_metric = "\1PARADOX\2/core/Core Concepts - The Foundation of Temporal Programming.md#paradox\3_LEVEL", comparison_operator, float_literal;
+pattern_list = identifier, {",", identifier};
 
-    resource_threshold = identifier, comparison_operator, float_literal;
+strategy = '"', ("SEQUENTIAL" | "PARALLEL" | "CONDITIONAL"), '"';
 
-    pattern_outcome = identifier, ".", "outcome", "==", string_literal;
+condition_list = condition, {",", condition};
 
-    boolean_expr = expr;
-```chronoscript
-*Lore Tidbit**: The Rebel Weavers believe that patterns have souls—that each `define_pattern` invocation creates not just code, but a living entity with its own desires and tendencies. This heretical view is rejected by the Anchor Caste, who maintain that patterns are tools, not beings.
+condition = temporal_metric | resource_threshold | pattern_outcome | boolean_expr;
 
-##
+temporal_metric = "PARADOX_LEVEL", comparison_operator, float_literal;
 
-``ebnf
-    concurrency_stmt = stream_stmt | apply_pattern_stmt | validate_stmt | paradox_check_stmt | standard_stmt;
+resource_threshold = identifier, comparison_operator, float_literal;
 
-    stream_stmt = "|", identifier, ":", stmt;
+pattern_outcome = identifier, ".", "outcome", "==", string_literal;
 
-    apply_pattern_stmt = [identifier, "="], "apply_pattern", "(", identifier, ",", identifier, ")", ";";
+boolean_expr = expr;
+```
 
-    validate_stmt = identifier, "=", "validate_pattern", "(", identifier, ")", ";";
+**Lore Tidbit**: The Rebel Weavers believe that patterns have souls—that each `define_pattern` invocation creates not just code, but a living entity with its own desires and tendencies. This heretical view is rejected by the Anchor Caste, who maintain that patterns are tools, not beings.
 
-    paradox_check_stmt = "?!", "paradox_check", "(", "[", identifier_list, "]", ")", ";";
+## Concurrent Streams
 
-    identifier_list = identifier, {",", identifier};
+```ebnf
+concurrency_stmt = stream_stmt | apply_pattern_stmt | validate_stmt | paradox_check_stmt | standard_stmt;
 
-    standard_stmt = assignment_stmt | conditional_stmt | loop_stmt | function_call_stmt;
+stream_stmt = "||", identifier, ":", stmt;
 
-    assignment_stmt = identifier, "=", expr, ";";
+apply_pattern_stmt = [identifier, "="], "apply_pattern", "(", identifier, ",", identifier, ")", ";";
 
-    conditional_stmt = "IF", "(", expr, ")", block, ["ELSE", block];
+validate_stmt = identifier, "=", "validate_pattern", "(", identifier, ")", ";";
 
-    loop_stmt = for_chronon_loop | while_event_loop | rewind_flow_loop | temporal_echo_loop;
+paradox_check_stmt = "?!", "paradox_check", "(", "[", identifier_list, "]", ")", ";";
 
-    function_call_stmt = function_call, ";";
-```chronoscript
-*Lore Tidbit**: The parallel stream operator (`|`) was discovered during the Second Fracture, when a desperate Weaver accidentally created multiple concurrent timelines that saved the Prime Thread from collapse. What began as a mistake became one of our most powerful tools.
+identifier_list = identifier, {",", identifier};
 
-##
+standard_stmt = assignment_stmt | conditional_stmt | loop_stmt | function_call_stmt;
 
-``ebnf
-    for_chronon_loop = "FOR_\1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3", "(", [loop_initializer], ";", [loop_condition], ";", [loop_increment], ")", block;
+assignment_stmt = identifier, "=", expr, ";";
 
-    loop_initializer = "\1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3", identifier, "=", expr;
+conditional_stmt = "IF", "(", expr, ")", block, ["ELSE", block];
 
-    loop_condition = expr;
+loop_stmt = for_chronon_loop | while_event_loop | rewind_flow_loop | temporal_echo_loop;
 
-    loop_increment = identifier, ("++" | "--" | "+=", expr | "-=", expr);
+function_call_stmt = function_call, ";";
+```
 
-    while_event_loop = "WHILE_EVENT", "(", expr, ")", block;
+**Lore Tidbit**: The parallel stream operator (`||`) was discovered during the Second Fracture, when a desperate Weaver accidentally created multiple concurrent timelines that saved the Prime Thread from collapse. What began as a mistake became one of our most powerful tools.
 
-    rewind_flow_loop = "REWIND_FLOW", "(", expr, ")", block;
+## The Cycles of Time
 
-    temporal_echo_loop = "\1TEMPORAL\2/core/Core Concepts - The Foundation of Temporal Programming.md#temporal\3_ECHO", "(", [echo_duration], ")", block;
+```ebnf
+for_chronon_loop = "FOR_CHRONON", "(", [loop_initializer], ";", [loop_condition], ";", [loop_increment], ")", block;
 
-    echo_duration = expr;
-```chronoscript
-*Lore Tidbit**: The Temporal Echo loop is unique among loop constructs in that it appears to execute only once to outside observers, but within the loop, the code experiences multiple iterations across parallel timelines.
+loop_initializer = "CHRONON", identifier, "=", expr;
 
-##
+loop_condition = expr;
 
-``ebnf
-    block = "{", {stmt}, "}";
+loop_increment = identifier, ("++" | "--" | "+=", expr | "-=", expr);
 
-    stmt = declaration_stmt |
-           assignment_stmt |
-           conditional_stmt |
-           loop_stmt |
-           branch_stmt |
-           rewind_stmt |
-           function_call_stmt |
-           paradox_check_stmt |
-           stream_stmt;
+while_event_loop = "WHILE_EVENT", "(", expr, ")", block;
 
-    branch_stmt = "BRANCH", [identifier, "="], "(", expr, ")", "{", {stmt}, "}", ["MERGE"];
+rewind_flow_loop = "REWIND_FLOW", "(", expr, ")", block;
 
-    rewind_stmt = "REWIND_TO", timestamp_literal, ";";
+temporal_echo_loop = "TEMPORAL_ECHO", "(", [echo_duration], ")", block;
 
-    catch_temporal_stmt = "CATCH_\1TEMPORAL\2/core/Core Concepts - The Foundation of Temporal Programming.md#temporal\3", error_type, "{", {stmt}, "}";
+echo_duration = expr;
+```
 
-    error_type = "ParadoxOverflowError" | "AethelDepletionError" | "TimelineCorruptionAlert" | "NoConditionMet";
+**Lore Tidbit**: The Temporal Echo loop is unique among loop constructs in that it appears to execute only once to outside observers, but within the loop, the code experiences multiple iterations across parallel timelines.
 
-    dejavu_stmt = "DEJAVU", "(", identifier, ",", identifier, ",", string_literal, ")", ";";
-```chronoscript
-*Lore Tidbit**: The `CATCH_\1TEMPORAL\2/core/Core Concepts - The Foundation of Temporal Programming.md#temporal\3` construct is not merely error handling—it is a ritual for containing temporal fractures that might otherwise spread throughout the program, causing catastrophic timeline corruption.
+## Flow Control and Paradox Management
 
-##
+```ebnf
+block = "{", {stmt}, "}";
 
-``ebnf
-    loot_table_stmt = "LOOT_TABLE", "{", loot_entry, {",", loot_entry}, "}", ";";
+stmt = declaration_stmt | 
+       assignment_stmt | 
+       conditional_stmt | 
+       loop_stmt | 
+       branch_stmt | 
+       rewind_stmt | 
+       function_call_stmt | 
+       paradox_check_stmt | 
+       stream_stmt;
 
-    loot_entry = number_literal, ":", "LOOT", "(", string_literal, ")", ";";
+branch_stmt = "BRANCH", [identifier, "="], "(", expr, ")", "{", {stmt}, "}", ["MERGE"];
 
-    loot_drop_stmt = [identifier, "="], "loot_drop", "(", identifier | loot_table_literal, ")", ";";
+rewind_stmt = "REWIND_TO", timestamp_literal, ";";
 
-    loot_table_literal = "{", loot_probability_pair, {",", loot_probability_pair}, "}";
+catch_temporal_stmt = "CATCH_TEMPORAL", error_type, "{", {stmt}, "}";
 
-    loot_probability_pair = float_literal, ":", "LOOT", "(", string_literal, ")";
-```tex
-*Lore Tidbit**: The ancient Seekers first discovered the `LOOT` mechanism when exploring unstable time rifts. What began as a way to catalog strange artifacts from these expeditions evolved into a core feature of Chronovyan's reward system.
+error_type = "ParadoxOverflowError" | "AethelDepletionError" | "TimelineCorruptionAlert" | "NoConditionMet";
+
+dejavu_stmt = "DEJAVU", "(", identifier, ",", identifier, ",", string_literal, ")", ";";
+```
+
+**Lore Tidbit**: The `CATCH_TEMPORAL` construct is not merely error handling—it is a ritual for containing temporal fractures that might otherwise spread throughout the program, causing catastrophic timeline corruption.
+
+## Loot and Rewards
+
+```ebnf
+loot_table_stmt = "LOOT_TABLE", "{", loot_entry, {",", loot_entry}, "}", ";";
+
+loot_entry = number_literal, ":", "LOOT", "(", string_literal, ")", ";";
+
+loot_drop_stmt = [identifier, "="], "loot_drop", "(", identifier | loot_table_literal, ")", ";";
+
+loot_table_literal = "{", loot_probability_pair, {",", loot_probability_pair}, "}";
+
+loot_probability_pair = float_literal, ":", "LOOT", "(", string_literal, ")";
+```
+
+**Lore Tidbit**: The ancient Seekers first discovered the `LOOT` mechanism when exploring unstable time rifts. What began as a way to catalog strange artifacts from these expeditions evolved into a core feature of Chronovyan's reward system.
 
 ## The Final Word
 
 This sacred text contains the complete grammar of Chronovyan, the language through which we commune with time itself. By adhering to these patterns, Weavers ensure that their code resonates with the Prime Thread, maintaining the stability of Chronos Prime while harnessing the power to shape reality.
 
-The grammar is not merely a set of rules but a living reflection of the eternal dance between Order and Flux. As you master these forms, remember that the most elegant patterns respect the structure while exploring the infinite possibilities within it
-*Lore Tidbit**: The Weaver's Trial, the final test before full admission to the Caste, requires writing a syntactically perfect program without reference to any documentation—proving that the patterns of Chronovyan have become inscribed not just in memory, but in the very soul of the Weaver.
+The grammar is not merely a set of rules but a living reflection of the eternal dance between Order and Flux. As you master these forms, remember that the most elegant patterns respect the structure while exploring the infinite possibilities within it.
+
+**Lore Tidbit**: The Weaver's Trial, the final test before full admission to the Caste, requires writing a syntactically perfect program without reference to any documentation—proving that the patterns of Chronovyan have become inscribed not just in memory, but in the very soul of the Weaver.

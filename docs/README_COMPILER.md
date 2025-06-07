@@ -1,11 +1,8 @@
 ---
-title: Chronovyan and) runtime") Compiler
+title: Chronovyan Compiler
 description: Documentation for README_COMPILER.md
 weight: 100
 draft: true
-date_created: '2025-06-07'
-status: draft
-last_updated: '2025-06-07'
 ---
 
 # Chronovyan Compiler
@@ -23,8 +20,8 @@ The compiler consists of several main components:
 
 ## Features
 
- Support for various data types: integers, floats, booleans, strings, etc.
-- Resource management with \1CHRONON\2/core/Core Concepts - The Foundation of Temporal Programming.md#chronon\3/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)c)h)r)o)n)o)n)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)c)h)r)o)n)o)n))))) "The fundamental unit) of) time) in) Chronovyan"") and \1AETHEL\2/core/Core Concepts - The Foundation of Temporal Programming.md#aethel\3/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)a)e)t)h)e)l))))) "The energy) that) powers) temporal) operations"").
+- Support for various data types: integers, floats, booleans, strings, etc.
+- Resource management with chronons and aethel.
 - Variable declarations and assignments.
 - Control flow statements (if, while).
 - Resource-aware execution blocks (allocate, expend, borrow, repay).
@@ -35,50 +32,51 @@ The compiler consists of several main components:
 
 ### Prerequisites
 
- C++17 compatible compiler
+- C++17 compatible compiler
 - CMake 3.12 or higher
 
-###
+### Build Instructions
 
-``bash
-    mkdir build
-    cd build
-    cmake ..
-    cmake --build .
-```text
+```bash
+mkdir build
+cd build
+cmake ..
+cmake --build .
+```
 
-##
+## Usage
 
-``bash
-    ./chronovyan_compiler <input_file> [-o <output_file>] [-v]
-```text
+```bash
+./chronovyan_compiler <input_file> [-o <output_file>] [-v]
+```
 
 Options:
-- `-o <output_file>`: Specify output file (default:`<input_file>.c`)
+- `-o <output_file>`: Specify output file (default: `<input_file>.c`)
 - `-v, --verbose`: Enable verbose output
 
 ## Example
 
 A simple Chronovyan program:
-```text
-    // Hello World program in Chronovyan language
-    allocate 10 chronons, 5 \1AETHEL\2/core/Core Concepts - The Foundation of Temporal Programming.md#aethel\3c)o)r)e)/)c)o)n)c)e)p)t)s)#)[)a)e)t)h)e)l)])()/)c)o)r)e)/)c)o)n)c)e)p)t)s)#)a)e)t)h)e)l))))) {
-        var string message = "Hello, Chronovyan World!";
-        println(message);
 
-        var int counter = 0;
-        while (counter < 5) {
-            expend 1 chronons {
-                println("Counter: " + counter);
-                counter = counter + 1;
-            }
+```
+// Hello World program in Chronovyan language
+allocate 10 chronons, 5 aethel {
+    var string message = "Hello, Chronovyan World!";
+    println(message);
+    
+    var int counter = 0;
+    while (counter < 5) {
+        expend 1 chronons {
+            println("Counter: " + counter);
+            counter = counter + 1;
         }
     }
-```text
+}
+```
 
 ## Project Structure
 
- `src/compiler/`: Source code for the compiler
+- `src/compiler/`: Source code for the compiler
   - `include/compiler/`: Header files
   - `src/`: Implementation files
 - `samples/`: Sample Chronovyan programs
@@ -88,7 +86,7 @@ A simple Chronovyan program:
 
 The compiler generates C code that depends on a small runtime library (`chronovyan_runtime.h`), which provides:
 
- Resource management functions
+- Resource management functions
 - Temporal operations
 - Basic I/O functionality
 
