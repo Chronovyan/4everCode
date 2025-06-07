@@ -67,7 +67,6 @@ plugins:
       locale: en
   - awesome-pages:
       collapse_single_pages: true
-  - markdown_extended  # For template variables
 
 # Extensions
 markdown_extensions:
