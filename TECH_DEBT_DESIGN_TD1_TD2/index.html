@@ -1,0 +1,956 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for TECH_DEBT_DESIGN_TD1_TD2.md">
+      
+      
+      
+        <link rel="canonical" href="https://chronovyan.github.io/TECH_DEBT_DESIGN_TD1_TD2/">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>The Sacred Patterns of Mending: TD-1 and TD-2 - Chronovyan</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-sacred-patterns-of-mending-td-1-and-td-2" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Chronovyan" class="md-header__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chronovyan
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The Sacred Patterns of Mending: TD-1 and TD-2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Chronovyan/Chronovyan" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/installation/" class="md-tabs__link">
+          
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../api/index.md" class="md-tabs__link">
+        
+  
+    
+  
+  API Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CONTRIBUTING.md" class="md-tabs__link">
+        
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Chronovyan" class="md-nav__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Chronovyan
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Chronovyan/Chronovyan" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CONTRIBUTING.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#td-1-error-pattern-asymmetry-in-statecontroller" class="md-nav__link">
+    <span class="md-ellipsis">
+      TD-1: Error Pattern Asymmetry in StateController
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TD-1: Error Pattern Asymmetry in StateController">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-fracture-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current Fracture Points
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proposed-mending-the-symmetry-of-forms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proposed Mending: The Symmetry of Forms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Proposed Mending: The Symmetry of Forms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-craft-the-error-sigil-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Craft the Error Sigil Hierarchy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-reshape-the-statecontroller-error-ritual" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Reshape the StateController Error Ritual
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-align-the-decision-engine-with-error-sigils" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Align the Decision Engine with Error Sigils
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-ritual-of-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Ritual of Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weavers-test-rituals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Weaver's Test Rituals
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#td-2-recovery-pattern-echoes-in-modedecisionengine" class="md-nav__link">
+    <span class="md-ellipsis">
+      TD-2: Recovery Pattern Echoes in ModeDecisionEngine
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TD-2: Recovery Pattern Echoes in ModeDecisionEngine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-fracture-points_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current Fracture Points
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proposed-mending-the-sensorrecoveryhandler-weave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proposed Mending: The SensorRecoveryHandler Weave
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Proposed Mending: The SensorRecoveryHandler Weave">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-craft-the-sensorrecoveryhandler-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Craft the SensorRecoveryHandler Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-weave-into-modedecisionengine" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Weave into ModeDecisionEngine
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-ritual-of-implementation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Ritual of Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weavers-test-rituals_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Weaver's Test Rituals
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-grand-reweaving-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Grand Reweaving Timeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Grand Reweaving Timeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-alignment-error-sigil-system-td-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      First Alignment: Error Sigil System (TD-1)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#second-alignment-recovery-harmonics-td-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Second Alignment: Recovery Harmonics (TD-2)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-ritual-integration-and-purification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Ritual: Integration and Purification
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="the-sacred-patterns-of-mending-td-1-and-td-2">The Sacred Patterns of Mending: TD-1 and TD-2</h1>
+<p>Hail, Weaver, to this scroll of arcane designs, detailing the sacred patterns needed to repair two critical fractures in our temporal tapestry. Herein lie the ritualistic approaches for mending the Error Pattern Asymmetry (TD-1) in the StateController weave and the Recovery Pattern Echoes (TD-2) in the ModeDecisionEngine pattern.</p>
+<p><strong>Purpose</strong>: This grimoire outlines the incantations and sigils required to strengthen our timeline against the Void's corruption, focusing on high-risk patterns that threaten paradox.</p>
+<p><strong>Lore Tidbit</strong>: The Anchor Caste teaches that a well-designed mending ritual is half the battle against temporal corruption—the other half being the weaver's skill in execution.</p>
+<h2 id="td-1-error-pattern-asymmetry-in-statecontroller">TD-1: Error Pattern Asymmetry in StateController</h2>
+<h3 id="current-fracture-points">Current Fracture Points</h3>
+<ol>
+<li>Error handling patterns scatter throughout the StateController weave, creating disharmony</li>
+<li>Duplication exists between handleErrorState and handleFallbackMode rituals, risking temporal echoes</li>
+<li>String-based error signatures lack the proper Naming Rites, weakening their power</li>
+<li>Error notification patterns are entangled with state management, violating the Principle of Pattern Purity</li>
+</ol>
+<h3 id="proposed-mending-the-symmetry-of-forms">Proposed Mending: The Symmetry of Forms</h3>
+<h4 id="1-craft-the-error-sigil-hierarchy">1. Craft the Error Sigil Hierarchy</h4>
+<pre><code class="language-chronoscript">// The Primal Error Sigil
+class ChronovyanError {
+public:
+    virtual ~ChronovyanError() = default;
+    virtual std::string getErrorCode() const = 0;
+    virtual std::string getErrorMessage() const = 0;
+    virtual ErrorSeverity getSeverity() const = 0;
+    virtual bool requiresFallback() const = 0;
+};
+
+// The Derived Error Sigils
+class SensorFailureError : public ChronovyanError {
+    // Implementation specific to sensor failures in the Temporal Loom
+};
+
+class CommunicationError : public ChronovyanError {
+    // Implementation specific to communication disruptions across the Aethel Network
+};
+
+class ConfigurationError : public ChronovyanError {
+    // Implementation specific to misaligned configuration patterns
+};
+
+// The Forge of Error Creation
+class ErrorForge {
+public:
+    static std::unique_ptr&lt;ChronovyanError&gt; forgeError(
+        const std::string&amp; source,
+        const std::string&amp; message,
+        bool is_critical);
+};
+</code></pre>
+<h4 id="2-reshape-the-statecontroller-error-ritual">2. Reshape the StateController Error Ritual</h4>
+<pre><code class="language-chronoscript">// The Unified Error Ritual
+void StateController::containError(const std::unique_ptr&lt;ChronovyanError&gt;&amp; error) {
+    // Common error containment pattern
+
+    // Determine if the timeline requires fallback protection
+    if (error-&gt;requiresFallback()) {
+        invokeTimeline(FallbackTimeline, error-&gt;getErrorCode());
+    } else {
+        // Regular error containment weave
+    }
+
+    // Echo the error across the Aethel Network
+    notification_chamber_-&gt;echoError(error-&gt;getErrorMessage());
+}
+</code></pre>
+<h4 id="3-align-the-decision-engine-with-error-sigils">3. Align the Decision Engine with Error Sigils</h4>
+<pre><code class="language-chronoscript">ModeDecision ModeDecisionEngine::weaveDecision(const SystemMetrics&amp; metrics) {
+    try {
+        // Existing pattern
+    } catch (const std::exception&amp; e) {
+        auto error = ErrorForge::forgeError(&quot;engine&quot;, e.what(), false);
+        return craftErrorDecision(error.get());
+    }
+}
+
+ModeDecision ModeDecisionEngine::craftErrorDecision(const ChronovyanError* error) {
+    ModeDecision decision;
+    decision.mode = PerformanceMode::Lean; // Default conservative pattern
+    decision.reason = error-&gt;getErrorCode();
+    decision.details = error-&gt;getErrorMessage();
+    decision.is_error_state = true;
+    decision.is_conservative = true;
+    decision.is_fallback_mode = error-&gt;requiresFallback();
+    decision.requires_fallback = error-&gt;requiresFallback();
+    return decision;
+}
+</code></pre>
+<h3 id="the-ritual-of-implementation">The Ritual of Implementation</h3>
+<ol>
+<li>Forge the error sigil hierarchy without disturbing existing patterns</li>
+<li>Craft the forge methods for creating appropriate error sigils</li>
+<li>Reshape StateController to channel the new error sigils while maintaining harmonic compatibility</li>
+<li>Align ModeDecisionEngine to produce error-sigil decisions</li>
+<li>Dissolve the old string-based error patterns once harmony is achieved</li>
+</ol>
+<h3 id="weavers-test-rituals">Weaver's Test Rituals</h3>
+<ol>
+<li>Craft test incantations for each error sigil</li>
+<li>Test sigil creation through the forge</li>
+<li>Test error containment in StateController with various sigils</li>
+<li>Ensure harmonic resonance during the transition</li>
+</ol>
+<h2 id="td-2-recovery-pattern-echoes-in-modedecisionengine">TD-2: Recovery Pattern Echoes in ModeDecisionEngine</h2>
+<h3 id="current-fracture-points_1">Current Fracture Points</h3>
+<ol>
+<li>Recovery detection patterns echo between evaluate_metrics and makeDecision rituals</li>
+<li>State tracking for sensor resonance is scattered across the tapestry</li>
+<li>Recovery weaving is entangled with other decision-making patterns</li>
+<li>The pattern resists extension with new recovery scenarios</li>
+</ol>
+<h3 id="proposed-mending-the-sensorrecoveryhandler-weave">Proposed Mending: The SensorRecoveryHandler Weave</h3>
+<h4 id="1-craft-the-sensorrecoveryhandler-pattern">1. Craft the SensorRecoveryHandler Pattern</h4>
+<pre><code class="language-chronoscript">class SensorRecoveryHandler {
+public:
+    SensorRecoveryHandler();
+
+    // Track sensor resonance
+    void attuneSensorState(const std::string&amp; sensor_name, bool is_resonating);
+
+    // Sense recovery harmonics
+    bool hasAnySensorResonanceRestored() const;
+    bool hasSensorResonanceRestored(const std::string&amp; sensor_name) const;
+
+    // Gather recovery echoes
+    std::vector&lt;std::string&gt; getRestoredSensors() const;
+
+    // Craft a recovery decision pattern
+    ModeDecision weaveRecoveryDecision() const;
+
+private:
+    struct SensorResonance {
+        bool was_silenced = false;
+        bool is_resonating = true;
+    };
+
+    std::unordered_map&lt;std::string, SensorResonance&gt; sensor_resonances_;
+    bool had_previous_dissonance_ = false;
+};
+</code></pre>
+<h4 id="2-weave-into-modedecisionengine">2. Weave into ModeDecisionEngine</h4>
+<pre><code class="language-chronoscript">class ModeDecisionEngine {
+private:
+    // Add as a thread in the pattern
+    SensorRecoveryHandler recovery_weaver_;
+
+    // Other existing threads
+};
+
+ModeDecision ModeDecisionEngine::evaluate_metrics(const SystemMetrics&amp; metrics) {
+    // Attune recovery weaver with current sensor resonances
+    recovery_weaver_.attuneSensorState(&quot;cpu&quot;, 
+        metrics.metrics.count(&quot;cpu&quot;) &amp;&amp; metrics.metrics.at(&quot;cpu&quot;).is_available);
+    recovery_weaver_.attuneSensorState(&quot;memory&quot;, 
+        metrics.metrics.count(&quot;memory&quot;) &amp;&amp; metrics.metrics.at(&quot;memory&quot;).is_available);
+    recovery_weaver_.attuneSensorState(&quot;gpu&quot;, 
+        metrics.metrics.count(&quot;gpu&quot;) &amp;&amp; metrics.metrics.at(&quot;gpu&quot;).is_available);
+
+    // Check for resonance restoration first
+    if (recovery_weaver_.hasAnySensorResonanceRestored()) {
+        return recovery_weaver_RecoveryDecision();
+    }
+
+    // Continue with existing weave for non-recovery scenarios
+}
+</code></pre>
+<h3 id="the-ritual-of-implementation_1">The Ritual of Implementation</h3>
+<ol>
+<li>Craft the SensorRecoveryHandler weave with test harmonics</li>
+<li>Weave it into ModeDecisionEngine without disrupting existing patterns</li>
+<li>Reshape evaluate_metrics and makeDecision rituals to channel the weaver</li>
+<li>Dissolve duplicate recovery patterns once integration harmonizes</li>
+</ol>
+<h3 id="weavers-test-rituals_1">Weaver's Test Rituals</h3>
+<ol>
+<li>Craft test incantations for SensorRecoveryHandler weave</li>
+<li>Test integration harmonics with ModeDecisionEngine</li>
+<li>Perform regression divinations to ensure pattern stability</li>
+</ol>
+<h2 id="the-grand-reweaving-timeline">The Grand Reweaving Timeline</h2>
+<h3 id="first-alignment-error-sigil-system-td-1">First Alignment: Error Sigil System (TD-1)</h3>
+<ul>
+<li>Day 1-2: Forge error sigil hierarchy and the Forge of Creation</li>
+<li>Day 3: Reshape StateController to channel new error sigils</li>
+<li>Day 4-5: Align ModeDecisionEngine and craft test harmonics</li>
+</ul>
+<h3 id="second-alignment-recovery-harmonics-td-2">Second Alignment: Recovery Harmonics (TD-2)</h3>
+<ul>
+<li>Day 1-2: Craft SensorRecoveryHandler weave and test incantations</li>
+<li>Day 3: Weave into ModeDecisionEngine while preserving existing harmonics</li>
+<li>Day 4-5: Reshape evaluate_metrics and makeDecision to channel the recovery weaver</li>
+</ul>
+<h3 id="final-ritual-integration-and-purification">Final Ritual: Integration and Purification</h3>
+<ul>
+<li>Day 1-2: Dissolve duplicate patterns and string-based echoes</li>
+<li>Day 3: Perform final harmonization and stability divinations</li>
+<li>Day 4: Present to the Council of Anchors for blessing</li>
+</ul>
+<p><strong>Lore Tidbit</strong>: The Weaver Caste teaches that true mastery is shown not in perfect weaving, but in elegant mending—for it is in repair that we discover the deepest secrets of our craft.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "search.highlight"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

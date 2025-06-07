@@ -1,0 +1,1364 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for chronicle_compiler_design.md">
+      
+      
+      
+        <link rel="canonical" href="https://chronovyan.github.io/chronicle_compiler_design/">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>Chronicle Compiler Design Document - Chronovyan</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chronicle-compiler-design-document" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Chronovyan" class="md-header__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chronovyan
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chronicle Compiler Design Document
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Chronovyan/Chronovyan" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/installation/" class="md-tabs__link">
+          
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../api/index.md" class="md-tabs__link">
+        
+  
+    
+  
+  API Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CONTRIBUTING.md" class="md-tabs__link">
+        
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Chronovyan" class="md-nav__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Chronovyan
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Chronovyan/Chronovyan" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CONTRIBUTING.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Objectives
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Objectives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primary-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primary Goals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secondary-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secondary Goals
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-component-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Component Descriptions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Component Descriptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-front-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.1 Front-end
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-middle-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.2 Middle-end
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#313-back-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.3 Back-end
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-compilation-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Compilation Pipeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Compilation Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-lexical-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Lexical Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-syntax-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Syntax Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-semantic-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Semantic Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-intermediate-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Intermediate Representation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-temporal-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 Temporal Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-optimization-passes" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.6 Optimization Passes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-code-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.7 Code Generation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48-executable-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.8 Executable Generation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-chron-file-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. .chron File Format
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. .chron File Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-header-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Header Section
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-metadata-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Metadata Section
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-code-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Code Section
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-resource-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Resource Section
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-debug-section-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 Debug Section (Optional)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-optimization-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Optimization Techniques
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Optimization Techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-resource-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Resource Optimization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-temporal-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Temporal Optimization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-traditional-optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Traditional Optimizations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-implementation-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Implementation Strategy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Implementation Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-phase-1-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Phase 1: Foundation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-phase-2-core-functionality" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Phase 2: Core Functionality
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-phase-3-advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 Phase 3: Advanced Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-phase-4-performance-and-polish" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.4 Phase 4: Performance and Polish
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-integration-with-development-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Integration with Development Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Integration with Development Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-integration-with-deja-vu-debugger" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Integration with Deja Vu Debugger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-integration-with-temporal-proving-grounds" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Integration with Temporal Proving Grounds
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-integration-with-resource-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 Integration with Resource Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-command-line-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Command-Line Interface
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Command-Line Interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-basic-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Basic Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-advanced-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 Advanced Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-example-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Example Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Example Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-basic-compilation" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1 Basic Compilation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-debug-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.2 Debug Build
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-optimized-build-with-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.3 Optimized Build with Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-next-steps-and-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Next Steps and Timeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Next Steps and Timeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-immediate-tasks-1-2-months" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1 Immediate Tasks (1-2 months)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-short-term-goals-3-6-months" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2 Short-term Goals (3-6 months)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-medium-term-goals-6-12-months" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.3 Medium-term Goals (6-12 months)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-long-term-vision-12-months" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.4 Long-term Vision (12+ months)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="chronicle-compiler-design-document">Chronicle Compiler Design Document</h1>
+<h2 id="1-overview">1. Overview</h2>
+<p>The Chronicle Compiler is a fundamental component of the Chronovyan development toolchain. It translates Chronovyan source code (<code>.cvy</code> files) into an optimized format (<code>.chron</code> files) that can be efficiently executed by the Chronovyan runtime. This document outlines the design of the compiler, its architecture, and implementation strategy.</p>
+<h2 id="2-objectives">2. Objectives</h2>
+<h3 id="primary-goals">Primary Goals</h3>
+<ul>
+<li>Translate Chronovyan source code into an efficient executable format</li>
+<li>Perform temporal-aware optimizations not possible at runtime</li>
+<li>Enable ahead-of-time analysis of resource usage patterns</li>
+<li>Detect potential paradoxes and temporal inconsistencies</li>
+<li>Support cross-platform deployment of Chronovyan applications</li>
+</ul>
+<h3 id="secondary-goals">Secondary Goals</h3>
+<ul>
+<li>Provide detailed error messages and warnings</li>
+<li>Generate debugging information for the Deja Vu Debugger</li>
+<li>Support incremental compilation for faster development</li>
+<li>Enable linking with external libraries and resources</li>
+<li>Generate optimization reports for performance tuning</li>
+</ul>
+<h2 id="3-architecture">3. Architecture</h2>
+<p>The Chronicle Compiler follows a multi-stage pipeline architecture, building upon components from the existing Chronovyan interpreter:</p>
+<pre><code>                     ┌────────────────────────────────────────────────────────────────┐
+                     │                 Chronicle Compiler Pipeline                     │
+                     └────────────────────────────────────────────────────────────────┘
+                                                 │
+┌─────────────┐      ┌─────────────┐      ┌─────▼─────┐      ┌─────────────┐      ┌─────────────┐
+│  Chronovyan │      │   Lexical   │      │  Syntax   │      │  Semantic   │      │ Intermediate│
+│  Source     │─────▶│  Analysis   │─────▶│  Analysis │─────▶│  Analysis   │─────▶│ Representation│
+│  (.cvy)     │      │  (Lexer)    │      │  (Parser) │      │             │      │ (IR)        │
+└─────────────┘      └─────────────┘      └───────────┘      └─────────────┘      └─────────────┘
+                                                                                         │
+┌─────────────┐      ┌─────────────┐      ┌─────────────┐      ┌─────────────┐          │
+│  Executable │      │   Code      │      │ Optimization │      │ Temporal    │          │
+│  (.chron)   │◀─────│  Generation │◀─────│  Passes     │◀─────│ Analysis    │◀─────────┘
+│             │      │             │      │             │      │             │
+└─────────────┘      └─────────────┘      └─────────────┘      └─────────────┘
+</code></pre>
+<h3 id="31-component-descriptions">3.1 Component Descriptions</h3>
+<h4 id="311-front-end">3.1.1 Front-end</h4>
+<ul>
+<li><strong>Lexical Analysis</strong>: Tokenizes the Chronovyan source code (reused from interpreter)</li>
+<li><strong>Syntax Analysis</strong>: Constructs an Abstract Syntax Tree (AST) (reused from interpreter)</li>
+<li><strong>Semantic Analysis</strong>: Performs type checking, variable resolution, and scope analysis</li>
+</ul>
+<h4 id="312-middle-end">3.1.2 Middle-end</h4>
+<ul>
+<li><strong>Intermediate Representation (IR)</strong>: Converts AST to a lower-level representation optimized for analysis</li>
+<li><strong>Temporal Analysis</strong>: Analyzes temporal relationships, resource flows, and potential paradoxes</li>
+<li><strong>Optimization Passes</strong>: Applies various optimizations to the IR</li>
+</ul>
+<h4 id="313-back-end">3.1.3 Back-end</h4>
+<ul>
+<li><strong>Code Generation</strong>: Translates optimized IR into bytecode or native code</li>
+<li><strong>Executable Generation</strong>: Packages the generated code with necessary metadata into a .chron file</li>
+</ul>
+<h2 id="4-compilation-pipeline">4. Compilation Pipeline</h2>
+<h3 id="41-lexical-analysis">4.1 Lexical Analysis</h3>
+<ul>
+<li>Reuse the existing lexer from the interpreter</li>
+<li>Enhance error reporting with precise source locations</li>
+<li>Add support for compiler directives and pragmas</li>
+</ul>
+<h3 id="42-syntax-analysis">4.2 Syntax Analysis</h3>
+<ul>
+<li>Reuse the existing parser from the interpreter</li>
+<li>Extend with compiler-specific constructs (e.g., compilation hints)</li>
+<li>Generate a complete AST with annotations for temporal properties</li>
+</ul>
+<h3 id="43-semantic-analysis">4.3 Semantic Analysis</h3>
+<ul>
+<li>Type checking with enhanced type inference</li>
+<li>Resource usage analysis and validation</li>
+<li>Temporal flow validation</li>
+<li>Scope and lifetime analysis</li>
+<li>Static paradox detection</li>
+</ul>
+<h3 id="44-intermediate-representation">4.4 Intermediate Representation</h3>
+<ul>
+<li>Design a Chronovyan-specific IR that captures:</li>
+<li>Temporal relationships between operations</li>
+<li>Resource dependencies and flows</li>
+<li>CONF/REB variable interactions</li>
+<li>Optimization opportunities</li>
+</ul>
+<h3 id="45-temporal-analysis">4.5 Temporal Analysis</h3>
+<ul>
+<li>Analyze temporal causality chains</li>
+<li>Detect potential paradoxes at compile time</li>
+<li>Map resource dependencies across timeline branches</li>
+<li>Identify optimization opportunities for temporal operations</li>
+</ul>
+<h3 id="46-optimization-passes">4.6 Optimization Passes</h3>
+<ul>
+<li><strong>Resource Optimization</strong>: Minimize resource usage</li>
+<li><strong>Temporal Flow Optimization</strong>: Optimize timeline branching and merging</li>
+<li><strong>Dead Code Elimination</strong>: Remove unreachable code</li>
+<li><strong>Loop Optimization</strong>: Optimize temporal loops</li>
+<li><strong>Inlining</strong>: Inline small functions</li>
+<li><strong>Constant Propagation</strong>: Propagate constants throughout the code</li>
+<li><strong>Common Subexpression Elimination</strong>: Eliminate redundant calculations</li>
+</ul>
+<h3 id="47-code-generation">4.7 Code Generation</h3>
+<ul>
+<li>Generate bytecode for the Chronovyan Virtual Machine (CVM)</li>
+<li>Alternatively, generate native code for direct execution</li>
+<li>Include necessary metadata for runtime resource tracking</li>
+<li>Embed debug information for the Deja Vu Debugger</li>
+</ul>
+<h3 id="48-executable-generation">4.8 Executable Generation</h3>
+<ul>
+<li>Package compiled code into .chron format</li>
+<li>Include resource usage metadata</li>
+<li>Add version information and compatibility flags</li>
+<li>Incorporate dependency information</li>
+</ul>
+<h2 id="5-chron-file-format">5. .chron File Format</h2>
+<p>The .chron file format will be a binary format containing:</p>
+<h3 id="51-header-section">5.1 Header Section</h3>
+<ul>
+<li>Magic number for identification</li>
+<li>Version information</li>
+<li>Compatibility flags</li>
+<li>Entry point information</li>
+<li>Resource requirement summary</li>
+</ul>
+<h3 id="52-metadata-section">5.2 Metadata Section</h3>
+<ul>
+<li>Dependency information</li>
+<li>Source file mapping (for debugging)</li>
+<li>Temporal flow graph</li>
+<li>Resource usage profile</li>
+</ul>
+<h3 id="53-code-section">5.3 Code Section</h3>
+<ul>
+<li>Bytecode or native code</li>
+<li>Constant pool</li>
+<li>Type information</li>
+</ul>
+<h3 id="54-resource-section">5.4 Resource Section</h3>
+<ul>
+<li>Pre-calculated resource costs</li>
+<li>Optimization hints</li>
+<li>Resource allocation strategies</li>
+</ul>
+<h3 id="55-debug-section-optional">5.5 Debug Section (Optional)</h3>
+<ul>
+<li>Source mappings</li>
+<li>Variable information</li>
+<li>Breakpoint hooks</li>
+<li>Temporal state tracking points</li>
+</ul>
+<h2 id="6-optimization-techniques">6. Optimization Techniques</h2>
+<h3 id="61-resource-optimization">6.1 Resource Optimization</h3>
+<ul>
+<li><strong>Static Resource Allocation</strong>: Pre-allocate resources when possible</li>
+<li><strong>Resource Pooling</strong>: Reuse resources across operations</li>
+<li><strong>Cost Estimation</strong>: Provide compile-time estimates of resource usage</li>
+<li><strong>Strategy Selection</strong>: Choose optimal resource management strategies</li>
+</ul>
+<h3 id="62-temporal-optimization">6.2 Temporal Optimization</h3>
+<ul>
+<li><strong>Timeline Pruning</strong>: Eliminate unnecessary timeline branches</li>
+<li><strong>Timeline Merging</strong>: Combine similar timeline branches</li>
+<li><strong>Paradox Prevention</strong>: Restructure code to avoid potential paradoxes</li>
+<li><strong>Causal Chain Optimization</strong>: Optimize chains of temporal dependencies</li>
+</ul>
+<h3 id="63-traditional-optimizations">6.3 Traditional Optimizations</h3>
+<ul>
+<li><strong>Loop Unrolling</strong>: Reduce loop overhead</li>
+<li><strong>Function Inlining</strong>: Eliminate function call overhead</li>
+<li><strong>Constant Folding</strong>: Evaluate constant expressions at compile time</li>
+<li><strong>Dead Code Elimination</strong>: Remove unreachable code</li>
+<li><strong>Instruction Scheduling</strong>: Optimize instruction ordering</li>
+</ul>
+<h2 id="7-implementation-strategy">7. Implementation Strategy</h2>
+<h3 id="71-phase-1-foundation">7.1 Phase 1: Foundation</h3>
+<ul>
+<li>Adapt existing lexer and parser for compilation context</li>
+<li>Design and implement the Chronovyan IR</li>
+<li>Create basic code generation for a subset of Chronovyan</li>
+<li>Define the .chron file format</li>
+</ul>
+<h3 id="72-phase-2-core-functionality">7.2 Phase 2: Core Functionality</h3>
+<ul>
+<li>Implement semantic analysis</li>
+<li>Add temporal analysis</li>
+<li>Develop initial optimization passes</li>
+<li>Create basic code generation for all Chronovyan constructs</li>
+</ul>
+<h3 id="73-phase-3-advanced-features">7.3 Phase 3: Advanced Features</h3>
+<ul>
+<li>Implement full optimization suite</li>
+<li>Add cross-platform code generation</li>
+<li>Integrate with Deja Vu Debugger</li>
+<li>Support for external library linking</li>
+</ul>
+<h3 id="74-phase-4-performance-and-polish">7.4 Phase 4: Performance and Polish</h3>
+<ul>
+<li>Optimize the compiler itself for performance</li>
+<li>Enhance error reporting and diagnostics</li>
+<li>Add incremental compilation support</li>
+<li>Create comprehensive documentation</li>
+</ul>
+<h2 id="8-integration-with-development-tools">8. Integration with Development Tools</h2>
+<h3 id="81-integration-with-deja-vu-debugger">8.1 Integration with Deja Vu Debugger</h3>
+<ul>
+<li>Generate debugging information in .chron files</li>
+<li>Support for breakpoints and variable inspection</li>
+<li>Enable temporal state tracking</li>
+<li>Provide source-level debugging</li>
+</ul>
+<h3 id="82-integration-with-temporal-proving-grounds">8.2 Integration with Temporal Proving Grounds</h3>
+<ul>
+<li>Export analysis data for testing</li>
+<li>Support verification of temporal correctness</li>
+<li>Generate test cases for edge conditions</li>
+<li>Provide benchmarking information</li>
+</ul>
+<h3 id="83-integration-with-resource-monitoring">8.3 Integration with Resource Monitoring</h3>
+<ul>
+<li>Export resource usage profiles</li>
+<li>Generate resource allocation plans</li>
+<li>Support for runtime resource tracking</li>
+<li>Provide optimization suggestions</li>
+</ul>
+<h2 id="9-command-line-interface">9. Command-Line Interface</h2>
+<p>The Chronicle Compiler will provide a command-line interface with the following basic structure:</p>
+<pre><code>chronicle [options] &lt;input_files&gt;
+</code></pre>
+<h3 id="91-basic-options">9.1 Basic Options</h3>
+<ul>
+<li><code>-o, --output &lt;file&gt;</code>: Specify output file</li>
+<li><code>-c, --compile</code>: Compile only (don't link)</li>
+<li><code>-O&lt;level&gt;</code>: Set optimization level (0-3)</li>
+<li><code>-g</code>: Include debugging information</li>
+<li><code>-v, --verbose</code>: Verbose output</li>
+</ul>
+<h3 id="92-advanced-options">9.2 Advanced Options</h3>
+<ul>
+<li><code>--target=&lt;platform&gt;</code>: Specify target platform</li>
+<li><code>--resource-analysis</code>: Generate resource analysis report</li>
+<li><code>--temporal-analysis</code>: Generate temporal analysis report</li>
+<li><code>--paradox-check</code>: Perform strict paradox checking</li>
+<li><code>--emit-ir</code>: Output intermediate representation</li>
+</ul>
+<h2 id="10-example-usage">10. Example Usage</h2>
+<h3 id="101-basic-compilation">10.1 Basic Compilation</h3>
+<pre><code>chronicle -o my_program.chron my_program.cvy
+</code></pre>
+<h3 id="102-debug-build">10.2 Debug Build</h3>
+<pre><code>chronicle -g -O0 -o my_program.chron my_program.cvy
+</code></pre>
+<h3 id="103-optimized-build-with-analysis">10.3 Optimized Build with Analysis</h3>
+<pre><code>chronicle -O3 --resource-analysis --temporal-analysis -o my_program.chron my_program.cvy
+</code></pre>
+<h2 id="11-next-steps-and-timeline">11. Next Steps and Timeline</h2>
+<h3 id="111-immediate-tasks-1-2-months">11.1 Immediate Tasks (1-2 months)</h3>
+<ul>
+<li>Design the Chronovyan IR</li>
+<li>Adapt existing lexer and parser</li>
+<li>Define the .chron file format</li>
+<li>Implement basic semantic analysis</li>
+</ul>
+<h3 id="112-short-term-goals-3-6-months">11.2 Short-term Goals (3-6 months)</h3>
+<ul>
+<li>Implement temporal analysis</li>
+<li>Create initial optimization passes</li>
+<li>Develop basic code generation</li>
+<li>Build the .chron file generator</li>
+</ul>
+<h3 id="113-medium-term-goals-6-12-months">11.3 Medium-term Goals (6-12 months)</h3>
+<ul>
+<li>Complete all optimization passes</li>
+<li>Support cross-platform compilation</li>
+<li>Integrate with debugging tools</li>
+<li>Add comprehensive error reporting</li>
+</ul>
+<h3 id="114-long-term-vision-12-months">11.4 Long-term Vision (12+ months)</h3>
+<ul>
+<li>Support for native code generation</li>
+<li>Advanced optimization techniques</li>
+<li>Integration with IDEs</li>
+<li>Compiler-as-a-service API</li>
+</ul>
+<h2 id="12-conclusion">12. Conclusion</h2>
+<p>The Chronicle Compiler represents a significant advancement in the Chronovyan toolchain. By enabling compile-time analysis and optimization of temporal code, it will allow developers to create more efficient and reliable Chronovyan applications. The compiler's unique understanding of temporal semantics and resource management will provide optimizations not possible in traditional compilers.</p>
+<p>This design document serves as a blueprint for the development of the Chronicle Compiler, outlining its architecture, key components, and implementation strategy. As development progresses, this document will be updated to reflect new insights and design decisions.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "search.highlight"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

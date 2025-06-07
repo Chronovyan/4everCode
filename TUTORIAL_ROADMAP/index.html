@@ -1,0 +1,2065 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for TUTORIAL_ROADMAP.md">
+      
+      
+      
+        <link rel="canonical" href="https://chronovyan.github.io/TUTORIAL_ROADMAP/">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>Chronovyan Tutorial Game: Development Roadmap - Chronovyan</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chronovyan-tutorial-game-development-roadmap" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Chronovyan" class="md-header__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chronovyan
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chronovyan Tutorial Game: Development Roadmap
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Chronovyan/Chronovyan" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/installation/" class="md-tabs__link">
+          
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../api/index.md" class="md-tabs__link">
+        
+  
+    
+  
+  API Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CONTRIBUTING.md" class="md-tabs__link">
+        
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Chronovyan" class="md-nav__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Chronovyan
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Chronovyan/Chronovyan" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CONTRIBUTING.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overall-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overall Goal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prologue-the-lab-incident" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prologue: The Lab Incident
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prologue: The Lab Incident">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#narrative-focus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Narrative Focus
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chronovyan-concepts-introduced" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chronovyan Concepts Introduced
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coras-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORA's Role
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-example-mappings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Example Mappings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gameplay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gameplay
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-editor-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Editor Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boss-fight-equivalent" class="md-nav__link">
+    <span class="md-ellipsis">
+      "Boss Fight" Equivalent
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#act-i-arrival-basic-survival-in-chronovya" class="md-nav__link">
+    <span class="md-ellipsis">
+      Act I: Arrival &amp; Basic Survival in Chronovya
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Act I: Arrival & Basic Survival in Chronovya">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#narrative-focus_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Narrative Focus
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coras-role-in-act-i" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORA's Role in Act I
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chapter-1-reading-the-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter 1: Reading the World
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 1: Reading the World">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chronovyan-concepts-introduced_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chronovyan Concepts Introduced
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cora-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORA Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-example-mappings_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Example Mappings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-world-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-World Application
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chapter-2-first-interactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter 2: First Interactions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 2: First Interactions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chronovyan-concepts-introduced_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chronovyan Concepts Introduced
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cora-integration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORA Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-example-mappings_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Example Mappings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-world-application_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-World Application
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chapter-3-basic-crafting-problem-solving" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter 3: Basic Crafting &amp; Problem Solving
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 3: Basic Crafting & Problem Solving">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chronovyan-concepts-introduced_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chronovyan Concepts Introduced
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cora-integration_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORA Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-example-mappings_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Example Mappings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-world-application_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-World Application
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gameplay_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gameplay
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-editor-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Editor Evolution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feedback-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feedback Introduction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chronovyan-dialect-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chronovyan Dialect Evolution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#act-i-boss-fight" class="md-nav__link">
+    <span class="md-ellipsis">
+      Act I "Boss Fight"
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Act I "Boss Fight"">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#win-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Win Conditions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sandbox-unlock" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sandbox Unlock
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#act-ii-delving-deeper-into-chronovyan-ways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Act II: Delving Deeper into Chronovyan Ways
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Act II: Delving Deeper into Chronovyan Ways">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#narrative-focus_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Narrative Focus
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coras-role-in-act-ii" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORA's Role in Act II
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chapter-4-the-language-of-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter 4: The Language of Structures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 4: The Language of Structures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chronovyan-concepts-introduced_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chronovyan Concepts Introduced
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cora-integration_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORA Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-example-mappings_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Example Mappings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-world-application_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-World Application
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chapter-5-understanding-chronovyan-societymechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter 5: Understanding Chronovyan Society/Mechanisms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 5: Understanding Chronovyan Society/Mechanisms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chronovyan-concepts-introduced_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chronovyan Concepts Introduced
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cora-integration_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORA Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-example-mappings_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Example Mappings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-world-application_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-World Application
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chapter-6-following-thornes-footsteps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter 6: Following Thorne's Footsteps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 6: Following Thorne's Footsteps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chronovyan-concepts-introduced_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chronovyan Concepts Introduced
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cora-integration_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORA Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-example-mappings_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Example Mappings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-world-application_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-World Application
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gameplay_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gameplay
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-editor-enhancement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Editor Enhancement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feedback-mechanism-expansion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feedback Mechanism Expansion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chronovyan-dialect-evolution_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chronovyan Dialect Evolution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiplayer-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiplayer Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#act-ii-boss-fight" class="md-nav__link">
+    <span class="md-ellipsis">
+      Act II "Boss Fight"
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Act II "Boss Fight"">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#win-conditions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Win Conditions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sandbox-expansion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sandbox Expansion
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#act-iii-towards-mastery-the-way-home" class="md-nav__link">
+    <span class="md-ellipsis">
+      Act III: Towards Mastery &amp; The Way Home
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Act III: Towards Mastery & The Way Home">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#narrative-focus_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Narrative Focus
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coras-role-in-act-iii" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORA's Role in Act III
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chapter-7-the-fabric-of-rifts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter 7: The Fabric of Rifts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 7: The Fabric of Rifts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chronovyan-concepts-introduced_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chronovyan Concepts Introduced
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cora-integration_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORA Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-example-mappings_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Example Mappings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-world-application_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-World Application
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chapter-8-the-professors-legacy-advanced-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter 8: The Professor's Legacy &amp; Advanced Design
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 8: The Professor's Legacy & Advanced Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chronovyan-concepts-introduced_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chronovyan Concepts Introduced
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cora-integration_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORA Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-example-mappings_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Example Mappings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-world-application_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-World Application
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chapter-9-the-final-gambit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter 9: The Final Gambit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 9: The Final Gambit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chronovyan-concepts-introduced_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chronovyan Concepts Introduced
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cora-integration_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORA Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-example-mappings_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Example Mappings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-world-application_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-World Application
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gameplay_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gameplay
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-editor-mastery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Editor Mastery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feedback-mechanism-mastery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feedback Mechanism Mastery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chronovyan-dialect-mastery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chronovyan Dialect Mastery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-multiplayer-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Multiplayer Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#difficulty-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Difficulty Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#act-iii-final-bosschallenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Act III "Final Boss/Challenge"
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Act III "Final Boss/Challenge"">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#win-conditions_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Win Conditions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#throughout-the-game" class="md-nav__link">
+    <span class="md-ellipsis">
+      Throughout the Game
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Throughout the Game">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#side-quests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Side Quests
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cora-upgrade-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORA Upgrade System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#player-loot-from-main-questsbosses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Player "Loot" from Main Quests/Bosses
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Plan
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-core-mechanics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 1: Core Mechanics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-narrative-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 2: Narrative Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 3: Advanced Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-4-polish-and-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 4: Polish and Release
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="chronovyan-tutorial-game-development-roadmap">Chronovyan Tutorial Game: Development Roadmap</h1>
+<h2 id="overall-goal">Overall Goal</h2>
+<p>To teach the Chronovyan programming language through an engaging, story-driven RPG where the player (Alex, an intern) is teleported to Chronovya and must learn its ways (and language) to find the missing Professor Thorne and a way home. Throughout this journey, Alex is accompanied by CORA (Companion for Operational Rifting and Analysis), a utility drone from Thorne's lab that provides guidance, interface capabilities, and emotional connection while requiring resource management as a core gameplay loop.</p>
+<h2 id="prologue-the-lab-incident">Prologue: The Lab Incident</h2>
+<h3 id="setting">Setting</h3>
+<p>Professor Thorne's hidden research lab on Earth.</p>
+<h3 id="narrative-focus">Narrative Focus</h3>
+<p>Alex discovers Thorne's lab, his research into Chronovya, and the Chronovyan language. Alex experiments with Thorne's computer and encounters CORA, the professor's experimental utility drone. During the chaotic portal incident, Alex instinctively grabs CORA before being pulled into the rift.</p>
+<h3 id="chronovyan-concepts-introduced">Chronovyan Concepts Introduced</h3>
+<ul>
+<li>Basic interaction with the Chronovyan "terminal" (game's code interface)</li>
+<li>Variables: Declaration, assignment, simple data types (e.g., numbers, strings if Thorne used them for labels)</li>
+<li>Simple Commands/Functions (Syntax Only): Recognizing and attempting to use pre-existing commands</li>
+</ul>
+<h3 id="coras-role">CORA's Role</h3>
+<ul>
+<li><strong>Initial Introduction</strong>: CORA is introduced as Professor Thorne's assistant, a palm-sized drone that helps with his research</li>
+<li><strong>Initial Functionality</strong>: CORA demonstrates basic terminal display capability and simple analytics</li>
+<li><strong>Narrative Purpose</strong>: CORA provides contextual information about Thorne's work and foreshadows the importance of Chronovyan language</li>
+<li><strong>Example Interaction</strong>: CORA helps Alex understand the terminal commands needed to access Thorne's research</li>
+</ul>
+<h3 id="code-example-mappings">Code Example Mappings</h3>
+<ul>
+<li>Maps to <code>examples/01_beginner/01_hello_world.cvy</code>, <code>02_hello_world.cvy</code></li>
+<li>Also utilizes concepts from <code>examples/01_beginner/04_minimal.cvy</code></li>
+<li>Variable introduction maps to basic variable usage in <code>examples/01_beginner/03_hello_world_utf8.cvy</code></li>
+</ul>
+<h3 id="gameplay">Gameplay</h3>
+<ul>
+<li>Environmental puzzles: Deciphering Thorne's notes to understand what variables to change or what commands to try</li>
+<li>Direct interaction with the Chronovyan code on Thorne's terminal</li>
+<li>Feedback: Immediate, direct results in the lab environment (e.g., a device whirs, a light changes, a log message appears)</li>
+<li>CORA assists by providing contextual information and basic guidance</li>
+</ul>
+<h3 id="code-editor-features">Code Editor Features</h3>
+<ul>
+<li>Simple command line interface</li>
+<li>Basic syntax highlighting for recognized commands</li>
+<li>Error messages that provide contextual hints</li>
+<li>CORA's interface projections augment the terminal with additional information</li>
+</ul>
+<h3 id="boss-fight-equivalent">"Boss Fight" Equivalent</h3>
+<p>The sequence of interactions that accidentally triggers the portal, teleporting Alex and CORA to Chronovya. Success is progressing the story. CORA is damaged during transit, setting up the first objective in Act I.</p>
+<h2 id="act-i-arrival-basic-survival-in-chronovya">Act I: Arrival &amp; Basic Survival in Chronovya</h2>
+<h3 id="setting_1">Setting</h3>
+<p>The initial, perhaps bewildering, landing zone in Chronovya.</p>
+<h3 id="narrative-focus_1">Narrative Focus</h3>
+<p>Alex's disorientation, immediate survival needs, first encounters with Chronovyan flora, fauna, or simple technology. Learning the absolute basics to interact with this new world. CORA is damaged and needs repair, creating an immediate objective.</p>
+<h3 id="coras-role-in-act-i">CORA's Role in Act I</h3>
+<ul>
+<li><strong>Initial State</strong>: Damaged with minimal functionality, creating an urgent repair objective</li>
+<li><strong>Progression</strong>: As Alex repairs CORA through Act I challenges, her capabilities gradually expand</li>
+<li><strong>Gameplay Function</strong>: CORA provides scanning, analysis, and eventually a holographic terminal interface</li>
+<li><strong>Resource Management</strong>: CORA requires power crystals to function, introducing resource gathering mechanics</li>
+<li><strong>Narrative Element</strong>: CORA's dialogue reveals information about Chronovya and Professor Thorne</li>
+</ul>
+<h3 id="chapter-1-reading-the-world">Chapter 1: Reading the World</h3>
+<h4 id="chronovyan-concepts-introduced_1">Chronovyan Concepts Introduced</h4>
+<ul>
+<li>Reinforce Variables: Storing observations, readings from the environment</li>
+<li>Core Data Types: Explicit introduction to Chronovyan equivalents of numbers, strings, booleans</li>
+<li>Basic Input/Output: Learning to "read" signals from Chronovyan devices or "output" simple commands to them</li>
+</ul>
+<h4 id="cora-integration">CORA Integration</h4>
+<ul>
+<li>Players learn to scan objects with CORA to obtain data (variables)</li>
+<li>CORA's analysis reveals the data type properties of different objects</li>
+<li>CORA's damaged translation matrix introduces the concept of string manipulation</li>
+<li>CORA's power system introduces numerical operations and boolean states</li>
+</ul>
+<h4 id="code-example-mappings_1">Code Example Mappings</h4>
+<ul>
+<li>Core data types map to <code>examples/01_beginner/05_simple_test.cvy</code>, <code>06_test.cvy</code></li>
+<li>Input/output concepts relate to <code>examples/01_beginner/08_digit_test.cvy</code>, <code>09_digit_test_utf8.cvy</code></li>
+</ul>
+<h4 id="real-world-application">Real-World Application</h4>
+<ul>
+<li>Variables and data types as foundational concepts in all programming languages</li>
+<li>Input/output as the basis for interacting with any computer system</li>
+</ul>
+<h3 id="chapter-2-first-interactions">Chapter 2: First Interactions</h3>
+<h4 id="chronovyan-concepts-introduced_2">Chronovyan Concepts Introduced</h4>
+<ul>
+<li>Conditional Logic (If/Else): Making simple decisions based on environmental conditions</li>
+<li>Comparison Operators</li>
+</ul>
+<h4 id="cora-integration_1">CORA Integration</h4>
+<ul>
+<li>CORA's systems require conditional programming to handle environmental hazards</li>
+<li>Players write conditional statements that determine CORA's behavior in different situations</li>
+<li>CORA provides feedback on conditions, explaining why certain actions were or weren't taken</li>
+<li>Resource management decisions for CORA introduce practical applications of conditional logic</li>
+</ul>
+<h4 id="code-example-mappings_2">Code Example Mappings</h4>
+<ul>
+<li>Relates to conditional logic seen in <code>examples/01_beginner/10_main_test.cvy</code></li>
+<li>Comparison operators used throughout beginner examples</li>
+<li>New example: <code>examples/01_beginner/13_nested_conditionals.cvy</code></li>
+</ul>
+<h4 id="real-world-application_1">Real-World Application</h4>
+<ul>
+<li>Conditional logic for decision-making in business applications</li>
+<li>Comparison operators for data validation and filtering</li>
+</ul>
+<h3 id="chapter-3-basic-crafting-problem-solving">Chapter 3: Basic Crafting &amp; Problem Solving</h3>
+<h4 id="chronovyan-concepts-introduced_3">Chronovyan Concepts Introduced</h4>
+<ul>
+<li>Simple Loops (e.g., For/While): For repetitive tasks like gathering resources</li>
+<li>Writing First Simple Functions (Procedures): Encapsulating a few lines of code to perform a repeatable action</li>
+</ul>
+<h4 id="cora-integration_2">CORA Integration</h4>
+<ul>
+<li>Players create scanning routines for CORA that utilize loops to analyze multiple objects</li>
+<li>Custom functions allow players to create reusable commands for CORA</li>
+<li>CORA's power optimization introduces the concept of efficient code through better loops and functions</li>
+<li>CORA can store and execute custom functions created by the player</li>
+</ul>
+<h4 id="code-example-mappings_3">Code Example Mappings</h4>
+<ul>
+<li>Maps to concepts in <code>examples/01_beginner/11_hello_timeline.cvy</code>, <code>12_hello_timeline_utf8.cvy</code></li>
+<li>Introduction to functions similar to examples in intermediate directory</li>
+<li>New example: <code>examples/01_beginner/14_basic_functions_with_parameters.cvy</code></li>
+</ul>
+<h4 id="real-world-application_2">Real-World Application</h4>
+<ul>
+<li>Loops for data processing and automation</li>
+<li>Functions for code organization and reuse in software development</li>
+</ul>
+<h3 id="gameplay_1">Gameplay</h3>
+<ul>
+<li>Exploration and observation</li>
+<li>Interacting with simple Chronovyan puzzles or devices</li>
+<li>Gathering resources or information using basic code</li>
+<li>Managing CORA's power levels through efficient resource gathering and code optimization</li>
+</ul>
+<h3 id="code-editor-evolution">Code Editor Evolution</h3>
+<ul>
+<li>Basic editor with improved syntax highlighting</li>
+<li>Simple code completion for common commands</li>
+<li>In-game help system that documents basic syntax</li>
+<li>CORA's interface shows variables, available commands, and environmental data</li>
+</ul>
+<h3 id="feedback-introduction">Feedback Introduction</h3>
+<ul>
+<li>Narratively integrated "success/fail" states for code execution</li>
+<li>Towards the end of Act I, introduce the concept of "Pattern Verifiers" (simple unit tests)</li>
+<li>Visual feedback in the game world (e.g., machinery activating, doors opening)</li>
+<li>Code Journal that records successful patterns for reference</li>
+<li>CORA provides immediate feedback on code execution and suggestions for improvement</li>
+</ul>
+<h3 id="chronovyan-dialect-evolution">Chronovyan Dialect Evolution</h3>
+<ul>
+<li>Initially Earth-like syntax for familiarity</li>
+<li>Gradual introduction of Chronovyan-specific keywords</li>
+<li>Discovery of CONF (Conformist) variable type basics</li>
+<li>CORA's translation matrix gradually adapts to Chronovyan linguistic patterns</li>
+</ul>
+<h3 id="act-i-boss-fight">Act I "Boss Fight"</h3>
+<p>The Shelter Activation: Alex must use variables, conditional logic, and possibly a simple loop/function to correctly activate an ancient Chronovyan shelter or a vital piece of survival equipment. CORA's systems are integrated with the shelter, requiring precise programming to establish a stable connection. The "fight" is against the complexity of the ancient system and the need to maintain CORA's power levels throughout the process.</p>
+<h4 id="win-conditions">Win Conditions</h4>
+<ul>
+<li>Correct sequence of operations</li>
+<li>Specific variable values achieved</li>
+<li>Device powers on</li>
+<li>CORA successfully interfaces with the shelter systems</li>
+<li>CORA receives a significant power upgrade as reward</li>
+</ul>
+<h4 id="sandbox-unlock">Sandbox Unlock</h4>
+<p>After completing Act I, unlock a sandbox area where players can experiment with basic Chronovyan concepts without narrative pressure. CORA provides analysis and feedback on sandbox creations.</p>
+<h2 id="act-ii-delving-deeper-into-chronovyan-ways">Act II: Delving Deeper into Chronovyan Ways</h2>
+<h3 id="setting_2">Setting</h3>
+<p>Expanding exploration of Chronovya, encountering more complex ruins, technology, perhaps peaceful Chronovyan settlements or individuals.</p>
+<h3 id="narrative-focus_2">Narrative Focus</h3>
+<p>The search for clues about Professor Thorne, understanding more complex Chronovyan systems, and possibly communicating with natives. CORA begins to exhibit more personality as her systems integrate with Chronovyan technology.</p>
+<h3 id="coras-role-in-act-ii">CORA's Role in Act II</h3>
+<ul>
+<li><strong>Enhanced Capabilities</strong>: CORA receives significant upgrades throughout Act II</li>
+<li><strong>Deep Analysis</strong>: CORA can now perform complex analysis of Chronovyan systems</li>
+<li><strong>Interface Evolution</strong>: CORA's terminal interface expands to include debugging tools and visualization</li>
+<li><strong>Narrative Development</strong>: CORA begins to show more personality and independent thought</li>
+<li><strong>Advanced Commands</strong>: New CORA-specific commands are unlocked for more sophisticated interactions</li>
+</ul>
+<h3 id="chapter-4-the-language-of-structures">Chapter 4: The Language of Structures</h3>
+<h4 id="chronovyan-concepts-introduced_4">Chronovyan Concepts Introduced</h4>
+<ul>
+<li>Arrays/Lists: Managing collections of data (e.g., inventory, lists of coordinates)</li>
+<li>Looping through collections</li>
+</ul>
+<h4 id="cora-integration_3">CORA Integration</h4>
+<ul>
+<li>CORA can now store and manage collections of data from multiple scans</li>
+<li>Players can program CORA to perform batch analysis using array operations</li>
+<li>CORA's memory banks introduce the concept of persistent data structures</li>
+<li>Resource management evolves to include categorized inventory systems</li>
+</ul>
+<h4 id="code-example-mappings_4">Code Example Mappings</h4>
+<ul>
+<li>Maps to concepts in <code>examples/02_intermediate/01_temporal_branching.cvy</code></li>
+<li>Data collections similar to examples in <code>examples/02_intermediate/02_temporal_branching.cvy</code></li>
+</ul>
+<h4 id="real-world-application_3">Real-World Application</h4>
+<ul>
+<li>Arrays and lists for data management in databases</li>
+<li>Collection processing for data analysis and reporting</li>
+</ul>
+<h3 id="chapter-5-understanding-chronovyan-societymechanisms">Chapter 5: Understanding Chronovyan Society/Mechanisms</h3>
+<h4 id="chronovyan-concepts-introduced_5">Chronovyan Concepts Introduced</h4>
+<ul>
+<li>Objects/Structs (or Chronovyan equivalent): Representing more complex entities</li>
+<li>Functions with Parameters and Return Values: Creating more versatile and reusable code blocks</li>
+</ul>
+<h4 id="cora-integration_4">CORA Integration</h4>
+<ul>
+<li>CORA's systems are represented as objects with properties and methods</li>
+<li>Players create complex functions to control various aspects of CORA's behavior</li>
+<li>CORA's upgrades introduce the concept of modifying object properties</li>
+<li>CORA can now return complex data structures from her analysis functions</li>
+</ul>
+<h4 id="code-example-mappings_5">Code Example Mappings</h4>
+<ul>
+<li>Maps to <code>examples/02_intermediate/04_temporal_debt_test.cvy</code></li>
+<li>Function concepts relate to <code>examples/02_intermediate/05_resource_visualization_demo.cvy</code></li>
+</ul>
+<h4 id="real-world-application_4">Real-World Application</h4>
+<ul>
+<li>Object-oriented programming in modern software development</li>
+<li>Functions with parameters in API design and implementation</li>
+</ul>
+<h3 id="chapter-6-following-thornes-footsteps">Chapter 6: Following Thorne's Footsteps</h3>
+<h4 id="chronovyan-concepts-introduced_6">Chronovyan Concepts Introduced</h4>
+<ul>
+<li>Advanced Loops &amp; Nested Logic</li>
+<li>Introduction to Chronovyan "Modules" or Libraries</li>
+<li>Basic Error Handling: Recognizing and reacting to predictable problems</li>
+</ul>
+<h4 id="cora-integration_5">CORA Integration</h4>
+<ul>
+<li>CORA introduces a module system for organizing complex functionality</li>
+<li>Error handling becomes crucial for managing CORA's interactions with dangerous environments</li>
+<li>CORA's predictive systems require sophisticated nested logic</li>
+<li>CORA can now detect and suggest fixes for common code errors</li>
+</ul>
+<h4 id="code-example-mappings_6">Code Example Mappings</h4>
+<ul>
+<li>Advanced logic maps to <code>examples/02_intermediate/06_resource_optimization_test.cvy</code></li>
+<li>Error handling concepts from <code>examples/02_intermediate/07_timeline_merge.cvy</code></li>
+<li>Library usage similar to <code>examples/02_intermediate/08_loot_demo.cvy</code></li>
+</ul>
+<h4 id="real-world-application_5">Real-World Application</h4>
+<ul>
+<li>Error handling in production applications</li>
+<li>Module systems in modern programming languages</li>
+<li>Library integration in software development</li>
+</ul>
+<h3 id="gameplay_2">Gameplay</h3>
+<ul>
+<li>Solving more intricate puzzles requiring data management and structured programming</li>
+<li>Building small "programs" to interact with or control Chronovyan technology</li>
+<li>Side quests involving deciphering specific Chronovyan texts or repairing devices</li>
+<li>CORA-specific challenges that test programming skills in practical scenarios</li>
+</ul>
+<h3 id="code-editor-enhancement">Code Editor Enhancement</h3>
+<ul>
+<li>Add error highlighting</li>
+<li>Improved code completion with contextual suggestions</li>
+<li>Basic debugging tools</li>
+<li>Library/module browser</li>
+<li>CORA's interface now includes visualization of code execution and data structures</li>
+</ul>
+<h3 id="feedback-mechanism-expansion">Feedback Mechanism Expansion</h3>
+<ul>
+<li>"Pattern Verifiers" become more common for quests (unit tests)</li>
+<li>Introduction of "System Integrity Checks" (integration tests) for multi-part solutions</li>
+<li>Detailed error messages with contextual hints</li>
+<li>Performance metrics for code optimization</li>
+<li>CORA provides multi-level feedback, from beginner-friendly to advanced analysis</li>
+</ul>
+<h3 id="chronovyan-dialect-evolution_1">Chronovyan Dialect Evolution</h3>
+<ul>
+<li>Introduction of REB (Rebel) variable types</li>
+<li>Temporal manipulation syntax basics</li>
+<li>Discovery of variable modifiers (::ANCHOR, ::WEAVER, etc.)</li>
+<li>CORA's communication begins to incorporate Chronovyan terms and concepts</li>
+</ul>
+<h3 id="multiplayer-elements">Multiplayer Elements</h3>
+<ul>
+<li>Code sharing for puzzle solutions</li>
+<li>View alternative approaches to the same problem</li>
+<li>Community challenges with leaderboards</li>
+<li>Share CORA upgrade configurations and custom functions</li>
+</ul>
+<h3 id="act-ii-boss-fight">Act II "Boss Fight"</h3>
+<p>The Guardian Construct or Ancient Trial: Alex faces a complex Chronovyan defense system or a trial left by the ancients. This requires a program with multiple functions, data structures, and conditional logic to navigate or disable. CORA interfaces directly with the ancient system, requiring precise programming to prevent damage to her systems while maintaining the connection.</p>
+<h4 id="win-conditions_1">Win Conditions</h4>
+<ul>
+<li>Multiple stages of the construct deactivated</li>
+<li>Specific data patterns fed to the system</li>
+<li>A complex ritual correctly performed via code</li>
+<li>CORA successfully maintains system integrity throughout the process</li>
+<li>May have optional benchmark conditions (e.g., "complete trial with minimal energy expenditure")</li>
+</ul>
+<h4 id="sandbox-expansion">Sandbox Expansion</h4>
+<p>After Act II, expand the sandbox to include more advanced features and structures for experimentation. CORA provides enhanced analysis and visualization tools for sandbox creations.</p>
+<h2 id="act-iii-towards-mastery-the-way-home">Act III: Towards Mastery &amp; The Way Home</h2>
+<h3 id="setting_3">Setting</h3>
+<p>Deep within Chronovya, perhaps accessing areas related to rift technology or Thorne's last known locations.</p>
+<h3 id="narrative-focus_3">Narrative Focus</h3>
+<p>Unraveling the final mysteries of Thorne's disappearance, understanding the principles of rift travel (as per Chronovyan tech), and attempting to create or control a rift. CORA experiences significant evolution, potentially developing true sentience as she fully integrates with Chronovyan technology.</p>
+<h3 id="coras-role-in-act-iii">CORA's Role in Act III</h3>
+<ul>
+<li><strong>Advanced Integration</strong>: CORA achieves full integration with Chronovyan systems</li>
+<li><strong>Sentience Development</strong>: CORA begins to exhibit characteristics of true AI sentience</li>
+<li><strong>Critical Decision Point</strong>: CORA may face a choice between returning to Earth or remaining in Chronovya</li>
+<li><strong>Ultimate Capability</strong>: CORA can now interface with the most complex Chronovyan technologies</li>
+<li><strong>Character Arc Completion</strong>: CORA's journey from tool to companion to independent entity concludes</li>
+</ul>
+<h3 id="chapter-7-the-fabric-of-rifts">Chapter 7: The Fabric of Rifts</h3>
+<h4 id="chronovyan-concepts-introduced_7">Chronovyan Concepts Introduced</h4>
+<ul>
+<li>Advanced Data Structures (e.g., graphs, trees, if applicable)</li>
+<li>More complex Algorithm Design</li>
+<li>Possibly Asynchronous Operations</li>
+</ul>
+<h4 id="cora-integration_6">CORA Integration</h4>
+<ul>
+<li>CORA can now model complex temporal relationships using advanced data structures</li>
+<li>CORA's predictive algorithms require sophisticated computational approaches</li>
+<li>Asynchronous operations allow CORA to perform multiple tasks simultaneously</li>
+<li>CORA can visualize complex data structures through enhanced holographic projection</li>
+</ul>
+<h4 id="code-example-mappings_7">Code Example Mappings</h4>
+<ul>
+<li>Maps to <code>examples/03_advanced/01_rule110_simulation.cvy</code> and variants</li>
+<li>Algorithm concepts from <code>examples/03_advanced/10_advanced_resource_optimization.cvy</code></li>
+<li>Advanced structures similar to <code>examples/03_advanced/11_quantum_weaver.cvy</code></li>
+</ul>
+<h4 id="real-world-application_6">Real-World Application</h4>
+<ul>
+<li>Graph algorithms in network analysis and social media</li>
+<li>Advanced data structures in high-performance computing</li>
+<li>Asynchronous programming in web and mobile development</li>
+</ul>
+<h3 id="chapter-8-the-professors-legacy-advanced-design">Chapter 8: The Professor's Legacy &amp; Advanced Design</h3>
+<h4 id="chronovyan-concepts-introduced_8">Chronovyan Concepts Introduced</h4>
+<ul>
+<li>Building larger, multi-module programs</li>
+<li>Debugging complex systems</li>
+<li>Code Reusability and Design Patterns (Chronovyan style)</li>
+</ul>
+<h4 id="cora-integration_7">CORA Integration</h4>
+<ul>
+<li>CORA can now execute and monitor complex multi-module programs</li>
+<li>CORA provides advanced debugging tools for complex system troubleshooting</li>
+<li>CORA's modular design showcases effective code organization principles</li>
+<li>CORA can suggest optimizations based on recognized design patterns</li>
+</ul>
+<h4 id="code-example-mappings_8">Code Example Mappings</h4>
+<ul>
+<li>Multi-module concepts from <code>examples/03_advanced/12_the_synth_weavers_gambit.cvy</code> and UTF-8 variant</li>
+<li>Debugging approaches similar to <code>examples/03_advanced/14_first_fracture_simulation.cvy</code></li>
+<li>Design patterns seen in <code>examples/03_advanced/15_temporal_simulation.cvy</code></li>
+</ul>
+<h4 id="real-world-application_7">Real-World Application</h4>
+<ul>
+<li>Design patterns in enterprise software development</li>
+<li>Debugging techniques in production environments</li>
+<li>Modular architecture in large-scale applications</li>
+</ul>
+<h3 id="chapter-9-the-final-gambit">Chapter 9: The Final Gambit</h3>
+<h4 id="chronovyan-concepts-introduced_9">Chronovyan Concepts Introduced</h4>
+<ul>
+<li>Optimization: Writing efficient code</li>
+<li>Tackling a large-scale problem that integrates most learned concepts</li>
+</ul>
+<h4 id="cora-integration_8">CORA Integration</h4>
+<ul>
+<li>CORA reaches her final form, fully integrated with Chronovyan technology</li>
+<li>CORA can now analyze and optimize complex code automatically</li>
+<li>CORA's systems become critical for managing the rift technology</li>
+<li>CORA may develop the ability to predict outcomes across multiple timelines</li>
+</ul>
+<h4 id="code-example-mappings_9">Code Example Mappings</h4>
+<ul>
+<li>Optimization concepts from <code>examples/03_advanced/16_fibonacci_sequence.cvy</code></li>
+<li>Integration of multiple advanced concepts from various advanced examples</li>
+</ul>
+<h4 id="real-world-application_8">Real-World Application</h4>
+<ul>
+<li>Performance optimization in high-load systems</li>
+<li>Code efficiency in resource-constrained environments</li>
+<li>System integration in enterprise software</li>
+</ul>
+<h3 id="gameplay_3">Gameplay</h3>
+<ul>
+<li>Designing and implementing significant Chronovyan programs</li>
+<li>Possibly collaborative puzzles (if Thorne is found and can assist)</li>
+<li>High-stakes challenges with significant consequences</li>
+<li>Critical decisions regarding CORA's future and development</li>
+</ul>
+<h3 id="code-editor-mastery">Code Editor Mastery</h3>
+<ul>
+<li>Full-featured IDE with advanced debugging tools</li>
+<li>Performance profiling</li>
+<li>Code refactoring tools</li>
+<li>Integration with in-game knowledge base</li>
+<li>CORA's interface becomes an advanced IDE with multiple specialized tools</li>
+</ul>
+<h3 id="feedback-mechanism-mastery">Feedback Mechanism Mastery</h3>
+<ul>
+<li>"Efficiency Scanners" or "Rift Stability Metrics" (benchmark tests)</li>
+<li>Full "System Validation Suites" for major projects</li>
+<li>Detailed performance analytics</li>
+<li>Visual simulation of code execution in the game world</li>
+<li>CORA provides multi-dimensional analysis of code quality and efficiency</li>
+</ul>
+<h3 id="chronovyan-dialect-mastery">Chronovyan Dialect Mastery</h3>
+<ul>
+<li>Full temporal manipulation syntax</li>
+<li>Rift manipulation commands</li>
+<li>Master-level paradox management</li>
+<li>Integration of all variable modifiers and types</li>
+<li>CORA's communication now incorporates advanced Chronovyan concepts fluently</li>
+</ul>
+<h3 id="advanced-multiplayer-features">Advanced Multiplayer Features</h3>
+<ul>
+<li>Collaborative coding challenges</li>
+<li>Competitive optimization leaderboards</li>
+<li>Community-created puzzles and extensions</li>
+<li>Share fully customized CORA configurations and extension modules</li>
+</ul>
+<h3 id="difficulty-options">Difficulty Options</h3>
+<ul>
+<li>Casual: More hints, forgiving validation, no time limits, more CORA assistance</li>
+<li>Standard: Balanced approach with moderate guidance, standard CORA functionality</li>
+<li>Expert: Strict validation, minimal hints, optional time challenges, limited CORA assistance</li>
+<li>Paradox Master: Create the most elegant and efficient solutions possible, CORA only provides minimal feedback</li>
+</ul>
+<h3 id="act-iii-final-bosschallenge">Act III "Final Boss/Challenge"</h3>
+<p>Stabilizing/Navigating the Rift: Alex must design and implement a comprehensive Chronovyan program to either create a stable rift home, navigate an existing unstable one, or send a complex signal/message. CORA becomes integral to the rift technology, potentially serving as the bridge between worlds. This will be the ultimate test of all their learned skills and the culmination of CORA's development.</p>
+<h4 id="win-conditions_2">Win Conditions</h4>
+<ul>
+<li>Rift successfully opened and navigated</li>
+<li>Signal successfully sent</li>
+<li>Professor Thorne rescued</li>
+<li>CORA's systems remain stable throughout the process</li>
+<li>Resolution of CORA's character arc (returning to Earth or remaining in Chronovya)</li>
+<li>Multiple success levels possible based on efficiency and completeness of the solution</li>
+</ul>
+<h2 id="throughout-the-game">Throughout the Game</h2>
+<h3 id="side-quests">Side Quests</h3>
+<p>Available from Act I onwards:
+- Offer opportunities to explore optional Chronovyan language features or advanced techniques
+- Provide "loot" such as:
+  - Useful pre-written Chronovyan functions or code snippets (earned)
+  - Cosmetic themes for the in-game code editor
+  - Lore fragments, insights into Chronovyan culture or technology
+  - Blueprints for crafting useful in-game tools (coded by the player)
+  - Upgrade components for CORA's systems</p>
+<h3 id="cora-upgrade-system">CORA Upgrade System</h3>
+<p>Throughout the game, players can find, earn, or create upgrades for CORA:
+- <strong>Hardware Upgrades</strong>: Improve CORA's physical capabilities (scanning range, projection quality, etc.)
+- <strong>Software Modules</strong>: Add new functionality or commands to CORA's system
+- <strong>Power Enhancements</strong>: Improve efficiency, capacity, or charging capabilities
+- <strong>Appearance Customization</strong>: Change CORA's physical appearance or interface design
+- <strong>Voice Patterns</strong>: Modify CORA's communication style or personality traits</p>
+<h3 id="player-loot-from-main-questsbosses">Player "Loot" from Main Quests/Bosses</h3>
+<ul>
+<li>New abilities or commands within the Chronovyan language</li>
+<li>Access to new areas or Chronovyan systems</li>
+<li>Key components for their ultimate goal</li>
+<li>Enhanced understanding (e.g., unlocking new sections in an in-game Chronovyan language manual)</li>
+<li>Critical upgrades for CORA that enable new gameplay possibilities</li>
+</ul>
+<h2 id="implementation-plan">Implementation Plan</h2>
+<h3 id="phase-1-core-mechanics">Phase 1: Core Mechanics</h3>
+<ul>
+<li>Develop the basic code editor interface</li>
+<li>Implement the fundamental Chronovyan language interpreter</li>
+<li>Create the basic game environment and character movement</li>
+<li>Design and implement the first few puzzles</li>
+<li>Develop CORA's basic functionality and dialogue system</li>
+</ul>
+<h3 id="phase-2-narrative-integration">Phase 2: Narrative Integration</h3>
+<ul>
+<li>Develop the full storyline and character interactions</li>
+<li>Create the environment art and world design</li>
+<li>Implement the feedback mechanisms</li>
+<li>Develop the "Pattern Verifiers" system</li>
+<li>Expand CORA's dialogue and personality development</li>
+</ul>
+<h3 id="phase-3-advanced-features">Phase 3: Advanced Features</h3>
+<ul>
+<li>Implement the full Chronovyan language feature set</li>
+<li>Create advanced puzzles and challenges</li>
+<li>Develop the multiplayer and community features</li>
+<li>Balance difficulty and progression</li>
+<li>Complete CORA's upgrade path and advanced functionality</li>
+</ul>
+<h3 id="phase-4-polish-and-release">Phase 4: Polish and Release</h3>
+<ul>
+<li>Comprehensive testing and bug fixing</li>
+<li>Performance optimization</li>
+<li>User experience improvements</li>
+<li>Documentation and tutorial refinement</li>
+<li>Final narrative integration and CORA's character arc completion</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "search.highlight"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

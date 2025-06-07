@@ -1,0 +1,5501 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for api_reference.md">
+      
+      
+      
+        <link rel="canonical" href="https://chronovyan.github.io/api_reference/">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>Chronovyan API Reference - Chronovyan</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chronovyan-api-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Chronovyan" class="md-header__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chronovyan
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chronovyan API Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Chronovyan/Chronovyan" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/installation/" class="md-tabs__link">
+          
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../api/index.md" class="md-tabs__link">
+        
+  
+    
+  
+  API Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CONTRIBUTING.md" class="md-tabs__link">
+        
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Chronovyan" class="md-nav__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Chronovyan
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Chronovyan/Chronovyan" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CONTRIBUTING.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-resource-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Resource Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Resource Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-resourcetracker" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 ResourceTracker
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 ResourceTracker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#void-initializeresourceresourcetype-type-float-initiallevel" class="md-nav__link">
+    <span class="md-ellipsis">
+      void initializeResource(ResourceType type, float initialLevel)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bool-consumeresourceresourcetype-type-float-amount" class="md-nav__link">
+    <span class="md-ellipsis">
+      bool consumeResource(ResourceType type, float amount)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#void-advancecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      void advanceCycle()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-resourceprocessor" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 ResourceProcessor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 ResourceProcessor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-definition_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-resourceoptimizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 ResourceOptimizer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 ResourceOptimizer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-definition_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-resource-types-and-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Resource Types and Costs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 Resource Types and Costs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Resources
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chronon" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chronon
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aethel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aethel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resource Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Allocation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consumption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consumption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recovery
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Costs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resource Costs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Operations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-management-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Management Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-temporal-debt" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Temporal Debt
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Temporal Debt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-temporaldebttracker" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 TemporalDebtTracker
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 TemporalDebtTracker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-definition_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-methods_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bool-borrowresourceresourcetype-type-float-amount" class="md-nav__link">
+    <span class="md-ellipsis">
+      bool borrowResource(ResourceType type, float amount)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#void-accruerebeldebtrebeloperationtype-operationtype-const-stdstring-operationid" class="md-nav__link">
+    <span class="md-ellipsis">
+      void accrueRebelDebt(RebelOperationType operationType, const std::string&amp; operationId)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debtalertlevel-checkdebtalertsresourcetype-type-const" class="md-nav__link">
+    <span class="md-ellipsis">
+      DebtAlertLevel checkDebtAlerts(ResourceType type) const
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-debtrecord" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 DebtRecord
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 DebtRecord">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-debtalert" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 DebtAlert
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 DebtAlert">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure-definition_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-resource-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Resource Visualization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Resource Visualization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-resourcevisualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 ResourceVisualization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 ResourceVisualization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-definition_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-methods_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#void-visualizecurrentstate" class="md-nav__link">
+    <span class="md-ellipsis">
+      void visualizeCurrentState()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#void-startmonitoringdashboardupdatecallback-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      void startMonitoring(DashboardUpdateCallback callback)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bool-exportreportreporttype-type-const-stdstring-filename" class="md-nav__link">
+    <span class="md-ellipsis">
+      bool exportReport(ReportType type, const std::string&amp; filename)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-resourcesnapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 ResourceSnapshot
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 ResourceSnapshot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure-definition_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-real-time-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Real-time Dashboard
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Real-time Dashboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-export-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Export System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Export System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported Formats
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-unified-visualization-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 Unified Visualization Dashboard
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 Unified Visualization Dashboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-dashboard-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Dashboard Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Dashboard Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metriccollector" class="md-nav__link">
+    <span class="md-ellipsis">
+      MetricCollector
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modedecisionengine" class="md-nav__link">
+    <span class="md-ellipsis">
+      ModeDecisionEngine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adjustmentmanager" class="md-nav__link">
+    <span class="md-ellipsis">
+      AdjustmentManager
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Modes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#high-fidelity-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      High Fidelity Mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#balanced-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Balanced Mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lean-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lean Mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Auto Mode
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-mode-decision-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Auto Mode Decision Logic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specialized-visualizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specialized Visualizations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Specialized Visualizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#temporal-paradox-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temporal Paradox Visualization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-resonance-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Resonance Visualization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-core-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Core Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Core Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-resourcetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 ResourceType
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-operationtype" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 OperationType
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-rebeloperationtype" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 RebelOperationType
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-variable-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Variable Flags
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4 Variable Flags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timeline-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timeline Flags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      State Flags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Flags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flag-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flag Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-flag-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Flag Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Flag Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flag-combinations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flag Combinations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-flag-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Flag Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flag-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flag Inheritance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices-for-variable-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices for Variable Flags
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-variable-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 Variable Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 Variable Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conformist-variables-conf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conformist Variables (CONF)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rebel-variables-reb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rebel Variables (REB)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type Interaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-implications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Implications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-loop-mechanics" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Loop Mechanics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Loop Mechanics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-loop-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Loop Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 Loop Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Loops
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rebel-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rebel Loops
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantum-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Loops
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-loop-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Loop Control
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 Loop Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Controls
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rebel-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rebel Controls
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantum-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Controls
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-loop-stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Loop Stability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-timeline-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Timeline Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-program-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Program Lifecycle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Program Lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-lifecycle-phases" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Lifecycle Phases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 Lifecycle Phases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#program-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Program Initialization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#program-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Program Execution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#program-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Program Cleanup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-lifecycle-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Lifecycle Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Error Handling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="chronovyan-api-reference">Chronovyan API Reference</h1>
+<blockquote>
+<p><strong>Version</strong>: 1.0.0  </p>
+<p><strong>Last Updated</strong>: 2023-10-21  </p>
+<p><strong>Navigation</strong>:  </p>
+<p><a href="../README.md">README</a> | <a href="../ai_assistant_guide/">AI Assistant Guide</a> | <a href="../implementation_guide/">Implementation Guide</a></p>
+</blockquote>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li>
+<p><a href="#1-resource-management">1. Resource Management</a></p>
+</li>
+<li>
+<p><a href="#11-resourcetracker">1.1 ResourceTracker</a></p>
+</li>
+<li>
+<p><a href="#12-resourceprocessor">1.2 ResourceProcessor</a></p>
+</li>
+<li>
+<p><a href="#13-resourceoptimizer">1.3 ResourceOptimizer</a></p>
+</li>
+<li>
+<p><a href="#14-resource-types-and-costs">1.4 Resource Types and Costs</a></p>
+</li>
+<li>
+<p><a href="#2-temporal-debt">2. Temporal Debt</a></p>
+</li>
+<li>
+<p><a href="#21-temporaldebttracker">2.1 TemporalDebtTracker</a></p>
+</li>
+<li>
+<p><a href="#22-debtrecord">2.2 DebtRecord</a></p>
+</li>
+<li>
+<p><a href="#23-debtalert">2.3 DebtAlert</a></p>
+</li>
+<li>
+<p><a href="#3-resource-visualization">3. Resource Visualization</a></p>
+</li>
+<li>
+<p><a href="#31-resourcevisualization">3.1 ResourceVisualization</a></p>
+</li>
+<li>
+<p><a href="#32-resourcesnapshot">3.2 ResourceSnapshot</a></p>
+</li>
+<li>
+<p><a href="#33-real-time-dashboard">3.3 Real-time Dashboard</a></p>
+</li>
+<li>
+<p><a href="#34-export-system">3.4 Export System</a></p>
+</li>
+<li>
+<p><a href="#35-unified-visualization-dashboard">3.5 Unified Visualization Dashboard</a></p>
+</li>
+<li>
+<p><a href="#4-core-types">4. Core Types</a></p>
+</li>
+<li>
+<p><a href="#41-resourcetype">4.1 ResourceType</a></p>
+</li>
+<li>
+<p><a href="#42-operationtype">4.2 OperationType</a></p>
+</li>
+<li>
+<p><a href="#43-rebeloperationtype">4.3 RebelOperationType</a></p>
+</li>
+<li>
+<p><a href="#44-variable-flags">4.4 Variable Flags</a></p>
+</li>
+<li>
+<p><a href="#45-variable-types">4.5 Variable Types</a></p>
+</li>
+<li>
+<p><a href="#5-loop-mechanics">5. Loop Mechanics</a></p>
+</li>
+<li>
+<p><a href="#51-loop-types">5.1 Loop Types</a></p>
+</li>
+<li>
+<p><a href="#52-loop-control">5.2 Loop Control</a></p>
+</li>
+<li>
+<p><a href="#53-loop-stability">5.3 Loop Stability</a></p>
+</li>
+<li>
+<p><a href="#54-timeline-management">5.4 Timeline Management</a></p>
+</li>
+<li>
+<p><a href="#6-program-lifecycle">6. Program Lifecycle</a></p>
+</li>
+<li>
+<p><a href="#61-lifecycle-phases">6.1 Lifecycle Phases</a></p>
+</li>
+<li>
+<p><a href="#62-lifecycle-management">6.2 Lifecycle Management</a></p>
+</li>
+<li>
+<p><a href="#63-error-handling">6.3 Error Handling</a></p>
+</li>
+</ul>
+<hr />
+<h2 id="1-resource-management">1. Resource Management</h2>
+<h3 id="11-resourcetracker">1.1 ResourceTracker</h3>
+<p>Core class for tracking and managing temporal resources.</p>
+<h4 id="class-definition">Class Definition</h4>
+<pre><code class="language-cpp">
+class ResourceTracker {
+
+public:
+
+    ResourceTracker();
+
+    ~ResourceTracker();
+
+
+
+    // Resource initialization
+
+    void initializeResource(ResourceType type, float initialLevel);
+
+    void initializeAllResources();
+
+
+
+    // Resource operations
+
+    bool consumeResource(ResourceType type, float amount);
+
+    void replenishResource(ResourceType type, float amount);
+
+
+
+    // Resource queries
+
+    float getResourceLevel(ResourceType type) const;
+
+    float getResourceMaxLevel(ResourceType type) const;
+
+    float getResourceEfficiency(ResourceType type) const;
+
+    float getSystemStability() const;
+
+
+
+    // Resource modifiers
+
+    void setReplenishRate(ResourceType type, float rate);
+
+    void setResourceMaxLevel(ResourceType type, float maxLevel);
+
+
+
+    // Temporal cycle handling
+
+    void advanceCycle();
+
+
+
+    // Resource properties
+
+    struct ResourceProperties {
+
+        std::string name;
+
+        float initialLevel;
+
+        float maxLevel;
+
+        float replenishRate;
+
+    };
+
+
+
+    // Resource operations tracking
+
+    void recordOperation(OperationType type, ResourceType resourceType, float amount);
+
+    std::vector&lt;OperationRecord&gt; getRecentOperations(int count = 10) const;
+
+};
+
+</code></pre>
+<h4 id="key-methods">Key Methods</h4>
+<h5 id="void-initializeresourceresourcetype-type-float-initiallevel"><code>void initializeResource(ResourceType type, float initialLevel)</code></h5>
+<p>Initializes a specific resource with an initial level.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>
+<p><code>type</code>: The type of resource to initialize</p>
+</li>
+<li>
+<p><code>initialLevel</code>: The initial level to set for the resource</p>
+</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-cpp">
+ResourceTracker tracker;
+
+tracker.initializeResource(ResourceType::CHRONO_ENERGY, 100.0f);
+
+tracker.initializeResource(ResourceType::AETHEL_FLUX, 200.0f);
+
+</code></pre>
+<h5 id="bool-consumeresourceresourcetype-type-float-amount"><code>bool consumeResource(ResourceType type, float amount)</code></h5>
+<p>Consumes a specified amount of a resource.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>
+<p><code>type</code>: The type of resource to consume</p>
+</li>
+<li>
+<p><code>amount</code>: The amount to consume</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>true</code> if the resource was successfully consumed, <code>false</code> if insufficient resources</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-cpp">
+bool success = tracker.consumeResource(ResourceType::CHRONO_ENERGY, 25.0f);
+
+if (success) {
+
+    std::cout &lt;&lt; &quot;Resource consumed successfully!&quot; &lt;&lt; std::endl;
+
+} else {
+
+    std::cout &lt;&lt; &quot;Insufficient resources!&quot; &lt;&lt; std::endl;
+
+}
+
+</code></pre>
+<h5 id="void-advancecycle"><code>void advanceCycle()</code></h5>
+<p>Advances the temporal cycle, triggering resource replenishment based on replenish rates.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-cpp">
+// Advance to the next cycle
+
+tracker.advanceCycle();
+
+
+
+// Resource levels will be automatically replenished based on their rates
+
+</code></pre>
+<h3 id="12-resourceprocessor">1.2 ResourceProcessor</h3>
+<p>Processes resources for transformations and optimizations.</p>
+<h4 id="class-definition_1">Class Definition</h4>
+<pre><code class="language-cpp">
+class ResourceProcessor {
+
+public:
+
+    ResourceProcessor(std::shared_ptr&lt;ResourceTracker&gt; tracker);
+
+    ~ResourceProcessor();
+
+
+
+    // Resource transformations
+
+    bool transformResource(ResourceType source, ResourceType target, float amount);
+
+    bool balanceResources(ResourceType type1, ResourceType type2);
+
+
+
+    // Resource stabilization
+
+    float stabilizeResource(ResourceType type);
+
+    float stabilizeSystem();
+
+
+
+    // Resource optimization
+
+    void optimizeResourceUsage();
+
+    void prioritizeResource(ResourceType type);
+
+};
+
+</code></pre>
+<h3 id="13-resourceoptimizer">1.3 ResourceOptimizer</h3>
+<p>Optimizes resource usage for maximum efficiency.</p>
+<h4 id="class-definition_2">Class Definition</h4>
+<pre><code class="language-cpp">
+class ResourceOptimizer {
+
+public:
+
+    ResourceOptimizer(std::shared_ptr&lt;ResourceTracker&gt; tracker);
+
+    ~ResourceOptimizer();
+
+
+
+    // Optimization strategies
+
+    void optimizeConsumption(ResourceType type);
+
+    void optimizeReplenishment(ResourceType type);
+
+
+
+    // Efficiency calculations
+
+    float calculateEfficiency(ResourceType type, float consumption);
+
+    float calculateSystemEfficiency();
+
+
+
+    // Optimization settings
+
+    void setOptimizationTarget(OptimizationTarget target);
+
+    void setEfficiencyThreshold(float threshold);
+
+};
+
+</code></pre>
+<h3 id="14-resource-types-and-costs">1.4 Resource Types and Costs</h3>
+<p>Chronovyan operates on two primary temporal resources: Chronon and Aethel. Understanding these resources is essential for effective temporal programming.</p>
+<h4 id="core-resources">Core Resources</h4>
+<h5 id="chronon">Chronon</h5>
+<p>Chronons are the fundamental units of temporal energy used for timeline operations.</p>
+<pre><code class="language-cpp">
+// Chronon allocation and management
+
+chronon_metrics {
+
+    available: 90;    // Currently available chronons
+
+    consumed: 10;     // Chronons used in current cycle
+
+    recovery_rate: 1.0;  // Chronons recovered per cycle
+
+}
+
+
+
+// C++ equivalent
+
+struct ChronoMetrics {
+
+    float available;
+
+    float consumed;
+
+    float recoveryRate;
+
+};
+
+
+
+ChronoMetrics metrics = resourceTracker.getChronoMetrics();
+
+</code></pre>
+<h5 id="aethel">Aethel</h5>
+<p>Aethel is flux energy used for quantum manipulation and advanced temporal operations.</p>
+<pre><code class="language-cpp">
+// Aethel generation and usage
+
+aethel_metrics {
+
+    available: 30;    // Currently available aethel
+
+    spent: 20;        // Aethel used in current cycle
+
+    generation_rate: 0.5;  // Aethel generated per cycle
+
+}
+
+
+
+// C++ equivalent
+
+struct AethelMetrics {
+
+    float available;
+
+    float spent;
+
+    float generationRate;
+
+};
+
+
+
+AethelMetrics metrics = resourceTracker.getAethelMetrics();
+
+</code></pre>
+<h4 id="resource-operations">Resource Operations</h4>
+<h5 id="allocation">Allocation</h5>
+<p>Resources must be allocated before use in temporal operations.</p>
+<pre><code class="language-cpp">
+// Chronovyan syntax
+
+resource_allocation {
+
+    chronon: {
+
+        amount: 100;
+
+        priority: high;
+
+        duration: permanent;
+
+    }
+
+    aethel: {
+
+        amount: 50;
+
+        priority: medium;
+
+        duration: temporary;
+
+    }
+
+}
+
+
+
+// C++ equivalent
+
+ResourceAllocation allocation;
+
+allocation.setChronon(100, Priority::HIGH, Duration::PERMANENT);
+
+allocation.setAethel(50, Priority::MEDIUM, Duration::TEMPORARY);
+
+resourceManager.allocate(allocation);
+
+</code></pre>
+<h5 id="consumption">Consumption</h5>
+<p>Resource consumption occurs during temporal operations.</p>
+<pre><code class="language-cpp">
+// Chronovyan syntax
+
+resource_consumption {
+
+    chronon: {
+
+        rate: 1.0;
+
+        efficiency: high;
+
+        optimization: active;
+
+    }
+
+    aethel: {
+
+        rate: 0.5;
+
+        efficiency: medium;
+
+        optimization: passive;
+
+    }
+
+}
+
+
+
+// C++ equivalent
+
+ResourceConsumption consumption;
+
+consumption.setChronon(1.0f, Efficiency::HIGH, Optimization::ACTIVE);
+
+consumption.setAethel(0.5f, Efficiency::MEDIUM, Optimization::PASSIVE);
+
+resourceManager.setConsumptionProfile(consumption);
+
+</code></pre>
+<h5 id="recovery">Recovery</h5>
+<p>Resources recover naturally over time or through active recovery methods.</p>
+<pre><code class="language-cpp">
+// Chronovyan syntax
+
+resource_recovery {
+
+    chronon: {
+
+        rate: 1.0;
+
+        method: natural;
+
+        conditions: optimal;
+
+    }
+
+    aethel: {
+
+        rate: 0.5;
+
+        method: active;
+
+        conditions: controlled;
+
+    }
+
+}
+
+
+
+// C++ equivalent
+
+ResourceRecovery recovery;
+
+recovery.setChronon(1.0f, RecoveryMethod::NATURAL, Conditions::OPTIMAL);
+
+recovery.setAethel(0.5f, RecoveryMethod::ACTIVE, Conditions::CONTROLLED);
+
+resourceManager.setRecoveryProfile(recovery);
+
+</code></pre>
+<h4 id="resource-costs">Resource Costs</h4>
+<p>Different temporal operations have different resource costs.</p>
+<h5 id="standard-operations">Standard Operations</h5>
+<p>| Operation | Chronon Cost | Aethel Cost |</p>
+<p>|-----------|--------------|-------------|</p>
+<p>| Timeline Creation | 5 | 10 |</p>
+<p>| Timeline Merging | 3 | 5 |</p>
+<p>| Variable Branching | 1 | 2 |</p>
+<h5 id="advanced-operations">Advanced Operations</h5>
+<p>| Operation | Chronon Cost | Aethel Cost |</p>
+<p>|-----------|--------------|-------------|</p>
+<p>| Quantum Operations | 10 | 20 |</p>
+<p>| Timeline Synchronization | 8 | 15 |</p>
+<p>| State Recovery | 4 | 8 |</p>
+<h4 id="resource-management-best-practices">Resource Management Best Practices</h4>
+<ol>
+<li>
+<p><strong>Resource Planning</strong></p>
+</li>
+<li>
+<p>Estimate resource needs before beginning temporal operations</p>
+</li>
+<li>
+<p>Maintain safety margins, especially for critical operations</p>
+</li>
+<li>
+<p>Plan for contingencies and unexpected resource demands</p>
+</li>
+<li>
+<p><strong>Resource Monitoring</strong></p>
+</li>
+<li>
+<p>Track resource usage with <code>ResourceTracker</code> methods</p>
+</li>
+<li>
+<p>Set up alerts for low resource levels</p>
+</li>
+<li>
+<p>Monitor trends to optimize resource usage over time</p>
+</li>
+<li>
+<p><strong>Resource Optimization</strong></p>
+</li>
+<li>
+<p>Use <code>ResourceOptimizer</code> to minimize waste</p>
+</li>
+<li>
+<p>Implement resource pooling for operations with similar needs</p>
+</li>
+<li>
+<p>Balance efficiency and stability in resource consumption</p>
+</li>
+</ol>
+<hr />
+<h2 id="2-temporal-debt">2. Temporal Debt</h2>
+<h3 id="21-temporaldebttracker">2.1 TemporalDebtTracker</h3>
+<p>Manages temporal debt accrual, tracking, and repayment.</p>
+<h4 id="class-definition_3">Class Definition</h4>
+<pre><code class="language-cpp">
+class TemporalDebtTracker {
+
+public:
+
+    TemporalDebtTracker(std::shared_ptr&lt;ResourceTracker&gt; resourceTracker);
+
+    ~TemporalDebtTracker();
+
+
+
+    // Debt operations
+
+    bool borrowResource(ResourceType type, float amount);
+
+    bool repayDebt(ResourceType type, float amount);
+
+    bool repayAllDebt(ResourceType type);
+
+
+
+    // Debt accrual
+
+    void accrueInterest();
+
+    void accrueRebelDebt(RebelOperationType operationType, const std::string&amp; operationId);
+
+
+
+    // Debt queries
+
+    float getTotalDebt(ResourceType type) const;
+
+    float getInterestRate(ResourceType type) const;
+
+    std::vector&lt;DebtRecord&gt; getDebtRecords() const;
+
+
+
+    // Debt alerts
+
+    DebtAlertLevel checkDebtAlerts(ResourceType type) const;
+
+    std::vector&lt;DebtAlert&gt; getAllAlerts() const;
+
+
+
+    // Cycle management
+
+    void advanceCycle();
+
+    int getDueCycles(ResourceType type) const;
+
+
+
+    // Repayment strategies
+
+    RepaymentStrategy suggestRepaymentStrategy(ResourceType type) const;
+
+    void applyRepaymentStrategy(ResourceType type, RepaymentStrategy strategy);
+
+};
+
+</code></pre>
+<h4 id="key-methods_1">Key Methods</h4>
+<h5 id="bool-borrowresourceresourcetype-type-float-amount"><code>bool borrowResource(ResourceType type, float amount)</code></h5>
+<p>Borrows resources, creating temporal debt.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>
+<p><code>type</code>: The type of resource to borrow</p>
+</li>
+<li>
+<p><code>amount</code>: The amount to borrow</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>true</code> if the borrowing was successful, <code>false</code> otherwise</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-cpp">
+auto resourceTracker = std::make_shared&lt;ResourceTracker&gt;();
+
+TemporalDebtTracker debtTracker(resourceTracker);
+
+
+
+// Borrow resources
+
+bool success = debtTracker.borrowResource(ResourceType::CHRONO_ENERGY, 50.0f);
+
+if (success) {
+
+    std::cout &lt;&lt; &quot;Resources borrowed successfully!&quot; &lt;&lt; std::endl;
+
+}
+
+</code></pre>
+<h5 id="void-accruerebeldebtrebeloperationtype-operationtype-const-stdstring-operationid"><code>void accrueRebelDebt(RebelOperationType operationType, const std::string&amp; operationId)</code></h5>
+<p>Accrues debt based on a Rebel operation.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>
+<p><code>operationType</code>: The type of Rebel operation performed</p>
+</li>
+<li>
+<p><code>operationId</code>: Unique identifier for the operation</p>
+</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-cpp">
+// Perform a risky Rebel operation
+
+debtTracker.accrueRebelDebt(RebelOperationType::REWIND_FLOW, &quot;rewind_op_0042&quot;);
+
+</code></pre>
+<h5 id="debtalertlevel-checkdebtalertsresourcetype-type-const"><code>DebtAlertLevel checkDebtAlerts(ResourceType type) const</code></h5>
+<p>Checks the alert level for a specific resource's debt.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>type</code>: The resource type to check</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li>The alert level for the specified resource's debt</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-cpp">
+DebtAlertLevel alertLevel = debtTracker.checkDebtAlerts(ResourceType::CHRONO_ENERGY);
+
+if (alertLevel == DebtAlertLevel::CRITICAL) {
+
+    std::cout &lt;&lt; &quot;CRITICAL DEBT ALERT: Immediate repayment required!&quot; &lt;&lt; std::endl;
+
+}
+
+</code></pre>
+<h3 id="22-debtrecord">2.2 DebtRecord</h3>
+<p>Structure that holds information about a specific debt.</p>
+<h4 id="structure-definition">Structure Definition</h4>
+<pre><code class="language-cpp">
+struct DebtRecord {
+
+    ResourceType resourceType;
+
+    float amount;
+
+    float interestRate;
+
+    int dueCycles;
+
+    int cycleCreated;
+
+    int cyclesOverdue;
+
+    RebelOperationType associatedOperation;
+
+    std::string operationId;
+
+};
+
+</code></pre>
+<h3 id="23-debtalert">2.3 DebtAlert</h3>
+<p>Structure that holds information about a debt alert.</p>
+<h4 id="structure-definition_1">Structure Definition</h4>
+<pre><code class="language-cpp">
+struct DebtAlert {
+
+    ResourceType resourceType;
+
+    DebtAlertLevel level;
+
+    float debtAmount;
+
+    float resourceRatio;
+
+    std::string message;
+
+};
+
+</code></pre>
+<hr />
+<h2 id="3-resource-visualization">3. Resource Visualization</h2>
+<h3 id="31-resourcevisualization">3.1 ResourceVisualization</h3>
+<p>Class for visualizing resource usage, trends, and debt status.</p>
+<h4 id="class-definition_4">Class Definition</h4>
+<pre><code class="language-cpp">
+class ResourceVisualization {
+
+public:
+
+    // Constructor and core methods
+
+    ResourceVisualization(std::shared_ptr&lt;ResourceTracker&gt; tracker, 
+
+                         std::shared_ptr&lt;TemporalDebtTracker&gt; debtTracker);
+
+    ~ResourceVisualization();
+
+
+
+    // Core visualization methods
+
+    void visualizeCurrentState();
+
+    void visualizeResourceTrends(int cycles = 10);
+
+    void visualizeDebtStatus();
+
+
+
+    // Dashboard functionality
+
+    void generateDashboard();
+
+
+
+    // Real-time monitoring
+
+    struct DashboardConfig {
+
+        enum class Mode { HIGH_FIDELITY, BALANCED, LEAN };
+
+        Mode mode = Mode::BALANCED;
+
+        float updateInterval = 1.0f;
+
+        bool showResourceGraphs = true;
+
+        bool showDebtAlerts = true;
+
+        bool showTrends = true;
+
+        int historyLength = 100;
+
+    };
+
+
+
+    using DashboardUpdateCallback = std::function&lt;void(const ResourceSnapshot&amp;)&gt;;
+
+
+
+    void configureDashboard(const DashboardConfig&amp; config);
+
+    void startMonitoring(DashboardUpdateCallback callback);
+
+    void stopMonitoring();
+
+    bool isMonitoring() const;
+
+
+
+    // Export functionality
+
+    enum class ReportType { SUMMARY, DETAILED, CSV, JSON, XML };
+
+
+
+    std::string generateReport(ReportType type);
+
+    bool exportReport(ReportType type, const std::string&amp; filename);
+
+    bool exportAllReports(const std::string&amp; directory);
+
+
+
+    // Snapshot access
+
+    ResourceSnapshot getCurrentSnapshot() const;
+
+    std::vector&lt;ResourceSnapshot&gt; getHistoricalSnapshots(int count = 10) const;
+
+};
+
+</code></pre>
+<h4 id="key-methods_2">Key Methods</h4>
+<h5 id="void-visualizecurrentstate"><code>void visualizeCurrentState()</code></h5>
+<p>Displays the current state of all resources tracked by the system.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-cpp">
+ResourceVisualization visualizer(resourceTracker, debtTracker);
+
+visualizer.visualizeCurrentState();
+
+</code></pre>
+<p><strong>Output Example:</strong></p>
+<pre><code>
+Current Resource State (2023-09-15 14:30:22):
+
+- CHRONO_ENERGY: 78.5/100.0 (78.5%) [Efficiency: 92.3%]
+
+- AETHEL_FLUX: 45.2/200.0 (22.6%) [Efficiency: 86.7%]
+
+- TEMPORAL_STABILITY: 95.0/100.0 (95.0%) [Efficiency: 98.1%]
+
+- QUANTUM_COHERENCE: 67.3/100.0 (67.3%) [Efficiency: 88.5%]
+
+
+
+System Stability: 89.4%
+
+Total Resource Efficiency: 91.4%
+
+</code></pre>
+<h5 id="void-startmonitoringdashboardupdatecallback-callback"><code>void startMonitoring(DashboardUpdateCallback callback)</code></h5>
+<p>Starts real-time monitoring of resources, calling the provided callback function whenever the dashboard updates.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>callback</code>: Function to call with the latest resource snapshot on each update</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-cpp">
+visualizer.startMonitoring([](const ResourceSnapshot&amp; snapshot) {
+
+    std::cout &lt;&lt; &quot;Update received! System stability: &quot; 
+
+              &lt;&lt; snapshot.systemStability &lt;&lt; &quot;%&quot; &lt;&lt; std::endl;
+
+
+
+    if (snapshot.systemStability &lt; 50.0f) {
+
+        std::cout &lt;&lt; &quot;WARNING: Low system stability!&quot; &lt;&lt; std::endl;
+
+    }
+
+});
+
+</code></pre>
+<h5 id="bool-exportreportreporttype-type-const-stdstring-filename"><code>bool exportReport(ReportType type, const std::string&amp; filename)</code></h5>
+<p>Exports a report of the specified type to a file.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>
+<p><code>type</code>: The type of report to generate</p>
+</li>
+<li>
+<p><code>filename</code>: Path where the report should be saved</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>true</code> if the export was successful, <code>false</code> otherwise</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-cpp">
+bool success = visualizer.exportReport(
+
+    ResourceVisualization::ReportType::CSV,
+
+    &quot;resource_trends.csv&quot;
+
+);
+
+
+
+if (success) {
+
+    std::cout &lt;&lt; &quot;Report exported successfully&quot; &lt;&lt; std::endl;
+
+}
+
+</code></pre>
+<h3 id="32-resourcesnapshot">3.2 ResourceSnapshot</h3>
+<p>Structure that holds a snapshot of resource states.</p>
+<h4 id="structure-definition_2">Structure Definition</h4>
+<pre><code class="language-cpp">
+struct ResourceSnapshot {
+
+    std::map&lt;ResourceType, float&gt; resourceLevels;
+
+    std::map&lt;ResourceType, float&gt; resourceEfficiencies;
+
+    std::map&lt;ResourceType, float&gt; resourceDebts;
+
+    std::map&lt;ResourceType, float&gt; resourceStability;
+
+    float systemStability;
+
+    TimePoint timestamp;
+
+
+
+    // Calculated metrics
+
+    float averageEfficiency;
+
+    float totalDebt;
+
+    float debtToResourceRatio;
+
+};
+
+</code></pre>
+<h3 id="33-real-time-dashboard">3.3 Real-time Dashboard</h3>
+<p>Dashboard functionality for real-time monitoring.</p>
+<h4 id="key-features">Key Features</h4>
+<ul>
+<li>
+<p><strong>High-fidelity Mode</strong>: Maximum update frequency with detailed visualization</p>
+</li>
+<li>
+<p><strong>Balanced Mode</strong>: Moderate update frequency with standard visualization</p>
+</li>
+<li>
+<p><strong>Lean Mode</strong>: Minimal updates with essential information only</p>
+</li>
+<li>
+<p><strong>Custom Update Callbacks</strong>: Register custom callbacks for dashboard updates</p>
+</li>
+<li>
+<p><strong>Resource Graphs</strong>: Visual representation of resource levels over time</p>
+</li>
+<li>
+<p><strong>Debt Alerts</strong>: Visual indicators for debt levels and alerts</p>
+</li>
+<li>
+<p><strong>Trend Analysis</strong>: Visualization of resource usage trends</p>
+</li>
+</ul>
+<h4 id="example-configuration">Example Configuration</h4>
+<pre><code class="language-cpp">
+ResourceVisualization::DashboardConfig config;
+
+config.mode = ResourceVisualization::DashboardConfig::Mode::HIGH_FIDELITY;
+
+config.updateInterval = 0.5f;
+
+config.showResourceGraphs = true;
+
+config.showDebtAlerts = true;
+
+config.historyLength = 200;
+
+
+
+visualizer.configureDashboard(config);
+
+</code></pre>
+<h3 id="34-export-system">3.4 Export System</h3>
+<p>Functionality for exporting resource usage reports.</p>
+<h4 id="supported-formats">Supported Formats</h4>
+<ul>
+<li>
+<p><strong>SUMMARY</strong>: Brief text summary of current resource state</p>
+</li>
+<li>
+<p><strong>DETAILED</strong>: Comprehensive text report with all metrics</p>
+</li>
+<li>
+<p><strong>CSV</strong>: Comma-separated values format for data analysis</p>
+</li>
+<li>
+<p><strong>JSON</strong>: JavaScript Object Notation format for API compatibility</p>
+</li>
+<li>
+<p><strong>XML</strong>: Extensible Markup Language format for structured data</p>
+</li>
+</ul>
+<h4 id="example-usage">Example Usage</h4>
+<pre><code class="language-cpp">
+// Export individual reports
+
+visualizer.exportReport(ResourceVisualization::ReportType::JSON, &quot;resource_state.json&quot;);
+
+visualizer.exportReport(ResourceVisualization::ReportType::CSV, &quot;resource_trends.csv&quot;);
+
+visualizer.exportReport(ResourceVisualization::ReportType::SUMMARY, &quot;summary_report.txt&quot;);
+
+
+
+// Export all report types
+
+visualizer.exportAllReports(&quot;./reports&quot;);
+
+</code></pre>
+<h3 id="35-unified-visualization-dashboard">3.5 Unified Visualization Dashboard</h3>
+<p>The Unified Visualization Dashboard provides a comprehensive view of the Chronovyan system state, offering real-time visualization and monitoring of system dynamics with intelligent performance management.</p>
+<h4 id="architecture-overview">Architecture Overview</h4>
+<pre><code class="language-cpp">
+class UnifiedVisualizationDashboard {
+
+public:
+
+    // Core configuration and setup
+
+    UnifiedVisualizationDashboard();
+
+    ~UnifiedVisualizationDashboard();
+
+
+
+    // Performance modes
+
+    enum class PerformanceMode {
+
+        HIGH_FIDELITY,  // Full detail, all animations, real-time updates
+
+        BALANCED,       // Moderate detail, selective animations, adaptive updates
+
+        LEAN,           // Minimal detail, static or slow-updating visuals
+
+        AUTO            // Dynamically switch modes based on system metrics
+
+    };
+
+
+
+    // Configuration
+
+    struct DashboardConfig {
+
+        PerformanceMode initialMode = PerformanceMode::AUTO;
+
+        bool enableUserNotifications = true;
+
+        bool enableAutoAdjustments = true;
+
+        int metricEvaluationInterval = 500; // milliseconds
+
+        int modeSwitchCooldown = 5000;      // milliseconds
+
+    };
+
+
+
+    void configure(const DashboardConfig&amp; config);
+
+    PerformanceMode getCurrentMode() const;
+
+    void setMode(PerformanceMode mode);
+
+
+
+    // Dashboard operations
+
+    void initialize();
+
+    void update(float deltaTime);
+
+    void render();
+
+    void shutdown();
+
+
+
+    // User interaction tracking
+
+    void notifyUserInteractionStart();
+
+    void notifyUserInteractionEnd();
+
+    bool isUserInteracting() const;
+
+
+
+    // Metrics and state
+
+    struct SystemMetrics {
+
+        double fps;
+
+        double cpuUsage;
+
+        double gpuUsage;
+
+        double memoryUsage;
+
+        int updateLatency;
+
+        double dataComplexity;
+
+        std::chrono::system_clock::time_point timestamp;
+
+    };
+
+
+
+    SystemMetrics getCurrentMetrics() const;
+
+    std::vector&lt;SystemMetrics&gt; getMetricsHistory(int count = 10) const;
+
+
+
+    // Event registration
+
+    using ModeChangeCallback = std::function&lt;void(PerformanceMode, PerformanceMode, std::string)&gt;;
+
+    using MetricsUpdateCallback = std::function&lt;void(const SystemMetrics&amp;)&gt;;
+
+
+
+    void registerModeChangeCallback(ModeChangeCallback callback);
+
+    void registerMetricsUpdateCallback(MetricsUpdateCallback callback);
+
+
+
+    // Specialized visualizations
+
+    void visualizeTemporalParadox();
+
+    void visualizeResourceResonance();
+
+    void visualizeQuantumField();
+
+};
+
+</code></pre>
+<h4 id="core-dashboard-components">Core Dashboard Components</h4>
+<h5 id="metriccollector">MetricCollector</h5>
+<p>Responsible for gathering and normalizing system performance metrics.</p>
+<pre><code class="language-cpp">
+class MetricCollector {
+
+public:
+
+    MetricCollector();
+
+
+
+    // Core metrics collection
+
+    SystemMetrics collectMetrics();
+
+
+
+    // Individual metrics
+
+    double getFps();
+
+    double getCpuUsage();
+
+    double getGpuUsage();
+
+    double getMemoryUsage();
+
+    int getUpdateLatency();
+
+    double getDataComplexity();
+
+
+
+    // Error handling and health checks
+
+    bool areMetricsValid() const;
+
+    std::vector&lt;std::string&gt; getMetricWarnings() const;
+
+    std::chrono::system_clock::time_point getLastCollectionTime() const;
+
+};
+
+</code></pre>
+<h5 id="modedecisionengine">ModeDecisionEngine</h5>
+<p>Evaluates metrics and decides when to change performance modes.</p>
+<pre><code class="language-cpp">
+class ModeDecisionEngine {
+
+public:
+
+    ModeDecisionEngine();
+
+
+
+    // Configuration
+
+    struct Thresholds {
+
+        // FPS thresholds
+
+        double highFidelityMinFps = 60.0;
+
+        double balancedMinFps = 45.0;
+
+        double leanMinFps = 30.0;
+
+
+
+        // CPU usage thresholds (percentage)
+
+        double highFidelityMaxCpu = 70.0;
+
+        double balancedMaxCpu = 85.0;
+
+        double leanMaxCpu = 95.0;
+
+
+
+        // GPU usage thresholds (percentage)
+
+        double highFidelityMaxGpu = 80.0;
+
+        double balancedMaxGpu = 90.0;
+
+        double leanMaxGpu = 98.0;
+
+
+
+        // Memory usage thresholds (percentage)
+
+        double highFidelityMaxMemory = 70.0;
+
+        double balancedMaxMemory = 85.0;
+
+        double leanMaxMemory = 95.0;
+
+    };
+
+
+
+    void setThresholds(const Thresholds&amp; thresholds);
+
+
+
+    // Decision making
+
+    struct Decision {
+
+        bool shouldSwitch;
+
+        PerformanceMode targetMode;
+
+        std::string reason;
+
+    };
+
+
+
+    Decision evaluateMetrics(const SystemMetrics&amp; metrics);
+
+    bool checkHysteresis(PerformanceMode targetMode);
+
+
+
+    // Hysteresis periods (milliseconds)
+
+    void setHysteresisPeriod(PerformanceMode mode, int milliseconds);
+
+    int getHysteresisPeriod(PerformanceMode mode) const;
+
+};
+
+</code></pre>
+<h5 id="adjustmentmanager">AdjustmentManager</h5>
+<p>Applies visual and performance adjustments based on the current mode.</p>
+<pre><code class="language-cpp">
+class AdjustmentManager {
+
+public:
+
+    AdjustmentManager();
+
+
+
+    // Apply adjustments
+
+    void applyAdjustments(PerformanceMode mode);
+
+    void applyTemporaryDownscaling();
+
+    void resetTemporaryAdjustments();
+
+
+
+    // Individual adjustments
+
+    void adjustUpdateFrequency(int frequencyMs);
+
+    void adjustAnimationComplexity(double factor);
+
+    void adjustDataDensity(double factor);
+
+    void adjustVisualEffects(double factor);
+
+
+
+    // Configuration
+
+    struct AdjustmentConfig {
+
+        // Adjustment factors for each mode
+
+        double highFidelityFactor = 1.0;
+
+        double balancedFactor = 0.7;
+
+        double leanFactor = 0.4;
+
+
+
+        // Features to adjust
+
+        bool adjustUpdateFrequency = true;
+
+        bool adjustAnimationComplexity = true;
+
+        bool adjustDataDensity = true;
+
+        bool adjustVisualEffects = true;
+
+    };
+
+
+
+    void setConfig(const AdjustmentConfig&amp; config);
+
+};
+
+</code></pre>
+<h4 id="performance-modes">Performance Modes</h4>
+<h5 id="high-fidelity-mode">High Fidelity Mode</h5>
+<p>Provides maximum visual detail and real-time updates.</p>
+<p><strong>Characteristics:</strong></p>
+<ul>
+<li>
+<p>Full detail visualization</p>
+</li>
+<li>
+<p>All animations enabled</p>
+</li>
+<li>
+<p>Real-time updates (60+ FPS)</p>
+</li>
+<li>
+<p>Comprehensive data display</p>
+</li>
+</ul>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>
+<p>High-end hardware</p>
+</li>
+<li>
+<p>Low system load</p>
+</li>
+<li>
+<p>Sufficient memory</p>
+</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>
+<p>Detailed analysis sessions</p>
+</li>
+<li>
+<p>Demonstrations and presentations</p>
+</li>
+<li>
+<p>When maximum information is critical</p>
+</li>
+</ul>
+<h5 id="balanced-mode">Balanced Mode</h5>
+<p>Offers a compromise between performance and detail.</p>
+<p><strong>Characteristics:</strong></p>
+<ul>
+<li>
+<p>Moderate detail level</p>
+</li>
+<li>
+<p>Selective animations</p>
+</li>
+<li>
+<p>Adaptive update rates</p>
+</li>
+<li>
+<p>Prioritized data display</p>
+</li>
+</ul>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>
+<p>Standard hardware</p>
+</li>
+<li>
+<p>Moderate system load</p>
+</li>
+<li>
+<p>Average memory usage</p>
+</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>
+<p>Everyday monitoring</p>
+</li>
+<li>
+<p>Interactive exploration</p>
+</li>
+<li>
+<p>Most standard development tasks</p>
+</li>
+</ul>
+<h5 id="lean-mode">Lean Mode</h5>
+<p>Provides essential visualization with minimal resource usage.</p>
+<p><strong>Characteristics:</strong></p>
+<ul>
+<li>
+<p>Minimal detail</p>
+</li>
+<li>
+<p>Static or slow-updating visuals</p>
+</li>
+<li>
+<p>Reduced data density</p>
+</li>
+<li>
+<p>Focus on critical information only</p>
+</li>
+</ul>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>
+<p>Low-end hardware compatibility</p>
+</li>
+<li>
+<p>Works under high system load</p>
+</li>
+<li>
+<p>Low memory footprint</p>
+</li>
+<li>
+<p>Mobile-friendly</p>
+</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>
+<p>Resource-constrained environments</p>
+</li>
+<li>
+<p>Background monitoring</p>
+</li>
+<li>
+<p>Critical event monitoring</p>
+</li>
+<li>
+<p>Emergency operations</p>
+</li>
+</ul>
+<h5 id="auto-mode">Auto Mode</h5>
+<p>Dynamically switches between modes based on system metrics and user activity.</p>
+<p><strong>Logic:</strong></p>
+<ul>
+<li>
+<p>Evaluates system metrics every 500ms</p>
+</li>
+<li>
+<p>Applies hysteresis to prevent mode oscillation</p>
+</li>
+<li>
+<p>Considers user interaction state</p>
+</li>
+<li>
+<p>Temporary adjustments during high-interaction periods</p>
+</li>
+</ul>
+<h4 id="auto-mode-decision-logic">Auto Mode Decision Logic</h4>
+<p>The dashboard uses sophisticated logic to determine when to switch between performance modes.</p>
+<pre><code class="language-cpp">
+// Pseudo-code for auto mode decision logic
+
+Decision evaluateMetrics(Metrics metrics) {
+
+    // Check critical thresholds first
+
+    if (metrics.cpuUsage &gt; thresholds.leanMaxCpu ||
+
+        metrics.memoryUsage &gt; thresholds.leanMaxMemory) {
+
+        return Decision{true, PerformanceMode::LEAN, &quot;Critical resource usage&quot;};
+
+    }
+
+
+
+    // Check if we should increase fidelity
+
+    if (metrics.fps &gt; thresholds.highFidelityMinFps &amp;&amp;
+
+        metrics.cpuUsage &lt; thresholds.highFidelityMaxCpu &amp;&amp;
+
+        metrics.gpuUsage &lt; thresholds.highFidelityMaxGpu &amp;&amp;
+
+        metrics.memoryUsage &lt; thresholds.highFidelityMaxMemory &amp;&amp;
+
+        !isInHysteresisPeriod(PerformanceMode::HIGH_FIDELITY)) {
+
+
+
+        return Decision{true, PerformanceMode::HIGH_FIDELITY, &quot;Resource headroom available&quot;};
+
+    }
+
+
+
+    // Check if we should decrease to balanced
+
+    if (metrics.fps &lt; thresholds.balancedMinFps ||
+
+        metrics.cpuUsage &gt; thresholds.balancedMaxCpu ||
+
+        metrics.gpuUsage &gt; thresholds.balancedMaxGpu) {
+
+
+
+        return Decision{true, PerformanceMode::BALANCED, &quot;Performance thresholds exceeded&quot;};
+
+    }
+
+
+
+    // Check if we should decrease to lean
+
+    if (metrics.fps &lt; thresholds.leanMinFps ||
+
+        metrics.cpuUsage &gt; thresholds.leanMaxCpu ||
+
+        metrics.gpuUsage &gt; thresholds.leanMaxGpu) {
+
+
+
+        return Decision{true, PerformanceMode::LEAN, &quot;Severe performance constraints&quot;};
+
+    }
+
+
+
+    // No change needed
+
+    return Decision{false, getCurrentMode(), &quot;Current mode optimal&quot;};
+
+}
+
+</code></pre>
+<h4 id="specialized-visualizations">Specialized Visualizations</h4>
+<h5 id="temporal-paradox-visualization">Temporal Paradox Visualization</h5>
+<p>Visualizes temporal causality loops and quantum states.</p>
+<pre><code class="language-cpp">
+struct TemporalParadoxVisualization {
+
+    // Core visualization components
+
+    struct TemporalCompass {
+
+        double currentAngle;
+
+        double quantumFlux;
+
+        std::vector&lt;QuantumState&gt; states;
+
+
+
+        void rotate(double angle);
+
+        void updateFlux(double value);
+
+        void addState(const QuantumState&amp; state);
+
+    };
+
+
+
+    struct CausalityGraph {
+
+        std::vector&lt;Node&gt; nodes;
+
+        std::vector&lt;Edge&gt; edges;
+
+        double stabilityScore;
+
+
+
+        void addNode(const Node&amp; node);
+
+        void addEdge(const Edge&amp; edge);
+
+        void recalculateStability();
+
+    };
+
+
+
+    struct QuantumField {
+
+        std::vector&lt;FieldPoint&gt; points;
+
+        double fieldStrength;
+
+        double interferenceLevel;
+
+
+
+        void updateField(double strength);
+
+        void simulateInterference();
+
+    };
+
+
+
+    // Visualization methods
+
+    void updateCompass(double deltaTime);
+
+    void renderCausalityGraph();
+
+    void updateQuantumField();
+
+    void renderVisualization();
+
+};
+
+</code></pre>
+<h5 id="resource-resonance-visualization">Resource Resonance Visualization</h5>
+<p>Visualizes resource wave patterns and interference.</p>
+<pre><code class="language-cpp">
+struct ResourceResonanceVisualization {
+
+    // Wave pattern tracking
+
+    struct WavePattern {
+
+        double frequency;
+
+        double amplitude;
+
+        double phase;
+
+        std::vector&lt;double&gt; history;
+
+
+
+        void update(double deltaTime);
+
+        double getCurrentValue() const;
+
+        void addHistoryPoint(double value);
+
+    };
+
+
+
+    // Resource metrics
+
+    struct ResourceMetrics {
+
+        double aethelLevel;
+
+        double chrononFlux;
+
+        double stabilityIndex;
+
+        std::chrono::system_clock::time_point timestamp;
+
+    };
+
+
+
+    // Visualization components
+
+    std::vector&lt;WavePattern&gt; resourceWaves;
+
+    std::vector&lt;ResourceMetrics&gt; metricsHistory;
+
+
+
+    // Visualization methods
+
+    void updateWavePatterns(double deltaTime);
+
+    void detectResonancePatterns();
+
+    void visualizeInterference();
+
+    void renderWaveforms();
+
+};
+
+</code></pre>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-cpp">
+// Create and configure dashboard
+
+UnifiedVisualizationDashboard dashboard;
+
+
+
+UnifiedVisualizationDashboard::DashboardConfig config;
+
+config.initialMode = UnifiedVisualizationDashboard::PerformanceMode::AUTO;
+
+config.enableUserNotifications = true;
+
+config.enableAutoAdjustments = true;
+
+config.metricEvaluationInterval = 250;  // More responsive
+
+dashboard.configure(config);
+
+
+
+// Initialize the dashboard
+
+dashboard.initialize();
+
+
+
+// Register callbacks
+
+dashboard.registerModeChangeCallback([](
+
+    UnifiedVisualizationDashboard::PerformanceMode oldMode,
+
+    UnifiedVisualizationDashboard::PerformanceMode newMode,
+
+    std::string reason) {
+
+
+
+    std::cout &lt;&lt; &quot;Dashboard switched from &quot; 
+
+              &lt;&lt; modeToString(oldMode) &lt;&lt; &quot; to &quot; 
+
+              &lt;&lt; modeToString(newMode) 
+
+              &lt;&lt; &quot; because: &quot; &lt;&lt; reason &lt;&lt; std::endl;
+
+});
+
+
+
+// Main application loop
+
+while (applicationRunning) {
+
+    // Update the dashboard
+
+    dashboard.update(deltaTime);
+
+
+
+    // Perform application-specific updates
+
+    updateApplication(deltaTime);
+
+
+
+    // Notify dashboard about user interaction
+
+    if (userIsInteracting()) {
+
+        dashboard.notifyUserInteractionStart();
+
+    } else if (userInteractionJustEnded()) {
+
+        dashboard.notifyUserInteractionEnd();
+
+    }
+
+
+
+    // Render the dashboard
+
+    dashboard.render();
+
+
+
+    // Render application-specific content
+
+    renderApplication();
+
+}
+
+
+
+// Shutdown the dashboard
+
+dashboard.shutdown();
+
+</code></pre>
+<hr />
+<h2 id="4-core-types">4. Core Types</h2>
+<h3 id="41-resourcetype">4.1 ResourceType</h3>
+<p>Enumeration of resource types available in the system.</p>
+<pre><code class="language-cpp">
+enum class ResourceType {
+
+    CHRONO_ENERGY,      // Primary energy for temporal operations
+
+    AETHEL_FLUX,        // Flux energy for quantum manipulation
+
+    TEMPORAL_STABILITY, // Stability of the temporal field
+
+    QUANTUM_COHERENCE,  // Coherence of quantum wavefunction
+
+    RESOURCE_COUNT      // Number of resource types
+
+};
+
+</code></pre>
+<h3 id="42-operationtype">4.2 OperationType</h3>
+<p>Enumeration of operation types that consume resources.</p>
+<pre><code class="language-cpp">
+enum class OperationType {
+
+    STANDARD,           // Regular programming operations
+
+    TEMPORAL,           // Time-manipulating operations
+
+    REBEL,              // Higher-risk operations
+
+    OPERATION_COUNT     // Number of operation types
+
+};
+
+</code></pre>
+<h3 id="43-rebeloperationtype">4.3 RebelOperationType</h3>
+<p>Enumeration of specific Rebel operations that incur temporal debt.</p>
+<pre><code class="language-cpp">
+enum class RebelOperationType {
+
+    REWIND_FLOW,        // Rewinds execution flow
+
+    TEMPORAL_ECHO_LOOP, // Creates echo loops in time
+
+    QUANTUM_ENTANGLE,   // Entangles quantum states
+
+    PHASE_SHIFT,        // Shifts execution phase
+
+    PARADOX_INVERSION,  // Inverts paradoxical states
+
+    REBEL_OP_COUNT      // Number of Rebel operation types
+
+};
+
+</code></pre>
+<h3 id="44-variable-flags">4.4 Variable Flags</h3>
+<p>Variable flags in Chronovyan provide a powerful mechanism for controlling the temporal behavior of variables. These flags allow developers to fine-tune how variables interact with timelines and manage their temporal properties.</p>
+<h4 id="timeline-flags">Timeline Flags</h4>
+<p>Flags that control how variables interact with timelines.</p>
+<pre><code class="language-cpp">
+enum class TimelineFlag {
+
+    TIMELINE_PERSISTENT, // Variable persists across timelines
+
+    TIMELINE_SHARED,     // Variable is shared between timelines
+
+    TIMELINE_PRIVATE     // Variable is specific to a timeline
+
+};
+
+</code></pre>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-cpp">
+// Declare a persistent variable
+
+temporal var x: Int = 5 {
+
+    flag: timeline_persistent;
+
+}
+
+
+
+// C++ implementation
+
+Variable&lt;int&gt; x(5);
+
+x.setFlag(TimelineFlag::TIMELINE_PERSISTENT, true);
+
+</code></pre>
+<h4 id="state-flags">State Flags</h4>
+<p>Flags that control the state behavior of variables.</p>
+<pre><code class="language-cpp">
+enum class StateFlag {
+
+    STATE_PRESERVED,    // State is preserved across operations
+
+    STATE_VOLATILE,     // State can be lost
+
+    STATE_SYNCHRONIZED  // State is synchronized across timelines
+
+};
+
+</code></pre>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-cpp">
+// Declare a state-preserved variable
+
+temporal var y: String {
+
+    flag: state_preserved;
+
+}
+
+
+
+// C++ implementation
+
+Variable&lt;std::string&gt; y;
+
+y.setFlag(StateFlag::STATE_PRESERVED, true);
+
+</code></pre>
+<h4 id="resource-flags">Resource Flags</h4>
+<p>Flags that control resource behavior related to variables.</p>
+<pre><code class="language-cpp">
+enum class ResourceFlag {
+
+    RESOURCE_OPTIMIZED, // Optimizes resource usage
+
+    RESOURCE_CRITICAL,  // Critical resource handling
+
+    RESOURCE_POOLED     // Uses resource pooling
+
+};
+
+</code></pre>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-cpp">
+// Declare a resource-optimized variable
+
+temporal var z: Float {
+
+    flag: resource_optimized;
+
+}
+
+
+
+// C++ implementation
+
+Variable&lt;float&gt; z;
+
+z.setFlag(ResourceFlag::RESOURCE_OPTIMIZED, true);
+
+</code></pre>
+<h4 id="flag-management">Flag Management</h4>
+<p>The Variable class provides methods for managing flags:</p>
+<pre><code class="language-cpp">
+template &lt;typename T&gt;
+
+class Variable {
+
+public:
+
+    Variable(T initialValue = T());
+
+
+
+    // Flag management
+
+    void setFlag(TimelineFlag flag, bool value = true);
+
+    void setFlag(StateFlag flag, bool value = true);
+
+    void setFlag(ResourceFlag flag, bool value = true);
+
+
+
+    bool hasFlag(TimelineFlag flag) const;
+
+    bool hasFlag(StateFlag flag) const;
+
+    bool hasFlag(ResourceFlag flag) const;
+
+
+
+    // Dynamic flag management
+
+    void setFlagIf(TimelineFlag flag, std::function&lt;bool()&gt; condition);
+
+    void setFlagIf(StateFlag flag, std::function&lt;bool()&gt; condition);
+
+    void setFlagIf(ResourceFlag flag, std::function&lt;bool()&gt; condition);
+
+
+
+    // Flag inheritance
+
+    void inheritFlags(const Variable&lt;T&gt;&amp; parent);
+
+    void overrideFlag(TimelineFlag flag, bool value = true);
+
+    void overrideFlag(StateFlag flag, bool value = true);
+
+    void overrideFlag(ResourceFlag flag, bool value = true);
+
+};
+
+</code></pre>
+<h4 id="advanced-flag-usage">Advanced Flag Usage</h4>
+<h5 id="flag-combinations">Flag Combinations</h5>
+<p>Multiple flags can be combined to create complex variable behavior:</p>
+<pre><code class="language-cpp">
+// Combine multiple flags
+
+temporal var x: Int {
+
+    flag: timeline_persistent;
+
+    flag: state_preserved;
+
+    flag: resource_optimized;
+
+}
+
+
+
+// C++ implementation
+
+Variable&lt;int&gt; x;
+
+x.setFlag(TimelineFlag::TIMELINE_PERSISTENT, true);
+
+x.setFlag(StateFlag::STATE_PRESERVED, true);
+
+x.setFlag(ResourceFlag::RESOURCE_OPTIMIZED, true);
+
+</code></pre>
+<h5 id="dynamic-flag-management">Dynamic Flag Management</h5>
+<p>Flags can be set dynamically based on conditions:</p>
+<pre><code class="language-cpp">
+// Dynamic flag setting
+
+temporal var y: String {
+
+    if (condition) {
+
+        set_flag(timeline_shared);
+
+    } else {
+
+        set_flag(timeline_private);
+
+    }
+
+}
+
+
+
+// C++ implementation
+
+Variable&lt;std::string&gt; y;
+
+y.setFlagIf(TimelineFlag::TIMELINE_SHARED, [&amp;]() { return condition; });
+
+y.setFlagIf(TimelineFlag::TIMELINE_PRIVATE, [&amp;]() { return !condition; });
+
+</code></pre>
+<h5 id="flag-inheritance">Flag Inheritance</h5>
+<p>Variables can inherit flags from parent variables:</p>
+<pre><code class="language-cpp">
+// Inherit flags from parent variable
+
+temporal var child inherits parent {
+
+    inherit_flags(parent_variable);
+
+}
+
+
+
+// C++ implementation
+
+Variable&lt;float&gt; z;
+
+z.inheritFlags(parentVariable);
+
+</code></pre>
+<h4 id="best-practices-for-variable-flags">Best Practices for Variable Flags</h4>
+<ol>
+<li>
+<p><strong>Choose appropriate flags</strong> for each variable based on its purpose and lifecycle</p>
+</li>
+<li>
+<p><strong>Document flag choices</strong> to make code intentions clear</p>
+</li>
+<li>
+<p><strong>Maintain flag consistency</strong> across related variables</p>
+</li>
+<li>
+<p><strong>Document flag usage</strong> to make code intentions clear</p>
+</li>
+<li>
+<p><strong>Avoid flag conflicts</strong> that could lead to unpredictable behavior</p>
+</li>
+</ol>
+<h3 id="45-variable-types">4.5 Variable Types</h3>
+<p>In Chronovyan, variables represent more than simple data storageâ€”they embody the language's core philosophy of duality between Order and Flux. The variable system is built around two fundamental types that reflect this duality: <code>CONF</code> (Conformist) and <code>REB</code> (Rebel) variables.</p>
+<h4 id="conformist-variables-conf">Conformist Variables (<code>CONF</code>)</h4>
+<p>Conformist variables represent stability and order in the temporal structure. They provide highly reliable data storage with resistance to temporal distortions.</p>
+<pre><code class="language-cpp">
+template &lt;typename T&gt;
+
+class ConfVariable {
+
+public:
+
+    ConfVariable(T initialValue = T());
+
+
+
+    // Core properties
+
+    T getValue() const;
+
+    void setValue(T value); // Restricted by temporal permissions
+
+
+
+    // Version management
+
+    void createNewVersion(T updatedValue);
+
+    T getVersionValue(int versionId) const;
+
+    int getCurrentVersion() const;
+
+
+
+    // Temporal anchoring
+
+    void anchorToTimeline(const std::string&amp; timelineId);
+
+    bool isTemporallyAnchored() const;
+
+};
+
+</code></pre>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-cpp">
+// CONF_CONSTANT declaration
+
+conf_constant GRAVITY = 9.81;
+
+
+
+// C++ implementation
+
+ConfVariable&lt;double&gt; gravity(9.81);
+
+gravity.setFlag(VariableFlag::IMMUTABLE, true);
+
+
+
+// CONF_VERSIONED declaration
+
+conf_versioned System_Config {
+
+    INITIAL: { version: 1.0, state: &quot;stable&quot; }
+
+    UPDATE: { version: 1.1, state: &quot;optimized&quot; }
+
+}
+
+
+
+// C++ implementation
+
+ConfVariable&lt;SystemConfig&gt; systemConfig({&quot;1.0&quot;, &quot;stable&quot;});
+
+systemConfig.createNewVersion({&quot;1.1&quot;, &quot;optimized&quot;});
+
+</code></pre>
+<h4 id="rebel-variables-reb">Rebel Variables (<code>REB</code>)</h4>
+<p>Rebel variables embody change, adaptation, and flux. They allow dynamic mutation and respond to temporal manipulations.</p>
+<pre><code class="language-cpp">
+template &lt;typename T&gt;
+
+class RebVariable {
+
+public:
+
+    RebVariable(T initialValue = T());
+
+
+
+    // Core properties
+
+    T getValue() const;
+
+    void setValue(T value); // Dynamically adaptable
+
+
+
+    // Temporal sensitivity
+
+    void enableTemporalSusceptibility(bool enable = true);
+
+    bool isTemporallySusceptible() const;
+
+
+
+    // Dynamic typing
+
+    template &lt;typename U&gt;
+
+    void transmute(U newValue);
+
+
+
+    std::type_info&amp; getCurrentType() const;
+
+};
+
+</code></pre>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-cpp">
+// REB_DECLARE declaration
+
+reb_declare Flow_State = &quot;Initiating&quot;;
+
+
+
+// C++ implementation
+
+RebVariable&lt;std::string&gt; flowState(&quot;Initiating&quot;);
+
+
+
+// REB_FLUX with dynamic mutation
+
+reb_flux Current_State = &quot;Processing&quot;;
+
+Current_State = 42; // Type can change
+
+
+
+// C++ implementation
+
+RebVariable&lt;std::any&gt; currentState(&quot;Processing&quot;);
+
+currentState.transmute&lt;int&gt;(42); // Change type at runtime
+
+</code></pre>
+<h4 id="type-interaction">Type Interaction</h4>
+<p>The Chronovyan system provides mechanisms for converting between <code>CONF</code> and <code>REB</code> variables, with appropriate resource costs.</p>
+<pre><code class="language-cpp">
+namespace VariableConverter {
+
+    // CONF to REB conversion
+
+    template &lt;typename T&gt;
+
+    RebVariable&lt;T&gt; liberate(const ConfVariable&lt;T&gt;&amp; confVar);
+
+
+
+    // REB to CONF conversion
+
+    template &lt;typename T&gt;
+
+    ConfVariable&lt;T&gt; purify(const RebVariable&lt;T&gt;&amp; rebVar);
+
+
+
+    // Cost calculation
+
+    float calculateLiberationCost(const VariableBase&amp; var);
+
+    float calculatePurificationCost(const VariableBase&amp; var);
+
+}
+
+</code></pre>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-cpp">
+// Converting CONF to REB
+
+conf_constant stable_value = 42;
+
+reb_declare dynamic_value = LIBERATE(stable_value);
+
+
+
+// C++ implementation
+
+ConfVariable&lt;int&gt; stableValue(42);
+
+RebVariable&lt;int&gt; dynamicValue = VariableConverter::liberate(stableValue);
+
+
+
+// Converting REB to CONF
+
+reb_flux unstable_value = &quot;evolving&quot;;
+
+conf_define stable_value = PURIFY(unstable_value);
+
+
+
+// C++ implementation
+
+RebVariable&lt;std::string&gt; unstableValue(&quot;evolving&quot;);
+
+ConfVariable&lt;std::string&gt; stableValue = VariableConverter::purify(unstableValue);
+
+</code></pre>
+<h4 id="resource-implications">Resource Implications</h4>
+<p>Different variable types have different resource costs in the Chronovyan system:</p>
+<p>| Variable Type | Chronon Usage | Aethel Cost | Memory Efficiency | Temporal Stability |</p>
+<p>|---------------|---------------|-------------|-------------------|-------------------|</p>
+<p>| <code>CONF</code> Variables | Low | Low | High | High |</p>
+<p>| <code>REB</code> Variables | Variable | High | Medium | Low |</p>
+<h4 id="best-practices">Best Practices</h4>
+<ol>
+<li>
+<p><strong>Choose Variable Types Wisely</strong></p>
+</li>
+<li>
+<p>Use <code>CONF</code> variables for stable, predictable data that rarely changes</p>
+</li>
+<li>
+<p>Use <code>REB</code> variables for dynamic, evolving data that needs to adapt quickly</p>
+</li>
+<li>
+<p><strong>Manage Resources Efficiently</strong></p>
+</li>
+<li>
+<p>Monitor <code>Aethel</code> costs when using many <code>REB</code> variables</p>
+</li>
+<li>
+<p>Consider conversion costs when moving between types</p>
+</li>
+<li>
+<p><strong>Ensure Type Safety</strong></p>
+</li>
+<li>
+<p>Validate conversions between variable types</p>
+</li>
+<li>
+<p>Handle potential exceptions during type transmutation</p>
+</li>
+<li>
+<p><strong>Document Philosophical Intent</strong></p>
+</li>
+<li>
+<p>Explain why each variable type was chosen</p>
+</li>
+<li>
+<p>Make explicit the balance between order and change in your code</p>
+</li>
+</ol>
+<hr />
+<h2 id="5-loop-mechanics">5. Loop Mechanics</h2>
+<p>In Chronovyan, loops transcend traditional iteration, becoming powerful tools for temporal manipulation. Each loop represents a potential timeline, a branch in the fabric of computation that can be explored, modified, and even reversed.</p>
+<h3 id="51-loop-types">5.1 Loop Types</h3>
+<h4 id="standard-loops">Standard Loops</h4>
+<p>Standard loops provide chronon-based iteration with resource management.</p>
+<pre><code class="language-cpp">
+class ChronoLoop {
+
+public:
+
+    ChronoLoop(std::shared_ptr&lt;ResourceTracker&gt; tracker);
+
+
+
+    // Loop configuration
+
+    void setIterationCount(int count);
+
+    void setResourceConsumption(ResourceType type, float amountPerIteration);
+
+
+
+    // Loop execution
+
+    void execute(std::function&lt;void(int)&gt; iterationCallback);
+
+    void breakLoop();
+
+    void continueToNextIteration();
+
+
+
+    // Loop metrics
+
+    float getTotalResourceConsumption(ResourceType type) const;
+
+    int getCurrentIteration() const;
+
+    float getLoopEfficiency() const;
+
+};
+
+</code></pre>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-cpp">
+// FOR_CHRONON loop implementation
+
+auto resourceTracker = std::make_shared&lt;ResourceTracker&gt;();
+
+ChronoLoop loop(resourceTracker);
+
+
+
+loop.setIterationCount(5);
+
+loop.setResourceConsumption(ResourceType::CHRONO_ENERGY, 2.0f);
+
+
+
+loop.execute([](int i) {
+
+    std::cout &lt;&lt; &quot;Iteration &quot; &lt;&lt; i &lt;&lt; std::endl;
+
+
+
+    // Loop body operations...
+
+});
+
+</code></pre>
+<p><strong>Chronovyan Syntax Equivalent:</strong></p>
+<pre><code class="language-chronovyan">
+// FOR_CHRONON - Iterates based on chronon availability
+
+FOR_CHRONON (i: 0..5) {
+
+    // Standard iteration with chronon management
+
+}
+
+
+
+// WHILE_EVENT - Continues while temporal event is active
+
+WHILE_EVENT (condition) {
+
+    // Event-driven iteration
+
+}
+
+</code></pre>
+<h4 id="rebel-loops">Rebel Loops</h4>
+<p>Rebel loops enable reverse temporal flow and parallel iterations.</p>
+<pre><code class="language-cpp">
+class RebelLoop {
+
+public:
+
+    RebelLoop(std::shared_ptr&lt;ResourceTracker&gt; tracker, 
+
+              std::shared_ptr&lt;TemporalDebtTracker&gt; debtTracker);
+
+
+
+    // Loop configuration
+
+    void setIterationCount(int count);
+
+    void setDirection(LoopDirection direction); // FORWARD, BACKWARD, BIDIRECTIONAL
+
+    void setEchoMode(bool enabled);
+
+
+
+    // Loop execution
+
+    void execute(std::function&lt;void(int)&gt; iterationCallback);
+
+    void reverseFlow();
+
+    void branchFlow(const std::string&amp; branchId);
+
+
+
+    // Loop metrics
+
+    float getDebtAccrued() const;
+
+    float getParadoxRisk() const;
+
+    int getTimelineBranches() const;
+
+};
+
+</code></pre>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-cpp">
+// REWIND_FLOW loop implementation
+
+auto resourceTracker = std::make_shared&lt;ResourceTracker&gt;();
+
+auto debtTracker = std::make_shared&lt;TemporalDebtTracker&gt;(resourceTracker);
+
+RebelLoop loop(resourceTracker, debtTracker);
+
+
+
+loop.setIterationCount(5);
+
+loop.setDirection(RebelLoop::LoopDirection::BACKWARD);
+
+
+
+loop.execute([](int i) {
+
+    std::cout &lt;&lt; &quot;Reverse iteration &quot; &lt;&lt; i &lt;&lt; std::endl;
+
+
+
+    // Loop body operations...
+
+});
+
+</code></pre>
+<p><strong>Chronovyan Syntax Equivalent:</strong></p>
+<pre><code class="language-chronovyan">
+// REWIND_FLOW - Reverses temporal flow
+
+REWIND_FLOW (i: 5..0) {
+
+    // Iteration in reverse temporal order
+
+}
+
+
+
+// TEMPORAL_ECHO_LOOP - Creates temporal echoes
+
+TEMPORAL_ECHO_LOOP (i: 0..5) {
+
+    // Creates parallel iterations
+
+}
+
+</code></pre>
+<h4 id="quantum-loops">Quantum Loops</h4>
+<p>Quantum loops explore multiple outcomes simultaneously.</p>
+<pre><code class="language-cpp">
+class QuantumLoop {
+
+public:
+
+    QuantumLoop(std::shared_ptr&lt;ResourceTracker&gt; tracker);
+
+
+
+    // Loop configuration
+
+    void setIterationCount(int count);
+
+    void setStateCount(int stateCount);
+
+    void setProbabilityDistribution(const std::vector&lt;float&gt;&amp; probabilities);
+
+
+
+    // Loop execution
+
+    void execute(std::function&lt;void(int, int)&gt; stateCallback); // (iteration, state)
+
+    void collapseState(int stateIndex);
+
+    void superpose(int stateA, int stateB);
+
+
+
+    // Loop metrics
+
+    float getQuantumCoherence() const;
+
+    float getStateEntanglement() const;
+
+    std::vector&lt;float&gt; getStateProbabilities() const;
+
+};
+
+</code></pre>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-cpp">
+// Quantum loop implementation
+
+auto resourceTracker = std::make_shared&lt;ResourceTracker&gt;();
+
+QuantumLoop loop(resourceTracker);
+
+
+
+loop.setIterationCount(5);
+
+loop.setStateCount(3);
+
+loop.setProbabilityDistribution({0.5f, 0.3f, 0.2f});
+
+
+
+loop.execute([](int iteration, int state) {
+
+    std::cout &lt;&lt; &quot;Iteration &quot; &lt;&lt; iteration &lt;&lt; &quot;, State &quot; &lt;&lt; state &lt;&lt; std::endl;
+
+
+
+    // State-specific operations...
+
+});
+
+</code></pre>
+<p><strong>Chronovyan Syntax Equivalent:</strong></p>
+<pre><code class="language-chronovyan">
+// Quantum loop
+
+QUANTUM_LOOP (states) {
+
+    // Explores all possible outcomes simultaneously
+
+}
+
+</code></pre>
+<h3 id="52-loop-control">5.2 Loop Control</h3>
+<p>Loop control mechanisms in Chronovyan provide fine-grained control over temporal iteration.</p>
+<h4 id="standard-controls">Standard Controls</h4>
+<pre><code class="language-cpp">
+class LoopController {
+
+public:
+
+    // Standard control operations
+
+    static void breakLoop();
+
+    static void continueLoop();
+
+    static void skipIterations(int count);
+
+
+
+    // Resource monitoring
+
+    static bool checkResourceAvailability(ResourceType type, float amount);
+
+    static void optimizeResourceUsage();
+
+
+
+    // Loop metrics
+
+    static LoopMetrics getCurrentLoopMetrics();
+
+};
+
+</code></pre>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-cpp">
+loop.execute([](int i) {
+
+    if (someCondition) {
+
+        LoopController::breakLoop(); // Exit loop
+
+    }
+
+
+
+    if (otherCondition) {
+
+        LoopController::continueLoop(); // Skip to next iteration
+
+    }
+
+
+
+    if (LoopController::checkResourceAvailability(ResourceType::CHRONO_ENERGY, 5.0f)) {
+
+        // Perform resource-intensive operation
+
+    } else {
+
+        // Perform alternative operation
+
+    }
+
+});
+
+</code></pre>
+<p><strong>Chronovyan Syntax Equivalent:</strong></p>
+<pre><code class="language-chronovyan">
+FOR_CHRONON (i: 0..5) {
+
+    if (condition) {
+
+        BREAK_CHRONON;  // Break current iteration
+
+    }
+
+
+
+    if (other_condition) {
+
+        CONTINUE_CHRONON;  // Skip to next iteration
+
+    }
+
+}
+
+</code></pre>
+<h4 id="rebel-controls">Rebel Controls</h4>
+<pre><code class="language-cpp">
+class RebelLoopController {
+
+public:
+
+    // Rebel control operations
+
+    static void reverseFlow();
+
+    static void branchFlow(const std::string&amp; branchId);
+
+    static void mergeFlow(const std::string&amp; targetBranchId);
+
+
+
+    // Timeline manipulation
+
+    static void createSnapshot(const std::string&amp; snapshotId);
+
+    static void restoreSnapshot(const std::string&amp; snapshotId);
+
+
+
+    // Debt management
+
+    static float getDebtProjection();
+
+    static bool canAccrueDebt(float amount);
+
+};
+
+</code></pre>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-cpp">
+rebelLoop.execute([](int i) {
+
+    if (conditionForReversal) {
+
+        RebelLoopController::reverseFlow(); // Reverse temporal direction
+
+    }
+
+
+
+    if (conditionForBranching) {
+
+        RebelLoopController::branchFlow(&quot;alternative_path&quot;); // Create new timeline
+
+    }
+
+
+
+    // Create a snapshot before risky operation
+
+    RebelLoopController::createSnapshot(&quot;pre_operation&quot;);
+
+
+
+    if (operationFailed) {
+
+        // Restore previous state if operation fails
+
+        RebelLoopController::restoreSnapshot(&quot;pre_operation&quot;);
+
+    }
+
+});
+
+</code></pre>
+<p><strong>Chronovyan Syntax Equivalent:</strong></p>
+<pre><code class="language-chronovyan">
+REWIND_FLOW (i: 0..5) {
+
+    if (condition) {
+
+        REVERSE_FLOW;  // Reverse temporal direction
+
+        BRANCH_FLOW;   // Create new timeline
+
+    }
+
+}
+
+</code></pre>
+<h4 id="quantum-controls">Quantum Controls</h4>
+<pre><code class="language-cpp">
+class QuantumLoopController {
+
+public:
+
+    // Quantum control operations
+
+    static void collapseState(int stateIndex);
+
+    static void superpose(int stateA, int stateB);
+
+    static void entangle(int stateA, int stateB);
+
+
+
+    // Quantum metrics
+
+    static float getStateProbability(int stateIndex);
+
+    static float getStateCoherence();
+
+    static float getEntanglementStrength(int stateA, int stateB);
+
+};
+
+</code></pre>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-cpp">
+quantumLoop.execute([](int i, int state) {
+
+    if (optimalCondition) {
+
+        // Collapse to this state if it's optimal
+
+        QuantumLoopController::collapseState(state);
+
+    }
+
+
+
+    if (state == 0 &amp;&amp; i == 2) {
+
+        // Superpose states 0 and 1 at iteration 2
+
+        QuantumLoopController::superpose(0, 1);
+
+    }
+
+
+
+    // Check probability of this state
+
+    float probability = QuantumLoopController::getStateProbability(state);
+
+    if (probability &gt; 0.7f) {
+
+        // Perform high-probability operations
+
+    }
+
+});
+
+</code></pre>
+<p><strong>Chronovyan Syntax Equivalent:</strong></p>
+<pre><code class="language-chronovyan">
+QUANTUM_LOOP (states) {
+
+    if (condition) {
+
+        COLLAPSE_STATE;  // Resolve quantum state
+
+        SUPERPOSE_STATE; // Create quantum superposition
+
+    }
+
+}
+
+</code></pre>
+<h3 id="53-loop-stability">5.3 Loop Stability</h3>
+<p>Loop stability metrics provide insights into the temporal integrity of loops.</p>
+<pre><code class="language-cpp">
+struct LoopStabilityMetrics {
+
+    // Temporal stability
+
+    int branchCount;
+
+    float mergeRate;
+
+    ParadoxRisk paradoxRisk; // LOW, MEDIUM, HIGH, CRITICAL
+
+
+
+    // Resource efficiency
+
+    ResourceEfficiency aethelUsage;      // MINIMAL, STANDARD, OPTIMIZED
+
+    ResourceEfficiency chrononConsumption; // MINIMAL, STANDARD, OPTIMIZED
+
+    ComplexityLevel timelineComplexity;  // SIMPLE, MANAGED, COMPLEX
+
+
+
+    // State consistency
+
+    float preservationRate;
+
+    QualityLevel syncQuality;     // LOW, MEDIUM, HIGH
+
+    RecoveryLevel recoverySuccess; // UNCERTAIN, LIKELY, GUARANTEED
+
+};
+
+</code></pre>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-cpp">
+// Get loop stability metrics
+
+LoopStabilityMetrics metrics = loop.getStabilityMetrics();
+
+
+
+// Analyze metrics
+
+if (metrics.paradoxRisk &gt;= ParadoxRisk::HIGH) {
+
+    // Implement paradox prevention measures
+
+}
+
+
+
+if (metrics.preservationRate &lt; 0.8f) {
+
+    // Improve state preservation
+
+}
+
+
+
+// Log metrics
+
+std::cout &lt;&lt; &quot;Branch count: &quot; &lt;&lt; metrics.branchCount &lt;&lt; std::endl;
+
+std::cout &lt;&lt; &quot;Paradox risk: &quot; &lt;&lt; toString(metrics.paradoxRisk) &lt;&lt; std::endl;
+
+std::cout &lt;&lt; &quot;Preservation rate: &quot; &lt;&lt; metrics.preservationRate &lt;&lt; std::endl;
+
+</code></pre>
+<p><strong>Chronovyan Syntax Equivalent:</strong></p>
+<pre><code class="language-chronovyan">
+loop_metrics {
+
+    temporal_stability: {
+
+        branch_count: 5;
+
+        merge_rate: 0.8;
+
+        paradox_risk: low;
+
+    }
+
+
+
+    resource_efficiency: {
+
+        aethel_usage: optimized;
+
+        chronon_consumption: balanced;
+
+        timeline_complexity: managed;
+
+    }
+
+
+
+    state_consistency: {
+
+        preservation_rate: 0.95;
+
+        sync_quality: high;
+
+        recovery_success: guaranteed;
+
+    }
+
+}
+
+</code></pre>
+<h3 id="54-timeline-management">5.4 Timeline Management</h3>
+<p>Timeline management provides tools for manipulating and navigating timeline branches created by loops.</p>
+<pre><code class="language-cpp">
+class TimelineManager {
+
+public:
+
+    TimelineManager(std::shared_ptr&lt;ResourceTracker&gt; tracker);
+
+
+
+    // Timeline creation
+
+    std::string createTimeline(const std::string&amp; baselineId = &quot;&quot;);
+
+    bool deleteTimeline(const std::string&amp; timelineId);
+
+
+
+    // Timeline navigation
+
+    bool switchToTimeline(const std::string&amp; timelineId);
+
+    std::string getCurrentTimelineId() const;
+
+    std::vector&lt;std::string&gt; getAvailableTimelines() const;
+
+
+
+    // Timeline operations
+
+    bool mergeTimelines(const std::string&amp; sourceId, const std::string&amp; targetId);
+
+    bool rewindTimeline(const std::string&amp; timelineId, int steps);
+
+    bool branchTimeline(const std::string&amp; baselineId, const std::string&amp; newId);
+
+
+
+    // Timeline analysis
+
+    float calculateTimelineSimilarity(const std::string&amp; timeline1, const std::string&amp; timeline2);
+
+    bool areTimelinesIntersecting(const std::string&amp; timeline1, const std::string&amp; timeline2);
+
+    TimelineMetrics getTimelineMetrics(const std::string&amp; timelineId);
+
+};
+
+</code></pre>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-cpp">
+// Create timeline manager
+
+auto resourceTracker = std::make_shared&lt;ResourceTracker&gt;();
+
+TimelineManager manager(resourceTracker);
+
+
+
+// Create a new timeline
+
+std::string mainTimelineId = manager.createTimeline();
+
+
+
+// Branch timeline
+
+std::string experimentalBranchId = manager.createTimeline(mainTimelineId);
+
+
+
+// Perform operations on experimental branch
+
+manager.switchToTimeline(experimentalBranchId);
+
+
+
+// ... execute operations ...
+
+
+
+// Check similarity with main timeline
+
+float similarity = manager.calculateTimelineSimilarity(mainTimelineId, experimentalBranchId);
+
+
+
+if (similarity &gt; 0.8f) {
+
+    // Merge timelines if they're very similar
+
+    manager.mergeTimelines(experimentalBranchId, mainTimelineId);
+
+} else {
+
+    // Keep as separate timeline if too different
+
+    std::cout &lt;&lt; &quot;Keeping experimental branch separate&quot; &lt;&lt; std::endl;
+
+}
+
+</code></pre>
+<p><strong>Chronovyan Syntax Equivalent:</strong></p>
+<pre><code class="language-chronovyan">
+temporal_loop (i: 0..5) {
+
+    if (condition) {
+
+        branch_timeline();  // Create new timeline
+
+
+
+        // Operations in new branch
+
+
+
+        merge_timelines();  // Combine timelines
+
+    }
+
+}
+
+</code></pre>
+<hr />
+<h2 id="6-program-lifecycle">6. Program Lifecycle</h2>
+<p>The lifecycle of a Chronovyan program represents the journey through time that every program undertakes, from initialization to cleanup. This section details the API components that manage this lifecycle.</p>
+<h3 id="61-lifecycle-phases">6.1 Lifecycle Phases</h3>
+<h4 id="program-initialization">Program Initialization</h4>
+<pre><code class="language-cpp">
+class ProgramInitializer {
+
+public:
+
+    ProgramInitializer();
+
+    ~ProgramInitializer();
+
+
+
+    // Core initialization
+
+    void initializeTemporalEngine();
+
+    void allocateResources(const ResourceAllocationConfig&amp; config);
+
+    void setupTimelineMonitoring(const MonitoringConfig&amp; config);
+
+
+
+    // Timeline setup
+
+    std::shared_ptr&lt;Timeline&gt; createPrimaryTimeline();
+
+    void setupTimelineBranches(const BranchingConfig&amp; config);
+
+    void initializeTemporalVariables();
+
+
+
+    // Configuration
+
+    void setInitializationMode(InitMode mode); // STANDARD, RAPID, CAUTIOUS
+
+    void setResourceConfig(const ResourceConfig&amp; config);
+
+    void setTimelineConfig(const TimelineConfig&amp; config);
+
+
+
+    // Status and validation
+
+    bool isInitialized() const;
+
+    std::vector&lt;ValidationIssue&gt; validateSetup() const;
+
+};
+
+</code></pre>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-cpp">
+// Initialize a Chronovyan program
+
+ProgramInitializer initializer;
+
+
+
+// Configure initialization
+
+initializer.setInitializationMode(InitMode::STANDARD);
+
+initializer.setResourceConfig({
+
+    .chronoEnergy = 100.0f,
+
+    .aethelFlux = 200.0f,
+
+    .temporalStability = 100.0f,
+
+    .quantumCoherence = 100.0f
+
+});
+
+initializer.setTimelineConfig({
+
+    .branchingEnabled = true,
+
+    .maxBranches = 5,
+
+    .mergeStrategy = MergeStrategy::CONSERVATIVE
+
+});
+
+
+
+// Perform initialization
+
+initializer.initializeTemporalEngine();
+
+initializer.allocateResources({
+
+    .allocation_strategy = AllocationStrategy::BALANCED
+
+});
+
+initializer.setupTimelineMonitoring({
+
+    .updateFrequency = 1.0f,
+
+    .alertThreshold = 0.2f
+
+});
+
+
+
+// Create timelines
+
+auto primaryTimeline = initializer.createPrimaryTimeline();
+
+initializer.setupTimelineBranches({
+
+    .branchPoints = {0.25f, 0.5f, 0.75f},
+
+    .branchingStrategy = BranchingStrategy::ADAPTIVE
+
+});
+
+initializer.initializeTemporalVariables();
+
+
+
+// Validate setup
+
+if (!initializer.isInitialized()) {
+
+    auto issues = initializer.validateSetup();
+
+    for (const auto&amp; issue : issues) {
+
+        std::cerr &lt;&lt; &quot;Initialization issue: &quot; &lt;&lt; issue.message &lt;&lt; std::endl;
+
+    }
+
+    return 1;
+
+}
+
+</code></pre>
+<h4 id="program-execution">Program Execution</h4>
+<pre><code class="language-cpp">
+class ProgramExecutor {
+
+public:
+
+    ProgramExecutor(std::shared_ptr&lt;Timeline&gt; primaryTimeline);
+
+
+
+    // Main execution loop
+
+    void executeTemporalLoop(std::function&lt;void(TemporalContext&amp;)&gt; loopCallback);
+
+    void stopExecution();
+
+    void pauseExecution();
+
+    void resumeExecution();
+
+
+
+    // Timeline management
+
+    std::shared_ptr&lt;Timeline&gt; createTimelineBranch(const std::string&amp; branchId);
+
+    bool mergeTimelineBranch(const std::string&amp; branchId);
+
+    void switchToTimeline(const std::string&amp; timelineId);
+
+
+
+    // Resource management
+
+    void monitorResourceUsage();
+
+    void optimizeResourceUsage();
+
+    void handleResourceCritical();
+
+
+
+    // Execution state
+
+    ExecutionState getExecutionState() const;
+
+    float getExecutionProgress() const;
+
+    std::vector&lt;std::string&gt; getActiveTimelines() const;
+
+};
+
+</code></pre>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-cpp">
+// Create program executor
+
+ProgramExecutor executor(primaryTimeline);
+
+
+
+// Execute the main temporal loop
+
+executor.executeTemporalLoop([](TemporalContext&amp; context) {
+
+    // Perform operations in the temporal loop
+
+    if (shouldBranchTimeline(context)) {
+
+        auto branchId = &quot;alternative_path_&quot; + std::to_string(context.getCycleCount());
+
+        context.createTimelineBranch(branchId);
+
+    }
+
+
+
+    // Execute temporal operations
+
+    performTemporalOperations(context);
+
+
+
+    // Manage resources
+
+    if (context.getResourceLevel(ResourceType::CHRONO_ENERGY) &lt; 30.0f) {
+
+        context.optimizeResourceUsage();
+
+    }
+
+
+
+    // Check for completion condition
+
+    if (isExecutionComplete(context)) {
+
+        context.stopExecution();
+
+    }
+
+});
+
+</code></pre>
+<h4 id="program-cleanup">Program Cleanup</h4>
+<pre><code class="language-cpp">
+class ProgramFinalizer {
+
+public:
+
+    ProgramFinalizer(std::shared_ptr&lt;Timeline&gt; primaryTimeline);
+
+
+
+    // Timeline finalization
+
+    void mergeAllTimelines(MergeStrategy strategy = MergeStrategy::CONSERVATIVE);
+
+    void discardTimelineBranches(const std::vector&lt;std::string&gt;&amp; excludeBranches = {});
+
+
+
+    // Resource cleanup
+
+    void releaseAllResources();
+
+    void releaseResource(ResourceType type);
+
+
+
+    // Engine finalization
+
+    void finalizeTemporalEngine();
+
+
+
+    // Status and reporting
+
+    CleanupReport generateCleanupReport() const;
+
+    bool isFinalized() const;
+
+};
+
+</code></pre>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-cpp">
+// Create program finalizer
+
+ProgramFinalizer finalizer(primaryTimeline);
+
+
+
+// Merge timelines
+
+finalizer.mergeAllTimelines(MergeStrategy::CONSERVATIVE);
+
+
+
+// Release resources
+
+finalizer.releaseAllResources();
+
+
+
+// Finalize the temporal engine
+
+finalizer.finalizeTemporalEngine();
+
+
+
+// Generate cleanup report
+
+auto report = finalizer.generateCleanupReport();
+
+std::cout &lt;&lt; &quot;Cleanup completed. Merged &quot; &lt;&lt; report.mergedTimelines 
+
+          &lt;&lt; &quot; timelines. Released &quot; &lt;&lt; report.releasedResources 
+
+          &lt;&lt; &quot; resources.&quot; &lt;&lt; std::endl;
+
+</code></pre>
+<h3 id="62-lifecycle-management">6.2 Lifecycle Management</h3>
+<p>The lifecycle management components provide tools for handling the Chronovyan program lifecycle as a whole.</p>
+<pre><code class="language-cpp">
+class LifecycleManager {
+
+public:
+
+    LifecycleManager();
+
+
+
+    // Lifecycle configuration
+
+    void setLifecycleConfig(const LifecycleConfig&amp; config);
+
+    LifecycleConfig getLifecycleConfig() const;
+
+
+
+    // Lifecycle control
+
+    void beginLifecycle();
+
+    void endLifecycle();
+
+    void pauseLifecycle();
+
+    void resumeLifecycle();
+
+
+
+    // State management
+
+    void createCheckpoint(const std::string&amp; checkpointId);
+
+    bool restoreCheckpoint(const std::string&amp; checkpointId);
+
+    void clearCheckpoints();
+
+
+
+    // Lifecycle status
+
+    LifecyclePhase getCurrentPhase() const;
+
+    float getLifecycleProgress() const;
+
+    std::vector&lt;LifecycleEvent&gt; getLifecycleEvents() const;
+
+};
+
+</code></pre>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-cpp">
+// Create lifecycle manager
+
+LifecycleManager lifecycleManager;
+
+
+
+// Configure lifecycle
+
+lifecycleManager.setLifecycleConfig({
+
+    .initMode = InitMode::STANDARD,
+
+    .executionMode = ExecutionMode::CONTINUOUS,
+
+    .cleanupMode = CleanupMode::THOROUGH,
+
+    .checkpointFrequency = 10 // Create checkpoints every 10 cycles
+
+});
+
+
+
+// Begin the lifecycle
+
+lifecycleManager.beginLifecycle();
+
+
+
+// Create a checkpoint at a critical point
+
+lifecycleManager.createCheckpoint(&quot;pre_operation_checkpoint&quot;);
+
+
+
+try {
+
+    // Perform risky operation
+
+    performRiskyTemporalOperation();
+
+} catch (const TemporalException&amp; e) {
+
+    // Restore checkpoint if operation fails
+
+    std::cerr &lt;&lt; &quot;Temporal exception: &quot; &lt;&lt; e.what() &lt;&lt; std::endl;
+
+    lifecycleManager.restoreCheckpoint(&quot;pre_operation_checkpoint&quot;);
+
+}
+
+
+
+// End the lifecycle
+
+lifecycleManager.endLifecycle();
+
+</code></pre>
+<h3 id="63-error-handling">6.3 Error Handling</h3>
+<p>Chronovyan provides specialized error handling mechanisms for managing timeline errors, resource errors, and state errors.</p>
+<pre><code class="language-cpp">
+class TimelineErrorHandler {
+
+public:
+
+    TimelineErrorHandler();
+
+
+
+    // Timeline error handling
+
+    void handleTimelineCorruption(Timeline&amp; timeline);
+
+    void handleBranchConflict(Timeline&amp; branch1, Timeline&amp; branch2);
+
+    void handleMergeFailure(Timeline&amp; source, Timeline&amp; target);
+
+
+
+    // Recovery operations
+
+    bool restoreFromCheckpoint(Timeline&amp; timeline, const std::string&amp; checkpointId);
+
+    bool rebuildTimeline(Timeline&amp; timeline);
+
+    bool resolveBranchConflict(Timeline&amp; branch1, Timeline&amp; branch2);
+
+};
+
+
+
+class ResourceErrorHandler {
+
+public:
+
+    ResourceErrorHandler(std::shared_ptr&lt;ResourceTracker&gt; tracker);
+
+
+
+    // Resource error handling
+
+    void handleResourceExhaustion(ResourceType type);
+
+    void handleAllocationFailure(ResourceType type, float amount);
+
+    void handleResourceRecoveryFailure(ResourceType type);
+
+
+
+    // Recovery operations
+
+    bool attemptResourceRecovery(ResourceType type);
+
+    bool redistributeResources();
+
+    bool borrowFromFuture(ResourceType type, float amount);
+
+};
+
+
+
+class StateErrorHandler {
+
+public:
+
+    StateErrorHandler();
+
+
+
+    // State error handling
+
+    void handleStateInconsistency(const std::string&amp; variableId);
+
+    void handleSynchronizationFailure(Timeline&amp; timeline);
+
+    void handleStateRecoveryFailure(const std::string&amp; variableId);
+
+
+
+    // Recovery operations
+
+    bool restoreVariableState(const std::string&amp; variableId);
+
+    bool synchronizeStates(Timeline&amp; source, Timeline&amp; target);
+
+    bool resetStateToDefault(const std::string&amp; variableId);
+
+};
+
+</code></pre>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-cpp">
+// Create error handlers
+
+TimelineErrorHandler timelineErrorHandler;
+
+ResourceErrorHandler resourceErrorHandler(resourceTracker);
+
+StateErrorHandler stateErrorHandler;
+
+
+
+// Handle timeline corruption
+
+try {
+
+    executeTemporalOperation();
+
+} catch (const TimelineCorruptionException&amp; e) {
+
+    std::cerr &lt;&lt; &quot;Timeline corruption: &quot; &lt;&lt; e.what() &lt;&lt; std::endl;
+
+    timelineErrorHandler.handleTimelineCorruption(e.getTimeline());
+
+    timelineErrorHandler.restoreFromCheckpoint(e.getTimeline(), &quot;last_stable_point&quot;);
+
+}
+
+
+
+// Handle resource exhaustion
+
+try {
+
+    performResourceIntensiveOperation();
+
+} catch (const ResourceExhaustionException&amp; e) {
+
+    std::cerr &lt;&lt; &quot;Resource exhaustion: &quot; &lt;&lt; e.what() &lt;&lt; std::endl;
+
+    resourceErrorHandler.handleResourceExhaustion(e.getResourceType());
+
+    resourceErrorHandler.redistributeResources();
+
+}
+
+
+
+// Handle state inconsistency
+
+try {
+
+    updateTemporalState();
+
+} catch (const StateInconsistencyException&amp; e) {
+
+    std::cerr &lt;&lt; &quot;State inconsistency: &quot; &lt;&lt; e.what() &lt;&lt; std::endl;
+
+    stateErrorHandler.handleStateInconsistency(e.getVariableId());
+
+    stateErrorHandler.restoreVariableState(e.getVariableId());
+
+}
+
+</code></pre>
+<p><strong>Chronovyan Syntax Equivalent:</strong></p>
+<pre><code class="language-chronovyan">
+// Timeline error handling
+
+if (timeline_corrupted()) {
+
+    restore_from_checkpoint();
+
+    rebuild_timeline();
+
+}
+
+
+
+// Resource error handling
+
+if (resources_exhausted()) {
+
+    attempt_resource_recovery();
+
+    redistribute_resources();
+
+}
+
+
+
+// State error handling
+
+if (state_inconsistent()) {
+
+    restore_variable_state();
+
+    synchronize_states();
+
+}
+
+</code></pre>
+<hr />
+<p>// ... rest of the file ...</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "search.highlight"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

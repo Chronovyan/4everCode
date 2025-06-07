@@ -1,0 +1,1293 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for specifications\Chronovyan_Data_Types.md">
+      
+      
+      
+        <link rel="canonical" href="https://chronovyan.github.io/specifications/Chronovyan_Data_Types/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>The Sacred Sigils: Chronovyan Data Types Compendium - Chronovyan</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-sacred-sigils-chronovyan-data-types-compendium" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Chronovyan" class="md-header__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chronovyan
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The Sacred Sigils: Chronovyan Data Types Compendium
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Chronovyan/Chronovyan" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
+          
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../api/index.md" class="md-tabs__link">
+        
+  
+    
+  
+  API Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../CONTRIBUTING.md" class="md-tabs__link">
+        
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Chronovyan" class="md-nav__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Chronovyan
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Chronovyan/Chronovyan" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CONTRIBUTING.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-grand-taxonomy-of-sigils" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Grand Taxonomy of Sigils
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#primal-sigils" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primal Sigils
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Primal Sigils">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#int" class="md-nav__link">
+    <span class="md-ellipsis">
+      INT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#float" class="md-nav__link">
+    <span class="md-ellipsis">
+      FLOAT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boolean" class="md-nav__link">
+    <span class="md-ellipsis">
+      BOOLEAN
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    <span class="md-ellipsis">
+      STRING
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#void" class="md-nav__link">
+    <span class="md-ellipsis">
+      VOID
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compound-sigils" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compound Sigils
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compound Sigils">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#array" class="md-nav__link">
+    <span class="md-ellipsis">
+      ARRAY
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    <span class="md-ellipsis">
+      MAP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuple" class="md-nav__link">
+    <span class="md-ellipsis">
+      TUPLE
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temporal-sigils" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temporal Sigils
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Temporal Sigils">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timestamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      TIMESTAMP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chronon_stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      CHRONON_STREAM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aethel_reserve" class="md-nav__link">
+    <span class="md-ellipsis">
+      AETHEL_RESERVE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal_signature" class="md-nav__link">
+    <span class="md-ellipsis">
+      TEMPORAL_SIGNATURE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weave_pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      WEAVE_PATTERN
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conf_array" class="md-nav__link">
+    <span class="md-ellipsis">
+      CONF_ARRAY
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reb_stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      REB_STREAM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantum_state" class="md-nav__link">
+    <span class="md-ellipsis">
+      QUANTUM_STATE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stability_matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      STABILITY_MATRIX
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      TIMELINE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paradox_level" class="md-nav__link">
+    <span class="md-ellipsis">
+      PARADOX_LEVEL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal_marker" class="md-nav__link">
+    <span class="md-ellipsis">
+      TEMPORAL_MARKER
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type Conversion
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type Conversion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implicit-conversions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implicit Conversions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explicit-conversions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explicit Conversions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversion-restrictions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversion Restrictions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Memory Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Allocation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lifetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lifetime
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Impact
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Notes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="the-sacred-sigils-chronovyan-data-types-compendium">The Sacred Sigils: Chronovyan Data Types Compendium</h1>
+<p>Hail, Weaver, to this ancient scroll detailing the <strong>Sacred Sigils</strong> of Chronovyan—the mystical data types through which we shape reality on Chronos Prime. Each sigil carries unique properties, resonating differently with the eternal dance of Order and Flux. This compendium reveals their essence, their behavior across timelines, their influence on the fabric of reality, and their impact on the PARADOX_LEVEL. Study these patterns well, for they are the very alphabet of our craft.</p>
+<p><strong>Purpose</strong>: This sacred text serves as your arcane reference to the fundamental building blocks of reality manipulation, guiding your hands as you inscribe the patterns that bend time to your will.</p>
+<p><strong>Lore Tidbit</strong>: The First Weaver's journal speaks of discovering these sigils not through invention, but through revelation—as if the patterns existed before Chronos Prime itself, waiting to be channeled by those with the Sight.</p>
+<h2 id="the-grand-taxonomy-of-sigils">The Grand Taxonomy of Sigils</h2>
+<p>The sacred sigils of Chronovyan reflect the fundamental duality of the universe—Order (Conformity) and Flux (Rebellion)—that defines our craft's philosophy. The sigils are organized into three sacred categories:</p>
+<ol>
+<li><strong>Primal Sigils</strong>: The fundamental elements, pure in form and essence</li>
+<li><strong>Compound Sigils</strong>: Complex patterns formed by weaving together Primal Sigils</li>
+<li><strong>Temporal Sigils</strong>: Mystical forms that directly commune with the timestream itself</li>
+</ol>
+<p>Each sigil may be invoked with either CONF or REB invocations, and may carry additional enchantments that alter their resonance with the Prime Thread.</p>
+<h2 id="primal-sigils">Primal Sigils</h2>
+<h3 id="int">INT</h3>
+<p><strong>Essence</strong>: Embodies discrete numerical values, the counting blocks of reality.</p>
+<p><strong>Properties</strong>:
+- Range: -2^63 to 2^63-1 (64-bit signed integer)
+- Default manifestation: 0
+- Physical form: 8 bytes of the tapestry</p>
+<p><strong>Temporal Resonance</strong>:
+- CONF::INT: Maintains perfect stability across timeline forks, resistant to the Void's whispers
+- REB::INT: May experience quantum fluctuations when PARADOX_LEVEL exceeds 0.5
+- CONF::STATIC INT: Once inscribed, becomes immutable, strengthening the tapestry by reducing PARADOX_LEVEL by 0.01
+- REB::FLUX INT: Value may spontaneously shift within ±5% when PARADOX_LEVEL exceeds 0.6, echoing the Void's chaos</p>
+<p><strong>Invocation Example</strong>:</p>
+<pre><code class="language-chronoscript">DECLARE CONF::STATIC stability_threshold : INT = 100;
+DECLARE REB::FLUX quantum_counter : INT = 0;
+</code></pre>
+<h3 id="float">FLOAT</h3>
+<p><strong>Essence</strong>: Embodies the flowing continuum between numbers, the gradient of possibility.</p>
+<p><strong>Properties</strong>:
+- Precision: Follows the sacred IEEE 754 double-precision pattern (64-bit)
+- Range: ±2.23 × 10^-308 to ±1.80 × 10^308
+- Default manifestation: 0.0
+- Physical form: 8 bytes of the tapestry</p>
+<p><strong>Temporal Resonance</strong>:
+- CONF::FLOAT: Maintains calculation precision across the multiverse
+- REB::FLOAT: May experience minor precision drift when traversing timeline boundaries
+- CONF::STATIC FLOAT: Becomes an immutable anchor for calculations, reducing PARADOX_LEVEL by 0.01
+- REB::FLOAT with FLUX: Embraces quantum uncertainty, manifesting as a range of potentials rather than a single reality</p>
+<p><strong>Invocation Example</strong>:</p>
+<pre><code class="language-chronoscript">DECLARE CONF::STATIC pi_constant : FLOAT = 3.14159265359;
+DECLARE REB::FLUX uncertainty_factor : FLOAT = 0.05;
+</code></pre>
+<h3 id="boolean">BOOLEAN</h3>
+<p><strong>Essence</strong>: Embodies the primal duality of existence—truth and falsehood, being and non-being.</p>
+<p><strong>Properties</strong>:
+- Values: TRUE or FALSE, the most ancient binary
+- Default manifestation: FALSE
+- Physical form: 1 byte of the tapestry</p>
+<p><strong>Temporal Resonance</strong>:
+- CONF::BOOLEAN: Maintains logical consistency across all potential realities
+- REB::BOOLEAN: Can exist in quantum superposition (both TRUE and FALSE simultaneously) when PARADOX_LEVEL exceeds 0.4
+- CONF::STATIC BOOLEAN: Becomes an immutable truth anchor in the tapestry
+- REB::FLUX BOOLEAN: May spontaneously invert its state when traversing high-instability regions of the timestream</p>
+<p><strong>Invocation Example</strong>:</p>
+<pre><code class="language-chronoscript">DECLARE CONF::STATIC initialization_complete : BOOLEAN = FALSE;
+DECLARE REB::FLUX quantum_state : BOOLEAN = TRUE;
+</code></pre>
+<h3 id="string">STRING</h3>
+<p><strong>Essence</strong>: Embodies linguistic power—the naming of things, the weaving of meaning.</p>
+<p><strong>Properties</strong>:
+- Encoding: UTF-8, the universal language of digital reality
+- Maximum length: 2^32 - 1 characters
+- Default manifestation: "" (the unspoken void)
+- Physical form: 16 bytes plus character essence</p>
+<p><strong>Temporal Resonance</strong>:
+- CONF::STRING: Preserves meaning and form across all timeline branches
+- REB::STRING: May experience character transmutation during temporal shifts
+- CONF::STATIC STRING: Immutable text that strengthens reality, reducing PARADOX_LEVEL by 0.01
+- REB::FLUX STRING: Characters may spontaneously rearrange or transform when PARADOX_LEVEL exceeds 0.7, as if rewritten by unseen hands</p>
+<p><strong>Invocation Example</strong>:</p>
+<pre><code class="language-chronoscript">DECLARE CONF::STATIC system_identifier : STRING = &quot;Primary Timeline Alpha&quot;;
+DECLARE REB::FLUX mutable_message : STRING = &quot;Initial state&quot;;
+</code></pre>
+<h3 id="void">VOID</h3>
+<p><strong>Essence</strong>: Embodies nothingness itself—the absence that defines presence, primarily used for function returns.</p>
+<p><strong>Properties</strong>:
+- No material manifestation
+- No memory allocation
+- Cannot be bound to variables</p>
+<p><strong>Temporal Resonance</strong>:
+- Exists beyond the influence of temporal fluctuations
+- Contributes nothing to PARADOX_LEVEL, being empty of essence</p>
+<p><strong>Invocation Example</strong>:</p>
+<pre><code class="language-chronoscript">// Ritual that returns to the void
+DECLARE CONF::STATIC initialize_system : VOID = define_pattern(&quot;Init&quot;, [
+    system_setup();
+    notify_completion();
+]);
+</code></pre>
+<h2 id="compound-sigils">Compound Sigils</h2>
+<h3 id="array">ARRAY</h3>
+<p><strong>Essence</strong>: Embodies ordered collection—the sequence of related concepts bound together.</p>
+<p><strong>Properties</strong>:
+- Element essence: Any valid Chronovyan sigil
+- Size: Dynamic, limited only by available Aethel
+- Indexing: Zero-based, as all counts begin from the void
+- Default manifestation: Empty collection</p>
+<p><strong>Temporal Resonance</strong>:
+- CONF::ARRAY: Elements maintain perfect order and consistency across timelines
+- REB::ARRAY: Elements may spontaneously reorder or echo during temporal disturbances
+- CONF::STATIC ARRAY: Immutable collection, reducing PARADOX_LEVEL by 0.01 per element
+- REB::FLUX ARRAY: Elements may spontaneously manifest or vanish when PARADOX_LEVEL exceeds 0.6, as the Void playfully alters reality</p>
+<p><strong>Invocation Example</strong>:</p>
+<pre><code class="language-chronoscript">DECLARE CONF::STATIC checkpoint_timestamps : ARRAY&lt;TIMESTAMP&gt; = [];
+DECLARE REB::FLUX potential_outcomes : ARRAY&lt;STRING&gt; = [&quot;Success&quot;, &quot;Failure&quot;, &quot;Paradox&quot;];
+</code></pre>
+<h3 id="map">MAP</h3>
+<p><strong>Essence</strong>: Embodies relationship—the binding of key to value, name to essence.</p>
+<p><strong>Properties</strong>:
+- Key essence: Typically primal sigils
+- Value essence: Any valid Chronovyan sigil
+- Size: Dynamic, limited only by available Aethel
+- Default manifestation: Empty mapping</p>
+<p><strong>Temporal Resonance</strong>:
+- CONF::MAP: Preserves key-value bonds with perfect fidelity
+- REB::MAP: Keys may simultaneously bond to multiple values in quantum superposition
+- CONF::STATIC MAP: Immutable relationships, reducing PARADOX_LEVEL by 0.01 per binding
+- REB::FLUX MAP: Bindings may spontaneously shift when PARADOX_LEVEL exceeds 0.5, as reality reinterprets relationships</p>
+<p><strong>Invocation Example</strong>:</p>
+<pre><code class="language-chronoscript">DECLARE CONF::STATIC system_parameters : MAP&lt;STRING, FLOAT&gt; = {
+    &quot;stability_threshold&quot;: 0.8,
+    &quot;chronon_rate&quot;: 0.1,
+    &quot;aethel_generation&quot;: 0.05
+};
+
+DECLARE REB::FLUX quantum_states : MAP&lt;INT, QUANTUM_STATE&gt; = {};
+</code></pre>
+<h3 id="tuple">TUPLE</h3>
+<p><strong>Essence</strong>: Embodies fixed collection—the immutable grouping of potentially different essences.</p>
+<p><strong>Properties</strong>:
+- Element essences: Any valid Chronovyan sigils
+- Size: Fixed at the moment of creation
+- Access: By position (zero-based) or by true name
+- Default manifestation: Default values for each element essence</p>
+<p><strong>Temporal Resonance</strong>:
+- CONF::TUPLE: Elements maintain essence purity across timelines
+- REB::TUPLE: Elements may experience essence transmutation during temporal shifts
+- CONF::STATIC TUPLE: Immutable compound form, reducing PARADOX_LEVEL by 0.01
+- REB::FLUX TUPLE: Element essences may temporarily transform when PARADOX_LEVEL exceeds 0.7, as the Void tests their nature</p>
+<p><strong>Invocation Example</strong>:</p>
+<pre><code class="language-chronoscript">DECLARE CONF::STATIC system_bounds : TUPLE&lt;FLOAT, FLOAT, STRING&gt; = {0.0, 1.0, &quot;normalized&quot;};
+DECLARE REB::FLUX event_data : TUPLE&lt;TIMESTAMP, STRING, FLOAT&gt; = {current_time(), &quot;initialization&quot;, 0.5};
+</code></pre>
+<h2 id="temporal-sigils">Temporal Sigils</h2>
+<h3 id="timestamp">TIMESTAMP</h3>
+<p><strong>Essence</strong>: Embodies a specific point in the temporal continuum, the anchor of time.</p>
+<p><strong>Properties</strong>:
+- Resolution: Nanosecond precision
+- Range: From program origin to maximum Chronon allocation
+- Default manifestation: @Origin (program start)
+- Physical form: 16 bytes of the tapestry</p>
+<p><strong>Temporal Resonance</strong>:
+- CONF::TIMESTAMP: Fixed temporal reference point
+- REB::TIMESTAMP: Can represent multiple moments simultaneously in superposition
+- CONF::ANCHOR TIMESTAMP: Creates a stable point for REWIND_TO operations
+- REB::FLUX TIMESTAMP: May drift within a temporal window when PARADOX_LEVEL &gt; 0.4</p>
+<p><strong>Invocation Example</strong>:</p>
+<pre><code class="language-chronoscript">DECLARE CONF::ANCHOR checkpoint : TIMESTAMP = mark_timestamp(&quot;Initialization Complete&quot;);
+DECLARE REB::FLUX fluctuation_point : TIMESTAMP = current_time();
+</code></pre>
+<h3 id="chronon_stream">CHRONON_STREAM</h3>
+<p><strong>Essence</strong>: Embodies the source of Chronons for temporal operations, the pulse of time.</p>
+<p><strong>Properties</strong>:
+- Flow rate: Chronons per operation
+- Capacity: Maximum available Chronons
+- State: Active or depleted
+- Physical form: 24 bytes of the tapestry plus internal buffer</p>
+<p><strong>Temporal Resonance</strong>:
+- CONF::CHRONON_STREAM: Stable, predictable flow rate
+- REB::CHRONON_STREAM: Variable flow rate affected by PARADOX_LEVEL
+- CONF::SOURCE_INFUSED CHRONON_STREAM: Enhanced stability, reduced PARADOX_LEVEL impact
+- REB::FLUX CHRONON_STREAM: May experience spontaneous surges or droughts</p>
+<p><strong>Invocation Example</strong>:</p>
+<pre><code class="language-chronoscript">DECLARE CONF::STATIC primary_stream : CHRONON_STREAM = HARVEST(&quot;Primary_Thread&quot;);
+DECLARE REB::FLUX unstable_stream : CHRONON_STREAM = HARVEST(&quot;Temporal_Rift&quot;);
+</code></pre>
+<h3 id="aethel_reserve">AETHEL_RESERVE</h3>
+<p><strong>Essence</strong>: Embodies storage for Aethel energy used in temporal operations, the reservoir of time.</p>
+<p><strong>Properties</strong>:
+- Capacity: Maximum storable Aethel
+- Current level: Available Aethel units
+- Generation rate: Aethel per operation
+- Physical form: 16 bytes of the tapestry</p>
+<p><strong>Temporal Resonance</strong>:
+- CONF::AETHEL_RESERVE: Stable, predictable generation and consumption
+- REB::AETHEL_RESERVE: Can briefly exceed capacity during quantum fluctuations
+- CONF::STATIC AETHEL_RESERVE: Fixed capacity, reduces PARADOX_LEVEL by 0.02
+- REB::FLUX AETHEL_RESERVE: May spontaneously gain or lose Aethel when PARADOX_LEVEL &gt; 0.5</p>
+<p><strong>Invocation Example</strong>:</p>
+<pre><code class="language-chronoscript">DECLARE CONF::STATIC system_reserve : AETHEL_RESERVE = initialize_reserve(100);
+DECLARE REB::FLUX emergency_reserve : AETHEL_RESERVE = initialize_reserve(50);
+</code></pre>
+<h3 id="temporal_signature">TEMPORAL_SIGNATURE</h3>
+<p><strong>Essence</strong>: Embodies a unique identifier for a timeline or temporal operation, the signature of time.</p>
+<p><strong>Properties</strong>:
+- Uniqueness: Guaranteed across all timelines
+- Composition: Hash of temporal state at creation
+- Verification: Can be compared for causality relationships
+- Physical form: 32 bytes of the tapestry</p>
+<p><strong>Temporal Resonance</strong>:
+- CONF::TEMPORAL_SIGNATURE: Remains consistent across timeline operations
+- REB::TEMPORAL_SIGNATURE: May develop entanglements with other signatures
+- CONF::STATIC TEMPORAL_SIGNATURE: Immutable reference point, reducing PARADOX_LEVEL by 0.03
+- REB::WEAVER TEMPORAL_SIGNATURE: Can be used to manipulate timeline relationships</p>
+<p><strong>Invocation Example</strong>:</p>
+<pre><code class="language-chronoscript">DECLARE CONF::STATIC main_timeline : TEMPORAL_SIGNATURE = generate_signature(&quot;Main&quot;);
+DECLARE REB::WEAVER explorer : TEMPORAL_SIGNATURE = generate_signature(&quot;Explorer&quot;);
+</code></pre>
+<h3 id="weave_pattern">WEAVE_PATTERN</h3>
+<p><strong>Essence</strong>: Embodies a blueprint for temporal operations and transformations, the blueprint of time.</p>
+<p><strong>Properties</strong>:
+- Operations: Sequence of statements
+- Metadata: Aethel_Cost, Chronon_Usage, Instability_Index, Temporal_Scope
+- Strategy: SEQUENTIAL, PARALLEL, or CONDITIONAL
+- Physical form: 48 bytes of the tapestry plus operation data</p>
+<p><strong>Temporal Resonance</strong>:
+- CONF::WEAVE_PATTERN: Stable, consistent execution
+- REB::WEAVE_PATTERN: May evolve or adapt during execution
+- CONF::STATIC WEAVE_PATTERN: Immutable operation sequence, reducing PARADOX_LEVEL by 0.02
+- REB::FLUX WEAVE_PATTERN: Operations may reorder or transform when PARADOX_LEVEL &gt; 0.6</p>
+<p><strong>Invocation Example</strong>:</p>
+<pre><code class="language-chronoscript">DECLARE CONF::STATIC stabilization : WEAVE_PATTERN = define_pattern(&quot;Stabilize&quot;, [
+    INFUSE(stability_field, time_crystals, &quot;Restabilize&quot;),
+    GUARD(stability_field &gt; 0.6, &quot;Low stability&quot;)
+]);
+
+DECLARE REB::FLUX exploration : WEAVE_PATTERN = define_pattern(&quot;Explore&quot;, [
+    scout = deepen_exploration(&quot;Temporal_Rift&quot;)
+]);
+</code></pre>
+<h3 id="conf_array">CONF_ARRAY</h3>
+<p><strong>Essence</strong>: Embodies a specialized array with enhanced stability guarantees, the stable path of time.</p>
+<p><strong>Properties</strong>:
+- Element integrity: Guaranteed against temporal corruption
+- Paradox protection: Automatic validation of operations
+- Synchronization: Consistent across timeline branches
+- Physical form: 24 bytes of the tapestry plus element data</p>
+<p><strong>Temporal Resonance</strong>:
+- Always maintains CONF properties regardless of PARADOX_LEVEL
+- Immune to quantum fluctuations
+- Reduces PARADOX_LEVEL by 0.01 per valid operation
+- Cannot be modified by REB operations unless explicitly converted</p>
+<p><strong>Invocation Example</strong>:</p>
+<pre><code class="language-chronoscript">DECLARE CONF::STATIC stability_metrics : CONF_ARRAY&lt;FLOAT&gt; = [0.8, 0.75, 0.9];
+</code></pre>
+<h3 id="reb_stream">REB_STREAM</h3>
+<p><strong>Essence</strong>: Embodies a dynamic sequence with quantum properties, the stream of time.</p>
+<p><strong>Properties</strong>:
+- Element superposition: Can contain multiple possible values simultaneously
+- Temporal flow: Elements can appear from "future" operations
+- Quantum access: Observation affects element states
+- Physical form: 32 bytes of the tapestry plus element data</p>
+<p><strong>Temporal Resonance</strong>:
+- Elements exist in quantum superposition until observed
+- Reading from stream may collapse some element states
+- Increases PARADOX_LEVEL by 0.02 per access
+- Cannot be converted to CONF types without collapsing</p>
+<p><strong>Invocation Example</strong>:</p>
+<pre><code class="language-chronoscript">DECLARE REB::FLUX potential_futures : REB_STREAM&lt;EVENT&gt; = initialize_stream();
+</code></pre>
+<h3 id="quantum_state">QUANTUM_STATE</h3>
+<p><strong>Essence</strong>: Embodies a superposition of multiple possible values, the superposition of time.</p>
+<p><strong>Properties</strong>:
+- State vector: Probability distribution of possible values
+- Collapse condition: When observation occurs
+- Entanglement: Relationships with other quantum states
+- Physical form: 64 bytes of the tapestry plus state data</p>
+<p><strong>Temporal Resonance</strong>:
+- Exists in multiple states simultaneously until observed
+- Observation collapses to a single state based on probability distribution
+- Increases PARADOX_LEVEL by 0.05 per collapse
+- Cannot be directly converted to CONF types without collapsing</p>
+<p><strong>Invocation Example</strong>:</p>
+<pre><code class="language-chronoscript">DECLARE REB::FLUX particle_state : QUANTUM_STATE = initialize_superposition([
+    {value: &quot;up&quot;, probability: 0.5},
+    {value: &quot;down&quot;, probability: 0.5}
+]);
+</code></pre>
+<h3 id="stability_matrix">STABILITY_MATRIX</h3>
+<p><strong>Essence</strong>: Embodies a multidimensional representation of system stability factors, the matrix of time.</p>
+<p><strong>Properties</strong>:
+- Dimensions: Temporal, Structural, Paradoxical
+- Values: Normalized stability metrics (0.0-1.0)
+- Interactions: Cross-dimensional influence factors
+- Physical form: 128 bytes of the tapestry plus matrix data</p>
+<p><strong>Temporal Resonance</strong>:
+- CONF::STABILITY_MATRIX: Provides reliable stability metrics
+- REB::STABILITY_MATRIX: Can predict potential instabilities before they occur
+- CONF::ANCHOR STABILITY_MATRIX: Creates stability reference point for system
+- REB::WEAVER STABILITY_MATRIX: Can be used to actively manipulate system stability</p>
+<p><strong>Invocation Example</strong>:</p>
+<pre><code class="language-chronoscript">DECLARE CONF::ANCHOR system_stability : STABILITY_MATRIX = initialize_matrix();
+</code></pre>
+<h3 id="timeline">TIMELINE</h3>
+<p><strong>Essence</strong>: Embodies a complete execution path through the program, the timeline of time.</p>
+<p><strong>Properties</strong>:
+- Events: Sequence of temporal operations
+- State: Active, dormant, or terminated
+- Branches: Child timelines that have split from this one
+- Physical form: 256 bytes of the tapestry plus event data</p>
+<p><strong>Temporal Resonance</strong>:
+- CONF::TIMELINE: Stable, deterministic execution path
+- REB::TIMELINE: Can branch and merge dynamically
+- CONF::ANCHOR TIMELINE: Primary reference timeline for the program
+- REB::WEAVER TIMELINE: Can be manipulated to create alternate execution paths</p>
+<p><strong>Invocation Example</strong>:</p>
+<pre><code class="language-chronoscript">DECLARE CONF::ANCHOR main_timeline : TIMELINE = initialize_primary_timeline();
+DECLARE REB::WEAVER alternate_timeline : TIMELINE = branch_timeline(main_timeline);
+</code></pre>
+<h3 id="paradox_level">PARADOX_LEVEL</h3>
+<p><strong>Essence</strong>: Embodies measure of temporal instability within a context, the level of time.</p>
+<p><strong>Properties</strong>:
+- Range: 0.0 (stable) to 1.0 (critical)
+- Components: Base value, operation impact, resource state, timeline factors
+- Thresholds: Trigger points for different system behaviors
+- Physical form: 8 bytes of the tapestry</p>
+<p><strong>Temporal Resonance</strong>:
+- Read-only type that reflects system state
+- Updated automatically after temporal operations
+- Cannot be directly modified (only indirectly through other operations)
+- Influences behavior of REB types and temporal operations</p>
+<p><strong>Invocation Example</strong>:</p>
+<pre><code class="language-chronoscript">DECLARE CONF::STATIC warning_threshold : FLOAT = 0.5;
+IF (PARADOX_LEVEL &gt; warning_threshold) {
+    stabilize_timeline(energy, 100);
+}
+</code></pre>
+<h3 id="temporal_marker">TEMPORAL_MARKER</h3>
+<p><strong>Essence</strong>: Embodies a lightweight reference to a specific point in a timeline, the marker of time.</p>
+<p><strong>Properties</strong>:
+- Timeline: Associated execution path
+- Position: Specific point in the timeline
+- Metadata: Label and creation context
+- Physical form: 24 bytes of the tapestry</p>
+<p><strong>Temporal Resonance</strong>:
+- CONF::TEMPORAL_MARKER: Stable reference point
+- REB::TEMPORAL_MARKER: Can shift position slightly during temporal operations
+- CONF::ANCHOR TEMPORAL_MARKER: Can be targeted by REWIND_TO operations
+- REB::FLUX TEMPORAL_MARKER: May spontaneously relocate when PARADOX_LEVEL &gt; 0.7</p>
+<p><strong>Invocation Example</strong>:</p>
+<pre><code class="language-chronoscript">DECLARE CONF::ANCHOR checkpoint : TEMPORAL_MARKER = mark_position(&quot;Critical Section&quot;);
+DECLARE REB::FLUX floating_marker : TEMPORAL_MARKER = mark_position(&quot;Exploration Point&quot;);
+</code></pre>
+<h2 id="type-conversion">Type Conversion</h2>
+<h3 id="implicit-conversions">Implicit Conversions</h3>
+<p>Chronovyan supports limited implicit conversions that preserve data integrity:</p>
+<ol>
+<li>INT → FLOAT: Automatic conversion when integer appears in floating-point context</li>
+<li>Any primitive type → STRING: Automatic conversion in string concatenation</li>
+<li>CONF type → REB type of same base type: One-way conversion permitted</li>
+</ol>
+<h3 id="explicit-conversions">Explicit Conversions</h3>
+<p>More complex conversions require explicit conversion functions:</p>
+<ol>
+<li><strong>convert_to_int(value)</strong>: Converts compatible types to INT</li>
+<li><strong>convert_to_float(value)</strong>: Converts compatible types to FLOAT</li>
+<li><strong>convert_to_string(value)</strong>: Converts any type to STRING representation</li>
+<li><strong>collapse_quantum(value)</strong>: Resolves QUANTUM_STATE to a single value</li>
+<li><strong>stabilize_type(value)</strong>: Attempts to convert REB type to CONF type (may increase PARADOX_LEVEL)</li>
+</ol>
+<h3 id="conversion-restrictions">Conversion Restrictions</h3>
+<p>Some conversions are prohibited or have special requirements:</p>
+<ol>
+<li>REB → CONF: Requires explicit stabilize_type() function and may fail if PARADOX_LEVEL &gt; 0.7</li>
+<li>QUANTUM_STATE → Any non-quantum type: Requires collapse_quantum() and increases PARADOX_LEVEL by 0.05</li>
+<li>TIMELINE → Any other type: Prohibited to prevent timeline corruption</li>
+<li>TEMPORAL_SIGNATURE → Any other type: Prohibited to maintain timeline integrity</li>
+</ol>
+<h2 id="memory-model">Memory Model</h2>
+<h3 id="allocation">Allocation</h3>
+<p>Memory for variables follows these principles:</p>
+<ol>
+<li>CONF variables: Allocated in stable memory regions with consistency guarantees</li>
+<li>REB variables: Allocated in quantum-capable memory with fluctuation tolerance</li>
+<li>::STATIC variables: Allocated in read-only memory after initialization</li>
+<li>::VOLATILE variables: Allocated in temporary memory that may be reclaimed</li>
+</ol>
+<h3 id="lifetime">Lifetime</h3>
+<p>Variable lifetimes are governed by these rules:</p>
+<ol>
+<li>Variables declared in ANTECEDENCE: Program-wide lifetime</li>
+<li>Variables declared in CONCURRENCY: Live until end of program or explicit deallocation</li>
+<li>Variables declared in CONSEQUENCE: Live until program termination</li>
+<li>Variables in temporal operations: Lifetime depends on timeline persistence</li>
+</ol>
+<h3 id="resource-impact">Resource Impact</h3>
+<p>Memory usage affects Chronon and Aethel resources:</p>
+<ol>
+<li>Each variable consumes Chronons proportional to its size during initialization</li>
+<li>CONF variables generate small amounts of Aethel over their lifetime</li>
+<li>REB variables consume small amounts of Aethel over their lifetime</li>
+<li>Large allocations increase base PARADOX_LEVEL slightly</li>
+</ol>
+<h2 id="implementation-notes">Implementation Notes</h2>
+<p>Implementations of the Chronovyan type system must adhere to these requirements:</p>
+<ol>
+<li>All implementations must maintain the semantic distinctions between CONF and REB types</li>
+<li>Temporal behavior of types must be preserved even if underlying representation differs</li>
+<li>PARADOX_LEVEL effects on types must be simulated according to specification</li>
+<li>Memory model may be adapted to target platform but must preserve lifetimes</li>
+<li>Performance optimizations are permitted if they do not alter observable behavior</li>
+</ol>
+<p>This specification defines the complete type system for Chronovyan, providing developers with the information needed to effectively work with data in the language. The combination of conventional and temporal types creates a rich environment for expressing both stable, predictable computation and dynamic, quantum-influenced operations. </p>
+<p><strong>Lore Tidbit</strong>: The ancient Weavers believed that to truly master a sigil, one must not merely understand its properties but commune with its essence—to feel the INT's discrete steps, to flow with the FLOAT's continuity, to embrace the BOOLEAN's duality. Only then does one truly become a Master Weaver.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "search.highlight"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

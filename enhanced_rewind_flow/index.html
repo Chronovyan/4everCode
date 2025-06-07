@@ -1,0 +1,801 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for enhanced_rewind_flow.md">
+      
+      
+      
+        <link rel="canonical" href="https://chronovyan.github.io/enhanced_rewind_flow/">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>Enhanced REWIND_FLOW Control Mechanisms - Chronovyan</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#enhanced-rewind_flow-control-mechanisms" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Chronovyan" class="md-header__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chronovyan
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Enhanced REWIND_FLOW Control Mechanisms
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Chronovyan/Chronovyan" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/installation/" class="md-tabs__link">
+          
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../api/index.md" class="md-tabs__link">
+        
+  
+    
+  
+  API Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CONTRIBUTING.md" class="md-tabs__link">
+        
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Chronovyan" class="md-nav__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Chronovyan
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Chronovyan/Chronovyan" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CONTRIBUTING.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control Mechanisms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Control Mechanisms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#halt_rewind" class="md-nav__link">
+    <span class="md-ellipsis">
+      HALT_REWIND
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stabilize_timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      STABILIZE_TIMELINE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prevent_modification" class="md-nav__link">
+    <span class="md-ellipsis">
+      PREVENT_MODIFICATION
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-the-interpreter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with the Interpreter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Challenges
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="enhanced-rewind_flow-control-mechanisms">Enhanced REWIND_FLOW Control Mechanisms</h1>
+<h2 id="overview">Overview</h2>
+<p>This document outlines the design and implementation of enhanced control mechanisms for the REWIND_FLOW construct in the Chronovyan language. These mechanisms provide developers with fine-grained control over temporal rewind operations, reducing paradox risk and improving efficiency.</p>
+<h2 id="control-mechanisms">Control Mechanisms</h2>
+<h3 id="halt_rewind">HALT_REWIND</h3>
+<p>The <code>HALT_REWIND</code> statement allows immediate termination of a REWIND_FLOW loop, regardless of the loop condition or maximum rewinds limit.</p>
+<p><strong>Syntax:</strong></p>
+<pre><code>REWIND_FLOW (condition) {
+    // Rewind operations
+    if (some_condition) {
+        HALT_REWIND;  // Immediately terminates the REWIND_FLOW
+    }
+    // Subsequent code will not execute if HALT_REWIND is triggered
+}
+</code></pre>
+<p><strong>Implementation Details:</strong>
+- Sets the <code>m_haltRewind_flag</code> in the Interpreter
+- The REWIND_FLOW implementation checks this flag after each loop iteration
+- Resource consumption: 10.0 Aethel, 5.0 Chronons</p>
+<h3 id="stabilize_timeline">STABILIZE_TIMELINE</h3>
+<p>The <code>STABILIZE_TIMELINE</code> statement applies stabilization to the timeline during rewind operations, reducing paradox risk at the cost of additional resource consumption. The intensity of stabilization can be controlled (0.0 to 1.0).</p>
+<p><strong>Syntax:</strong></p>
+<pre><code>REWIND_FLOW (condition) {
+    // Apply stabilization with specified intensity (0.0 to 1.0)
+    STABILIZE_TIMELINE(0.5);  // Medium stabilization
+
+    // Rewind operations with reduced paradox risk
+}
+</code></pre>
+<p><strong>Implementation Details:</strong>
+- Sets the <code>m_stabilizationFactor</code> in the Interpreter to the specified intensity
+- Higher intensity provides better stability but consumes more resources
+- Resource consumption scales with intensity: 20.0 * intensity Aethel, 15.0 * intensity Chronons</p>
+<h3 id="prevent_modification">PREVENT_MODIFICATION</h3>
+<p>The <code>PREVENT_MODIFICATION</code> statement enables read-only mode during rewind operations, preventing modifications to the timeline state. This is useful for safely analyzing past states without introducing changes.</p>
+<p><strong>Syntax:</strong></p>
+<pre><code>REWIND_FLOW (condition) {
+    PREVENT_MODIFICATION;  // Enable read-only mode
+
+    // All operations within this scope are read-only
+    // Any attempt to modify state will generate an error in a full implementation
+}
+</code></pre>
+<p><strong>Implementation Details:</strong>
+- Sets the <code>m_preventModification_flag</code> in the Interpreter
+- In a full implementation, all write operations would be checked against this flag
+- Resource consumption: 15.0 Aethel, 10.0 Chronons</p>
+<h2 id="integration-with-the-interpreter">Integration with the Interpreter</h2>
+<p>The implementation of these control mechanisms requires modifications to the Interpreter class:</p>
+<ol>
+<li><strong>New Control Flags:</strong></li>
+<li><code>m_haltRewind_flag</code>: Indicates when to terminate a REWIND_FLOW loop</li>
+<li><code>m_preventModification_flag</code>: Indicates read-only mode during rewind</li>
+<li>
+<p><code>m_stabilizationFactor</code>: Controls timeline stabilization intensity</p>
+</li>
+<li>
+<p><strong>Visitor Methods:</strong></p>
+</li>
+<li><code>visitHaltRewindStmt</code>: Handles HALT_REWIND statements</li>
+<li><code>visitStabilizeTimelineStmt</code>: Handles STABILIZE_TIMELINE statements</li>
+<li>
+<p><code>visitPreventModificationStmt</code>: Handles PREVENT_MODIFICATION statements</p>
+</li>
+<li>
+<p><strong>Resource Tracking:</strong></p>
+</li>
+<li>
+<p><code>trackResourceUsage</code>: Logs and tracks resource consumption for control operations</p>
+</li>
+<li>
+<p><strong>Updates to visitRewindFlowStmt:</strong></p>
+</li>
+<li>Initialize control flags at the start of each REWIND_FLOW</li>
+<li>Check flags during loop execution</li>
+<li>Apply appropriate behaviors based on flag states</li>
+<li>Reset flags after loop completion</li>
+</ol>
+<h2 id="testing">Testing</h2>
+<p>A comprehensive test suite has been created in <code>tests/rewind_flow_manual_test.cpp</code> to validate the functionality of these control mechanisms:</p>
+<ol>
+<li><strong>Basic REWIND_FLOW Test:</strong></li>
+<li>
+<p>Validates the basic functionality of REWIND_FLOW with maximum rewinds</p>
+</li>
+<li>
+<p><strong>HALT_REWIND Test:</strong></p>
+</li>
+<li>
+<p>Demonstrates early termination of REWIND_FLOW using HALT_REWIND</p>
+</li>
+<li>
+<p><strong>PREVENT_MODIFICATION Test:</strong></p>
+</li>
+<li>
+<p>Demonstrates read-only mode during rewind operations</p>
+</li>
+<li>
+<p><strong>STABILIZE_TIMELINE Test:</strong></p>
+</li>
+<li>Tests different stabilization intensities (0.2, 0.5, 0.9)</li>
+<li>Validates resource consumption scaling with intensity</li>
+</ol>
+<h2 id="implementation-challenges">Implementation Challenges</h2>
+<p>During implementation, several challenges were encountered:</p>
+<ol>
+<li><strong>Compatibility with Existing Code:</strong></li>
+<li>The existing AST node structure uses both const and non-const versions of visitor methods</li>
+<li>
+<p>There are duplicate visitor method declarations in the ASTVisitor interface</p>
+</li>
+<li>
+<p><strong>Build System Integration:</strong></p>
+</li>
+<li>Updates to CMakeLists.txt were needed to include the new test files</li>
+<li>Multiple build errors indicated issues with the existing codebase structure</li>
+</ol>
+<h2 id="next-steps">Next Steps</h2>
+<p>To complete the implementation of enhanced REWIND_FLOW control mechanisms:</p>
+<ol>
+<li><strong>Fix AST Node Structure:</strong></li>
+<li>Resolve duplicate visitor method declarations</li>
+<li>Ensure consistent const/non-const method usage</li>
+<li>
+<p>Update forward declarations for all node types</p>
+</li>
+<li>
+<p><strong>Complete Interpreter Implementation:</strong></p>
+</li>
+<li>Finalize visitor methods for control mechanisms</li>
+<li>Update visitRewindFlowStmt to fully utilize control flags</li>
+<li>
+<p>Implement proper resource tracking</p>
+</li>
+<li>
+<p><strong>Parser Integration:</strong></p>
+</li>
+<li>Add parsing logic for HALT_REWIND, STABILIZE_TIMELINE, and PREVENT_MODIFICATION</li>
+<li>
+<p>Update the token definitions if needed</p>
+</li>
+<li>
+<p><strong>Comprehensive Testing:</strong></p>
+</li>
+<li>Extend test coverage to include edge cases</li>
+<li>
+<p>Create integration tests with other temporal constructs</p>
+</li>
+<li>
+<p><strong>Documentation:</strong></p>
+</li>
+<li>Update language reference documentation</li>
+<li>Add examples and best practices for using control mechanisms</li>
+</ol>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "search.highlight"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

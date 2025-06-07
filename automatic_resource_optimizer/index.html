@@ -1,0 +1,930 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for automatic_resource_optimizer.md">
+      
+      
+      
+        <link rel="canonical" href="https://chronovyan.github.io/automatic_resource_optimizer/">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>Automatic Resource Optimizer - Chronovyan</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#automatic-resource-optimizer" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Chronovyan" class="md-header__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chronovyan
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Automatic Resource Optimizer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Chronovyan/Chronovyan" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/installation/" class="md-tabs__link">
+          
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../api/index.md" class="md-tabs__link">
+        
+  
+    
+  
+  API Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CONTRIBUTING.md" class="md-tabs__link">
+        
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Chronovyan" class="md-nav__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Chronovyan
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Chronovyan/Chronovyan" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CONTRIBUTING.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customized-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customized Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operation-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operation Filtering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-callbacks-for-notifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Callbacks for Notifications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-triggering-of-optimization-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Triggering of Optimization Cycle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Options
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern Detection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimization-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimization Algorithms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optimization Algorithms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chronon-optimization-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chronon Optimization Algorithms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aethel-optimization-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aethel Optimization Algorithms
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reporting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-existing-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with Existing Systems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thread-safety-and-performance-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thread Safety and Performance Considerations
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="automatic-resource-optimizer">Automatic Resource Optimizer</h1>
+<h2 id="overview">Overview</h2>
+<p>The Automatic Resource Optimizer is an advanced component in the Chronovyan resource management system that extends the base ResourceOptimizer with capabilities for automatic, continuous optimization of temporal resources (Chronons and Aethel). It uses pattern recognition, adaptive learning, and proactive monitoring to identify and apply optimizations without manual intervention.</p>
+<h2 id="key-features">Key Features</h2>
+<ol>
+<li>
+<p><strong>Continuous Background Monitoring</strong>: Automatically monitors resource usage in the background and applies optimizations when beneficial.</p>
+</li>
+<li>
+<p><strong>Pattern Recognition</strong>: Detects common resource usage patterns (repetitive, spike, cyclic, increasing, decreasing) and applies optimizations specifically tailored to each pattern.</p>
+</li>
+<li>
+<p><strong>Adaptive Learning</strong>: Learns from previous optimization results to improve future optimization decisions, adjusting algorithm weights based on performance.</p>
+</li>
+<li>
+<p><strong>Resource Bottleneck Detection</strong>: Automatically triggers optimizations when resources become scarce, helping to prevent resource exhaustion.</p>
+</li>
+<li>
+<p><strong>Customizable Configuration</strong>: Highly configurable optimization behavior, including monitoring intervals, improvement thresholds, and optimization limits.</p>
+</li>
+<li>
+<p><strong>Operation Filtering</strong>: Allows prioritizing specific operations for optimization or excluding operations that shouldn't be optimized.</p>
+</li>
+<li>
+<p><strong>Notification System</strong>: Provides callbacks for real-time notifications of optimization events, allowing integration with monitoring and alerting systems.</p>
+</li>
+<li>
+<p><strong>Comprehensive Reporting</strong>: Generates detailed reports of optimization history, patterns detected, and algorithms used.</p>
+</li>
+</ol>
+<h2 id="usage-examples">Usage Examples</h2>
+<h3 id="basic-usage">Basic Usage</h3>
+<pre><code class="language-cpp">// Create a runtime and debt tracker
+auto runtime = std::make_shared&lt;TemporalRuntime&gt;();
+auto debt_tracker = std::make_shared&lt;TemporalDebtTracker&gt;(runtime);
+
+// Create an automatic optimizer with default configuration
+auto optimizer = std::make_shared&lt;AutomaticResourceOptimizer&gt;(runtime, debt_tracker);
+
+// Start automatic optimization in the background
+optimizer-&gt;startAutomaticOptimization();
+
+// Your application runs, and the optimizer automatically improves resource usage
+
+// When done, stop the automatic optimization
+optimizer-&gt;stopAutomaticOptimization();
+
+// Generate a report of optimizations performed
+std::string report = optimizer-&gt;generateOptimizationReport();
+std::cout &lt;&lt; report &lt;&lt; std::endl;
+</code></pre>
+<h3 id="customized-configuration">Customized Configuration</h3>
+<pre><code class="language-cpp">// Create a custom configuration
+OptimizationConfig config;
+config.monitoring_interval = std::chrono::seconds(30);  // Check every 30 seconds
+config.minimum_improvement_threshold = 0.1;             // Only apply 10%+ improvements
+config.max_optimizations_per_cycle = 2;                 // Limit to 2 optimizations per cycle
+config.optimize_on_resource_bottleneck = true;          // Optimize when resources are low
+config.resource_bottleneck_threshold = 0.2;             // Trigger at 20% remaining
+config.learn_from_manual_optimizations = true;          // Learn from manual optimizations
+
+// Create optimizer with custom configuration
+auto optimizer = std::make_shared&lt;AutomaticResourceOptimizer&gt;(runtime, debt_tracker, config);
+
+// Start automatic optimization with this configuration
+optimizer-&gt;startAutomaticOptimization();
+</code></pre>
+<h3 id="operation-filtering">Operation Filtering</h3>
+<pre><code class="language-cpp">// Set operations that should be prioritized for optimization
+std::set&lt;std::string&gt; priority_ops = {&quot;timeline_branch&quot;, &quot;causality_inversion&quot;};
+optimizer-&gt;setPriorityOperations(priority_ops);
+
+// Set operations that should never be automatically optimized
+std::set&lt;std::string&gt; excluded_ops = {&quot;critical_stability_operation&quot;, &quot;system_initialization&quot;};
+optimizer-&gt;setExcludedOperations(excluded_ops);
+</code></pre>
+<h3 id="using-callbacks-for-notifications">Using Callbacks for Notifications</h3>
+<pre><code class="language-cpp">// Register a callback to be notified when optimizations occur
+int callback_id = optimizer-&gt;registerOptimizationCallback(
+    [](const OptimizationResult&amp; result) {
+        std::cout &lt;&lt; &quot;Optimization performed on: &quot; &lt;&lt; result.operation_id &lt;&lt; std::endl;
+        std::cout &lt;&lt; &quot;Resource type: &quot; &lt;&lt; result.resource_type &lt;&lt; std::endl;
+        std::cout &lt;&lt; &quot;Pattern detected: &quot; &lt;&lt; result.pattern_detected &lt;&lt; std::endl;
+        std::cout &lt;&lt; &quot;Before: &quot; &lt;&lt; result.before_value &lt;&lt; &quot;, After: &quot; &lt;&lt; result.after_value &lt;&lt; std::endl;
+
+        // You could also send alerts, log to a database, etc.
+    }
+);
+
+// Later, unregister the callback when no longer needed
+optimizer-&gt;unregisterOptimizationCallback(callback_id);
+</code></pre>
+<h3 id="manual-triggering-of-optimization-cycle">Manual Triggering of Optimization Cycle</h3>
+<pre><code class="language-cpp">// Identify optimization opportunities without applying them
+auto opportunities = optimizer-&gt;identifyOptimizationOpportunities();
+
+// Print the opportunities
+for (const auto&amp; [operation, factor] : opportunities) {
+    double potential_savings = (1.0 - factor) * 100.0;
+    std::cout &lt;&lt; &quot;Operation: &quot; &lt;&lt; operation 
+              &lt;&lt; &quot; could be optimized by &quot; &lt;&lt; potential_savings &lt;&lt; &quot;%&quot; &lt;&lt; std::endl;
+}
+
+// Manually trigger an optimization cycle
+int optimizations_performed = optimizer-&gt;performOptimizationCycle();
+std::cout &lt;&lt; &quot;Performed &quot; &lt;&lt; optimizations_performed &lt;&lt; &quot; optimizations.&quot; &lt;&lt; std::endl;
+</code></pre>
+<h2 id="configuration-options">Configuration Options</h2>
+<p>The <code>OptimizationConfig</code> struct provides the following configuration options:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enable_auto_chronon_optimization</td>
+<td>true</td>
+<td>Enable automatic chronon optimization</td>
+</tr>
+<tr>
+<td>enable_auto_aethel_optimization</td>
+<td>true</td>
+<td>Enable automatic aethel optimization</td>
+</tr>
+<tr>
+<td>monitoring_interval</td>
+<td>60s</td>
+<td>How often to check for optimization opportunities</td>
+</tr>
+<tr>
+<td>minimum_improvement_threshold</td>
+<td>0.05</td>
+<td>Minimum improvement (5%) to apply an optimization</td>
+</tr>
+<tr>
+<td>max_optimizations_per_cycle</td>
+<td>3</td>
+<td>Maximum optimizations to apply in one cycle</td>
+</tr>
+<tr>
+<td>optimize_on_resource_bottleneck</td>
+<td>true</td>
+<td>Trigger optimization when resources get low</td>
+</tr>
+<tr>
+<td>resource_bottleneck_threshold</td>
+<td>0.2</td>
+<td>Threshold for resource bottleneck (20% remaining)</td>
+</tr>
+<tr>
+<td>learn_from_manual_optimizations</td>
+<td>true</td>
+<td>Learn from manually triggered optimizations</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pattern-detection">Pattern Detection</h2>
+<p>The optimizer automatically detects the following resource usage patterns:</p>
+<ol>
+<li><strong>Repetitive</strong>: Consistent resource usage with low variance.</li>
+<li><strong>Spike</strong>: Occasional high resource usage with normal usage otherwise.</li>
+<li><strong>Cyclic</strong>: Alternating between high and low resource usage in a regular pattern.</li>
+<li><strong>Increasing</strong>: Steadily growing resource usage over time.</li>
+<li><strong>Decreasing</strong>: Steadily diminishing resource usage over time.</li>
+<li><strong>Variable</strong>: No clear pattern detected.</li>
+</ol>
+<p>Different optimization strategies are applied based on the detected pattern:</p>
+<ul>
+<li><strong>Repetitive patterns</strong> benefit from caching and memoization techniques.</li>
+<li><strong>Spike patterns</strong> are optimized through load balancing and resource reservation.</li>
+<li><strong>Cyclic patterns</strong> are improved with predictive allocation strategies.</li>
+<li><strong>Increasing/Decreasing patterns</strong> use trend-based optimization techniques.</li>
+</ul>
+<h2 id="optimization-algorithms">Optimization Algorithms</h2>
+<p>The automatic optimizer uses multiple optimization algorithms for different resource types:</p>
+<h3 id="chronon-optimization-algorithms">Chronon Optimization Algorithms</h3>
+<ol>
+<li><strong>Temporal Caching</strong>: Reduces chronon usage by caching previous temporal states.</li>
+<li><strong>Operation Batching</strong>: Combines similar operations to reduce overhead.</li>
+<li><strong>Paradox Avoidance</strong>: Prevents wasteful paradox resolution cycles.</li>
+</ol>
+<h3 id="aethel-optimization-algorithms">Aethel Optimization Algorithms</h3>
+<ol>
+<li><strong>Harmonic Resonance</strong>: Increases aethel generation through resonance patterns.</li>
+<li><strong>Temporal Alignment</strong>: Aligns timelines to maximize aethel flow.</li>
+<li><strong>Flux Stabilization</strong>: Stabilizes flux to improve aethel quality.</li>
+</ol>
+<p>The weights of these algorithms are adjusted automatically based on their performance through adaptive learning.</p>
+<h2 id="reporting">Reporting</h2>
+<p>The optimizer can generate reports of optimization activity in two formats:</p>
+<ol>
+<li><strong>Basic Report</strong>: Includes summary statistics like total optimizations, chronons saved, and aethel generated.</li>
+<li><strong>Detailed Report</strong>: Adds a complete history of all optimizations performed, including timestamps, patterns detected, and improvement percentages.</li>
+</ol>
+<h2 id="integration-with-existing-systems">Integration with Existing Systems</h2>
+<p>The Automatic Resource Optimizer integrates seamlessly with the existing resource management infrastructure:</p>
+<ol>
+<li>It extends the base <code>ResourceOptimizer</code> class, providing all the same functionality plus automatic capabilities.</li>
+<li>It works with the <code>TemporalRuntime</code> to monitor and modify resource levels.</li>
+<li>It can integrate with the <code>TemporalDebtTracker</code> for debt-aware optimization decisions.</li>
+<li>It provides callbacks that can be used to integrate with monitoring, logging, and alerting systems.</li>
+</ol>
+<h2 id="thread-safety-and-performance-considerations">Thread Safety and Performance Considerations</h2>
+<p>The Automatic Resource Optimizer is designed to be thread-safe and performs its monitoring in a separate background thread to avoid impacting the main application. Some important considerations:</p>
+<ol>
+<li><strong>Thread Safety</strong>: All public methods are thread-safe and can be called from any thread.</li>
+<li><strong>Memory Usage</strong>: The optimizer maintains a history of optimizations, which is limited to the most recent 1000 entries to prevent excessive memory usage.</li>
+<li><strong>CPU Usage</strong>: The monitoring thread sleeps for the configured interval between checks to minimize CPU impact.</li>
+<li><strong>Optimization Limits</strong>: The <code>max_optimizations_per_cycle</code> setting prevents excessive optimizations from occurring in a single cycle.</li>
+</ol>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "search.highlight"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

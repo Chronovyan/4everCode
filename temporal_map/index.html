@@ -1,0 +1,1083 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for temporal_map.md">
+      
+      
+      
+        <link rel="canonical" href="https://chronovyan.github.io/temporal_map/">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>TEMPORAL_MAP Type in Chronovyan - Chronovyan</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#temporal_map-type-in-chronovyan" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Chronovyan" class="md-header__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chronovyan
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              TEMPORAL_MAP Type in Chronovyan
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Chronovyan/Chronovyan" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/installation/" class="md-tabs__link">
+          
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../api/index.md" class="md-tabs__link">
+        
+  
+    
+  
+  API Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CONTRIBUTING.md" class="md-tabs__link">
+        
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Chronovyan" class="md-nav__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Chronovyan
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Chronovyan/Chronovyan" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CONTRIBUTING.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#higher-order-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Higher-order Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temporal Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-temporal_map-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the TEMPORAL_MAP Type
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the TEMPORAL_MAP Type">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#higher-order-functions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Higher-order Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal-features_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temporal Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-temporal-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Temporal Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-custom-type-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with Custom Type System
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-consumption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Consumption
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#memory-efficiency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Efficiency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#computational-efficiency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computational Efficiency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thread-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thread Safety
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Reference
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#temporalmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      TemporalMap
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TemporalMap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constructors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#higher-order-functions_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Higher-order Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temporal Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-temporal-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Temporal Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Runtime Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Enhancements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      See Also
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="temporal_map-type-in-chronovyan">TEMPORAL_MAP Type in Chronovyan</h1>
+<h2 id="overview">Overview</h2>
+<p>The TEMPORAL_MAP type in Chronovyan is an advanced key-value container with temporal semantics, designed for efficient storage and retrieval of key-value pairs across time. It provides extensive functionality for tracking changes, detecting patterns, and predicting future states, making it ideal for temporal analytics, state management, and simulation in temporal environments.</p>
+<p>The <code>TemporalMap</code> class is a comprehensive implementation of a map data structure with full temporal awareness, allowing developers to track, analyze, and manipulate the evolution of key-value associations throughout different temporal cycles.</p>
+<h2 id="key-features">Key Features</h2>
+<h3 id="basic-features">Basic Features</h3>
+<ul>
+<li><strong>Key-value storage</strong>: Efficient storage and retrieval of values associated with keys</li>
+<li><strong>Dynamic size</strong>: Automatically grows and shrinks as needed</li>
+<li><strong>Flexible types</strong>: Both keys and values can be of any type supported by Chronovyan</li>
+<li><strong>Resource tracking</strong>: Automatically tracks chronon consumption for operations</li>
+</ul>
+<h3 id="higher-order-functions">Higher-order Functions</h3>
+<ul>
+<li><strong>ForEach</strong>: Apply a function to each key-value pair</li>
+<li><strong>Map values</strong>: Transform all values using a custom function</li>
+<li><strong>Filter</strong>: Create a new map containing only pairs that satisfy a predicate</li>
+<li><strong>Merge</strong>: Combine two maps with custom conflict resolution</li>
+</ul>
+<h3 id="temporal-features">Temporal Features</h3>
+<ul>
+<li><strong>History tracking</strong>: Save and restore map states from different temporal cycles</li>
+<li><strong>Temporal querying</strong>: Access key-value pairs from any saved cycle</li>
+<li><strong>Key history</strong>: Track how a specific key's value changes over time</li>
+<li><strong>Pattern detection</strong>: Identify temporal patterns in key value changes</li>
+<li><strong>Future prediction</strong>: Extrapolate future values based on historical data</li>
+<li><strong>Change frequency</strong>: Identify which keys change most frequently</li>
+</ul>
+<h2 id="using-the-temporal_map-type">Using the TEMPORAL_MAP Type</h2>
+<h3 id="basic-usage">Basic Usage</h3>
+<pre><code class="language-cpp">// Create a runtime
+auto runtime = std::make_shared&lt;TemporalRuntime&gt;();
+
+// Create an empty map
+TemporalMap map(runtime);
+
+// Set key-value pairs
+map.set(Value(&quot;name&quot;), Value(&quot;Chronovyan&quot;));
+map.set(Value(&quot;version&quot;), Value(1.0));
+
+// Access values
+Value name = map.at(Value(&quot;name&quot;));  // Returns &quot;Chronovyan&quot;
+bool hasKey = map.contains(Value(&quot;version&quot;));  // Returns true
+
+// Remove a key
+map.remove(Value(&quot;version&quot;));
+
+// Get all keys or values
+std::vector&lt;Value&gt; keys = map.keys();
+std::vector&lt;Value&gt; values = map.values();
+
+// Print the map
+std::cout &lt;&lt; map.toString() &lt;&lt; std::endl;  // Outputs: {name: Chronovyan}
+</code></pre>
+<h3 id="higher-order-functions_1">Higher-order Functions</h3>
+<pre><code class="language-cpp">// Create a map with numeric values
+TemporalMap numericMap(runtime);
+numericMap.set(Value(1), Value(10));
+numericMap.set(Value(2), Value(20));
+numericMap.set(Value(3), Value(30));
+
+// ForEach - calculate sum of values
+int sum = 0;
+numericMap.forEach([&amp;sum](const Value&amp; key, const Value&amp; value) {
+    sum += value.asInteger();
+});
+// sum is now 60 (10 + 20 + 30)
+
+// Map values - double each value
+auto doubledMap = numericMap.mapValues([](const Value&amp; key, const Value&amp; value) {
+    return Value(static_cast&lt;int64_t&gt;(value.asInteger() * 2));
+});
+// doubledMap contains {1: 20, 2: 40, 3: 60}
+
+// Filter - keep only odd keys
+auto oddKeysMap = numericMap.filter([](const Value&amp; key, const Value&amp; value) {
+    return key.asInteger() % 2 != 0;
+});
+// oddKeysMap contains {1: 10, 3: 30}
+
+// Merge two maps
+TemporalMap extraMap(runtime);
+extraMap.set(Value(3), Value(300));  // Conflicting key
+extraMap.set(Value(4), Value(40));   // New key
+
+// Custom conflict resolution
+auto mergedMap = numericMap.merge(extraMap, [](const Value&amp; key, const Value&amp; val1, const Value&amp; val2) {
+    return Value(static_cast&lt;int64_t&gt;(val1.asInteger() + val2.asInteger()));
+});
+// mergedMap contains {1: 10, 2: 20, 3: 330, 4: 40}
+</code></pre>
+<h3 id="temporal-features_1">Temporal Features</h3>
+<pre><code class="language-cpp">// Create a map
+TemporalMap temporalMap(runtime);
+temporalMap.set(Value(&quot;counter&quot;), Value(100));
+
+// Save the current state at cycle 1
+temporalMap.saveHistoryCheckpoint(1);
+
+// Modify the map
+temporalMap.set(Value(&quot;counter&quot;), Value(200));
+temporalMap.set(Value(&quot;message&quot;), Value(&quot;Added at cycle 2&quot;));
+
+// Save the current state at cycle 2
+temporalMap.saveHistoryCheckpoint(2);
+
+// Access historical values
+Value counterAtCycle1 = temporalMap.getAtCycle(Value(&quot;counter&quot;), 1);  // Returns 100
+Value counterAtCycle2 = temporalMap.getAtCycle(Value(&quot;counter&quot;), 2);  // Returns 200
+
+// Check key existence in history
+bool hasMessageAtCycle1 = temporalMap.containedAtCycle(Value(&quot;message&quot;), 1);  // Returns false
+bool hasMessageAtCycle2 = temporalMap.containedAtCycle(Value(&quot;message&quot;), 2);  // Returns true
+
+// Get all keys at a specific cycle
+std::vector&lt;Value&gt; keysAtCycle1 = temporalMap.keysAtCycle(1);  // Contains only &quot;counter&quot;
+std::vector&lt;Value&gt; keysAtCycle2 = temporalMap.keysAtCycle(2);  // Contains &quot;counter&quot; and &quot;message&quot;
+
+// Restore the map to an earlier state
+temporalMap.restoreFromCycle(1);  // Map now contains only {counter: 100}
+
+// Get all historical cycles
+std::vector&lt;int&gt; cycles = temporalMap.getHistoricalCycles();  // Contains 1 and 2
+</code></pre>
+<h3 id="advanced-temporal-features">Advanced Temporal Features</h3>
+<pre><code class="language-cpp">// Track the history of a key across cycles
+std::map&lt;int, Value&gt; counterHistory = temporalMap.trackKeyHistory(Value(&quot;counter&quot;), 1, 10);
+// Returns a map of cycle numbers to values for the &quot;counter&quot; key
+
+// Find keys that change most frequently
+std::map&lt;Value, int&gt; frequentlyChanged = temporalMap.getFrequentlyChangedKeys(1, 10, 5);
+// Returns the top 5 most frequently changed keys
+
+// Detect temporal patterns in key changes
+std::string pattern = temporalMap.detectKeyPattern(Value(&quot;counter&quot;), {1, 2, 3, 4, 5});
+// Returns a pattern description like &quot;increasing&quot;, &quot;decreasing&quot;, &quot;cyclic&quot;, etc.
+
+// Predict future values based on historical data
+Value predictedValue = temporalMap.predictFutureValue(Value(&quot;counter&quot;), 10, {1, 2, 3, 4, 5});
+// Predicts the value at cycle 10 based on cycles 1-5
+</code></pre>
+<h2 id="integration-with-custom-type-system">Integration with Custom Type System</h2>
+<p>The TEMPORAL_MAP type is registered with Chronovyan's custom type system, allowing it to be used seamlessly in Chronovyan scripts and programs:</p>
+<pre><code class="language-cpp">// Register the TEMPORAL_MAP type
+CustomTypeSystem typeSystem;
+registerTemporalMapType(typeSystem);
+
+// Use the type in scripts
+// TEMPORAL_MAP&lt;string, int&gt; countMap;
+</code></pre>
+<h2 id="resource-consumption">Resource Consumption</h2>
+<p>Operations on TEMPORAL_MAP objects consume chronons based on the operation complexity and the size of the map:</p>
+<ul>
+<li><strong>Basic operations</strong> (set, remove, contains): Logarithmic chronon cost based on map size</li>
+<li><strong>Collection operations</strong> (keys, values): Linear chronon cost based on map size</li>
+<li><strong>Higher-order functions</strong> (forEach, mapValues, filter): Linear chronon cost based on map size</li>
+<li><strong>Temporal operations</strong> (saveHistoryCheckpoint, restoreFromCycle): Higher cost, scaling with map size</li>
+<li><strong>Advanced temporal operations</strong> (detectKeyPattern, predictFutureValue): Highest cost, based on the complexity of the operation</li>
+</ul>
+<h2 id="performance-considerations">Performance Considerations</h2>
+<h3 id="memory-efficiency">Memory Efficiency</h3>
+<ul>
+<li>Efficient storage of key-value pairs using a balanced tree structure</li>
+<li>Temporal history is stored as complete snapshots at each checkpoint</li>
+<li>Large maps with frequent checkpoints may consume significant memory</li>
+</ul>
+<h3 id="computational-efficiency">Computational Efficiency</h3>
+<ul>
+<li>Key lookup is O(log n) where n is the number of keys</li>
+<li>Higher-order functions are O(n) operations</li>
+<li>Pattern detection and prediction are more expensive operations</li>
+</ul>
+<h3 id="thread-safety">Thread Safety</h3>
+<ul>
+<li>Map operations are not inherently thread-safe</li>
+<li>For concurrent access, external synchronization is required</li>
+<li>The temporal runtime tracks resource usage safely across threads</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<p>For comprehensive examples of using the TEMPORAL_MAP type, refer to:
+- <code>examples/map_demo.cpp</code>: Demonstrates all major features
+- <code>tests/temporal_map_test.cpp</code>: Shows detailed usage patterns</p>
+<h2 id="api-reference">API Reference</h2>
+<h3 id="temporalmap">TemporalMap</h3>
+<h4 id="constructors">Constructors</h4>
+<ul>
+<li><code>TemporalMap(std::shared_ptr&lt;TemporalRuntime&gt; runtime = nullptr)</code></li>
+<li><code>TemporalMap(std::map&lt;Value, Value&gt; elements, std::shared_ptr&lt;TemporalRuntime&gt; runtime = nullptr)</code></li>
+</ul>
+<h4 id="basic-methods">Basic Methods</h4>
+<ul>
+<li><code>size_t size() const</code></li>
+<li><code>bool empty() const</code></li>
+<li><code>bool contains(const Value&amp; key) const</code></li>
+<li><code>const Value&amp; at(const Value&amp; key) const</code></li>
+<li><code>Value&amp; at(const Value&amp; key)</code></li>
+<li><code>void set(const Value&amp; key, const Value&amp; value)</code></li>
+<li><code>bool remove(const Value&amp; key)</code></li>
+<li><code>std::vector&lt;Value&gt; keys() const</code></li>
+<li><code>std::vector&lt;Value&gt; values() const</code></li>
+<li><code>const std::map&lt;Value, Value&gt;&amp; getElements() const</code></li>
+<li><code>std::string toString() const</code></li>
+</ul>
+<h4 id="higher-order-functions_2">Higher-order Functions</h4>
+<ul>
+<li><code>void forEach(std::function&lt;void(const Value&amp; key, const Value&amp; value)&gt; func) const</code></li>
+<li><code>std::shared_ptr&lt;TemporalMap&gt; mapValues(std::function&lt;Value(const Value&amp; key, const Value&amp; value)&gt; func) const</code></li>
+<li><code>std::shared_ptr&lt;TemporalMap&gt; filter(std::function&lt;bool(const Value&amp; key, const Value&amp; value)&gt; pred) const</code></li>
+<li><code>std::shared_ptr&lt;TemporalMap&gt; merge(const TemporalMap&amp; other, std::function&lt;Value(const Value&amp; key, const Value&amp; val1, const Value&amp; val2)&gt; conflictResolver = nullptr) const</code></li>
+</ul>
+<h4 id="temporal-methods">Temporal Methods</h4>
+<ul>
+<li><code>Value getAtCycle(const Value&amp; key, int cycle) const</code></li>
+<li><code>bool containedAtCycle(const Value&amp; key, int cycle) const</code></li>
+<li><code>std::vector&lt;Value&gt; keysAtCycle(int cycle) const</code></li>
+<li><code>void saveHistoryCheckpoint(int cycle)</code></li>
+<li><code>bool restoreFromCycle(int cycle)</code></li>
+<li><code>std::vector&lt;int&gt; getHistoricalCycles() const</code></li>
+<li><code>void clearHistory()</code></li>
+</ul>
+<h4 id="advanced-temporal-methods">Advanced Temporal Methods</h4>
+<ul>
+<li><code>std::map&lt;int, Value&gt; trackKeyHistory(const Value&amp; key, int startCycle, int endCycle) const</code></li>
+<li><code>std::map&lt;Value, int&gt; getFrequentlyChangedKeys(int startCycle, int endCycle, size_t limit = 0) const</code></li>
+<li><code>std::string detectKeyPattern(const Value&amp; key, const std::vector&lt;int&gt;&amp; cycles) const</code></li>
+<li><code>Value predictFutureValue(const Value&amp; key, int futureCycle, const std::vector&lt;int&gt;&amp; historicalCycles) const</code></li>
+</ul>
+<h4 id="runtime-management">Runtime Management</h4>
+<ul>
+<li><code>void setTemporalRuntime(std::shared_ptr&lt;TemporalRuntime&gt; runtime)</code></li>
+<li><code>std::shared_ptr&lt;TemporalRuntime&gt; getTemporalRuntime() const</code></li>
+</ul>
+<h2 id="future-enhancements">Future Enhancements</h2>
+<p>Future versions of the TEMPORAL_MAP type may include:</p>
+<ol>
+<li><strong>Optimized history storage</strong>: Incremental snapshots instead of full copies</li>
+<li><strong>Advanced pattern recognition</strong>: Machine learning-based pattern detection</li>
+<li><strong>Key relationship analysis</strong>: Identify correlations between different keys</li>
+<li><strong>Partial restoration</strong>: Restore only specific keys from a checkpoint</li>
+<li><strong>Optimistic locking</strong>: Better concurrency support for multi-threaded access</li>
+<li><strong>Continuous aggregation</strong>: Automated aggregation of temporal data</li>
+<li><strong>Custom key comparators</strong>: Support for user-defined key ordering</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../vector_type/">ChronovyanVector</a>: Documentation for the VECTOR type</li>
+<li><a href="./temporal_runtime.md">Temporal Runtime</a>: Details on resource tracking and temporal features</li>
+<li><a href="./custom_type_system.md">Custom Type System</a>: How types are defined and registered in Chronovyan</li>
+<li><a href="./value.md">Value</a>: Information about the Value class used for keys and values</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "search.highlight"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

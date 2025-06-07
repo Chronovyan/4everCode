@@ -1,0 +1,1313 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for core\Core Syntax & Constructs.md">
+      
+      
+      
+        <link rel="canonical" href="https://chronovyan.github.io/core/Core%20Syntax%20%26%20Constructs/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>Core Syntax & Constructs - Chronovyan</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#core-syntax-constructs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Chronovyan" class="md-header__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chronovyan
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Core Syntax & Constructs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Chronovyan/Chronovyan" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
+          
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../api/index.md" class="md-tabs__link">
+        
+  
+    
+  
+  API Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../CONTRIBUTING.md" class="md-tabs__link">
+        
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Chronovyan" class="md-nav__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Chronovyan
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Chronovyan/Chronovyan" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CONTRIBUTING.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-language-of-temporal-weaving" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Language of Temporal Weaving
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#program-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Program Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#program-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Program Lifecycle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-declarations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable Declarations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variable Declarations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conformist-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conformist Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rebel-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rebel Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable Flags
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Operators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Operators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arithmetic-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arithmetic Operators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison Operators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logical-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logical Operators
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#literals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Literals
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Literals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#character-literals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Character Literals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-literals" class="md-nav__link">
+    <span class="md-ellipsis">
+      String Literals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numeric-literals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Numeric Literals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boolean-literals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boolean Literals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#null-literal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Null Literal
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control Structures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Control Structures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-control-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Control Flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loops
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temporal-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temporal Operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Temporal Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timeline-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timeline Manipulation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantum-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Operations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Management
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Handling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comments-and-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comments and Documentation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="core-syntax-constructs">Core Syntax &amp; Constructs</h1>
+<blockquote>
+<p><strong>Version</strong>: 1.0.0<br />
+<strong>Last Updated</strong>: 2023-10-20</p>
+<p><strong>Navigation</strong>:<br />
+<a href="../../README.md">README</a> | <a href="../../implementation_guide/">Implementation Guide</a> | <a href="../../api_reference/">API Reference</a> | <a href="../../Chronovyan_Documentation_Index/">Documentation Index</a></p>
+</blockquote>
+<h2 id="the-language-of-temporal-weaving">The Language of Temporal Weaving</h2>
+<p>This document outlines the foundational syntax and core constructs of the Chronovyan programming language. Like the sacred glyphs of the Temporal Ancients, these patterns form the building blocks from which all temporal manipulations are crafted.</p>
+<p><strong>Purpose</strong>: This scroll provides Weavers with the essential syntax patterns and language constructs needed to begin crafting temporal programs. It serves as both reference and guide for those learning to speak the language of time.</p>
+<p><strong>Lore Tidbit</strong>: It is said that the First Weaver discovered these patterns not through invention, but revelation—observing how reality itself was structured and capturing these patterns in code. The syntax presented here thus mirrors the very fabric of temporal reality.</p>
+<p><strong>Related Documentation</strong>:
+- For philosophical foundations, see <a href="../Core%20Concepts%20-%20The%20Foundation%20of%20Temporal%20Programming/">Core Concepts</a>
+- For implementation details, see <a href="../../Concept_Implementation_Mapping/">Concept-Implementation Mapping</a>
+- For practical examples, see <a href="../../implementation_guide/#implementation-examples">Implementation Guide: Examples</a></p>
+<h2 id="program-structure">Program Structure</h2>
+<p>Every Chronovyan program follows a structured pattern that establishes its temporal context and resource requirements:</p>
+<pre><code class="language-chronovyan">// Basic program structure
+temporal_program {
+    name: &quot;Program Name&quot;;
+    type: standard;  // standard, foundational, advanced, quantum
+    resources: {
+        aethel: 10;  // Initial Aethel allocation
+        chronon: 5;  // Initial Chronon allocation
+    }
+    timeline: {
+        stability: high;  // high, medium, low
+        flow: forward;    // forward, bidirectional, quantum
+    }
+
+    // Program body follows...
+}
+</code></pre>
+<blockquote>
+<p><strong>Implementation Details</strong>: Program structure is implemented through the <code>TemporalRuntime</code> class. See <a href="../../api_reference/#4-core-types">API Reference: Core Components</a> for implementation specifics.</p>
+</blockquote>
+<h2 id="program-lifecycle">Program Lifecycle</h2>
+<p>Chronovyan programs follow a defined lifecycle with distinct phases:</p>
+<pre><code class="language-chronovyan">// Program lifecycle definition
+program_lifecycle {
+    initialization: {
+        type: standard;  // standard, rapid, cautious
+        resources: {
+            aethel: 2;
+            chronon: 1;
+        }
+    }
+    execution: {
+        type: continuous;  // continuous, phased, adaptive
+        resources: {
+            aethel: 5;
+            chronon: 3;
+        }
+    }
+    termination: {
+        type: graceful;  // graceful, immediate, managed
+        resources: {
+            aethel: 1;
+            chronon: 1;
+        }
+    }
+}
+</code></pre>
+<blockquote>
+<p><strong>Related Concept</strong>: Program lifecycle connects to the concept of Temporal Continuity. See <a href="../Core%20Concepts%20-%20The%20Foundation%20of%20Temporal%20Programming/#resource-system">Core Concepts: Resource System</a> for the philosophical foundation.</p>
+</blockquote>
+<h2 id="variable-declarations">Variable Declarations</h2>
+<h3 id="conformist-variables">Conformist Variables</h3>
+<p>Conformist variables provide stability and predictability in temporal programs:</p>
+<pre><code class="language-chronovyan">// CONF variable declaration
+CONF var identifier: Type = initial_value;
+
+// Examples
+CONF var counter: Int = 0;
+CONF var timestamp: Temporal = current_chronon();
+CONF var anchor_point: Vector4D = establish_coordinates();
+</code></pre>
+<blockquote>
+<p><strong>Implementation Note</strong>: Conformist variables map to the <code>ORDER_ALIGNED</code> property in the runtime. See <a href="../../Concept_Implementation_Mapping/#variable-system">Concept-Implementation Mapping: Variable System</a> for details.</p>
+</blockquote>
+<h3 id="rebel-variables">Rebel Variables</h3>
+<p>Rebel variables allow for flexibility and adaptation across timelines:</p>
+<pre><code class="language-chronovyan">// REB variable declaration
+REB var identifier: Type = initial_value;
+
+// Examples
+REB var state: Quantum = initialize_superposition();
+REB var flux_point: Vector4D = identify_weak_point();
+REB var probability: Float = calculate_branch_likelihood();
+</code></pre>
+<blockquote>
+<p><strong>Implementation Note</strong>: Rebel variables map to the <code>FLUX_ALIGNED</code> property in the runtime. See <a href="../../api_reference/#42-operationtype">API Reference: OperationType</a> for related operations.</p>
+</blockquote>
+<h3 id="variable-flags">Variable Flags</h3>
+<p>Variable flags modify the behavior of variables in relation to the temporal fabric:</p>
+<pre><code class="language-chronovyan">// Variable with flag
+CONF var anchor: Int ::STATIC = 42;
+REB var shifter: String ::VOLATILE = &quot;unstable&quot;;
+
+// Multiple flags
+CONF var foundation: Timeline ::STATIC::ANCHOR = establish_baseline();
+REB var manipulator: Quantum ::VOLATILE::WEAVER = initialize_quantum_state();
+</code></pre>
+<blockquote>
+<p><strong>Conceptual Link</strong>: Variable flags directly manifest the Great Duality of Order and Flux. See <a href="../Core%20Concepts%20-%20The%20Foundation%20of%20Temporal%20Programming/#the-great-duality-order-and-flux">Core Concepts: The Great Duality</a> for the philosophical foundation.</p>
+</blockquote>
+<h2 id="core-operators">Core Operators</h2>
+<h3 id="arithmetic-operators">Arithmetic Operators</h3>
+<pre><code class="language-chronovyan">// Standard arithmetic
+x = a + b;  // Addition
+x = a - b;  // Subtraction
+x = a * b;  // Multiplication
+x = a / b;  // Division
+x = a % b;  // Modulo
+
+// Temporal arithmetic
+t = t + 5.chronons;  // Advance 5 chronons
+t = t - 3.aeons;     // Rewind 3 aeons
+</code></pre>
+<blockquote>
+<p><strong>Implementation Details</strong>: Temporal arithmetic is implemented through the <code>TimelineManager</code> class. See <a href="../../api_reference/#1-resource-management">API Reference: Resource Management</a> for details.</p>
+</blockquote>
+<h3 id="comparison-operators">Comparison Operators</h3>
+<pre><code class="language-chronovyan">x == y;  // Equal
+x != y;  // Not equal
+x &lt; y;   // Less than
+x &gt; y;   // Greater than
+x &lt;= y;  // Less than or equal
+x &gt;= y;  // Greater than or equal
+
+// Temporal comparisons
+timeline_a ~= timeline_b;  // Timeline similarity
+point_a &gt;&lt; point_b;        // Temporal intersection
+</code></pre>
+<h3 id="logical-operators">Logical Operators</h3>
+<pre><code class="language-chronovyan">a &amp;&amp; b;  // Logical AND
+a || b;  // Logical OR
+!a;      // Logical NOT
+
+// Temporal logic
+timeline_a &amp;&amp; timeline_b;  // Timeline conjunction
+timeline_a || timeline_b;  // Timeline disjunction
+!timeline_a;               // Timeline negation
+</code></pre>
+<h2 id="literals">Literals</h2>
+<p>Chronoscript supports several types of literals for representing fixed values in your code.</p>
+<h3 id="character-literals">Character Literals</h3>
+<p>Character literals represent single Unicode characters and are enclosed in single quotes:</p>
+<pre><code class="language-chronovyan">// Basic character literals
+let newline = '\n';     // Newline
+let tab = '\t';         // Tab
+let single_quote = '\''; // Single quote
+let backslash = '\\';   // Backslash
+let heart = '❤';        // Unicode character
+
+// Hex escape sequences
+let a = '\x41';         // 'A' (ASCII 65 in hex)
+let newline2 = '\x0A';   // Newline (ASCII 10 in hex)
+</code></pre>
+<p>Supported escape sequences:
+- <code>\'</code> - Single quote
+- <code>\"</code> - Double quote
+- <code>\\</code> - Backslash
+- <code>\n</code> - Newline
+- <code>\r</code> - Carriage return
+- <code>\t</code> - Tab
+- <code>\0</code> - Null character
+- <code>\xHH</code> - Hex escape (exactly 2 hex digits)</p>
+<h3 id="string-literals">String Literals</h3>
+<p>String literals are sequences of characters enclosed in double quotes:</p>
+<pre><code class="language-chronovyan">let greeting = &quot;Hello, Chronovyan!&quot;;
+let path = &quot;C:\\temp\\file.txt&quot;;
+let message = &quot;Line 1\nLine 2&quot;;
+</code></pre>
+<h3 id="numeric-literals">Numeric Literals</h3>
+<pre><code class="language-chronovyan">// Integer literals
+let decimal = 42;
+let hex = 0x2A;       // 42 in hex
+let binary = 0b101010; // 42 in binary
+
+// Floating-point literals
+let pi = 3.14159;
+let avogadro = 6.022e23;  // Scientific notation
+</code></pre>
+<h3 id="boolean-literals">Boolean Literals</h3>
+<pre><code class="language-chronovyan">let is_true = true;
+let is_false = false;
+</code></pre>
+<h3 id="null-literal">Null Literal</h3>
+<pre><code class="language-chronovyan">let nothing = null;
+</code></pre>
+<h2 id="control-structures">Control Structures</h2>
+<h3 id="standard-control-flow">Standard Control Flow</h3>
+<pre><code class="language-chronovyan">// Conditional execution
+IF (condition) {
+    // Execute if condition is true
+} ELSE IF (another_condition) {
+    // Execute if another_condition is true
+} ELSE {
+    // Execute if no conditions are true
+}
+
+// Switch statement
+SWITCH (variable) {
+    CASE value1:
+        // Code for value1
+        BREAK;
+    CASE value2:
+        // Code for value2
+        BREAK;
+    DEFAULT:
+        // Default code
+        BREAK;
+}
+</code></pre>
+<blockquote>
+<p><strong>See Also</strong>: For practical examples of control structures, see <a href="../../implementation_guide/#implementation-examples">Implementation Guide: Examples</a>.</p>
+</blockquote>
+<h3 id="loops">Loops</h3>
+<pre><code class="language-chronovyan">// Standard loop with chronon counter
+FOR_CHRONON (i = 0; i &lt; 10; i++) {
+    // Execute 10 times
+}
+
+// Chronon-based loop
+FOR_CHRONON (chronon IN timeline) {
+    // Process each chronon in the timeline
+}
+
+// Event-based loop
+WHILE_EVENT (condition) {
+    // Execute while condition is true
+}
+
+// Rebel loops
+REWIND_FLOW (i = 10; i &gt; 0; i--) {
+    // Execute in reverse temporal order
+}
+
+// Quantum loop
+QUANTUM_LOOP (states) {
+    // Execute across all quantum states simultaneously
+}
+</code></pre>
+<blockquote>
+<p><strong>Conceptual Link</strong>: Loops in Chronovyan directly connect to the Loop Mechanics described in <a href="../Core%20Concepts%20-%20The%20Foundation%20of%20Temporal%20Programming/#loop-mechanics">Core Concepts: Loop Mechanics</a>.</p>
+<p><strong>Implementation Note</strong>: Rebel loops are implemented through the <code>TimelineManager::rewindTimeline()</code> method. See <a href="../../Concept_Implementation_Mapping/#temporal-operations">Concept-Implementation Mapping: Temporal Operations</a> for details.</p>
+</blockquote>
+<h2 id="temporal-operations">Temporal Operations</h2>
+<h3 id="timeline-manipulation">Timeline Manipulation</h3>
+<pre><code class="language-chronovyan">// Create a new timeline branch
+BRANCH_TIMELINE (branch_id) {
+    // Operations in new branch
+}
+
+// Merge timelines
+MERGE_TIMELINES (source_id, target_id) {
+    resolution_strategy: conservative;  // conservative, aggressive, adaptive
+}
+
+// Rewind time
+REWIND_CHRONONS (5) {
+    preservation: selective;  // full, selective, minimal
+    variables: [var1, var2];  // Variables to preserve
+}
+</code></pre>
+<blockquote>
+<p><strong>Implementation Details</strong>: Timeline operations are implemented through the <code>TimelineManager</code> class. See <a href="../../api_reference/#1-resource-management">API Reference: Resource Management</a> for details.</p>
+</blockquote>
+<h3 id="quantum-operations">Quantum Operations</h3>
+<pre><code class="language-chronovyan">// Create quantum superposition
+CREATE_SUPERPOSITION (variable, [value1, value2, value3]) {
+    distribution: equal;  // equal, weighted, probability_based
+}
+
+// Collapse quantum state
+COLLAPSE_QUANTUM (variable) {
+    strategy: optimal;  // optimal, random, weighted
+    observer: internal;  // internal, external, system
+}
+
+// Entangle variables
+ENTANGLE (variable_a, variable_b) {
+    strength: strong;  // weak, medium, strong
+    symmetry: bidirectional;  // unidirectional, bidirectional
+}
+</code></pre>
+<blockquote>
+<p><strong>Implementation Details</strong>: Quantum operations are implemented through specialized components in the Chronovyan runtime. See <a href="../../implementation_guide/#core-components">Implementation Guide: Advanced Components</a> for details.</p>
+</blockquote>
+<h2 id="resource-management">Resource Management</h2>
+<pre><code class="language-chronovyan">// Allocate resources
+ALLOCATE_RESOURCE (ResourceType.AETHEL, 10) {
+    priority: high;  // low, medium, high
+    source: reserve;  // pool, reserve, generation
+}
+
+// Consume resources
+CONSUME_RESOURCE (ResourceType.CHRONON, 5) {
+    efficiency: optimal;  // minimal, standard, optimal
+}
+
+// Monitor resource levels
+MONITOR_RESOURCES {
+    threshold: 0.2;  // Alert when resources below 20%
+    frequency: 10.chronons;  // Check every 10 chronons
+}
+</code></pre>
+<blockquote>
+<p><strong>Implementation Details</strong>: Resource management operations directly map to the <code>ResourceTracker</code> API. See <a href="../../api_reference/#11-resourcetracker">API Reference: ResourceTracker</a> for details.</p>
+<p><strong>Conceptual Link</strong>: These operations implement the Resource System described in <a href="../Core%20Concepts%20-%20The%20Foundation%20of%20Temporal%20Programming/#resource-system">Core Concepts: Resource System</a>.</p>
+</blockquote>
+<h2 id="error-handling">Error Handling</h2>
+<pre><code class="language-chronovyan">// Try-catch block
+TRY {
+    // Risky temporal operation
+} CATCH (ParadoxException e) {
+    // Handle paradox
+} CATCH (ResourceDepletionException e) {
+    // Handle resource issues
+} FINALLY {
+    // Always execute
+}
+
+// Paradox prevention
+PREVENT_PARADOX {
+    strategy: conservative;  // conservative, balanced, aggressive
+    recovery: automatic;  // none, manual, automatic
+}
+</code></pre>
+<blockquote>
+<p><strong>Implementation Guide</strong>: For detailed error handling strategies, see <a href="../../implementation_guide/#troubleshooting">Implementation Guide: Troubleshooting</a>.</p>
+</blockquote>
+<h2 id="comments-and-documentation">Comments and Documentation</h2>
+<pre><code class="language-chronovyan">// Single-line comment
+
+/*
+   Multi-line comment
+   Spans multiple lines
+*/
+
+/**
+ * Documentation comment
+ * @param variable Description of parameter
+ * @return Description of return value
+ */
+
+//// Temporal comment - visible across timeline branches ////
+</code></pre>
+<h2 id="example-program">Example Program</h2>
+<p>Here's a complete example demonstrating many of the core constructs:</p>
+<pre><code class="language-chronovyan">temporal_program {
+    name: &quot;Timeline Explorer&quot;;
+    type: advanced;
+    resources: {
+        aethel: 100;
+        chronon: 50;
+    }
+    timeline: {
+        stability: medium;
+        flow: bidirectional;
+    }
+
+    // Program variables
+    variables {
+        // Primary timeline anchor
+        CONF var main_timeline: Timeline ::STATIC::ANCHOR = establish_timeline();
+
+        // Exploration variables
+        REB var branch_point: ChronoPoint ::WEAVER = identify_branch_point(main_timeline);
+        REB var quantum_state: QuantumState = initialize_state();
+
+        // Measurement variables
+        CONF var stability_metric: Float = 1.0;
+        CONF var iteration_count: Int = 0;
+    }
+
+    // Main execution
+    execution {
+        // Establish baseline
+        visualize_timeline(main_timeline);
+        record_metrics(main_timeline, &quot;baseline&quot;);
+
+        // Create timeline branches
+        FOR_CHRONON (i = 0; i &lt; 5; i++) {
+            // Branch at identified point
+            BRANCH_TIMELINE (branch_id = &quot;exploration_&quot; + i) {
+                // Modify branch
+                REB var branch_stability: Float ::VOLATILE = manipulate_timeline(
+                    branch_point,
+                    intensity: 0.2 * i
+                );
+
+                // Record results
+                record_metrics(current_timeline(), &quot;branch_&quot; + i);
+
+                // Check stability
+                IF (branch_stability &lt; 0.3) {
+                    // Unstable branch - collapse it
+                    COLLAPSE_TIMELINE {
+                        preserve_data: true;
+                    }
+                } ELSE {
+                    // Stable branch - explore quantum possibilities
+                    CREATE_SUPERPOSITION (quantum_state, [
+                        &quot;alpha_state&quot;,
+                        &quot;beta_state&quot;,
+                        &quot;gamma_state&quot;
+                    ]) {
+                        distribution: weighted;
+                        weights: [0.5, 0.3, 0.2];
+                    }
+
+                    // Process quantum states
+                    QUANTUM_LOOP (quantum_state) {
+                        process_quantum_state(quantum_state);
+                    }
+
+                    // Measure and collapse
+                    measure_quantum_state(quantum_state);
+                }
+            }
+
+            // Update stability metric
+            stability_metric = calculate_system_stability();
+            iteration_count++;
+
+            // Resource management
+            IF (get_resource_level(ResourceType.AETHEL) &lt; 20) {
+                optimize_resource_usage();
+            }
+        }
+
+        // Final analysis
+        analyze_timeline_branches();
+        generate_stability_report();
+    }
+
+    // Termination
+    termination {
+        type: graceful;
+        cleanup_branches: true;
+        preserve_metrics: true;
+    }
+}
+</code></pre>
+<blockquote>
+<p><strong>Complete Implementation</strong>: For a full C++ implementation of this example, see <a href="../../implementation_guide/#implementation-examples">Implementation Guide: Implementation Examples</a>.</p>
+</blockquote>
+<h2 id="conclusion">Conclusion</h2>
+<p>The syntax and constructs presented here form the foundation of Chronovyan programming. By mastering these patterns, you establish the basis for more advanced temporal manipulations. Remember that these elements are not merely technical specifications but reflections of the underlying structure of temporal reality itself.</p>
+<p>As you progress in your journey, you will discover that these constructs can be combined and extended in countless ways, enabling increasingly sophisticated temporal weavings. The true art of Chronovyan lies not just in knowing these constructs individually, but in understanding how they interact to create harmonious temporal symphonies.</p>
+<p><em>"In the beginning was the Syntax, and through the Syntax, all timelines were woven. Master these patterns, and you master the fabric of reality itself."</em> — The Codex of the First Weaver</p>
+<hr />
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li>Learn about the philosophical foundations in <a href="../Core%20Concepts%20-%20The%20Foundation%20of%20Temporal%20Programming/">Core Concepts</a></li>
+<li>Begin your journey with <a href="../Getting%20Started%20-%20The%20Path%20to%20Temporal%20Mastery/">Getting Started</a></li>
+<li>Explore practical implementations in the <a href="../../implementation_guide/">Implementation Guide</a></li>
+<li>Reference API details in the <a href="../../api_reference/">API Reference</a></li>
+<li>See how concepts map to code in <a href="../../Concept_Implementation_Mapping/">Concept-Implementation Mapping</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "search.highlight"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

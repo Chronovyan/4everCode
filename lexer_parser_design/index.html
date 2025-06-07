@@ -1,0 +1,1594 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for lexer_parser_design.md">
+      
+      
+      
+        <link rel="canonical" href="https://chronovyan.github.io/lexer_parser_design/">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>Chronovyan Lexer and Parser Design - Chronovyan</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chronovyan-lexer-and-parser-design" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Chronovyan" class="md-header__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chronovyan
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chronovyan Lexer and Parser Design
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Chronovyan/Chronovyan" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/installation/" class="md-tabs__link">
+          
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../api/index.md" class="md-tabs__link">
+        
+  
+    
+  
+  API Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CONTRIBUTING.md" class="md-tabs__link">
+        
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Chronovyan" class="md-nav__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Chronovyan
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Chronovyan/Chronovyan" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CONTRIBUTING.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-lexical-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Lexical Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Lexical Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-token-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Token Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 Token Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211-keywords" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.1 Keywords
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.2 Operators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#213-punctuation" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.3 Punctuation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#214-literals" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.4 Literals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#215-identifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.5 Identifiers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-lexer-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Lexer Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Lexer Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-token-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1 Token Class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-lexer-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.2 Lexer Class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.3 Error Handling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-lexer-optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Lexer Optimizations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-syntax-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Syntax Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Syntax Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-grammar-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Grammar Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-ast-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 AST Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 AST Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-base-node-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.1 Base Node Class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-expression-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.2 Expression Nodes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323-statement-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.3 Statement Nodes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#324-declaration-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.4 Declaration Nodes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#325-temporal-and-resource-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.5 Temporal and Resource Nodes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-parser-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Parser Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-error-handling-and-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Error Handling and Recovery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-parser-optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 Parser Optimizations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-unique-chronovyan-language-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Unique Chronovyan Language Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Unique Chronovyan Language Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-resource-management-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Resource Management Syntax
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-temporal-control-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Temporal Control Flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-confreb-variable-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 CONF/REB Variable Classification
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-implementation-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Implementation Plan
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Implementation Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-phase-1-basic-lexer-1-week" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Phase 1: Basic Lexer (1 week)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-phase-2-complete-lexer-1-week" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Phase 2: Complete Lexer (1 week)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-phase-3-basic-parser-2-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Phase 3: Basic Parser (2 weeks)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-phase-4-complete-parser-2-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Phase 4: Complete Parser (2 weeks)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-phase-5-integration-and-testing-1-week" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 Phase 5: Integration and Testing (1 week)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-testing-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Testing Strategy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Testing Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-unit-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Unit Tests
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-integration-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Integration Tests
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-performance-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Performance Tests
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-error-handling-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4 Error Handling Tests
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-api-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. API Design
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. API Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-public-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Public API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-ast-visitor-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 AST Visitor Interface
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-challenges-and-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Challenges and Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Challenges and Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-ambiguity-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Ambiguity Resolution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-error-recovery-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Error Recovery Strategy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-performance-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 Performance Considerations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-extensibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4 Extensibility
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="chronovyan-lexer-and-parser-design">Chronovyan Lexer and Parser Design</h1>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>This document outlines the design for the lexical analyzer (lexer) and syntax analyzer (parser) components of the Chronicle Compiler. These components form the front-end of the compiler, responsible for converting Chronovyan source code into an Abstract Syntax Tree (AST) representation that can be further processed by subsequent compiler phases.</p>
+<p>The design prioritizes:
+- Clear separation of concerns between lexical and syntactic analysis
+- Robust error reporting with meaningful diagnostics
+- Extensibility to accommodate future language features
+- Performance for handling large source files
+- Maintainability through modular design</p>
+<h2 id="2-lexical-analysis">2. Lexical Analysis</h2>
+<p>The lexical analyzer (lexer) is responsible for converting a stream of characters into a stream of tokens. Each token represents a lexical unit in the Chronovyan language, such as keywords, identifiers, literals, and operators.</p>
+<h3 id="21-token-types">2.1 Token Types</h3>
+<p>The following token types will be recognized by the Chronovyan lexer:</p>
+<h4 id="211-keywords">2.1.1 Keywords</h4>
+<pre><code>ALLOCATE_RESOURCES  EXPEND_RESOURCES  BORROW_RESOURCES  REPAY_DEBT
+LET                 CONST             CONF              REB
+IF                  ELSE              WHILE             FOR
+FUNCTION            RETURN            IMPORT            EXPORT
+BRANCH_TIMELINE     MERGE_TIMELINES   REWIND_FLOW       REVERSE_FLOW
+ANCHOR              WEAVER            STATIC            VOLATILE
+CHRONON             AETHEL            INTEGER           FLOAT
+STRING              BOOLEAN           VECTOR            MAP
+</code></pre>
+<h4 id="212-operators">2.1.2 Operators</h4>
+<pre><code>+       -       *       /       %       =       ==      !=      
+&lt;       &gt;       &lt;=      &gt;=      &amp;&amp;      ||      !       ++      
+--      +=      -=      *=      /=      %=      ::      -&gt;
+</code></pre>
+<h4 id="213-punctuation">2.1.3 Punctuation</h4>
+<pre><code>{       }       (       )       [       ]       ;       :       
+,       .       
+</code></pre>
+<h4 id="214-literals">2.1.4 Literals</h4>
+<ul>
+<li>Integer literals: <code>123</code>, <code>0</code>, <code>-456</code></li>
+<li>Float literals: <code>123.456</code>, <code>.123</code>, <code>123.</code></li>
+<li>String literals: <code>"Hello, world!"</code>, <code>"Embedded \"quotes\""</code>, <code>"Multiline\nstrings"</code></li>
+<li>Boolean literals: <code>TRUE</code>, <code>FALSE</code></li>
+<li>Resource literals: <code>10C</code> (Chronons), <code>5A</code> (Aethel)</li>
+</ul>
+<h4 id="215-identifiers">2.1.5 Identifiers</h4>
+<p>Identifiers start with a letter or underscore and can contain letters, digits, and underscores:
+- <code>variable_name</code>
+- <code>FunctionName</code>
+- <code>_privateVar</code>
+- <code>PATH_A</code></p>
+<h3 id="22-lexer-implementation">2.2 Lexer Implementation</h3>
+<p>The lexer will be implemented using a deterministic finite automaton (DFA) approach, with the following components:</p>
+<h4 id="221-token-class">2.2.1 Token Class</h4>
+<pre><code class="language-cpp">struct Token {
+    TokenType type;
+    std::string lexeme;
+    SourceLocation location;
+    std::optional&lt;std::variant&lt;int, double, std::string, bool&gt;&gt; value;
+};
+</code></pre>
+<h4 id="222-lexer-class">2.2.2 Lexer Class</h4>
+<pre><code class="language-cpp">class Lexer {
+public:
+    Lexer(const std::string&amp; source, const std::string&amp; filename);
+
+    Token nextToken();
+    Token peekToken();
+    void consumeToken();
+
+    const std::vector&lt;DiagnosticMessage&gt;&amp; getDiagnostics() const;
+
+private:
+    std::string source;
+    std::string filename;
+    size_t position;
+    size_t line;
+    size_t column;
+    std::vector&lt;DiagnosticMessage&gt; diagnostics;
+
+    char advance();
+    char peek();
+    char peekNext();
+    bool match(char expected);
+
+    Token scanToken();
+    Token identifier();
+    Token number();
+    Token string();
+
+    bool isAtEnd() const;
+    bool isDigit(char c) const;
+    bool isAlpha(char c) const;
+    bool isAlphaNumeric(char c) const;
+
+    void skipWhitespace();
+    void skipComment();
+
+    void addError(const std::string&amp; message);
+};
+</code></pre>
+<h4 id="223-error-handling">2.2.3 Error Handling</h4>
+<p>The lexer will report the following types of errors:</p>
+<ul>
+<li>Unterminated string literals</li>
+<li>Invalid numeric literals</li>
+<li>Invalid characters</li>
+<li>Invalid escape sequences in strings</li>
+</ul>
+<p>Each error will include:
+- Error message
+- Source location (file, line, column)
+- Contextual information (e.g., the problematic character or token)</p>
+<h3 id="23-lexer-optimizations">2.3 Lexer Optimizations</h3>
+<ul>
+<li><strong>Character Classification Tables</strong>: Precomputed tables for fast character classification</li>
+<li><strong>Token Interning</strong>: Reuse memory for common tokens to reduce memory usage</li>
+<li><strong>Buffered Input</strong>: Process source code in chunks for better cache locality</li>
+<li><strong>Error Recovery</strong>: Skip to next line or token boundary after encountering errors</li>
+</ul>
+<h2 id="3-syntax-analysis">3. Syntax Analysis</h2>
+<p>The syntax analyzer (parser) processes the stream of tokens produced by the lexer to build an Abstract Syntax Tree (AST) that represents the syntactic structure of the program.</p>
+<h3 id="31-grammar-overview">3.1 Grammar Overview</h3>
+<p>The Chronovyan grammar will be defined using a context-free grammar notation. Below is a simplified subset of the grammar:</p>
+<pre><code>Program         → Declaration*
+Declaration     → FunctionDecl | VariableDecl | ResourceDecl | TemporalDecl
+FunctionDecl    → &quot;FUNCTION&quot; IDENTIFIER &quot;(&quot; Parameters? &quot;)&quot; Block
+Parameters      → Parameter (&quot;,&quot; Parameter)*
+Parameter       → TypeAnnotation IDENTIFIER
+VariableDecl    → (&quot;LET&quot; | &quot;CONST&quot;) IDENTIFIER (&quot;:&quot; TypeAnnotation)? &quot;=&quot; Expression &quot;;&quot;
+ResourceDecl    → ResourceAlloc | ResourceExpend | ResourceBorrow
+ResourceAlloc   → &quot;ALLOCATE_RESOURCES&quot; &quot;{&quot; ResourceList &quot;}&quot; Block
+ResourceExpend  → &quot;EXPEND_RESOURCES&quot; &quot;{&quot; ResourceList &quot;}&quot; Block
+ResourceBorrow  → &quot;BORROW_RESOURCES&quot; &quot;{&quot; ResourceList &quot;}&quot; Block
+ResourceList    → ResourceItem (&quot;,&quot; ResourceItem)*
+ResourceItem    → (&quot;CHRONON&quot; | &quot;AETHEL&quot;) &quot;:&quot; Expression
+TemporalDecl    → BranchTimeline | MergeTimelines | RewindFlow
+BranchTimeline  → &quot;BRANCH_TIMELINE&quot; &quot;{&quot; PathList &quot;}&quot;
+PathList        → PathDecl+
+PathDecl        → IDENTIFIER &quot;:&quot; Block
+MergeTimelines  → &quot;MERGE_TIMELINES&quot; &quot;(&quot; Expression &quot;)&quot;
+RewindFlow      → &quot;REWIND_FLOW&quot; &quot;(&quot; Expression &quot;)&quot; Block
+Block           → &quot;{&quot; Declaration* &quot;}&quot;
+Statement       → ExprStmt | IfStmt | WhileStmt | ForStmt | ReturnStmt | Block
+ExprStmt        → Expression &quot;;&quot;
+IfStmt          → &quot;IF&quot; &quot;(&quot; Expression &quot;)&quot; Statement (&quot;ELSE&quot; Statement)?
+WhileStmt       → &quot;WHILE&quot; &quot;(&quot; Expression &quot;)&quot; Statement
+ForStmt         → &quot;FOR&quot; &quot;(&quot; (VariableDecl | ExprStmt) Expression? &quot;;&quot; Expression? &quot;)&quot; Statement
+ReturnStmt      → &quot;RETURN&quot; Expression? &quot;;&quot;
+Expression      → Assignment
+Assignment      → (Call &quot;.&quot;)? IDENTIFIER (&quot;=&quot; | &quot;+=&quot; | &quot;-=&quot; | &quot;*=&quot; | &quot;/=&quot; | &quot;%=&quot;) Assignment | LogicOr
+LogicOr         → LogicAnd (&quot;||&quot; LogicAnd)*
+LogicAnd        → Equality (&quot;&amp;&amp;&quot; Equality)*
+Equality        → Comparison ((&quot;==&quot; | &quot;!=&quot;) Comparison)*
+Comparison      → Term ((&quot;&lt;&quot; | &quot;&gt;&quot; | &quot;&lt;=&quot; | &quot;&gt;=&quot;) Term)*
+Term            → Factor ((&quot;+&quot; | &quot;-&quot;) Factor)*
+Factor          → Unary ((&quot;*&quot; | &quot;/&quot; | &quot;%&quot;) Unary)*
+Unary           → (&quot;!&quot; | &quot;-&quot; | &quot;++&quot; | &quot;--&quot;) Unary | Call
+Call            → Primary (&quot;(&quot; Arguments? &quot;)&quot; | &quot;[&quot; Expression &quot;]&quot; | &quot;.&quot; IDENTIFIER)*
+Arguments       → Expression (&quot;,&quot; Expression)*
+Primary         → IDENTIFIER | Literal | &quot;(&quot; Expression &quot;)&quot; | &quot;REVERSE_FLOW&quot;
+Literal         → NUMBER | STRING | &quot;TRUE&quot; | &quot;FALSE&quot; | ResourceLiteral
+ResourceLiteral → NUMBER (&quot;C&quot; | &quot;A&quot;)
+TypeAnnotation  → &quot;INTEGER&quot; | &quot;FLOAT&quot; | &quot;STRING&quot; | &quot;BOOLEAN&quot; | &quot;CHRONON&quot; | &quot;AETHEL&quot; | 
+                   &quot;VECTOR&quot; &quot;&lt;&quot; TypeAnnotation &quot;&gt;&quot; | &quot;MAP&quot; &quot;&lt;&quot; TypeAnnotation &quot;,&quot; TypeAnnotation &quot;&gt;&quot;
+</code></pre>
+<h3 id="32-ast-structure">3.2 AST Structure</h3>
+<p>The AST will be implemented as a hierarchy of node classes:</p>
+<h4 id="321-base-node-class">3.2.1 Base Node Class</h4>
+<pre><code class="language-cpp">class ASTNode {
+public:
+    virtual ~ASTNode() = default;
+    virtual void accept(ASTVisitor&amp; visitor) = 0;
+
+    const SourceLocation&amp; getLocation() const;
+
+protected:
+    SourceLocation location;
+};
+</code></pre>
+<h4 id="322-expression-nodes">3.2.2 Expression Nodes</h4>
+<pre><code class="language-cpp">class Expression : public ASTNode {};
+
+class BinaryExpr : public Expression {
+public:
+    BinaryExpr(std::unique_ptr&lt;Expression&gt; left, Token op, std::unique_ptr&lt;Expression&gt; right);
+    void accept(ASTVisitor&amp; visitor) override;
+
+    Expression* getLeft() const;
+    Expression* getRight() const;
+    const Token&amp; getOperator() const;
+
+private:
+    std::unique_ptr&lt;Expression&gt; left;
+    Token op;
+    std::unique_ptr&lt;Expression&gt; right;
+};
+
+// Similar classes for: UnaryExpr, LiteralExpr, VariableExpr, CallExpr, etc.
+</code></pre>
+<h4 id="323-statement-nodes">3.2.3 Statement Nodes</h4>
+<pre><code class="language-cpp">class Statement : public ASTNode {};
+
+class ExpressionStmt : public Statement {
+public:
+    ExpressionStmt(std::unique_ptr&lt;Expression&gt; expression);
+    void accept(ASTVisitor&amp; visitor) override;
+
+    Expression* getExpression() const;
+
+private:
+    std::unique_ptr&lt;Expression&gt; expression;
+};
+
+// Similar classes for: BlockStmt, IfStmt, WhileStmt, ReturnStmt, etc.
+</code></pre>
+<h4 id="324-declaration-nodes">3.2.4 Declaration Nodes</h4>
+<pre><code class="language-cpp">class Declaration : public ASTNode {};
+
+class VariableDecl : public Declaration {
+public:
+    VariableDecl(Token name, Token type, std::unique_ptr&lt;Expression&gt; initializer, bool isConst);
+    void accept(ASTVisitor&amp; visitor) override;
+
+    const Token&amp; getName() const;
+    const Token&amp; getType() const;
+    Expression* getInitializer() const;
+    bool isConst() const;
+
+private:
+    Token name;
+    Token type;
+    std::unique_ptr&lt;Expression&gt; initializer;
+    bool isConst;
+};
+
+// Similar classes for: FunctionDecl, ResourceDecl, TemporalDecl, etc.
+</code></pre>
+<h4 id="325-temporal-and-resource-nodes">3.2.5 Temporal and Resource Nodes</h4>
+<pre><code class="language-cpp">class ResourceExpr : public Expression {
+public:
+    ResourceExpr(ResourceType type, std::unique_ptr&lt;Expression&gt; amount);
+    void accept(ASTVisitor&amp; visitor) override;
+
+    ResourceType getType() const;
+    Expression* getAmount() const;
+
+private:
+    ResourceType type;
+    std::unique_ptr&lt;Expression&gt; amount;
+};
+
+class BranchTimelineStmt : public Statement {
+public:
+    BranchTimelineStmt(std::vector&lt;std::pair&lt;Token, std::unique_ptr&lt;BlockStmt&gt;&gt;&gt; paths);
+    void accept(ASTVisitor&amp; visitor) override;
+
+    const std::vector&lt;std::pair&lt;Token, BlockStmt*&gt;&gt;&amp; getPaths() const;
+
+private:
+    std::vector&lt;std::pair&lt;Token, std::unique_ptr&lt;BlockStmt&gt;&gt;&gt; paths;
+};
+
+// Similar classes for: ResourceAllocStmt, ResourceExpendStmt, MergeTimelinesStmt, RewindFlowStmt, etc.
+</code></pre>
+<h3 id="33-parser-implementation">3.3 Parser Implementation</h3>
+<p>The parser will be implemented using a recursive descent approach:</p>
+<pre><code class="language-cpp">class Parser {
+public:
+    Parser(Lexer&amp; lexer);
+
+    std::unique_ptr&lt;Program&gt; parse();
+
+    const std::vector&lt;DiagnosticMessage&gt;&amp; getDiagnostics() const;
+
+private:
+    Lexer&amp; lexer;
+    Token current;
+    std::vector&lt;DiagnosticMessage&gt; diagnostics;
+
+    // Parsing methods for grammar rules
+    std::unique_ptr&lt;Declaration&gt; declaration();
+    std::unique_ptr&lt;FunctionDecl&gt; functionDeclaration();
+    std::unique_ptr&lt;VariableDecl&gt; variableDeclaration();
+    std::unique_ptr&lt;Statement&gt; statement();
+    std::unique_ptr&lt;ExpressionStmt&gt; expressionStatement();
+    std::unique_ptr&lt;IfStmt&gt; ifStatement();
+    std::unique_ptr&lt;WhileStmt&gt; whileStatement();
+    std::unique_ptr&lt;ForStmt&gt; forStatement();
+    std::unique_ptr&lt;ReturnStmt&gt; returnStatement();
+    std::unique_ptr&lt;BlockStmt&gt; block();
+
+    std::unique_ptr&lt;Expression&gt; expression();
+    std::unique_ptr&lt;Expression&gt; assignment();
+    std::unique_ptr&lt;Expression&gt; logicOr();
+    std::unique_ptr&lt;Expression&gt; logicAnd();
+    std::unique_ptr&lt;Expression&gt; equality();
+    std::unique_ptr&lt;Expression&gt; comparison();
+    std::unique_ptr&lt;Expression&gt; term();
+    std::unique_ptr&lt;Expression&gt; factor();
+    std::unique_ptr&lt;Expression&gt; unary();
+    std::unique_ptr&lt;Expression&gt; call();
+    std::unique_ptr&lt;Expression&gt; primary();
+
+    // Resource and temporal parsing methods
+    std::unique_ptr&lt;ResourceDecl&gt; resourceDeclaration();
+    std::unique_ptr&lt;TemporalDecl&gt; temporalDeclaration();
+    std::unique_ptr&lt;BranchTimelineStmt&gt; branchTimeline();
+    std::unique_ptr&lt;MergeTimelinesStmt&gt; mergeTimelines();
+    std::unique_ptr&lt;RewindFlowStmt&gt; rewindFlow();
+
+    // Helper methods
+    bool match(std::initializer_list&lt;TokenType&gt; types);
+    bool check(TokenType type);
+    Token advance();
+    Token consume(TokenType type, const std::string&amp; message);
+    void synchronize();
+
+    void addError(const std::string&amp; message);
+    void addError(const Token&amp; token, const std::string&amp; message);
+};
+</code></pre>
+<h3 id="34-error-handling-and-recovery">3.4 Error Handling and Recovery</h3>
+<p>The parser will implement error recovery techniques to continue parsing after encountering syntax errors:</p>
+<ol>
+<li><strong>Synchronization Points</strong>: Recover at statement or declaration boundaries</li>
+<li><strong>Skip to Next Statement</strong>: Skip tokens until a statement delimiter (e.g., semicolon) is found</li>
+<li><strong>Error Productions</strong>: Define special grammar rules for common error patterns</li>
+<li><strong>Panic Mode Recovery</strong>: Skip tokens until a synchronization point is reached</li>
+</ol>
+<h3 id="35-parser-optimizations">3.5 Parser Optimizations</h3>
+<ul>
+<li><strong>Lookahead Caching</strong>: Cache lookahead tokens to avoid repeated lexer calls</li>
+<li><strong>Error Recovery</strong>: Implement efficient error recovery to continue parsing after errors</li>
+<li><strong>AST Node Pooling</strong>: Use memory pools for AST nodes to reduce allocation overhead</li>
+<li><strong>Context-Aware Parsing</strong>: Use contextual information to disambiguate complex constructs</li>
+</ul>
+<h2 id="4-unique-chronovyan-language-features">4. Unique Chronovyan Language Features</h2>
+<h3 id="41-resource-management-syntax">4.1 Resource Management Syntax</h3>
+<p>The lexer and parser will handle Chronovyan's resource management syntax:</p>
+<pre><code>ALLOCATE_RESOURCES {
+    CHRONON: 10,
+    AETHEL: 5
+} {
+    // Code that uses the resources
+}
+
+EXPEND_RESOURCES {
+    CHRONON: 2,
+    AETHEL: 1
+} {
+    // Code that consumes resources
+}
+
+BORROW_RESOURCES {
+    CHRONON: 5
+} {
+    // Code that borrows resources
+}
+</code></pre>
+<h3 id="42-temporal-control-flow">4.2 Temporal Control Flow</h3>
+<p>The parser will handle Chronovyan's temporal control flow constructs:</p>
+<pre><code>BRANCH_TIMELINE {
+    PATH_A: {
+        // Timeline branch A
+    }
+    PATH_B: {
+        // Timeline branch B
+    }
+}
+
+MERGE_TIMELINES(resolution_strategy)
+
+REWIND_FLOW (condition) {
+    // Code that might rewind
+}
+
+REVERSE_FLOW;
+</code></pre>
+<h3 id="43-confreb-variable-classification">4.3 CONF/REB Variable Classification</h3>
+<p>The lexer and parser will recognize the CONF/REB variable classification modifiers:</p>
+<pre><code>LET x::CONF = 42;
+LET y::REB = &quot;Hello&quot;;
+</code></pre>
+<h2 id="5-implementation-plan">5. Implementation Plan</h2>
+<h3 id="51-phase-1-basic-lexer-1-week">5.1 Phase 1: Basic Lexer (1 week)</h3>
+<ul>
+<li>Implement Token class</li>
+<li>Implement basic Lexer class</li>
+<li>Support keywords, identifiers, literals, operators</li>
+<li>Implement basic error reporting</li>
+</ul>
+<h3 id="52-phase-2-complete-lexer-1-week">5.2 Phase 2: Complete Lexer (1 week)</h3>
+<ul>
+<li>Add support for all token types</li>
+<li>Implement lexer optimizations</li>
+<li>Enhance error reporting</li>
+<li>Add source location tracking</li>
+<li>Implement lexer tests</li>
+</ul>
+<h3 id="53-phase-3-basic-parser-2-weeks">5.3 Phase 3: Basic Parser (2 weeks)</h3>
+<ul>
+<li>Implement ASTNode base classes</li>
+<li>Implement expression parsing</li>
+<li>Implement statement parsing</li>
+<li>Implement basic error recovery</li>
+<li>Create initial AST visitor interface</li>
+</ul>
+<h3 id="54-phase-4-complete-parser-2-weeks">5.4 Phase 4: Complete Parser (2 weeks)</h3>
+<ul>
+<li>Add support for declarations</li>
+<li>Implement resource management parsing</li>
+<li>Implement temporal control flow parsing</li>
+<li>Enhance error recovery</li>
+<li>Complete AST visitor implementation</li>
+<li>Implement parser tests</li>
+</ul>
+<h3 id="55-phase-5-integration-and-testing-1-week">5.5 Phase 5: Integration and Testing (1 week)</h3>
+<ul>
+<li>Integrate lexer and parser</li>
+<li>Implement comprehensive test suite</li>
+<li>Benchmark performance</li>
+<li>Document public API</li>
+<li>Create usage examples</li>
+</ul>
+<h2 id="6-testing-strategy">6. Testing Strategy</h2>
+<h3 id="61-unit-tests">6.1 Unit Tests</h3>
+<ul>
+<li>Test each token type recognition</li>
+<li>Test lexer error reporting</li>
+<li>Test parser grammar rules</li>
+<li>Test AST node construction</li>
+<li>Test error recovery mechanisms</li>
+</ul>
+<h3 id="62-integration-tests">6.2 Integration Tests</h3>
+<ul>
+<li>Test lexer and parser interaction</li>
+<li>Test complete program parsing</li>
+<li>Test AST visitor traversal</li>
+<li>Test error reporting end-to-end</li>
+</ul>
+<h3 id="63-performance-tests">6.3 Performance Tests</h3>
+<ul>
+<li>Benchmark lexing and parsing speed</li>
+<li>Measure memory usage</li>
+<li>Test with large input files</li>
+<li>Compare against performance targets</li>
+</ul>
+<h3 id="64-error-handling-tests">6.4 Error Handling Tests</h3>
+<ul>
+<li>Test recovery from common syntax errors</li>
+<li>Test error message quality</li>
+<li>Test position information accuracy</li>
+<li>Test error cascading prevention</li>
+</ul>
+<h2 id="7-api-design">7. API Design</h2>
+<h3 id="71-public-api">7.1 Public API</h3>
+<pre><code class="language-cpp">// Create a compiler instance
+Compiler compiler;
+
+// Parse a file
+std::unique_ptr&lt;Program&gt; ast = compiler.parseFile(&quot;example.chron&quot;);
+
+// Check for errors
+if (compiler.hasErrors()) {
+    for (const auto&amp; error : compiler.getErrors()) {
+        std::cerr &lt;&lt; error &lt;&lt; std::endl;
+    }
+    return 1;
+}
+
+// Use the AST
+ASTDumper dumper;
+ast-&gt;accept(dumper);
+</code></pre>
+<h3 id="72-ast-visitor-interface">7.2 AST Visitor Interface</h3>
+<pre><code class="language-cpp">class ASTVisitor {
+public:
+    virtual ~ASTVisitor() = default;
+
+    // Expressions
+    virtual void visitBinaryExpr(BinaryExpr* expr) = 0;
+    virtual void visitUnaryExpr(UnaryExpr* expr) = 0;
+    virtual void visitLiteralExpr(LiteralExpr* expr) = 0;
+    virtual void visitVariableExpr(VariableExpr* expr) = 0;
+    virtual void visitCallExpr(CallExpr* expr) = 0;
+    virtual void visitResourceExpr(ResourceExpr* expr) = 0;
+
+    // Statements
+    virtual void visitExpressionStmt(ExpressionStmt* stmt) = 0;
+    virtual void visitBlockStmt(BlockStmt* stmt) = 0;
+    virtual void visitIfStmt(IfStmt* stmt) = 0;
+    virtual void visitWhileStmt(WhileStmt* stmt) = 0;
+    virtual void visitForStmt(ForStmt* stmt) = 0;
+    virtual void visitReturnStmt(ReturnStmt* stmt) = 0;
+
+    // Declarations
+    virtual void visitVariableDecl(VariableDecl* decl) = 0;
+    virtual void visitFunctionDecl(FunctionDecl* decl) = 0;
+
+    // Resource and Temporal
+    virtual void visitResourceAllocStmt(ResourceAllocStmt* stmt) = 0;
+    virtual void visitResourceExpendStmt(ResourceExpendStmt* stmt) = 0;
+    virtual void visitBranchTimelineStmt(BranchTimelineStmt* stmt) = 0;
+    virtual void visitMergeTimelinesStmt(MergeTimelinesStmt* stmt) = 0;
+    virtual void visitRewindFlowStmt(RewindFlowStmt* stmt) = 0;
+
+    // Program
+    virtual void visitProgram(Program* program) = 0;
+};
+</code></pre>
+<h2 id="8-challenges-and-considerations">8. Challenges and Considerations</h2>
+<h3 id="81-ambiguity-resolution">8.1 Ambiguity Resolution</h3>
+<p>The Chronovyan grammar contains potential ambiguities that require careful handling:</p>
+<ul>
+<li>CONF/REB annotations vs. scope resolution operator</li>
+<li>Resource literals vs. identifiers with suffixes</li>
+<li>Timeline path labels vs. case labels</li>
+</ul>
+<h3 id="82-error-recovery-strategy">8.2 Error Recovery Strategy</h3>
+<p>Effective error recovery is essential for a good developer experience:</p>
+<ul>
+<li>Use synchronization points at statement boundaries</li>
+<li>Skip to next declaration on severe errors</li>
+<li>Provide contextual error messages</li>
+<li>Avoid error cascades</li>
+</ul>
+<h3 id="83-performance-considerations">8.3 Performance Considerations</h3>
+<p>The lexer and parser must be efficient for large source files:</p>
+<ul>
+<li>Minimize memory allocations</li>
+<li>Use efficient data structures</li>
+<li>Implement early bailout for invalid inputs</li>
+<li>Optimize the lexer state machine</li>
+</ul>
+<h3 id="84-extensibility">8.4 Extensibility</h3>
+<p>The design must accommodate future language features:</p>
+<ul>
+<li>Modular grammar definitions</li>
+<li>Extensible token and AST hierarchies</li>
+<li>Visitor pattern for AST traversal</li>
+<li>Clear separation between lexical and syntactic concerns</li>
+</ul>
+<h2 id="9-conclusion">9. Conclusion</h2>
+<p>This design document outlines the approach for implementing the lexical and syntax analysis components of the Chronicle Compiler. By following this design, we can create a robust, efficient, and maintainable front-end that accurately processes Chronovyan source code while providing helpful error messages and diagnostics.</p>
+<p>The implementation will follow the phased approach described in Section 5, with each phase building on the previous one. Comprehensive testing will ensure that the lexer and parser correctly handle all valid Chronovyan constructs and provide useful feedback for invalid code.</p>
+<p>As the first components in the compiler pipeline, the lexer and parser set the foundation for the entire Chronicle Compiler project. A well-designed front-end will simplify the implementation of later compiler phases, such as semantic analysis, optimization, and code generation.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "search.highlight"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

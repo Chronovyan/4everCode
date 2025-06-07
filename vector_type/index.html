@@ -1,0 +1,1046 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for vector_type.md">
+      
+      
+      
+        <link rel="canonical" href="https://chronovyan.github.io/vector_type/">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>VECTOR Type in Chronovyan - Chronovyan</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vector-type-in-chronovyan" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Chronovyan" class="md-header__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chronovyan
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              VECTOR Type in Chronovyan
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Chronovyan/Chronovyan" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/installation/" class="md-tabs__link">
+          
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../api/index.md" class="md-tabs__link">
+        
+  
+    
+  
+  API Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CONTRIBUTING.md" class="md-tabs__link">
+        
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Chronovyan" class="md-nav__button md-logo" aria-label="Chronovyan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Chronovyan
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Chronovyan/Chronovyan" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Chronovyan/Chronovyan
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CONTRIBUTING.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matrix-and-tensor-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matrix and Tensor Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temporal Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-vector-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the VECTOR Type
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the VECTOR Type">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matrix-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matrix Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temporal Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Operations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-custom-type-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with Custom Type System
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-consumption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Consumption
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#memory-efficiency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Efficiency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#computational-efficiency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computational Efficiency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thread-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thread Safety
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Reference
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multidimensionalvector" class="md-nav__link">
+    <span class="md-ellipsis">
+      MultiDimensionalVector
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MultiDimensionalVector">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constructors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matrix-and-tensor-operations_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matrix and Tensor Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temporal Methods
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Enhancements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      See Also
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="vector-type-in-chronovyan">VECTOR Type in Chronovyan</h1>
+<h2 id="overview">Overview</h2>
+<p>The VECTOR type in Chronovyan is a powerful multi-dimensional container with temporal semantics, designed for efficient storage and manipulation of collections of data across time. It provides extensive functionality for numerical computations, matrix operations, and temporal transformations, making it ideal for scientific computing, data analysis, and simulation in temporal environments.</p>
+<p>The VECTOR implementation consists of two main classes:
+- <code>ChronovyanVector</code>: A single-dimensional dynamic array with temporal features
+- <code>MultiDimensionalVector</code>: A multi-dimensional extension providing matrix and tensor operations</p>
+<h2 id="key-features">Key Features</h2>
+<h3 id="basic-features">Basic Features</h3>
+<ul>
+<li><strong>Multi-dimensional storage</strong>: Support for vectors, matrices, and higher-dimensional tensors</li>
+<li><strong>Dynamic sizing</strong>: Ability to grow and reshape as needed</li>
+<li><strong>Type flexibility</strong>: Can store any value type supported by Chronovyan</li>
+<li><strong>Resource tracking</strong>: Automatically tracks chronon consumption for operations</li>
+</ul>
+<h3 id="matrix-and-tensor-operations">Matrix and Tensor Operations</h3>
+<ul>
+<li><strong>Element access and manipulation</strong>: Get, set, and iterate over elements</li>
+<li><strong>Slicing</strong>: Extract subsets of data along any dimension</li>
+<li><strong>Reshaping</strong>: Change the dimensions while preserving data</li>
+<li><strong>Matrix operations</strong>: Transpose, matrix multiplication, and element-wise operations</li>
+<li><strong>Higher-order functions</strong>: Map, reduce, and transform operations on elements</li>
+<li><strong>String representation</strong>: Human-readable representation of vector contents</li>
+</ul>
+<h3 id="temporal-features">Temporal Features</h3>
+<ul>
+<li><strong>History tracking</strong>: Save and restore states from different temporal cycles</li>
+<li><strong>Temporal querying</strong>: Access element values from any saved cycle</li>
+<li><strong>Temporal transformations</strong>: Apply functions across temporal states</li>
+<li><strong>Gradient calculation</strong>: Compute rates of change between cycles</li>
+<li><strong>State prediction</strong>: Extrapolate future states based on historical data</li>
+</ul>
+<h2 id="using-the-vector-type">Using the VECTOR Type</h2>
+<h3 id="basic-usage">Basic Usage</h3>
+<pre><code class="language-cpp">// Create a runtime
+auto runtime = std::make_shared&lt;TemporalRuntime&gt;();
+
+// Create a 1D vector with 5 elements
+std::vector&lt;size_t&gt; dimensions = {5};
+MultiDimensionalVector vector(dimensions, runtime);
+
+// Set values
+for (size_t i = 0; i &lt; 5; ++i) {
+    vector.set({i}, Value(static_cast&lt;int64_t&gt;(i * i)));
+}
+
+// Access values
+Value v = vector.at({2});  // Get value at index 2
+
+// Print the vector
+std::cout &lt;&lt; vector.toString() &lt;&lt; std::endl;
+</code></pre>
+<h3 id="matrix-operations">Matrix Operations</h3>
+<pre><code class="language-cpp">// Create a 3x3 matrix
+std::vector&lt;size_t&gt; dimensions = {3, 3};
+MultiDimensionalVector matrix(dimensions, runtime);
+
+// Fill with values (identity matrix)
+for (size_t i = 0; i &lt; 3; ++i) {
+    for (size_t j = 0; j &lt; 3; ++j) {
+        matrix.set({i, j}, Value(static_cast&lt;int64_t&gt;(i == j ? 1 : 0)));
+    }
+}
+
+// Transpose the matrix
+auto transposed = matrix.transpose();
+
+// Matrix multiplication
+auto product = matrix.matrixMultiply(transposed);
+
+// Reshape a matrix
+std::vector&lt;size_t&gt; newDimensions = {1, 9};
+matrix.reshape(newDimensions);  // Now it's a 1x9 matrix
+</code></pre>
+<h3 id="temporal-operations">Temporal Operations</h3>
+<pre><code class="language-cpp">// Create a vector
+std::vector&lt;size_t&gt; dimensions = {3};
+MultiDimensionalVector vector(dimensions, runtime);
+
+// Set initial values
+vector.set({0}, Value(static_cast&lt;int64_t&gt;(10)));
+vector.set({1}, Value(static_cast&lt;int64_t&gt;(20)));
+vector.set({2}, Value(static_cast&lt;int64_t&gt;(30)));
+
+// Save state at cycle 1
+vector.saveHistoryCheckpoint(1);
+
+// Change values
+vector.set({0}, Value(static_cast&lt;int64_t&gt;(15)));
+vector.set({1}, Value(static_cast&lt;int64_t&gt;(25)));
+vector.set({2}, Value(static_cast&lt;int64_t&gt;(35)));
+
+// Save state at cycle 2
+vector.saveHistoryCheckpoint(2);
+
+// Access historical values
+Value v1 = vector.getAtCycle({0}, 1);  // Value at index 0, cycle 1
+
+// Restore from a previous cycle
+vector.restoreFromCycle(1);
+
+// Calculate temporal gradient
+auto gradient = vector.temporalGradient(1, 2);
+
+// Predict future state
+auto future = vector.predictFutureState(3, {1, 2});
+</code></pre>
+<h3 id="advanced-operations">Advanced Operations</h3>
+<pre><code class="language-cpp">// Create a 2x3 matrix
+std::vector&lt;size_t&gt; dimensions = {2, 3};
+MultiDimensionalVector matrix(dimensions, runtime);
+// Fill with values...
+
+// Map a function over elements (square each element)
+auto squared = matrix.map([](const Value&amp; v) -&gt; Value {
+    if (v.isInteger()) {
+        int64_t val = v.asInteger();
+        return Value(static_cast&lt;int64_t&gt;(val * val));
+    }
+    return v;
+});
+
+// Element-wise operation (add two matrices)
+auto matrix2 = /* another 2x3 matrix */;
+auto sum = matrix.elementWise(matrix2, [](const Value&amp; a, const Value&amp; b) -&gt; Value {
+    if (a.isInteger() &amp;&amp; b.isInteger()) {
+        return Value(static_cast&lt;int64_t&gt;(a.asInteger() + b.asInteger()));
+    }
+    return Value();
+});
+
+// Reduce along a dimension (sum columns)
+auto columnSums = matrix.reduce(0, [](const Value&amp; a, const Value&amp; b) -&gt; Value {
+    if (a.isInteger() &amp;&amp; b.isInteger()) {
+        return Value(static_cast&lt;int64_t&gt;(a.asInteger() + b.asInteger()));
+    }
+    return Value();
+}, Value(static_cast&lt;int64_t&gt;(0)));
+</code></pre>
+<h2 id="integration-with-custom-type-system">Integration with Custom Type System</h2>
+<p>The VECTOR type is registered with Chronovyan's custom type system, allowing it to be used seamlessly in Chronovyan scripts and programs:</p>
+<pre><code class="language-cpp">// Register the VECTOR type
+CustomTypeSystem typeSystem;
+registerMultiDimensionalVectorType(typeSystem);
+
+// Use the type in scripts
+// VECTOR&lt;INT, 2&gt; matrix;  // 2D matrix of integers
+</code></pre>
+<h2 id="resource-consumption">Resource Consumption</h2>
+<p>Operations on VECTOR objects consume chronons based on the operation complexity and the size of the vector:</p>
+<ul>
+<li><strong>Basic operations</strong> (get, set): Minimal chronon cost</li>
+<li><strong>Slicing, reshaping</strong>: Cost scales with log of vector size</li>
+<li><strong>Matrix multiplication</strong>: Cost scales with O(n³) for n×n matrices</li>
+<li><strong>Element-wise operations</strong>: Cost scales linearly with vector size</li>
+<li><strong>Temporal operations</strong>: Higher cost, scaling with vector size</li>
+</ul>
+<h2 id="performance-considerations">Performance Considerations</h2>
+<h3 id="memory-efficiency">Memory Efficiency</h3>
+<ul>
+<li>The <code>MultiDimensionalVector</code> uses a flat internal representation for efficient storage</li>
+<li>Reshaping and slicing operations reuse data when possible</li>
+<li>Temporal history is stored efficiently, only saving changes between states</li>
+</ul>
+<h3 id="computational-efficiency">Computational Efficiency</h3>
+<ul>
+<li>Matrix operations are optimized for performance</li>
+<li>Element-wise operations and mapping use efficient algorithms</li>
+<li>Resource costs are scaled to be reasonable for large vectors</li>
+</ul>
+<h3 id="thread-safety">Thread Safety</h3>
+<ul>
+<li>Vector operations are not inherently thread-safe</li>
+<li>For concurrent access, external synchronization is required</li>
+<li>The temporal runtime tracks resource usage safely across threads</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<p>For comprehensive examples of using the VECTOR type, refer to:
+- <code>examples/vector_demo.cpp</code>: Demonstrates all major features
+- <code>tests/multi_dimensional_vector_test.cpp</code>: Shows detailed usage patterns</p>
+<h2 id="api-reference">API Reference</h2>
+<h3 id="multidimensionalvector">MultiDimensionalVector</h3>
+<h4 id="constructors">Constructors</h4>
+<ul>
+<li><code>MultiDimensionalVector(const std::vector&lt;size_t&gt;&amp; dimensions, std::shared_ptr&lt;TemporalRuntime&gt; runtime)</code></li>
+<li><code>MultiDimensionalVector(std::shared_ptr&lt;ChronovyanVector&gt; flatVector, const std::vector&lt;size_t&gt;&amp; dimensions, std::shared_ptr&lt;TemporalRuntime&gt; runtime)</code></li>
+</ul>
+<h4 id="basic-methods">Basic Methods</h4>
+<ul>
+<li><code>size_t getDimensionCount() const</code></li>
+<li><code>const std::vector&lt;size_t&gt;&amp; getDimensions() const</code></li>
+<li><code>size_t getTotalSize() const</code></li>
+<li><code>const Value&amp; at(const std::vector&lt;size_t&gt;&amp; indices) const</code></li>
+<li><code>Value&amp; at(const std::vector&lt;size_t&gt;&amp; indices)</code></li>
+<li><code>void set(const std::vector&lt;size_t&gt;&amp; indices, const Value&amp; value)</code></li>
+<li><code>std::string toString() const</code></li>
+</ul>
+<h4 id="matrix-and-tensor-operations_1">Matrix and Tensor Operations</h4>
+<ul>
+<li><code>std::shared_ptr&lt;MultiDimensionalVector&gt; slice(size_t dimension, size_t index) const</code></li>
+<li><code>bool reshape(const std::vector&lt;size_t&gt;&amp; newDimensions)</code></li>
+<li><code>std::shared_ptr&lt;MultiDimensionalVector&gt; transpose() const</code></li>
+<li><code>std::shared_ptr&lt;MultiDimensionalVector&gt; matrixMultiply(const MultiDimensionalVector&amp; other) const</code></li>
+<li><code>std::shared_ptr&lt;MultiDimensionalVector&gt; elementWise(const MultiDimensionalVector&amp; other, std::function&lt;Value(const Value&amp;, const Value&amp;)&gt; op) const</code></li>
+<li><code>std::shared_ptr&lt;MultiDimensionalVector&gt; map(std::function&lt;Value(const Value&amp;)&gt; func) const</code></li>
+<li><code>std::shared_ptr&lt;MultiDimensionalVector&gt; reduce(size_t dimension, std::function&lt;Value(const Value&amp;, const Value&amp;)&gt; func, const Value&amp; initial) const</code></li>
+</ul>
+<h4 id="temporal-methods">Temporal Methods</h4>
+<ul>
+<li><code>Value getAtCycle(const std::vector&lt;size_t&gt;&amp; indices, int cycle) const</code></li>
+<li><code>void saveHistoryCheckpoint(int cycle)</code></li>
+<li><code>bool restoreFromCycle(int cycle)</code></li>
+<li><code>std::shared_ptr&lt;MultiDimensionalVector&gt; temporalTransform(int startCycle, int endCycle, std::function&lt;Value(const Value&amp;, const Value&amp;, double)&gt; transformFunc) const</code></li>
+<li><code>std::shared_ptr&lt;MultiDimensionalVector&gt; temporalGradient(int startCycle, int endCycle) const</code></li>
+<li><code>std::shared_ptr&lt;MultiDimensionalVector&gt; predictFutureState(int futureCycle, const std::vector&lt;int&gt;&amp; historicalCycles) const</code></li>
+</ul>
+<h2 id="future-enhancements">Future Enhancements</h2>
+<p>Future versions of the VECTOR type may include:</p>
+<ol>
+<li><strong>Advanced numerical operations</strong>: Eigenvalue/eigenvector calculation, SVD, LU decomposition</li>
+<li><strong>GPU acceleration</strong>: Offloading computations to GPU for large matrices</li>
+<li><strong>Sparse matrix support</strong>: Efficient storage for sparse data</li>
+<li><strong>Neural network operations</strong>: Specialized functions for ML applications</li>
+<li><strong>Integration with advanced visualization</strong>: Real-time plotting and visualization</li>
+<li><strong>Parallel processing</strong>: Multi-threaded operations for large vectors</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="./chronovyan_vector.md">ChronovyanVector</a>: Documentation for the underlying 1D vector implementation</li>
+<li><a href="./temporal_runtime.md">Temporal Runtime</a>: Details on resource tracking and temporal features</li>
+<li><a href="./custom_type_system.md">Custom Type System</a>: How types are defined and registered in Chronovyan</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "search.highlight"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>
