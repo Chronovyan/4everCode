@@ -52,7 +52,7 @@ auto now = std::chrono::system_clock::now();
 timeline.add_sync_point({
     now - std::chrono::hours(2),  // timestamp
     0.9, 0.85, 0.95,             // sync metrics
-    {{"source", "sensor1"}}      // metadata
+    \{\{"source", "sensor1"\}\}      // metadata
 });
 
 // Get the most recent sync point
@@ -119,7 +119,7 @@ public:
         timeline.add_sync_point({
             std::chrono::system_clock::now(),
             value, 0.0, 0.0,  // Using value as sync metric for demo
-            {{"value", value}, {"sensor", sensor_id_}}
+            \{\{"value", value\}, \{"sensor", sensor_id_\}\}
         });
         
         // Log the update
