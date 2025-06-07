@@ -23,6 +23,9 @@ nav:
   - Home: index.md
   - Getting Started:
     - Installation: getting-started/installation.md
+    - Quick Start: getting-started/quickstart.md
+  - API Reference: api/index.md
+  - Contributing: CONTRIBUTING.md
 
 # Plugins
 plugins:
