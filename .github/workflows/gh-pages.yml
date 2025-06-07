@@ -38,7 +38,7 @@ jobs:
           pip install mkdocs-awesome-pages-plugin
           pip install mkdocs-markdownextradata-plugin
           pip install mkdocs-git-authors-plugin
-          pip install mkdocs-git-committers-plugin-2==0.5.2
+          pip install mkdocs-git-committers-plugin-2==2.5.0
           pip install mkdocs-mermaid2-plugin
           pip install mkdocs-section-index
           pip install mkdocs-redirects
