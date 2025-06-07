@@ -1,6 +1,6 @@
 # Project Information
 site_name: Chronovyan
-site_url: https://chronovyan.github.io/Chronovyan/
+site_url: https://chronovyan.github.io/
 site_author: Chronovyan Team
 site_description: A modern C++ library for dates, times, and time zones
 
@@ -130,14 +130,7 @@ plugins:
   - git-revision-date-localized:
       type: timeago
       fallback_to_build_date: true
-  - rss:
-      match_path: "news/.*\\.md"
-      categories:
-        - Release
-        - Announcement
-      date_from_meta:
-        as_creation: date
-      date_from_tz: "UTC"
+  # RSS plugin removed as it's not included in the workflow dependencies
 
 # Development server
 dev_addr: 127.0.0.1:8000
@@ -158,9 +151,10 @@ extra:
       link: https://discord.gg/chronovyan
 
 # Google Analytics
-google_analytics:
-  - UA-XXXXX
-  - auto
+# Uncomment and configure after setting up Google Analytics
+# google_analytics:
+#   - YOUR-GA-ID
+#   - auto
 
 # Sitemap
 sitemap:
