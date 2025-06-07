@@ -6,13 +6,12 @@ Chronovyan is a temporal programming language designed for weaving narratives ac
 
 - [Installation](getting-started/installation.md) - Set up Chronovyan on your system
 - [First Steps](getting-started/first-steps.md) - Take your first steps with Chronovyan
-- [Quick Start](getting-started/quickstart.md) - Get up and running quickly
 
 ## Explore
 
-- [Language Guide](guides/Getting%20Started%20-%20The%20Journey%20of%20a%20Temporal%20Developer.md) - Learn the basics of Chronovyan
-- [Core Concepts](core/Core%20Concepts%20-%20The%20Foundation%20of%20Temporal%20Programming.md) - Understand the fundamental concepts
-- [Advanced Features](advanced/Advanced%20Features%20-%20The%20Art%20of%20Temporal%20Mastery.md) - Explore advanced capabilities
+- [API Reference](api.md) - Comprehensive API documentation
+- [Examples](examples.md) - Practical examples of using Chronovyan
+- [Hello World](examples/hello_world.md) - Your first Chronovyan program
 
 ## Contribute
 
