@@ -1,77 +1,27 @@
 <div align="center">
   <h1>⏳ Chronovyan</h1>
-  <h3>A Modern C++ Library for Dates, Times, and Time Zones</h3>
+  <h3>A Temporal Programming Language for Weaving Time</h3>
   
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-  [![Documentation](https://img.shields.io/badge/Documentation-Read%20the%20Docs-blue)](https://chronovyan.github.io/Chronovyan/)
-  [![C++ Standard](https://img.shields.io/badge/C%2B%2B-20-blue.svg)](https://en.cppreference.com/w/cpp/compiler_support)
-  [![Build Status](https://github.com/Chronovyan/Chronovyan/actions/workflows/ci.yml/badge.svg)](https://github.com/Chronovyan/Chronovyan/actions)
+  [![Documentation](https://img.shields.io/badge/Documentation-Read%20the%20Docs-blue)](https://chronovyan.github.io/)
+  [![Discord](https://img.shields.io/discord/your-discord-invite-code)](https://discord.gg/chronovyan)
   
-  *"Precision timing for modern C++ applications"*
+  *"Time is the canvas, and we are the weavers of its threads."* - Ancient Weaver Proverb
 </div>
 
-## 🚀 Features
+## 🌟 About Chronovyan
 
-- **Modern C++20 API** - Clean, type-safe interface using the latest C++ standards
-- **Comprehensive Time Zone Support** - Full IANA time zone database integration
-- **Header-Only** - Easy integration into any project
-- **Cross-Platform** - Works on Windows, Linux, and macOS
-- **High Performance** - Optimized for speed and low latency
-- **Thread-Safe** - Designed for concurrent applications
+Chronovyan is a revolutionary temporal programming language and framework that enables developers to manipulate time as a first-class construct. Born from the lore of Chronos Prime, Chronovyan allows you to weave complex temporal workflows, manage temporal resources, and navigate the delicate balance between order and chaos in your applications.
 
-## 📦 Installation
+### Core Concepts
 
-### Using vcpkg
-```bash
-vcpkg install chronovyan
-```
+- **Temporal Programming Model**: Work with time as a primary construct
+- **Resource Management**: Manage temporal resources like Chronons and Aethel
+- **Paradox Detection**: Built-in mechanisms to detect and handle temporal paradoxes
+- **Composition Patterns**: Create complex temporal workflows with SEQUENTIAL, PARALLEL, and CONDITIONAL compositions
+- **Sandboxing**: Safely execute potentially unstable temporal operations
 
-### From Source
-```bash
-git clone https://github.com/Chronovyan/Chronovyan.git
-cd Chronovyan
-mkdir build && cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=/path/to/install
-cmake --build . --target install
-```
-
-## 🎯 Quick Start
-
-```cpp
-#include <chronovyan/chronovyan.hpp>
-#include <iostream>
-
-int main() {
-    using namespace chronovyan;
-    
-    // Get current time
-    auto now = system_clock::now();
-    std::cout << "Current time: " << now << std::endl;
-    
-    // Format time
-    std::cout << format("{:%Y-%m-%d %H:%M:%S}", now) << std::endl;
-    
-    // Time zone conversion
-    auto ny_zone = locate_zone("America/New_York");
-    auto ny_time = zoned_time{ny_zone, now};
-    std::cout << "New York time: " << ny_time << std::endl;
-    
-    // Date arithmetic
-    auto tomorrow = now + days{1};
-    std::cout << "Tomorrow: " << tomorrow << std::endl;
-    
-    return 0;
-}
-```
-
-## 📚 Documentation
-
-- [Getting Started](https://chronovyan.github.io/Chronovyan/getting-started/installation/)
-- [API Reference](https://chronovyan.github.io/Chronovyan/api/chrono/)
-- [Time Zone Guide](https://chronovyan.github.io/Chronovyan/guides/timezones/)
-- [Performance Tips](https://chronovyan.github.io/Chronovyan/guides/performance/)
-
-## 🛠 Building from Source
+## 🚀 Quick Start
 
 ### Prerequisites
 
@@ -79,169 +29,94 @@ int main() {
 - CMake 3.15 or later
 - Git
 
-### Build Commands
+### Building from Source
 
 ```bash
-git clone https://github.com/Chronovyan/Chronovyan.git
-cd Chronovyan
+# Clone the repository
+git clone https://github.com/Chronovyan/Chronovyan.github.io.git
+cd Chronovyan.github.io
+
+# Build the project
 mkdir build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
-cmake --build . --target install
+cmake --build .
 ```
+
+## 📚 Documentation
+
+Explore the comprehensive documentation to master Chronovyan:
+
+- [Language Specification](docs/Chronoscript%20Language%20Specification.md) - Complete guide to Chronoscript syntax and semantics
+- [Runtime Mechanics](docs/Chronoscript%20Runtime%20Mechanics%20Guide.md) - Understand how Chronovyan manages time and resources
+- [Implementation Guide](docs/implementation_guide.md) - Developer's guide to working with the Chronovyan codebase
+- [Glossary](docs/Chronovyan_Glossary.md) - Key terms and concepts in the Chronovyan universe
+- [Roadmap](docs/ROADMAP.md) - Current status and future development plans
+
+## 🧩 Example: Hello, Temporal World!
+
+```chronoscript
+ANTECEDENCE {
+    // Define a simple temporal pattern
+    DECLARE CONF::STATIC Greeting : WEAVE_PATTERN = define_pattern("HelloWorld", [
+        PRINT("Hello, Temporal World!")
+    ]);
+}
+
+CONCURRENCY {
+    // Apply the pattern
+    Success = apply_pattern(Greeting, System_Default);
+}
+
+CONSEQUENCE {
+    // Handle any temporal anomalies
+    ?! paradox_check([Success]);
+    CATCH_TEMPORAL ParadoxOverflowError {
+        NOTIFY_ANCHOR_CASTE("Temporal instability detected!");
+    }
+}
+```
+
+## 🛠️ Current Status
+
+Chronovyan is currently in active development. Here's what we're working on:
+
+### ✅ Completed
+- Core language specification
+- Basic interpreter implementation
+- Resource management system
+- Temporal debt tracking
+
+### 🚧 In Progress
+- Advanced temporal operations
+- Standard library expansion
+- Development tools and debuggers
+- Comprehensive documentation
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+We welcome contributions from fellow Weavers! Whether you're a Seeker of knowledge, an Anchor of stability, or a Rebel pushing boundaries, there's a place for you in our community.
 
-## 📄 License
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+Please read our [Contribution Guidelines](CONTRIBUTING.md) for more details.
+
+## 📜 License
 
 Chronovyan is licensed under the [MIT License](LICENSE).
 
-## 🌐 Community
+## 🌌 Join the Community
 
-- [GitHub Discussions](https://github.com/Chronovyan/Chronovyan/discussions)
-- [Issue Tracker](https://github.com/Chronovyan/Chronovyan/issues)
-- [Discord](https://discord.gg/chronovyan)
+- [Discord](https://discord.gg/chronovyan) - Chat with fellow Weavers
+- [GitHub Discussions](https://github.com/Chronovyan/Chronovyan.github.io/discussions) - Discuss features and ask questions
+- [Twitter](https://twitter.com/chronovyan) - Follow us for updates
 
-### TemporalSynchronizer
+---
 
-A thread-safe component for managing temporal flow synchronization in multi-threaded applications:
-
-- **Thread-Safe Operations**: Safe for concurrent access from multiple threads
-- **Asynchronous Processing**: Background thread handles synchronization tasks
-- **Metrics Tracking**: Monitors synchronization quality with multiple metrics
-- **Event Callbacks**: Get notified when synchronization completes
-
-Example usage:
-```cpp
-#include <chronovyan/temporal_synchronizer_simple.hpp>
-
-// Create a synchronizer
-chronovyan::sync::TemporalSynchronizer sync;
-
-// Set a callback for sync completion
-sync.set_sync_callback([](double progress) {
-    if (progress >= 1.0) {
-        std::cout << "Synchronization complete!" << std::endl;
-    }
-});
-
-// Trigger synchronization
-sync.synchronize_temporal_flows();
-```
-
-For more details, see the [TemporalSynchronizer Documentation](docs/temporal_synchronizer.md).
-
-### Temporal Runtime
-
-The core execution environment that manages temporal resources and cycle progression:
-
-- Tracks and manages chronons and aethel
-- Controls cycle advancement and rollbacks
-- Provides the foundation for temporal operations
-- Monitors resource usage and enforces limits
-
-### Temporal Debt Tracker
-
-A component responsible for tracking and managing temporal debt:
-
-- Tracks borrowing and repayment of chronons and aethel
-- Maintains records of all debt operations
-- Applies interest rates based on operation criticality
-- Calculates system stability and paradox risk
-- Provides basic alert functionality for debt thresholds
-
-### Temporal Debt Alert System
-
-An advanced alerting and management system built on top of the Debt Tracker:
-
-- Multi-level alerts (LOW, MEDIUM, HIGH, CRITICAL) based on configurable thresholds
-- Multiple notification methods (console, log files, custom callbacks, etc.)
-- Continuous real-time monitoring of debt levels
-- Alert history tracking and acknowledgment
-- Debt trend visualization and future projections
-- Paradox risk calculation and monitoring
-- Proactive debt management recommendations
-
-### Temporal Data Structures
-
-A collection of time-aware data structures:
-
-- **TemporalMap**: A map structure that tracks the history of key-value pairs
-- **TemporalVector**: A vector with built-in temporal tracking
-- **TemporalSequence**: A sequence that can be rewound and manipulated across time
-- **MultiDimensionalVector**: A vector that can operate across multiple dimensions
-
-### User-Definable TYPE System
-
-A system for defining custom types with temporal semantics:
-
-- Define structs, enums, unions, and type aliases
-- Track changes to type instances across cycles
-- Query the state of instances at any point in time
-- Build complex type hierarchies with nested types
-- Support for required fields, default values, and type constraints
-
-### Interpreter and Language Support
-
-A scripting language designed for temporal programming:
-
-- Chronovyan scripting language with temporal primitives
-- Native function integration for temporal operations
-- Support for user-defined types and custom semantics
-- Resource tracking and optimization
-
-## 🚀 Getting Started
-
-### Your First Chronovyan Program
-
-Create a file named `hello_time.cvy`:
-
-```chronovyan
-// A simple Chronovyan program
-IMPORT "chrono.core";
-
-DECLARE CONF main : WEAVE_PATTERN = define_pattern("hello_world", [
-    // Print a greeting
-    PRINT("Hello, Temporal World!");
-    
-    // Track time
-    DECLARE CONF now : TIMESTAMP = NOW();
-    PRINT("Current time: " + TO_STRING(now));
-    
-    // Return success
-    RETURN 0;
-]);
-```
-
-Compile and run:
-
-```bash
-# Compile
-chronovyan_compiler hello_time.cvy -o hello_time
-
-# Run
-./hello_time
-```
-
-## 🧪 Testing
-
-### Running Tests
-
-```bash
-# Run all tests
-ctest
-
-# Run specific test suite
-./tests/temporal_map_test
-
-# Run with verbose output
-ctest --output-on-failure
-```
-
-### Running Examples
-
-Explore the examples directory for various use cases:
+*"The past is written, the future is in flux, but the present is where we weave our destiny."* - The First Weaver
 
 ```bash
 # List available examples
