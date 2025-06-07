@@ -1,54 +1,80 @@
 # Core Concepts
 
-This section covers the fundamental concepts behind Chronovyan and how they work together.
+Welcome to the core concepts of Chronovyan, a statically-typed temporal programming language. This section covers the fundamental principles that make Chronovyan unique and powerful.
 
 ## Table of Contents
 
-- [Timelines](#timelines)
-- [Events](#events)
-- [Callbacks](#callbacks)
-- [Synchronization](#synchronization)
-- [Time Management](#time-management)
+- [Temporal Programming](temporal_programming.md)
+  - [The Great Duality](#the-great-duality)
+  - [Temporal Resources](#temporal-resources)
+  - [Temporal Safety](#temporal-safety)
+- [Resource Management](resource_management.md)
+  - [Chronon](#chronon)
+  - [Aethel](#aethel)
+  - [Allocation Strategies](#allocation-strategies)
+- [Concurrency Model](concurrency.md)
+  - [Threading](#threading-model)
+  - [Synchronization](#synchronization-primitives)
+  - [Temporal Consistency](#temporal-consistency)
 
-## Timelines
+## The Great Duality
 
-A `Timeline` is the central concept in Chronovyan. It represents a sequence of events that occur over time. You can think of it as a timeline where events are scheduled to happen at specific times.
+Chronovyan is built around two fundamental principles that govern all temporal operations:
 
-Key features of Timelines:
+1. **Order (Conformity)**
+   - Stability and predictability
+   - Enforced through `CONF` variables and `::STATIC` flags
+   - Ensures deterministic behavior
 
-- **Ordered Execution**: Events are executed in chronological order
-- **Time Management**: Supports both relative and absolute timing
-- **Thread Safety**: Can be accessed from multiple threads safely
+2. **Flux (Rebellion)**
+   - Dynamic adaptation and change
+   - Enabled by `REB` variables and `::FLUX` flags
+   - Allows for temporal manipulation
 
-## Events
+## Temporal Resources
 
-Events are the building blocks of Chronovyan programs. They represent something that happens at a specific point in time.
+### Chronon
+- Basic quantum of time
+- Represents discrete moments in the timeline
+- Used for scheduling and ordering events
 
-Types of events:
+### Aethel
+- Temporal energy resource
+- Consumed by temporal operations
+- Must be managed to prevent paradoxes
 
-1. **Basic Events**: Simple events with a name and optional data
-2. **Timed Events**: Events that occur after a delay or at a specific time
-3. **Recurring Events**: Events that repeat at regular intervals
+## Memory Management
 
-## Callbacks
+Chronovyan provides several memory management strategies:
 
-Callbacks are functions that get called when an event occurs. They allow you to execute custom code in response to events.
+1. **Static Allocation**
+   - Fixed at compile-time
+   - Most efficient for known sizes
 
-Example:
+2. **Dynamic Allocation**
+   - Flexible runtime allocation
+   - Requires explicit management
 
-```python
-def on_event(event):
-    print(f"Event occurred: {event.name}")
+3. **Pooled Allocation**
+   - Pre-allocated resource pools
+   - Reduces allocation overhead
 
-event = cv.Event("Test Event", on_trigger=on_event)
-```
+## Concurrency Model
 
-## Synchronization
+Chronovyan's concurrency model is designed to handle temporal operations safely and efficiently:
 
-Chronovyan provides tools for synchronizing events across different parts of your application:
+- **Temporal Threads**: Lightweight, cooperative threads
+- **Worker Pools**: For CPU-bound operations
+- **Channels**: Thread-safe communication
+- **Synchronization Primitives**: Locks, barriers, and conditions
 
-- **Barriers**: Synchronize multiple timelines
-- **Conditions**: Wait for specific conditions to be met
+## Getting Started
+
+Ready to dive deeper? Explore the following sections:
+
+- [Temporal Programming](temporal_programming.md): Learn about time as a first-class citizen
+- [Resource Management](resource_management.md): Master Chronon and Aethel
+- [Concurrency](concurrency.md): Understand parallel execution in Chronovyan
 - **Locks**: Protect shared resources
 
 ## Time Management

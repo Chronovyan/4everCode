@@ -1,6 +1,6 @@
 <div class="mdx-hero" style="text-align: center; margin: 2em 0 4em 0;">
     <h1>⏳ Chronovyan</h1>
-    <p class="lead">A temporal programming language for weaving narratives across time</p>
+    <p class="lead">A C++ temporal programming language for time-aware applications</p>
     <p>
         <a href="getting-started/installation/" class="md-button md-button--primary">
             Get Started
@@ -16,46 +16,108 @@
 <div class="grid cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2em 0;">
 
 - **Temporal Programming**
-  - Work with time as a first-class construct
-  - Schedule and manage events with precision
-  - Control the flow of time in your applications
+  - First-class time types and operations
+  - Native support for temporal logic
+  - Deterministic execution model
 
-- **Powerful API**
-  - Intuitive and Pythonic interface
-  - Thread-safe design
-  - Extensible architecture
+- **Resource Management**
+  - Built-in tracking of temporal resources
+  - Efficient `Chronon` and `Aethel` management
+  - Predictable resource allocation
 
-- **Comprehensive Documentation**
-  - Getting started guides
-  - API reference
-  - Practical examples
+- **Powerful Type System**
+  - Static typing with type inference
+  - Temporal type safety
+  - Extensible type system
 
 </div>
 
 ## 📖 Quick Start
 
-1. **Install Chronovyan**
+1. **Build Chronovyan**
    ```bash
-   pip install chronovyan
+   # Clone the repository
+   git clone https://github.com/Chronovyan/Chronovyan.git
+   cd Chronovyan
+   
+   # Configure and build
+   mkdir build && cd build
+   cmake ..
+   make
    ```
 
-2. **Create your first timeline**
-   ```python
-   from chronovyan import Timeline, Event
+2. **Your First Chronovyan Program**
+   ```chronovyan
+   // hello_world.cvy
+   MODULE hello_world;
    
-   def log_event(data):
-       print(f"[{timeline.current_time:.2f}s] {data}")
+   IMPORT std.io;
    
-   # Create and run a timeline
-   timeline = Timeline()
-   timeline.add_event(Event(1.0, log_event, "Hello, Chronovyan!"))
-   timeline.run()
+   FUNC VOID main() {
+       io::println("Hello, Chronovyan!");
+       
+       // Basic temporal operation
+       DECLARE CONF::STATIC start_time = NOW();
+       DELAY 1.0s;  // Wait for 1 second
+       DECLARE CONF::STATIC end_time = NOW();
+       
+       io::println("Elapsed: ", (end_time - start_time), " seconds");
+   }
    ```
 
-3. **Explore the documentation**
+3. **Explore the Documentation**
    - [Installation Guide](getting-started/installation.md)
-   - [First Steps](getting-started/first-steps.md)
+   - [Language Reference](reference/syntax.md)
    - [Examples](examples.md)
+
+## Chronovyan: Temporal Programming Redefined
+
+Chronovyan is a statically-typed, temporal programming language designed for building robust and efficient time-aware applications. It introduces first-class concepts of time, temporal resources, and timeline management, making it ideal for simulations, event-driven systems, and any application where time is a critical component.
+
+## Core Philosophy
+
+Chronovyan is built around the concept of **Temporal Programming**, where time is a first-class citizen. The language is designed with two fundamental principles:
+
+1. **Order (Conformity)**: For stability and predictability
+2. **Flux (Rebellion)**: For dynamic adaptation and temporal manipulation
+
+## Key Features
+
+- **Temporal Types**: Native support for time points, durations, and intervals
+- **Resource Management**: Built-in tracking of temporal resources (`Chronon` and `Aethel`)
+- **Deterministic Execution**: Predictable behavior for time-dependent operations
+- **Concurrency Model**: Safe and efficient handling of temporal concurrency
+- **Type Safety**: Strong static typing with type inference
+
+## Getting Started
+
+- [Installation Guide](getting-started/installation.md)
+- [Quick Start](getting-started/quickstart.md)
+- [Examples](examples.md)
+
+## Core Concepts
+
+- [Temporal Programming](concepts/temporal_programming.md)
+- [Resource Management](concepts/resource_management.md)
+- [Concurrency Model](concepts/concurrency.md)
+
+## Language Reference
+
+- [Syntax](reference/syntax.md)
+- [Types](reference/types.md)
+- [Standard Library](reference/stdlib/index.md)
+
+## Development
+
+- [Building from Source](development/building.md)
+- [Contributing](CONTRIBUTING.md)
+- [Roadmap](ROADMAP.md)
+
+## Community
+
+- [GitHub Repository](https://github.com/yourusername/chronovyan)
+- [Issue Tracker](https://github.com/yourusername/chronovyan/issues)
+- [Discussions](https://github.com/yourusername/chronovyan/discussions)
 
 ## 🎯 Use Cases
 

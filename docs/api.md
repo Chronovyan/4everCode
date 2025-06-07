@@ -11,44 +11,89 @@ description: Comprehensive API documentation for Chronovyan
 
 ```python
 class Timeline:
-    """A timeline manages and executes events in temporal order.
+    """A sequence of events that occur over time.
     
-    The Timeline class is the main interface for scheduling and running events.
-    It maintains a queue of events and processes them in chronological order.
+    The Timeline class allows you to schedule events to occur at specific times
+    or after specific delays, and then run them in the correct order.
     """
     
     def __init__(self):
-        """Initialize a new Timeline instance."""
+        """Initialize a new, empty timeline."""
         ...
     
-    def add_event(self, event: Event) -> None:
+    def add_event(self, event: 'Event', delay: float = 0.0) -> None:
         """Add an event to the timeline.
         
         Args:
-            event: The Event instance to add to the timeline.
-            
-        Raises:
-            ValueError: If the event is already added to a timeline.
+            event: The event to add
+            delay: Number of seconds to wait before the event occurs
         """
         ...
     
-    def run(self, until: Optional[float] = None) -> None:
+    def run(self, max_time: Optional[float] = None) -> None:
         """Run the timeline, executing events in order.
         
         Args:
-            until: Optional timestamp to run until. If None, runs until no events remain.
+            max_time: Maximum time to run the timeline (in seconds).
+                     If None, runs until all events are processed.
         """
         ...
     
+    def pause(self) -> None:
+        """Pause the timeline."""
+        ...
+    
+    def resume(self) -> None:
+        """Resume a paused timeline."""
+        ...
+    
     def stop(self) -> None:
-        """Stop the timeline execution."""
+        """Stop the timeline immediately."""
+        ...
+    
+    @property
+    def is_running(self) -> bool:
+        """Check if the timeline is currently running."""
         ...
     
     @property
     def current_time(self) -> float:
-        """Get the current simulation time.
-        
-        Returns:
+        """Get the current simulation time (in seconds since start)."""
+        ...
+
+class Event:
+    """An event that can be scheduled on a timeline.
+    
+    Args:
+        name: A name for the event (for debugging and logging)
+        data: Optional data to associate with the event
+        on_trigger: Optional callback function to call when the event is triggered
+        delay: Optional delay in seconds before the event occurs
+    """
+    
+    def __init__(self, name: str, data: Any = None, 
+                 on_trigger: Optional[Callable[['Event'], None]] = None,
+                 delay: float = 0.0):
+        ...
+    
+    def trigger(self) -> None:
+        """Trigger the event, calling the on_trigger callback if set."""
+        ...
+    
+    @property
+    def is_triggered(self) -> bool:
+        """Check if the event has been triggered."""
+        ...
+    
+    @property
+    def timestamp(self) -> Optional[float]:
+        """Get the time when the event was triggered, or None if not triggered yet."""
+        ...
+    
+    @property
+    def age(self) -> Optional[float]:
+        """Get the time since the event was triggered, or None if not triggered yet."""
+        ...
             The current simulation time in seconds.
         """
         ...

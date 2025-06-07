@@ -12,43 +12,68 @@ description: Practical examples of using Chronovyan
 ```python
 from chronovyan import Timeline, Event
 
-def log_event(data):
-    print(f"[{timeline.current_time:.2f}s] {data}")
+# Create a callback function that will be called when events are triggered
+def log_event(event):
+    print(f"[{timeline.current_time:.2f}s] {event.name}: {event.data}")
 
 # Create a new timeline
 timeline = Timeline()
 
-# Add some events
-timeline.add_event(Event(1.0, log_event, "First event"))
-timeline.add_event(Event(3.0, log_event, "Second event"))
-timeline.add_event(Event(2.0, log_event, "Third event"))  # Will be reordered
+# Create events with names and data
+event1 = Event("first", "Hello, Chronovyan!", on_trigger=log_event)
+event2 = Event("second", "This is a test event", on_trigger=log_event)
+
+# Add events to the timeline with delays (in seconds)
+timeline.add_event(event1, delay=1.0)  # Trigger after 1 second
+timeline.add_event(event2, delay=3.0)  # Trigger after 3 seconds
 
 # Run the timeline
 timeline.run()
 
 # Output:
-# [1.00s] First event
-# [2.00s] Third event
-# [3.00s] Second event
+# [1.00s] first: Hello, Chronovyan!
+# [3.00s] second: This is a test event
 ```
 
-### Event Dependencies
+### Using Event Data and Callbacks
 
 ```python
 from chronovyan import Timeline, Event
 
-def setup_dependencies():
-    timeline = Timeline()
-    
-    def create_printer(msg):
-        def printer(_):
-            print(f"[{timeline.current_time:.2f}s] {msg}")
-        return printer
-    
-    # Create events with dependencies
-    event_a = Event(1.0, create_printer("Event A"))
-    event_b = Event(2.0, create_printer("Event B"))
-    
+# Create a timeline
+timeline = Timeline()
+
+# Define a more complex callback that uses event data
+def process_event(event):
+    print(f"[{timeline.current_time:.2f}s] Processing {event.name}")
+    if event.data:
+        print(f"  Data: {event.data}")
+    if event.is_triggered:
+        print(f"  This event was triggered at {event.timestamp}")
+
+# Create events with different data and callbacks
+start_event = Event("start", {"message": "Starting the process"}, on_trigger=process_event)
+progress_event = Event("progress", {"percent": 50}, on_trigger=process_event)
+complete_event = Event("complete", {"status": "success"}, on_trigger=process_event)
+
+# Schedule the events
+timeline.add_event(start_event, delay=0.5)      # After 0.5 seconds
+timeline.add_event(progress_event, delay=2.0)   # After 2 seconds
+# This event will be triggered immediately when the timeline starts
+immediate_event = Event("immediate", "This runs right away", on_trigger=process_event)
+timeline.add_event(immediate_event)
+
+# Run the timeline for 3 seconds
+timeline.run(max_time=3.0)
+
+# Output:
+# [0.00s] Processing immediate
+#   Data: This runs right away
+# [0.50s] Processing start
+#   Data: {'message': 'Starting the process'}
+# [2.00s] Processing progress
+#   Data: {'percent': 50}
+```
     # Event C depends on A and B
     def event_c_callback(_):
         print(f"[{timeline.current_time:.2f}s] Event C (depends on A & B)")
@@ -67,6 +92,110 @@ timeline.run()
 ```
 
 ## Advanced Usage
+
+### Event Chaining
+
+```python
+from chronovyan import Timeline, Event
+
+# Create a timeline
+timeline = Timeline()
+
+def create_chained_events():
+    """Create a sequence of events where each triggers the next."""
+    
+    def create_callback(name, next_event=None):
+        def callback(event):
+            print(f"[{timeline.current_time:.2f}s] {event.name}: {event.data}")
+            if next_event and not next_event.is_triggered:
+                next_event.trigger()
+        return callback
+    
+    # Create events in reverse order
+    event_c = Event("event_c", "Third in sequence", on_trigger=create_callback("Third"))
+    event_b = Event("event_b", "Second in sequence", on_trigger=create_callback("Second", event_c))
+    event_a = Event("event_a", "First in sequence", on_trigger=create_callback("First", event_b))
+    
+    return event_a
+
+# Get the first event in the chain
+first_event = create_chained_events()
+
+# Schedule the first event to run after 1 second
+timeline.add_event(first_event, delay=1.0)
+
+# Run the timeline
+timeline.run()
+
+# Output:
+# [1.00s] First: First in sequence
+# [1.00s] Second: Second in sequence
+# [1.00s] Third: Third in sequence
+```
+
+### Error Handling in Events
+
+```python
+from chronovyan import Timeline, Event
+
+# Create a timeline
+timeline = Timeline()
+
+def error_handler(event, exception):
+    print(f"Error in {event.name}: {exception}")
+
+def risky_operation(event):
+    if "error" in str(event.data).lower():
+        raise ValueError(f"Error processing {event.data}")
+    print(f"Successfully processed: {event.data}")
+
+# Create events with potential errors
+event1 = Event("safe_event", "This will work", on_trigger=risky_operation)
+event2 = Event("error_event", "This will cause an error", on_trigger=risky_operation)
+event2.on_error = error_handler  # Attach error handler
+
+# Schedule the events
+timeline.add_event(event1, delay=0.5)
+timeline.add_event(event2, delay=1.5)
+
+# Run the timeline
+try:
+    timeline.run()
+except Exception as e:
+    print(f"Timeline stopped due to: {e}")
+
+# Output:
+# [0.50s] Successfully processed: This will work
+# [1.50s] Error in error_event: Error processing This will cause an error
+```
+
+### Using max_time to Limit Execution
+
+```python
+from chronovyan import Timeline, Event
+
+# Create a timeline
+timeline = Timeline()
+
+def periodic_event(event):
+    print(f"[{timeline.current_time:.2f}s] Periodic event")
+    # Reschedule this event
+    timeline.add_event(Event("periodic", on_trigger=periodic_event), delay=1.0)
+
+# Start periodic events
+timeline.add_event(Event("start", on_trigger=periodic_event))
+
+# Run for 3.5 seconds
+print("Running for 3.5 seconds...")
+timeline.run(max_time=3.5)
+
+# Output:
+# [0.00s] Periodic event
+# [1.00s] Periodic event
+# [2.00s] Periodic event
+# [3.00s] Periodic event
+# Timeline stopped at 3.50s
+```
 
 ### Periodic Events
 
@@ -166,67 +295,112 @@ run_requests().run()
 
 ### Game Loop Simulation
 
+Here's a complete turn-based game example using Chronovyan's event system:
+
 ```python
 from chronovyan import Timeline, Event
 import random
 
-class Game:
+class SimpleGame:
     def __init__(self):
         self.timeline = Timeline()
         self.player_health = 100
         self.enemy_health = 100
         self.game_over = False
     
-    def player_attack(self, _):
+    def log_status(self):
+        """Print the current game status."""
+        print(f"\n--- Status ---")
+        print(f"Player Health: {self.player_health}")
+        print(f"Enemy Health: {self.enemy_health}")
+    
+    def player_turn(self, event):
+        """Handle the player's turn."""
         if self.game_over:
             return
             
+        self.log_status()
+        print("\n--- Player's Turn ---")
+        
+        # Player's attack
         damage = random.randint(5, 15)
         self.enemy_health -= damage
-        print(f"Player attacks! Dealt {damage} damage. Enemy health: {max(0, self.enemy_health)}")
+        print(f"You hit the enemy for {damage} damage!")
         
+        # Check for victory
         if self.enemy_health <= 0:
-            print("Player wins!")
+            self.enemy_health = 0
+            self.log_status()
+            print("\n🎉 You defeated the enemy!")
             self.game_over = True
             self.timeline.stop()
-        else:
-            # Schedule enemy's turn
-            self.timeline.add_event(Event(
-                self.timeline.current_time + 1.0,
-                self.enemy_attack
-            ))
+            return
+        
+        # Schedule enemy's turn after a delay
+        self.timeline.add_event(
+            Event("enemy_turn", on_trigger=self.enemy_turn),
+            delay=1.5
+        )
     
-    def enemy_attack(self, _):
+    def enemy_turn(self, event):
+        """Handle the enemy's turn."""
         if self.game_over:
             return
             
+        self.log_status()
+        print("\n--- Enemy's Turn ---")
+        
+        # Enemy's attack
         damage = random.randint(3, 12)
         self.player_health -= damage
-        print(f"Enemy attacks! Dealt {damage} damage. Your health: {max(0, self.player_health)}")
+        print(f"The enemy hits you for {damage} damage!")
         
+        # Check for defeat
         if self.player_health <= 0:
-            print("Game Over! You were defeated.")
+            self.player_health = 0
+            self.log_status()
+            print("\n💀 You were defeated!")
             self.game_over = True
             self.timeline.stop()
-        else:
-            # Schedule player's turn
-            print("\nYour turn! Press Enter to attack...")
-            # In a real game, you'd wait for player input here
-            # For this example, we'll automatically attack after a delay
-            self.timeline.add_event(Event(
-                self.timeline.current_time + 0.5,
-                self.player_attack
-            ))
+            return
+        
+        # Schedule player's next turn after a delay
+        self.timeline.add_event(
+            Event("player_turn", on_trigger=self.player_turn),
+            delay=1.5
+        )
     
     def start(self):
-        print("Game started! It's your turn first.")
-        self.timeline.add_event(Event(0.0, self.player_attack))
-        self.timeline.run()
+        """Start the game."""
+        print("=== Simple Combat Game ===")
+        print("Defeat the enemy before they defeat you!")
+        
+        # Start with player's turn
+        self.timeline.add_event(
+            Event("start_game", on_trigger=self.player_turn),
+            delay=1.0
+        )
+        
+        # Run the game
+        try:
+            self.timeline.run()
+        except KeyboardInterrupt:
+            print("\nGame stopped by user.")
+        finally:
+            print("\nThanks for playing!")
 
 # Start the game
-game = Game()
-game.start()
+if __name__ == "__main__":
+    game = SimpleGame()
+    game.start()
 ```
+
+This example demonstrates a complete turn-based combat game where:
+1. The player and enemy take turns attacking each other
+2. Each turn is scheduled with a delay for better readability
+3. The game ends when either the player or enemy's health reaches zero
+4. Status is displayed after each turn
+5. The game can be safely interrupted with Ctrl+C
 
 ## Performance Considerations
 
