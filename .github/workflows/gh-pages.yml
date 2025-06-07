@@ -12,8 +12,9 @@ on:
       - '.github/workflows/gh-pages.yml'
   workflow_dispatch:  # Allow manual triggering
 
+# Set permissions for the workflow
 permissions:
-  contents: read
+  contents: write  # Needed to push to the gh-pages branch
   pages: write
   id-token: write
 
@@ -23,8 +24,11 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -51,23 +55,10 @@ jobs:
       - name: Build
         run: mkdocs build --verbose
       
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './site'
-  
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-      
-      - name: Show deployment status
-        run: |
-          echo "Deployment URL: ${{ steps.deployment.outputs.page_url }}"
-          echo "Deployment status: ${{ steps.deployment.outputs.deployment_status }}"
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages  # The branch the action should deploy to
+          folder: site  # The folder the action should deploy
+          clean: true  # Automatically remove deleted files from the deploy branch
+          token: ${{ secrets.GITHUB_TOKEN }}  # Token for the deployment
