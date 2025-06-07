@@ -2,9 +2,9 @@ name: Deploy MkDocs to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [ gh-pages-new ]
   pull_request:
-    branches: [ main ]
+    branches: [ gh-pages-new ]
   workflow_dispatch:
 
 permissions:
