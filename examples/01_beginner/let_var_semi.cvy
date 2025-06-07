@@ -1,0 +1,3 @@
+// Variable with let keyword and semicolons
+let message = "Hello, Chronovyan!";
+print(message); 

@@ -1,0 +1,102 @@
+// Rule 110 Cellular Automaton Simulation (ASCII Version)
+// This program simulates the Rule 110 cellular automaton
+// and displays the results using ASCII characters.
+
+// Constants for the simulation
+DECLARE World_Width = 31;         // Width of the cellular automaton world
+DECLARE Generations = 20;         // Number of generations to simulate
+DECLARE Initial_Cell = 15;        // Position of the initial live cell (middle)
+
+// Initialize the first generation with a single live cell in the middle
+DECLARE current_generation = "";
+ANTECEDENCE {
+    // Create initial generation with a single live cell
+    DECLARE i = 0;
+    WHILE (i < World_Width) {
+        IF (i == Initial_Cell) {
+            current_generation = current_generation + "#";
+        } ELSE {
+            current_generation = current_generation + " ";
+        }
+        i = i + 1;
+    }
+    
+    // Display the initial generation
+    PRINT("Rule 110 Cellular Automaton Simulation");
+    PRINT("====================================");
+    PRINT("");
+    PRINT("Generation 0: " + current_generation);
+    
+    // Run the simulation for specified number of generations
+    DECLARE gen = 1;
+    WHILE (gen <= Generations) {
+        DECLARE next_generation = "";
+        DECLARE j = 0;
+        
+        WHILE (j < World_Width) {
+            // Get the states of the left, center, and right cells
+            DECLARE left = " ";
+            DECLARE center = " ";
+            DECLARE right = " ";
+            
+            // Handle left edge (wrap around)
+            IF (j == 0) {
+                left = current_generation.charAt(World_Width - 1);
+            } ELSE {
+                left = current_generation.charAt(j - 1);
+            }
+            
+            center = current_generation.charAt(j);
+            
+            // Handle right edge (wrap around)
+            IF (j == World_Width - 1) {
+                right = current_generation.charAt(0);
+            } ELSE {
+                right = current_generation.charAt(j + 1);
+            }
+            
+            // Apply Rule 110 logic:
+            // 111 -> 0
+            // 110 -> 1
+            // 101 -> 1
+            // 100 -> 0
+            // 011 -> 1
+            // 010 -> 1
+            // 001 -> 1
+            // 000 -> 0
+            
+            IF (left == "#" && center == "#" && right == "#") {
+                next_generation = next_generation + " ";  // 111 -> 0
+            } ELSE IF (left == "#" && center == "#" && right == " ") {
+                next_generation = next_generation + "#";  // 110 -> 1
+            } ELSE IF (left == "#" && center == " " && right == "#") {
+                next_generation = next_generation + "#";  // 101 -> 1
+            } ELSE IF (left == "#" && center == " " && right == " ") {
+                next_generation = next_generation + " ";  // 100 -> 0
+            } ELSE IF (left == " " && center == "#" && right == "#") {
+                next_generation = next_generation + "#";  // 011 -> 1
+            } ELSE IF (left == " " && center == "#" && right == " ") {
+                next_generation = next_generation + "#";  // 010 -> 1
+            } ELSE IF (left == " " && center == " " && right == "#") {
+                next_generation = next_generation + "#";  // 001 -> 1
+            } ELSE {
+                next_generation = next_generation + " ";  // 000 -> 0
+            }
+            
+            j = j + 1;
+        }
+        
+        // Update current generation and display it
+        current_generation = next_generation;
+        PRINT("Generation " + gen + ": " + current_generation);
+        
+        gen = gen + 1;
+    }
+}
+
+CONSEQUENCE {
+    PRINT("");
+    PRINT("Simulation complete.");
+    PRINT("Rule 110 is known to be Turing-complete,");
+    PRINT("which means it can compute any computable function.");
+} 

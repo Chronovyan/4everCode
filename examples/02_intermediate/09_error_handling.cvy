@@ -1,0 +1,217 @@
+// Chronovyan Learning Example: Temporal Anomaly Detection
+// Difficulty: Intermediate
+// Concepts: Error handling, try-catch blocks, error types, graceful recovery
+//
+// This example demonstrates how to detect and handle errors that might occur
+// when working with potentially unstable temporal data in Chronovya. These
+// techniques are essential for building robust systems that can recover from
+// unexpected conditions.
+
+// Initialize the temporal scanner system
+temporal_scanner = new TemporalScanner()
+anomaly_log = []
+
+print_to_cora("Initializing Temporal Anomaly Detection System...")
+print_to_cora("Scanning local region for potential disturbances...")
+
+// Function to safely perform a temporal scan with error handling
+function perform_safe_scan(location_name, scan_depth) {
+    print_to_cora("Scanning location: " + location_name + " (Depth: " + scan_depth + ")")
+    
+    try {
+        // Attempt to scan the location (this might throw various errors)
+        scan_result = temporal_scanner.scan_location(location_name, scan_depth)
+        print_to_cora("Scan successful! Stability index: " + scan_result.stability_index)
+        return scan_result
+    } catch (TimelineCollapseError e) {
+        // Critical error - scan attempted to access a collapsed timeline
+        print_to_cora("ERROR: Timeline collapse detected at " + location_name)
+        print_to_cora("Error details: " + e.message)
+        log_anomaly(location_name, "CRITICAL", "Timeline collapse", e.message)
+        return null
+    } catch (TemporalDisruptionError e) {
+        // Serious error - temporal readings are too unstable to process
+        print_to_cora("ERROR: Temporal disruption at " + location_name)
+        print_to_cora("Error details: " + e.message)
+        log_anomaly(location_name, "HIGH", "Temporal disruption", e.message)
+        
+        // Try again with a lower scan depth as recovery strategy
+        if (scan_depth > 1) {
+            print_to_cora("Attempting recovery with reduced scan depth...")
+            return perform_safe_scan(location_name, scan_depth - 1)
+        }
+        return null
+    } catch (DataCorruptionError e) {
+        // Moderate error - scan data was corrupted
+        print_to_cora("ERROR: Data corruption in scan of " + location_name)
+        print_to_cora("Error details: " + e.message)
+        log_anomaly(location_name, "MEDIUM", "Data corruption", e.message)
+        
+        // Try to repair the data if possible
+        try {
+            print_to_cora("Attempting data recovery...")
+            repaired_data = temporal_scanner.repair_data(e.corrupted_data)
+            print_to_cora("Data recovery successful!")
+            return repaired_data
+        } catch (Error repair_error) {
+            print_to_cora("Data recovery failed: " + repair_error.message)
+            return null
+        }
+    } catch (Error e) {
+        // Generic error handler for any other unexpected errors
+        print_to_cora("ERROR: Unexpected issue during scan of " + location_name)
+        print_to_cora("Error type: " + e.name)
+        print_to_cora("Error details: " + e.message)
+        log_anomaly(location_name, "UNKNOWN", e.name, e.message)
+        return null
+    } finally {
+        // This code always runs, regardless of whether there was an error
+        print_to_cora("Scan operation complete for " + location_name)
+        print_to_cora("Scanner diagnostics: " + temporal_scanner.get_status())
+    }
+}
+
+// Helper function to log anomalies
+function log_anomaly(location, severity, type, details) {
+    timestamp = new Date().toISOString()
+    anomaly_record = {
+        "timestamp": timestamp,
+        "location": location,
+        "severity": severity,
+        "type": type,
+        "details": details
+    }
+    anomaly_log.push(anomaly_record)
+    print_to_cora("Anomaly logged with ID: " + (anomaly_log.length - 1))
+}
+
+// Function to summarize the anomaly log
+function summarize_anomalies() {
+    if (anomaly_log.length == 0) {
+        print_to_cora("No anomalies detected in this scan session.")
+        return
+    }
+    
+    print_to_cora("------ ANOMALY SUMMARY ------")
+    print_to_cora("Total anomalies detected: " + anomaly_log.length)
+    
+    // Count anomalies by severity
+    critical_count = 0
+    high_count = 0
+    medium_count = 0
+    low_count = 0
+    unknown_count = 0
+    
+    for (i = 0; i < anomaly_log.length; i++) {
+        anomaly = anomaly_log[i]
+        if (anomaly.severity == "CRITICAL") critical_count++
+        else if (anomaly.severity == "HIGH") high_count++
+        else if (anomaly.severity == "MEDIUM") medium_count++
+        else if (anomaly.severity == "LOW") low_count++
+        else unknown_count++
+    }
+    
+    print_to_cora("CRITICAL: " + critical_count)
+    print_to_cora("HIGH: " + high_count)
+    print_to_cora("MEDIUM: " + medium_count)
+    print_to_cora("LOW: " + low_count)
+    print_to_cora("UNKNOWN: " + unknown_count)
+    
+    // Provide recommendations based on severity levels
+    if (critical_count > 0) {
+        print_to_cora("RECOMMENDATION: Immediate evacuation of affected areas.")
+        print_to_cora("Temporal collapse is imminent in regions with CRITICAL anomalies.")
+    } else if (high_count > 0) {
+        print_to_cora("RECOMMENDATION: Restrict access to affected locations.")
+        print_to_cora("Deploy temporal stabilizers at HIGH severity anomaly sites.")
+    } else if (medium_count > 0) {
+        print_to_cora("RECOMMENDATION: Regular monitoring of affected locations.")
+        print_to_cora("Prepare containment protocols for MEDIUM severity anomalies.")
+    } else {
+        print_to_cora("RECOMMENDATION: Standard logging and observation.")
+    }
+}
+
+// Perform scans of different locations with varying scan depths
+scan_result1 = perform_safe_scan("Ancient Temple", 3)
+scan_result2 = perform_safe_scan("Crystal Cavern", 2)
+scan_result3 = perform_safe_scan("Rift Valley", 4)
+scan_result4 = perform_safe_scan("Observatory Ruins", 2)
+
+// Process valid scan results
+valid_scans = []
+if (scan_result1 != null) valid_scans.push(scan_result1)
+if (scan_result2 != null) valid_scans.push(scan_result2)
+if (scan_result3 != null) valid_scans.push(scan_result3)
+if (scan_result4 != null) valid_scans.push(scan_result4)
+
+// Analyze the results of successful scans
+if (valid_scans.length > 0) {
+    print_to_cora("------ SUCCESSFUL SCAN ANALYSIS ------")
+    print_to_cora("Successfully completed " + valid_scans.length + " out of 4 scans.")
+    
+    // Find the most stable location
+    most_stable = valid_scans[0]
+    for (i = 1; i < valid_scans.length; i++) {
+        if (valid_scans[i].stability_index > most_stable.stability_index) {
+            most_stable = valid_scans[i]
+        }
+    }
+    
+    print_to_cora("Most stable location: " + most_stable.location)
+    print_to_cora("Stability index: " + most_stable.stability_index)
+    print_to_cora("RECOMMENDATION: Establish temporal anchor at this location.")
+} else {
+    print_to_cora("No successful scans completed. Region is highly unstable.")
+    print_to_cora("RECOMMENDATION: Retreat to previous safe zone immediately.")
+}
+
+// Generate final summary report
+summarize_anomalies()
+
+// Expected Output:
+// (Note: Actual output will vary depending on simulated errors from the scanner)
+//
+// Initializing Temporal Anomaly Detection System...
+// Scanning local region for potential disturbances...
+// Scanning location: Ancient Temple (Depth: 3)
+// Scan successful! Stability index: 78.5
+// Scan operation complete for Ancient Temple
+// Scanner diagnostics: OPERATIONAL
+// Scanning location: Crystal Cavern (Depth: 2)
+// ERROR: Data corruption in scan of Crystal Cavern
+// Error details: Quantum fluctuation corrupted 24% of scan data
+// Anomaly logged with ID: 0
+// Attempting data recovery...
+// Data recovery successful!
+// Scan operation complete for Crystal Cavern
+// Scanner diagnostics: OPERATIONAL - MINOR RECALIBRATION NEEDED
+// Scanning location: Rift Valley (Depth: 4)
+// ERROR: Temporal disruption at Rift Valley
+// Error details: Severe temporal instability detected. Scan depth too high.
+// Anomaly logged with ID: 1
+// Attempting recovery with reduced scan depth...
+// Scanning location: Rift Valley (Depth: 3)
+// Scan successful! Stability index: 42.3
+// Scan operation complete for Rift Valley
+// Scanner diagnostics: OPERATIONAL - COOLDOWN RECOMMENDED
+// Scanning location: Observatory Ruins (Depth: 2)
+// ERROR: Timeline collapse detected at Observatory Ruins
+// Error details: Fatal discontinuity in timeline structure. Location temporally unstable.
+// Anomaly logged with ID: 2
+// Scan operation complete for Observatory Ruins
+// Scanner diagnostics: OPERATIONAL - EXTENDED COOLDOWN REQUIRED
+// ------ SUCCESSFUL SCAN ANALYSIS ------
+// Successfully completed 3 out of 4 scans.
+// Most stable location: Ancient Temple
+// Stability index: 78.5
+// RECOMMENDATION: Establish temporal anchor at this location.
+// ------ ANOMALY SUMMARY ------
+// Total anomalies detected: 3
+// CRITICAL: 1
+// HIGH: 1
+// MEDIUM: 1
+// LOW: 0
+// UNKNOWN: 0
+// RECOMMENDATION: Immediate evacuation of affected areas.
+// Temporal collapse is imminent in regions with CRITICAL anomalies. 

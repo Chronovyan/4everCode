@@ -1,0 +1,153 @@
+// Chronovyan Example: Core Regulation Protocol
+// Difficulty: Beginner
+// Concepts: Conditional statements (if/else if/else), logical operators, function definition
+// Related Quest: Power Fluctuations (Act I, Chapter 2)
+
+//------------------------------------------------------------------------------
+// CORA POWER MANAGEMENT: Core Regulation Protocol
+//------------------------------------------------------------------------------
+
+// Define power level thresholds as constants
+// These values represent percentage of CORA's power capacity
+var critical_low_threshold = 15     // Below this, only essential systems function
+var low_threshold = 30              // Below this, limited functionality
+var optimal_threshold = 75          // Below this, normal operation
+var high_threshold = 90             // Above this, potential overload
+var critical_high_threshold = 95    // Above this, dangerous overheating
+
+// Main function that regulates CORA's power systems based on current level
+// This demonstrates conditional logic with if/else if/else statements
+function regulate_cora_power(current_power_level) {
+    // First, validate the input to ensure it's a percentage between 0-100
+    if (current_power_level < 0 || current_power_level > 100) {
+        return "ERROR: Invalid power level. Must be between 0 and 100."
+    }
+    
+    // Handle critical low power - emergency mode
+    if (current_power_level <= critical_low_threshold) {
+        // Using AND (&&) logical operator to check multiple conditions
+        if (current_power_level > 0 && current_power_level <= 5) {
+            // Extreme emergency - shutdown imminent
+            CORA.set_operating_mode("emergency_minimal")
+            CORA.deactivate_systems(["holographic_display", "scanning", "analysis"])
+            CORA.activate_energy_absorption("maximum")
+            return "CRITICAL WARNING: Power critically low (" + current_power_level + "%). Emergency minimal mode activated. Shutdown imminent!"
+        } else {
+            // Critical but not immediate shutdown
+            CORA.set_operating_mode("minimal")
+            CORA.deactivate_systems(["holographic_display"])
+            CORA.activate_energy_absorption("high")
+            return "WARNING: Power critically low (" + current_power_level + "%). Minimal mode activated."
+        }
+    } 
+    // Handle low power - conservation mode
+    else if (current_power_level <= low_threshold) {
+        CORA.set_operating_mode("conservation")
+        CORA.dim_displays(50)
+        CORA.activate_energy_absorption("medium")
+        return "ALERT: Power low (" + current_power_level + "%). Conservation mode activated."
+    } 
+    // Handle normal operating range - standard mode
+    else if (current_power_level < high_threshold) {
+        // Using logical OR (||) to check if within optimal range
+        if (current_power_level >= optimal_threshold || current_power_level >= 65) {
+            CORA.set_operating_mode("standard")
+            CORA.restore_all_systems()
+            CORA.activate_energy_absorption("low")
+            return "STATUS: Power optimal (" + current_power_level + "%). Standard operation mode."
+        } else {
+            // Below optimal but not in danger
+            CORA.set_operating_mode("standard")
+            CORA.dim_displays(25)
+            CORA.activate_energy_absorption("medium")
+            return "STATUS: Power adequate (" + current_power_level + "%). Standard mode with conservation measures."
+        }
+    } 
+    // Handle high power - potential overload
+    else if (current_power_level < critical_high_threshold) {
+        CORA.set_operating_mode("high_energy")
+        CORA.allocate_excess_power("scanning_range_increase")
+        CORA.activate_energy_absorption("off")
+        return "NOTICE: Power high (" + current_power_level + "%). Enhanced functionality available."
+    } 
+    // Handle critical high power - danger of overload
+    else {
+        CORA.set_operating_mode("overload_prevention")
+        CORA.vent_excess_energy()
+        CORA.activate_energy_absorption("off")
+        return "WARNING: Power critically high (" + current_power_level + "%). Venting excess energy to prevent damage."
+    }
+}
+
+// A second function that provides a simplified status message based on power level
+// This demonstrates combining conditions with logical operators
+function get_power_status(power_level) {
+    if (power_level <= critical_low_threshold) {
+        return "CRITICAL LOW"
+    } else if (power_level <= low_threshold) {
+        return "LOW"
+    } else if (power_level >= critical_high_threshold) {
+        return "CRITICAL HIGH"
+    } else if (power_level >= high_threshold) {
+        return "HIGH"
+    } else if (power_level >= optimal_threshold) {
+        return "OPTIMAL"
+    } else {
+        return "ADEQUATE"
+    }
+}
+
+//------------------------------------------------------------------------------
+// EXAMPLE USAGE: Here's how to use the Core Regulation Protocol
+//------------------------------------------------------------------------------
+
+// Current power reading from CORA's systems
+var current_power = 22.5
+
+// First, get a simple status label
+var status_label = get_power_status(current_power)
+print_to_cora("CORA Power Status: " + status_label)
+
+// Then regulate power based on the current level
+var regulation_result = regulate_cora_power(current_power)
+print_to_cora(regulation_result)
+
+// We can also demonstrate with a different power level
+current_power = 82.7
+print_to_cora("\nSimulating power increase to " + current_power + "%")
+regulation_result = regulate_cora_power(current_power)
+print_to_cora(regulation_result)
+
+// Let's test with a critical high level
+current_power = 96.3
+print_to_cora("\nSimulating power spike to " + current_power + "%")
+regulation_result = regulate_cora_power(current_power)
+print_to_cora(regulation_result)
+
+//------------------------------------------------------------------------------
+// NOTES ON USAGE AND APPLICATION:
+//------------------------------------------------------------------------------
+// - This protocol uses if/else if/else statements to create different execution paths
+//   based on CORA's current power level
+// - Logical operators (&&, ||) allow for more complex condition testing
+// - Constants (threshold variables) make the code more readable and easier to modify
+// - Functions help organize code into reusable, focused units
+// - Return values provide feedback about the actions taken
+//
+// NEXT STEPS:
+// - Integrate this protocol with CORA's power monitoring system
+// - Create additional protocols for specific scenarios (e.g., power crystal absorption)
+// - Expand to handle automatic power regulation over time
+//------------------------------------------------------------------------------
+
+// Expected output:
+/*
+CORA Power Status: LOW
+ALERT: Power low (22.5%). Conservation mode activated.
+
+Simulating power increase to 82.7%
+NOTICE: Power high (82.7%). Enhanced functionality available.
+
+Simulating power spike to 96.3%
+WARNING: Power critically high (96.3%). Venting excess energy to prevent damage.
+*/ 

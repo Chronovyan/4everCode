@@ -1,0 +1,578 @@
+/**
+ * @file act2_ch1_ex2_harmonizing_interfaces.cvy
+ * @brief Chronovyan Example: Interface-Based Design
+ * @difficulty Intermediate
+ * @concepts Interface Definition, Implementation, Polymorphism, Type Checking, Type Casting
+ *
+ * This example demonstrates interface-based design in Chronovyan,
+ * showing how to define interfaces, implement them in different structures,
+ * use polymorphism to write flexible code, perform type checking and casting,
+ * and build systems with multiple interface implementations.
+ *
+ * @copyright Chronovyan Project
+ */
+
+// Import the standard Chronovyan library
+import stdlib.chronovyan;
+import stdlib.interfaces;
+
+// Created as part of Side Quest 2 for Act II, Chapter 1
+
+//===============================================================
+// Utility Functions
+//===============================================================
+
+/**
+ * Prints a formatted section header
+ * @param title The title of the section
+ */
+define_pattern print_section_header(title: String) {
+    print("\n========== " + title + " ==========\n");
+}
+
+//===============================================================
+// Part 1: Understanding Interfaces
+//===============================================================
+
+print_section_header("Interface Basics");
+
+/**
+ * Interface for power management components
+ * Defines a contract that all power sources must fulfill
+ */
+define_interface PowerSource {
+    // Methods that must be implemented
+    get_current_output(): Float;      // Returns current power output in units
+    get_maximum_capacity(): Float;    // Returns maximum power capacity
+    is_operational(): Boolean;        // Checks if the power source is functioning
+    
+    // Optional: Default implementation
+    get_efficiency(): Float {
+        // Default implementation calculates a basic efficiency metric
+        return get_current_output() / get_maximum_capacity();
+    }
+}
+
+/**
+ * A crystal power source implementation
+ * This structure must provide all methods required by the PowerSource interface
+ */
+define_structure CrystalPower implements PowerSource {
+    charge_level: Float,       // Current charge (0.0 to 1.0)
+    crystal_type: String,      // Type of crystal
+    max_output: Float,         // Maximum power output
+    damaged: Boolean,          // Whether the crystal is damaged
+    
+    // Required implementation of PowerSource interface
+    get_current_output(): Float {
+        return this.charge_level * this.max_output * (this.damaged ? 0.5 : 1.0);
+    },
+    
+    get_maximum_capacity(): Float {
+        return this.max_output;
+    },
+    
+    is_operational(): Boolean {
+        return this.charge_level > 0.1 && !this.damaged;
+    }
+    
+    // Note: We're using the default implementation for get_efficiency()
+}
+
+// Create and test crystal power sources
+CONF functional_crystal = {
+    charge_level: 0.75,
+    crystal_type: "Amber",
+    max_output: 100.0,
+    damaged: false
+};
+
+CONF damaged_crystal = {
+    charge_level: 0.60,
+    crystal_type: "Sapphire",
+    max_output: 120.0,
+    damaged: true
+};
+
+// Use the interface methods
+print("Functional Crystal Output: " + functional_crystal.get_current_output().toFixed(2) + " units");
+print("Functional Crystal Efficiency: " + (functional_crystal.get_efficiency() * 100).toFixed(2) + "%");
+print("Functional Crystal Operational: " + functional_crystal.is_operational());
+
+print("\nDamaged Crystal Output: " + damaged_crystal.get_current_output().toFixed(2) + " units");
+print("Damaged Crystal Efficiency: " + (damaged_crystal.get_efficiency() * 100).toFixed(2) + "%");
+print("Damaged Crystal Operational: " + damaged_crystal.is_operational());
+
+//===============================================================
+// Part 2: Multiple Implementations and Polymorphism
+//===============================================================
+
+print_section_header("Multiple Implementations and Polymorphism");
+
+/**
+ * A field generator implementation of PowerSource
+ * Different internal structure but implements the same interface
+ */
+define_structure FieldGenerator implements PowerSource {
+    field_strength: Float,     // Current field strength (0.0 to 10.0)
+    core_stability: Float,     // Core stability (0.0 to 1.0)
+    base_output: Float,        // Base power output
+    
+    // Required implementation of PowerSource interface
+    get_current_output(): Float {
+        return this.field_strength * this.base_output * this.core_stability;
+    },
+    
+    get_maximum_capacity(): Float {
+        return this.base_output * 10.0; // Maximum field strength is 10.0
+    },
+    
+    is_operational(): Boolean {
+        return this.core_stability > 0.4 && this.field_strength > 0.0;
+    },
+    
+    // Override the default implementation for efficiency
+    get_efficiency(): Float {
+        // Field generators have a different efficiency calculation
+        return (this.field_strength / 10.0) * this.core_stability;
+    }
+}
+
+// Create a field generator
+CONF generator = {
+    field_strength: 5.5,
+    core_stability: 0.85,
+    base_output: 75.0
+};
+
+/**
+ * A function that works with any PowerSource implementation
+ * Demonstrates polymorphism - code that works with different types
+ * through a common interface
+ */
+define_pattern report_power_status(power_source: PowerSource) {
+    print("Power Status Report:");
+    print("  Current Output: " + power_source.get_current_output().toFixed(2) + " units");
+    print("  Maximum Capacity: " + power_source.get_maximum_capacity().toFixed(2) + " units");
+    print("  Operational: " + power_source.is_operational());
+    print("  Efficiency: " + (power_source.get_efficiency() * 100).toFixed(2) + "%");
+}
+
+// Use the same function with different implementations
+print("Crystal Power Source:");
+report_power_status(functional_crystal);
+
+print("\nField Generator Power Source:");
+report_power_status(generator);
+
+// Demonstrate polymorphic collections
+CONF power_sources = [functional_crystal, damaged_crystal, generator];
+CONF total_available_power = 0;
+
+print("\nCalculating total available power across all sources:");
+for (CONF source in power_sources) {
+    if (source.is_operational()) {
+        total_available_power += source.get_current_output();
+        print("  Adding " + source.get_current_output().toFixed(2) + " units from operational source");
+    } else {
+        print("  Skipping non-operational source");
+    }
+}
+
+print("Total available power: " + total_available_power.toFixed(2) + " units");
+
+//===============================================================
+// Part 3: Interface Hierarchies
+//===============================================================
+
+print_section_header("Interface Hierarchies");
+
+/**
+ * Extended interface for advanced power sources
+ * Inherits all methods from PowerSource and adds new ones
+ */
+define_interface AdvancedPowerSource extends PowerSource {
+    // New methods in addition to those from PowerSource
+    get_estimated_lifetime(): Float;  // Estimated remaining operational time
+    can_be_recharged(): Boolean;      // Whether the source can be recharged
+    get_stability_factor(): Float;    // How stable the power output is (0.0-1.0)
+}
+
+/**
+ * A quantum battery implementing the advanced interface
+ * Must implement all methods from both PowerSource and AdvancedPowerSource
+ */
+define_structure QuantumBattery implements AdvancedPowerSource {
+    energy_level: Float,        // Current energy (0.0 to 1.0)
+    decay_rate: Float,          // Rate of energy decay per hour
+    capacity: Float,            // Maximum energy capacity
+    recharge_enabled: Boolean,  // Whether recharging is enabled
+    stability_matrix: Float,    // Stability of the quantum matrix (0.0-1.0)
+    
+    // Implement base PowerSource methods
+    get_current_output(): Float {
+        return this.energy_level * this.capacity;
+    },
+    
+    get_maximum_capacity(): Float {
+        return this.capacity;
+    },
+    
+    is_operational(): Boolean {
+        return this.energy_level > 0.05 && this.stability_matrix > 0.3;
+    },
+    
+    // Implement AdvancedPowerSource methods
+    get_estimated_lifetime(): Float {
+        // Calculate how many hours remain before energy falls below operational threshold
+        if (this.decay_rate <= 0) return 999999.0; // Effectively infinite
+        CONF remaining_energy = this.energy_level - 0.05; // Energy until non-operational
+        return remaining_energy / this.decay_rate;
+    },
+    
+    can_be_recharged(): Boolean {
+        return this.recharge_enabled && this.stability_matrix > 0.2;
+    },
+    
+    get_stability_factor(): Float {
+        return this.stability_matrix;
+    }
+}
+
+// Create a quantum battery
+CONF quantum_battery = {
+    energy_level: 0.92,
+    decay_rate: 0.01,
+    capacity: 500.0,
+    recharge_enabled: true,
+    stability_matrix: 0.78
+};
+
+// Define a function that works specifically with advanced power sources
+define_pattern advanced_power_report(power_source: AdvancedPowerSource) {
+    // First use the basic report function (showing polymorphism with inheritance)
+    report_power_status(power_source);
+    
+    // Then add the advanced information
+    print("Advanced Power Source Details:");
+    print("  Estimated Lifetime: " + power_source.get_estimated_lifetime().toFixed(2) + " hours");
+    print("  Rechargeable: " + power_source.can_be_recharged());
+    print("  Stability Factor: " + (power_source.get_stability_factor() * 100).toFixed(2) + "%");
+}
+
+// Use the advanced report function
+print("Quantum Battery Report:");
+advanced_power_report(quantum_battery);
+
+// This would cause an error if uncommented:
+// advanced_power_report(functional_crystal); // CrystalPower doesn't implement AdvancedPowerSource
+
+//===============================================================
+// Part 4: Type Checking and Type Casting
+//===============================================================
+
+print_section_header("Type Checking and Type Casting");
+
+// Add names to our components for better reporting
+functional_crystal.name = "Amber Crystal Matrix";
+damaged_crystal.name = "Damaged Sapphire Node";
+generator.name = "Temporal Field Generator";
+quantum_battery.name = "Quantum Matrix Battery";
+
+/**
+ * A function that safely works with any object
+ * Demonstrates type checking and casting
+ */
+define_pattern analyze_power_component(component: Any) {
+    print("\nAnalyzing component: " + (component.name || "Unnamed Component"));
+    
+    // Check if the component implements PowerSource
+    if (component is PowerSource) {
+        print("Component is a power source.");
+        CONF power_source = component as PowerSource;
+        print("Power output: " + power_source.get_current_output().toFixed(2) + " units");
+        
+        // Check if it's an advanced power source
+        if (component is AdvancedPowerSource) {
+            print("Component is an advanced power source.");
+            CONF advanced_source = component as AdvancedPowerSource;
+            print("Estimated lifetime: " + advanced_source.get_estimated_lifetime().toFixed(2) + " hours");
+            print("Stability factor: " + (advanced_source.get_stability_factor() * 100).toFixed(2) + "%");
+        } else {
+            print("Component is a basic power source.");
+        }
+        
+        // Operational status check
+        if (power_source.is_operational()) {
+            print("Component is operational and ready for integration.");
+        } else {
+            print("Component is currently non-operational and requires attention.");
+        }
+    } else {
+        print("Component is not a power source.");
+    }
+}
+
+// Analyze different components
+analyze_power_component(functional_crystal);
+analyze_power_component(damaged_crystal);
+analyze_power_component(generator);
+analyze_power_component(quantum_battery);
+
+// Analyze a non-power component
+CONF communication_module = {
+    name: "Subspace Communication Module",
+    status: "Online",
+    signal_strength: 0.85
+};
+analyze_power_component(communication_module);
+
+//===============================================================
+// Part 5: Multiple Interface Implementations
+//===============================================================
+
+print_section_header("Multiple Interface Implementations");
+
+/**
+ * Interface for sensor devices
+ */
+define_interface Sensor {
+    get_reading(): Float;             // Get the current sensor reading
+    get_unit(): String;               // Get the unit of measurement
+    is_calibrated(): Boolean;         // Check if the sensor is properly calibrated
+    get_accuracy(): Float;            // Get the accuracy rating (0.0-1.0)
+}
+
+/**
+ * Interface for data storage devices
+ */
+define_interface DataStorage {
+    store_data(data: Any): Boolean;   // Store a data point
+    retrieve_data(key: Any): Any;     // Retrieve stored data
+    get_available_space(): Float;     // Get available storage space
+    clear_all_data(): Void;           // Clear all stored data
+}
+
+/**
+ * A multifunctional device that implements multiple interfaces
+ * Demonstrates how a single structure can fulfill multiple interface contracts
+ */
+define_structure EnvironmentMonitor implements Sensor, DataStorage, PowerSource {
+    // Basic properties
+    name: String,
+    power_level: Float,
+    max_power: Float,
+    sensor_accuracy: Float,
+    calibration_date: Float,
+    stored_readings: [Float],
+    
+    // Implement Sensor interface
+    get_reading(): Float {
+        // Simulate a reading based on a random value
+        CONF reading = (Math.random() * 100.0).toFixed(2);
+        return reading;
+    },
+    
+    get_unit(): String {
+        return "mSv"; // Millisieverts (temporal radiation units)
+    },
+    
+    is_calibrated(): Boolean {
+        // Consider calibrated if done in the last 720 hours (30 days)
+        CONF current_time = Date.now() / 3600000; // Current time in hours
+        return (current_time - this.calibration_date) < 720;
+    },
+    
+    get_accuracy(): Float {
+        return this.sensor_accuracy * (this.is_calibrated() ? 1.0 : 0.6);
+    },
+    
+    // Implement DataStorage interface
+    store_data(data: Any): Boolean {
+        if (this.power_level < 0.1) return false; // Not enough power
+        this.stored_readings.push(data);
+        return true;
+    },
+    
+    retrieve_data(index: Integer): Any {
+        if (index >= 0 && index < this.stored_readings.length) {
+            return this.stored_readings[index];
+        }
+        return null;
+    },
+    
+    get_available_space(): Float {
+        // Simplified: assume each device can store 1000 readings
+        return 1000 - this.stored_readings.length;
+    },
+    
+    clear_all_data(): Void {
+        this.stored_readings = [];
+    },
+    
+    // Implement PowerSource interface
+    get_current_output(): Float {
+        return this.power_level * this.max_power;
+    },
+    
+    get_maximum_capacity(): Float {
+        return this.max_power;
+    },
+    
+    is_operational(): Boolean {
+        return this.power_level > 0.1;
+    }
+}
+
+// Create a multi-interface device
+CONF env_monitor = {
+    name: "Temporal Radiation Monitor",
+    power_level: 0.85,
+    max_power: 50.0,
+    sensor_accuracy: 0.95,
+    calibration_date: (Date.now() / 3600000) - 500, // Calibrated 500 hours ago
+    stored_readings: []
+};
+
+// Test the multifunctional device through different interfaces
+print("Testing Environment Monitor through multiple interfaces:");
+
+// Use as a Sensor
+print("\nSensor Interface:");
+print("  Current Reading: " + env_monitor.get_reading() + " " + env_monitor.get_unit());
+print("  Calibrated: " + env_monitor.is_calibrated());
+print("  Accuracy: " + (env_monitor.get_accuracy() * 100).toFixed(2) + "%");
+
+// Use as a DataStorage
+print("\nData Storage Interface:");
+CONF success = env_monitor.store_data(env_monitor.get_reading());
+print("  Data storage successful: " + success);
+print("  Available storage space: " + env_monitor.get_available_space() + " units");
+print("  First stored reading: " + env_monitor.retrieve_data(0) + " " + env_monitor.get_unit());
+
+// Use as a PowerSource
+print("\nPower Source Interface:");
+report_power_status(env_monitor);
+
+//===============================================================
+// Part 6: Building an Integrated System
+//===============================================================
+
+print_section_header("Building an Integrated System");
+
+/**
+ * Function to setup and initialize a monitoring system
+ * Demonstrates how interfaces allow diverse components to work together
+ */
+define_pattern setup_monitoring_system(
+    power_sources: [PowerSource],
+    sensors: [Sensor],
+    storage_devices: [DataStorage]
+) {
+    print("Initializing Integrated Monitoring System");
+    
+    // 1. Check power sources
+    CONF total_power = 0;
+    CONF operational_sources = 0;
+    
+    for (CONF source in power_sources) {
+        if (source.is_operational()) {
+            total_power += source.get_current_output();
+            operational_sources++;
+        }
+    }
+    
+    print("\nPower subsystem status:");
+    print("  Operational sources: " + operational_sources + "/" + power_sources.length);
+    print("  Total available power: " + total_power.toFixed(2) + " units");
+    
+    if (operational_sources == 0) {
+        print("  ERROR: No operational power sources available!");
+        return false;
+    }
+    
+    // 2. Check sensors
+    CONF calibrated_sensors = 0;
+    CONF total_accuracy = 0;
+    
+    for (CONF sensor in sensors) {
+        if (sensor.is_calibrated()) {
+            calibrated_sensors++;
+        }
+        total_accuracy += sensor.get_accuracy();
+    }
+    
+    CONF avg_accuracy = sensors.length > 0 ? total_accuracy / sensors.length : 0;
+    
+    print("\nSensor subsystem status:");
+    print("  Calibrated sensors: " + calibrated_sensors + "/" + sensors.length);
+    print("  Average accuracy: " + (avg_accuracy * 100).toFixed(2) + "%");
+    
+    if (sensors.length == 0) {
+        print("  WARNING: No sensors connected to the system!");
+    }
+    
+    // 3. Check storage devices
+    CONF total_storage = 0;
+    
+    for (CONF device in storage_devices) {
+        total_storage += device.get_available_space();
+    }
+    
+    print("\nStorage subsystem status:");
+    print("  Total available storage: " + total_storage.toFixed(2) + " units");
+    
+    if (storage_devices.length == 0) {
+        print("  WARNING: No storage devices connected to the system!");
+    }
+    
+    // 4. Determine system operational status
+    CONF system_operational = operational_sources > 0 && 
+                             (sensors.length == 0 || calibrated_sensors > 0) && 
+                             (storage_devices.length == 0 || total_storage > 0);
+    
+    print("\nSystem Status: " + (system_operational ? "OPERATIONAL" : "OFFLINE"));
+    
+    if (system_operational) {
+        print("All required subsystems are functioning within parameters.");
+        print("The monitoring system is ready for integration with the outpost.");
+    } else {
+        print("System is offline due to critical subsystem failures.");
+        print("Please address the issues highlighted above before proceeding.");
+    }
+    
+    return system_operational;
+}
+
+// Set up our integrated system using all available components
+CONF all_power_sources = [functional_crystal, generator, quantum_battery, env_monitor];
+CONF all_sensors = [env_monitor]; // Only the monitor is a sensor in our example
+CONF all_storage = [env_monitor]; // Only the monitor is a storage device
+
+// Run the system integration
+CONF system_status = setup_monitoring_system(all_power_sources, all_sensors, all_storage);
+
+print("\nIntegration process " + (system_status ? "complete" : "failed") + ".");
+
+if (system_status) {
+    print("\nThe outpost systems are now harmonized and operational!");
+    print("You have successfully restored the ancient Chronovyan devices using interface-based design.");
+    print("This integrated system will provide invaluable support during your ascent of the temporal mountain.");
+}
+
+//===============================================================
+// Conclusion: The Power of Interfaces
+//===============================================================
+
+print_section_header("Conclusion");
+
+print("Interface-based design is a fundamental technique in the Chronovyan approach.");
+print("Key benefits demonstrated in this example:");
+print("  1. Clear separation between what components do and how they do it");
+print("  2. Flexibility to use different implementations interchangeably");
+print("  3. Type safety combined with polymorphic behavior");
+print("  4. Multi-interface implementations for complex components");
+print("  5. Modular system design with loosely coupled components");
+print("\nWith these interface techniques, you can now effectively integrate");
+print("diverse components into harmonious systems, a critical skill for your");
+print("journey through the temporal mountain to find Professor Thorne."); 

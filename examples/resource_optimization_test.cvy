@@ -1,0 +1,56 @@
+/*
+ ____  _                                              
+/  __\| |__  _ __ ___  _ __   _____   ___   __ _ _ __  
+| /   |  _ \| '__/ _ \| '_ \ / _ \ \ / / | | | '_  \/ _ \ 
+| \__ | | | | | | (_) | | | | (_) \ V /| |_| | | | |  __/ 
+\____|_| |_|_|  \___/|_| |_|\___/ \_/  \__, |_| |_|\___| 
+                                       |___/             
+*/
+
+// Resource Optimization Test
+// This demonstrates the resource optimization capabilities of Chronovyan
+
+// Import standard library
+import "chrono.core";
+
+func main() {
+    // Display initial resource levels
+    print("--- Initial Resource Levels ---");
+    print("Chronons: " + GET_CHRONONS_LEVEL());
+    print("Aethel: " + GET_AETHEL_LEVEL());
+    print("");
+    
+    // Analyze current resource usage
+    print("--- Resource Usage Analysis ---");
+    var analysis = ANALYZE_RESOURCE_USAGE();
+    print("Overall efficiency: " + analysis["overall_efficiency"]);
+    print("Chronons efficiency: " + analysis["chronons_efficiency"]);
+    print("Aethel efficiency: " + analysis["aethel_efficiency"]);
+    print("");
+    
+    // Optimize chronon usage for a temporal operation
+    print("--- Optimizing Chronon Usage ---");
+    var chronon_factor = OPTIMIZE_CHRONONS("temporal_branch_operation");
+    print("Optimization factor: " + chronon_factor);
+    print("Optimized Chronons: " + GET_CHRONONS_LEVEL());
+    print("");
+    
+    // Optimize aethel generation for a timeline
+    print("--- Optimizing Aethel Generation ---");
+    var aethel_factor = OPTIMIZE_AETHEL("main_timeline");
+    print("Optimization factor: " + aethel_factor);
+    print("Optimized Aethel: " + GET_AETHEL_LEVEL());
+    print("");
+    
+    // Predict future resource needs
+    print("--- Predicting Future Resource Needs ---");
+    var predictions = PREDICT_RESOURCE_NEEDS(5);
+    
+    for (var i = 0; i < 5; i++) {
+        print("Step " + i + " prediction:");
+        print("  Chronons: " + predictions[i]["chronons"]);
+        print("  Aethel: " + predictions[i]["aethel"]);
+    }
+    
+    return 0;
+} 

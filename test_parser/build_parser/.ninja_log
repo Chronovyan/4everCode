@@ -1,0 +1,12 @@
+# ninja log v6
+69	10840	7708986494495453	CMakeFiles/minimal_parser_test.dir/minimal_parser_test.cpp.obj	96c5eeea3037c78a
+88	7104	7708980812800763	CMakeFiles/minimal_parser_test.dir/C_/Users/HydraPony/dev/Chronovyan/src/compiler/src/DiagnosticReporter.cpp.obj	fed772817da58beb
+178	7522	7708980813699901	CMakeFiles/minimal_parser_test.dir/C_/Users/HydraPony/dev/Chronovyan/src/compiler/src/AstNode.cpp.obj	64cdd39d7e3ef9c8
+148	12748	7708980813391994	CMakeFiles/minimal_parser_test.dir/C_/Users/HydraPony/dev/Chronovyan/src/compiler/src/Lexer.cpp.obj	aa05138923d58a24
+11	4114	7708987036314023	build.ninja	6c7e24dc01f23715
+126	12898	7708980813172006	CMakeFiles/minimal_parser_test.dir/C_/Users/HydraPony/dev/Chronovyan/src/compiler/src/Token.cpp.obj	8f7c518daede887a
+839	2865	7708987036314023	build.ninja	6c7e24dc01f23715
+708	8629	7708987049821184	CMakeFiles/minimal_parser_test.dir/C_/Users/HydraPony/dev/Chronovyan/src/compiler/src/Diagnostic.cpp.obj	e222a5a2bbf8cc47
+8635	9965	7708987129096388	minimal_parser_test.exe	16328be94497e581
+32	11797	7708990017517321	CMakeFiles/minimal_parser_test.dir/minimal_parser_test.cpp.obj	96c5eeea3037c78a
+11801	12810	7708990135208674	minimal_parser_test.exe	16328be94497e581

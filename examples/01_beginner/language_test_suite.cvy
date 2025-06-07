@@ -1,0 +1,60 @@
+/*
+ * Chronovyan Language Test Suite
+ * ==============================
+ * This file contains tests for various language features.
+ * Run this file with the interpreter to see which features are working.
+ */
+
+// ===== TEST: Basic Print Statements =====
+print("TEST 1: Basic print - should work");
+
+// ===== TEST: String Concatenation =====
+print("TEST 2: String concatenation - " + "should work");
+
+// ===== TEST: Variable Declaration with DECLARE CONF =====
+print("TEST 3: Variable declaration with DECLARE CONF - may not work");
+DECLARE CONF test_var : STRING = "Test value";
+print("Variable value: " + test_var);
+
+// ===== TEST: Variable Declaration with let =====
+print("TEST 4: Variable declaration with let - may not work");
+let simple_var = "Simple value";
+print("Simple variable value: " + simple_var);
+
+// ===== TEST: Function Declaration =====
+print("TEST 5: Function declaration - may not work");
+FUNCTION test_function() {
+  print("Function executed");
+}
+test_function();
+
+// ===== TEST: Function with Parameters =====
+print("TEST 6: Function with parameters - may not work");
+FUNCTION add(a, b) {
+  RETURN a + b;
+}
+print("2 + 3 = " + add(2, 3));
+
+// ===== TEST: Conditional Logic =====
+print("TEST 7: Conditional logic - may not work");
+IF (true) {
+  print("Condition is true");
+} ELSE {
+  print("Condition is false");
+}
+
+// ===== TEST: Loops =====
+print("TEST 8: Loops - may not work");
+FOR_CHRONON (i = 0; i < 3; i = i + 1) {
+  print("Loop iteration: " + i);
+}
+
+// ===== TEST: Simple Arithmetic =====
+print("TEST 9: Simple arithmetic - may not work");
+print("5 + 10 = " + (5 + 10));
+print("20 - 5 = " + (20 - 5));
+print("4 * 3 = " + (4 * 3));
+print("10 / 2 = " + (10 / 2));
+
+// ===== END OF TESTS =====
+print("End of test suite"); 

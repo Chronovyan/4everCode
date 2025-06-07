@@ -1,0 +1,175 @@
+# Auto detect text files and normalize line endings to LF
+* text=auto eol=lf
+
+# Force Windows-style line endings for certain file types
+*.bat           text eol=crlf
+*.cmd           text eol=crlf
+*.ps1           text eol=crlf
+*.psm1          text eol=crlf
+*.psd1          text eol=crlf
+*.ps1xml        text eol=crlf
+*.clixml        text eol=crlf
+*.css           text eol=lf
+*.htm           text eol=lf
+*.html          text eol=lf
+*.js            text eol=lf
+*.json          text eol=lf
+*.md            text eol=lf
+*.mdx           text eol=lf
+*.sh            text eol=lf
+*.svg           text eol=lf
+*.ts            text eol=lf
+*.tsx           text eol=lf
+*.xml           text eol=lf
+*.yml           text eol=lf
+*.yaml          text eol=lf
+
+# Binary files
+*.bin           binary
+*.dll           binary
+*.exe           binary
+*.gif           binary
+*.ico           binary
+*.jpg           binary
+*.jpeg          binary
+*.pdf           binary
+*.png           binary
+*.zip           binary
+*.tar.gz        binary
+*.7z            binary
+*.snupkg        binary
+*.nupkg         binary
+
+# Generated files
+*.pyc           binary
+__pycache__/    binary
+*.py[cod]       binary
+*$py.class      binary
+*.so            binary
+*.dylib         binary
+*.pyd           binary
+*.o             binary
+*.obj           binary
+*.a             binary
+*.lib           binary
+*.sln           binary
+*.vcxproj*      binary
+*.vcxitems*     binary
+*.sdf           binary
+*.suo           binary
+*.user          binary
+*.userosscache  binary
+*.ncb           binary
+*.opensdf       binary
+*.sln.docstates binary
+*.VC.db         binary
+*.VC.VC.opendb  binary
+*.vs/           binary
+.vs/            binary
+
+# Documentation
+*.pdf           binary
+*.doc           binary
+*.docx          binary
+*.xls           binary
+*.xlsx          binary
+*.ppt           binary
+*.pptx          binary
+
+# Archives
+*.7z            binary
+*.gz            binary
+*.rar           binary
+*.tar           binary
+*.zip           binary
+
+# Logs and databases
+*.log           binary
+*.sql           binary
+*.sqlite        binary
+*.db            binary
+*.db-journal    binary
+
+# Environment files
+.env            binary
+.env.local      binary
+.env.development.local binary
+.env.test.local binary
+.env.production.local binary
+
+# Dependency directories
+node_modules/    binary
+bower_components/ binary
+jspm_packages/   binary
+
+# Build outputs
+build/          binary
+dist/           binary
+out/            binary
+*.exe           binary
+*.dll           binary
+*.lib           binary
+*.so            binary
+*.dylib         binary
+*.a             binary
+*.o             binary
+*.obj           binary
+*.out           binary
+*.app           binary
+*.i*86          binary
+*.x86_64        binary
+*.hex           binary
+
+# Debug files
+*.dSYM/         binary
+*.su            binary
+*.idb           binary
+*.pdb           binary
+*.ipch          binary
+*.pch           binary
+*.ilk           binary
+*.tlog/         binary
+*.log           binary
+*.sass-cache/   binary
+*.sassc         binary
+*.scssc         binary
+*.swo           binary
+*.swp           binary
+*~              binary
+*.sw?           binary
+*.DS_Store      binary
+Thumbs.db       binary
+ehthumbs.db     binary
+Desktop.ini     binary
+
+# Ignore all test coverage files
+*.gcda          binary
+*.gcno          binary
+*.gcov          binary
+*.lcov          binary
+
+# Ignore profiling data
+*.profraw       binary
+*.profdata      binary
+*.gcov          binary
+
+# Ignore ctags files
+tags            binary
+TAGS            binary
+
+# Ignore vim swap files
+*.swp           binary
+*.swo           binary
+*~              binary
+
+# Ignore OS generated files
+.DS_Store       binary
+.DS_Store?      binary
+._*             binary
+.Spotlight-V100  binary
+.Trashes        binary
+ehthumbs.db     binary
+Thumbs.db       binary
+
+# Keep empty directories
+!.gitkeep

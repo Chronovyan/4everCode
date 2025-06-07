@@ -1,0 +1,16 @@
+// Basic Chronovyan Syntax Example
+
+// Simple print statement
+print("Hello, Chronovyan World!");
+
+// Variable declaration
+DECLARE CONF message : STRING = "Time is an illusion.";
+print(message);
+
+// Function declaration 
+FUNCTION say_hello() {
+  print("Hello from a function!");
+}
+
+// Function call
+say_hello(); 

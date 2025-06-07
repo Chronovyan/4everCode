@@ -1,0 +1,31 @@
+// Rule 110 Cellular Automaton Static Simulation
+// This file displays several generations of Rule 110 cellular automaton
+
+print("Rule 110 Cellular Automaton - Step by Step");
+print("=========================================");
+print("");
+print("Generation 0:                #                ");
+print("Generation 1:               ##                ");
+print("Generation 2:              ###                ");
+print("Generation 3:             ## #                ");
+print("Generation 4:            ### #                ");
+print("Generation 5:           ## ###                ");
+print("Generation 6:          ### # #                ");
+print("Generation 7:         ## ### #                ");
+print("Generation 8:        ### # ###                ");
+print("Generation 9:       ## ### # #                ");
+print("Generation 10:     ### # ### #                ");
+print("Generation 11:    ## ### # ###                ");
+print("Generation 12:   ### # ### # #                ");
+print("Generation 13:  ## ### # ### #                ");
+print("Generation 14: ### # ### # ###                ");
+print("Generation 15: # ### # ### # #                ");
+print("");
+print("Each row is created by applying Rule 110 to the previous row");
+print("Rule 110 determines cell states based on patterns of 3 adjacent cells:");
+print("");
+print("Pattern:    111  110  101  100  011  010  001  000");
+print("New state:   0    1    1    0    1    1    1    0");
+print("");
+print("This rule creates complex triangular patterns");
+print("and is proven to be Turing-complete!"); 

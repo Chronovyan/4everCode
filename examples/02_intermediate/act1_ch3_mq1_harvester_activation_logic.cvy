@@ -1,0 +1,1343 @@
+// Chronovyan Example: Resource Harvester Activation Logic
+// Difficulty: Intermediate (integrates multiple Act I concepts)
+// Concepts: Arrays/collections, function composition, event-driven programming, object manipulation, complex conditional logic.
+// Related Quest: Resource Harvester Activation (Main Quest Act I, Chapter 3)
+// Note: This file represents the core logic Alex implements during the quest.
+
+//------------------------------------------------------------------------------
+// --- SECTION 1: SYSTEM DIAGNOSTICS ---
+//------------------------------------------------------------------------------
+
+// Function to initialize and organize sensor data
+function initialize_sensor_data() {
+    // Raw sensor data received as disconnected arrays
+    temperature_readings = [42.3, 39.7, 67.8, 22.1, 45.6, 89.2, 37.8, 41.5]
+    pressure_readings = [103.5, 98.2, 142.7, 105.1, 87.6, 210.9, 101.8, 99.4]
+    energy_levels = [87, 45, 23, 91, 16, 72, 65, 38]
+    temporal_stability = [0.92, 0.67, 0.43, 0.89, 0.35, 0.22, 0.78, 0.85]
+
+    // Sensor IDs (corresponding to readings above)
+    sensor_ids = [
+        "core-temp", "north-temp", "east-temp", "south-temp", 
+        "west-temp", "exhaust-temp", "intake-temp", "ambient-temp"
+    ]
+
+    // Create comprehensive data structure to organize readings
+    sensor_data = []
+    for (i = 0; i < sensor_ids.length; i++) {
+        sensor_data.push({
+            "id": sensor_ids[i],
+            "temperature": temperature_readings[i],
+            "pressure": pressure_readings[i],
+            "energy": energy_levels[i],
+            "stability": temporal_stability[i]
+        })
+    }
+    
+    return sensor_data
+}
+
+// Function to identify critical sensors with readings outside safe parameters
+function get_critical_sensors(data_array) {
+    critical_sensors = []
+    
+    for (i = 0; i < data_array.length; i++) {
+        sensor = data_array[i]
+        is_critical = false
+        
+        // Check for critical conditions
+        if (sensor.temperature > 85) is_critical = true
+        if (sensor.pressure > 200) is_critical = true
+        if (sensor.energy < 25) is_critical = true
+        if (sensor.stability < 0.4) is_critical = true
+        
+        if (is_critical) {
+            critical_sensors.push(sensor)
+        }
+    }
+    
+    return critical_sensors
+}
+
+// Function to calculate overall system health based on sensor readings
+function calculate_system_health(data_array) {
+    // Initialize health metrics
+    total_temp = 0
+    total_pressure = 0
+    total_energy = 0
+    total_stability = 0
+    
+    // Calculate averages
+    for (i = 0; i < data_array.length; i++) {
+        total_temp += data_array[i].temperature
+        total_pressure += data_array[i].pressure
+        total_energy += data_array[i].energy
+        total_stability += data_array[i].stability
+    }
+    
+    avg_temp = total_temp / data_array.length
+    avg_pressure = total_pressure / data_array.length
+    avg_energy = total_energy / data_array.length
+    avg_stability = total_stability / data_array.length
+    
+    // Calculate overall health percentage
+    health_percentage = (
+        normalize(avg_temp, 20, 50) * 0.25 +
+        normalize(avg_pressure, 90, 110) * 0.25 +
+        normalize(avg_energy, 0, 100) * 0.25 +
+        avg_stability * 0.25
+    ) * 100
+    
+    return Math.round(health_percentage)
+}
+
+// Helper function to normalize values to 0-1 range
+function normalize(value, min, max) {
+    if (value < min) return 0
+    if (value > max) return 1
+    return (value - min) / (max - min)
+}
+
+// Function to sort sensors by maintenance priority
+function sort_by_maintenance_priority(data_array) {
+    // Clone array to avoid modifying original
+    sorted_array = data_array.slice()
+    
+    // Sort based on a priority score
+    sorted_array.sort(function(a, b) {
+        // Calculate priority scores (lower is more urgent)
+        a_score = a.energy * a.stability
+        b_score = b.energy * b.stability
+        
+        // Sort ascending (lower scores first)
+        return a_score - b_score
+    })
+    
+    return sorted_array
+}
+
+// Function to generate a diagnostic report
+function generate_diagnostic_report(sensor_data) {
+    critical_systems = get_critical_sensors(sensor_data)
+    system_health = calculate_system_health(sensor_data)
+    maintenance_queue = sort_by_maintenance_priority(sensor_data)
+    
+    return {
+        "health": system_health,
+        "critical_systems": critical_systems,
+        "maintenance_queue": maintenance_queue.slice(0, 3) // Top 3 priority systems
+    }
+}
+
+//------------------------------------------------------------------------------
+// --- SECTION 2: POWER DISTRIBUTION ---
+//------------------------------------------------------------------------------
+
+// System power requirements (minimum power needed for each system in kilowatts)
+var system_requirements = {
+    "life_support": 100,
+    "core_processor": 75,
+    "north_array": 50,
+    "east_array": 60,
+    "south_array": 55,
+    "west_array": 45,
+    "refinement_module": 80,
+    "storage_system": 30
+}
+
+// System priorities (higher = more important)
+var system_priorities = {
+    "life_support": 10,
+    "core_processor": 9,
+    "north_array": 6,
+    "east_array": 7,
+    "south_array": 5,
+    "west_array": 4,
+    "refinement_module": 8,
+    "storage_system": 3
+}
+
+// Function to calculate power allocation based on priority
+function allocate_by_priority(power_available, requirements, priorities) {
+    // Create a sorted list of systems by priority
+    systems = Object.keys(priorities)
+    
+    systems.sort(function(a, b) {
+        return priorities[b] - priorities[a]  // Descending order
+    })
+    
+    // Allocate power based on priority
+    allocations = {}
+    remaining_power = power_available
+    
+    for (i = 0; i < systems.length; i++) {
+        system = systems[i]
+        required = requirements[system]
+        
+        if (remaining_power >= required) {
+            // Allocate full required power
+            allocations[system] = required
+            remaining_power -= required
+        } else {
+            // Allocate whatever power is left
+            allocations[system] = remaining_power
+            remaining_power = 0
+        }
+    }
+    
+    return {
+        "allocations": allocations,
+        "remaining": remaining_power
+    }
+}
+
+// Function to apply efficiency losses in the distribution network
+function apply_distribution_losses(allocations) {
+    // Power loss percentages for each distribution path
+    loss_factors = {
+        "life_support": 0.05,      // 5% loss
+        "core_processor": 0.08,    // 8% loss
+        "north_array": 0.15,       // 15% loss
+        "east_array": 0.20,        // 20% loss (damaged conduits)
+        "south_array": 0.12,       // 12% loss
+        "west_array": 0.10,        // 10% loss
+        "refinement_module": 0.07, // 7% loss
+        "storage_system": 0.05     // 5% loss
+    }
+    
+    // Apply losses to each allocation
+    effective_allocations = {}
+    total_loss = 0
+    
+    for (system in allocations) {
+        gross_power = allocations[system]
+        loss = gross_power * loss_factors[system]
+        effective_power = gross_power - loss
+        
+        effective_allocations[system] = effective_power
+        total_loss += loss
+    }
+    
+    return {
+        "effective_allocations": effective_allocations,
+        "total_loss": total_loss
+    }
+}
+
+// Function to identify power deficits
+function identify_deficits(effective_allocations, requirements) {
+    deficits = {}
+    total_deficit = 0
+    
+    for (system in requirements) {
+        required = requirements[system]
+        allocated = effective_allocations[system] || 0
+        
+        if (allocated < required) {
+            deficits[system] = {
+                "required": required,
+                "allocated": allocated,
+                "deficit": required - allocated,
+                "percent_met": (allocated / required) * 100
+            }
+            
+            total_deficit += (required - allocated)
+        }
+    }
+    
+    return {
+        "system_deficits": deficits,
+        "total_deficit": total_deficit
+    }
+}
+
+// Function to redistribute recovered power
+function redistribute_recovered_power(allocations, recovered_power, deficits) {
+    // Clone the original allocations
+    new_allocations = {}
+    for (system in allocations) {
+        new_allocations[system] = allocations[system]
+    }
+    
+    // Sort deficit systems by priority
+    deficit_systems = Object.keys(deficits)
+    deficit_systems.sort(function(a, b) {
+        return system_priorities[b] - system_priorities[a]
+    })
+    
+    // Redistribute recovered power
+    remaining_recovered = recovered_power
+    
+    for (i = 0; i < deficit_systems.length; i++) {
+        system = deficit_systems[i]
+        deficit = deficits[system].deficit
+        
+        if (remaining_recovered >= deficit) {
+            // Can fully cover the deficit
+            new_allocations[system] += deficit
+            remaining_recovered -= deficit
+        } else {
+            // Can only partially cover the deficit
+            new_allocations[system] += remaining_recovered
+            remaining_recovered = 0
+            break
+        }
+    }
+    
+    return {
+        "improved_allocations": new_allocations,
+        "unused_recovered": remaining_recovered
+    }
+}
+
+// Function composition helper
+function compose(f, g) {
+    return function(x) {
+        return f(g(x))
+    }
+}
+
+// Higher-order function for power recovery
+function with_power_recovery(allocation_func) {
+    return function(power, requirements, priorities) {
+        // Run the original allocation function
+        result = allocation_func(power, requirements, priorities)
+        
+        // Extract results
+        initial_allocations = result.allocations
+        remaining_power = result.remaining
+        
+        // Apply distribution losses
+        loss_result = apply_distribution_losses(initial_allocations)
+        effective_allocations = loss_result.effective_allocations
+        power_loss = loss_result.total_loss
+        
+        // Identify deficits
+        deficit_result = identify_deficits(effective_allocations, requirements)
+        deficits = deficit_result.system_deficits
+        
+        // Assume we can recover 30% of power loss through optimization
+        recovered_power = power_loss * 0.3
+        
+        // Redistribute recovered power
+        redistribution = redistribute_recovered_power(
+            initial_allocations, recovered_power, deficits)
+        
+        // Return the optimized allocations
+        return {
+            "initial_allocations": initial_allocations,
+            "effective_allocations": effective_allocations,
+            "improved_allocations": redistribution.improved_allocations,
+            "power_recovered": recovered_power,
+            "remaining_power": remaining_power + redistribution.unused_recovered
+        }
+    }
+}
+
+//------------------------------------------------------------------------------
+// --- SECTION 3: COLLECTION ARRAY CALIBRATION ---
+//------------------------------------------------------------------------------
+
+// Event handler for energy resource (north array)
+function handle_energy_resource(event_data) {
+    print_to_cora_log("North array: Energy resource detected - " + event_data.resource_type)
+    
+    // Determine appropriate collection settings based on resource type
+    if (event_data.resource_type == "chronofuel") {
+        configure_north_array({
+            "frequency": 442.7,
+            "amplitude": event_data.magnitude * 1.2,
+            "collection_rate": "high",
+            "refinement_path": "direct"
+        })
+    } else if (event_data.resource_type == "void_energy") {
+        configure_north_array({
+            "frequency": 618.3,
+            "amplitude": event_data.magnitude * 0.8,
+            "collection_rate": "controlled",
+            "refinement_path": "buffered"
+        })
+    } else {
+        configure_north_array({
+            "frequency": 500.0,
+            "amplitude": event_data.magnitude,
+            "collection_rate": "standard",
+            "refinement_path": "standard"
+        })
+    }
+    
+    // Start collection cycle
+    start_collection_cycle("north", event_data.coordinates)
+    return true
+}
+
+// Event handler for structural resource (east array)
+function handle_structural_resource(event_data) {
+    print_to_cora_log("East array: Structural resource detected - " + event_data.resource_type)
+    
+    // Configure based on material properties
+    configure_east_array({
+        "resonance": event_data.density * 2.5,
+        "beam_width": determine_optimal_beam_width(event_data.dimensions),
+        "integrity_threshold": event_data.purity * 0.8,
+        "extraction_pattern": "spiral"
+    })
+    
+    start_collection_cycle("east", event_data.coordinates)
+    return true
+}
+
+// Event handler for computational resource (south array)
+function handle_computational_resource(event_data) {
+    print_to_cora_log("South array: Computational resource detected - " + event_data.resource_type)
+    
+    // High-complexity resources require more precise collection
+    precision_level = Math.min(10, Math.ceil(event_data.complexity / 10))
+    
+    configure_south_array({
+        "pattern_recognition": event_data.pattern_signature,
+        "precision_level": precision_level,
+        "isolation_field": event_data.complexity > 70,
+        "quantum_alignment": event_data.is_entangled
+    })
+    
+    start_collection_cycle("south", event_data.coordinates)
+    return true
+}
+
+// Event handler for biological resource (west array)
+function handle_biological_resource(event_data) {
+    print_to_cora_log("West array: Biological resource detected - " + event_data.resource_type)
+    
+    // Biological resources need careful handling
+    configure_west_array({
+        "containment_level": determine_containment(event_data.hazard_level),
+        "preservation_field": event_data.viability > 50,
+        "temperature_control": event_data.optimal_temperature,
+        "extraction_speed": event_data.fragility > 6 ? "slow" : "normal"
+    })
+    
+    start_collection_cycle("west", event_data.coordinates)
+    return true
+}
+
+// Event handler for energy discharge (safety critical)
+function handle_energy_discharge(event_data) {
+    print_to_cora_log("WARNING: Energy discharge detected - Magnitude: " + event_data.magnitude)
+    
+    if (event_data.magnitude > 8.5) {
+        // Critical discharge - emergency shutdown
+        print_to_cora_log("CRITICAL DISCHARGE DETECTED - EMERGENCY PROTOCOLS ENGAGED")
+        emergency_array_shutdown()
+        raise_discharge_shields()
+    } else if (event_data.magnitude > 6.0) {
+        // Major discharge - pause collection in affected area
+        affected_arrays = calculate_affected_arrays(event_data.coordinates, event_data.radius)
+        
+        print_to_cora_log("Major discharge - pausing collection in affected arrays")
+        for (i = 0; i < affected_arrays.length; i++) {
+            pause_collection_cycle(affected_arrays[i])
+        }
+        
+        raise_localized_shields(event_data.coordinates, event_data.radius)
+    } else {
+        // Minor discharge - just log
+        print_to_cora_log("Minor discharge - continuing normal operations with caution")
+        adjust_array_sensitivity(event_data.coordinates, 0.8)  // Reduce sensitivity temporarily
+    }
+    
+    return true
+}
+
+// Event filter functions for different resource types
+
+// Energy resource filter (north array)
+function energy_resource_filter(event_data) {
+    return event_data.resource_category == "energy" && 
+           event_data.magnitude > 3.0 &&
+           is_within_array_range("north", event_data.coordinates)
+}
+
+// Structural resource filter (east array)
+function structural_resource_filter(event_data) {
+    return event_data.resource_category == "structural" && 
+           event_data.density > 2.0 &&
+           event_data.purity > 0.65 &&
+           is_within_array_range("east", event_data.coordinates)
+}
+
+// Computational resource filter (south array)
+function computational_resource_filter(event_data) {
+    return event_data.resource_category == "computational" && 
+           event_data.complexity > 30 &&
+           is_within_array_range("south", event_data.coordinates)
+}
+
+// Biological resource filter (west array)
+function biological_resource_filter(event_data) {
+    return event_data.resource_category == "biological" && 
+           event_data.viability > 40 &&
+           event_data.hazard_level < 8 &&
+           is_within_array_range("west", event_data.coordinates)
+}
+
+// Energy discharge filter
+function energy_discharge_filter(event_data) {
+    return event_data.magnitude > 3.0
+}
+
+// Function to register event listeners for collection arrays
+function setup_array_event_listeners() {
+    // Clear any existing listeners
+    reset_array_event_listeners()
+    
+    // Register resource collection listeners
+    register_event_listener(
+        "resource_detected",
+        handle_energy_resource,
+        energy_resource_filter,
+        7  // Priority
+    )
+    
+    register_event_listener(
+        "resource_detected",
+        handle_structural_resource,
+        structural_resource_filter,
+        6
+    )
+    
+    register_event_listener(
+        "resource_detected",
+        handle_computational_resource,
+        computational_resource_filter,
+        6
+    )
+    
+    register_event_listener(
+        "resource_detected",
+        handle_biological_resource,
+        biological_resource_filter,
+        5
+    )
+    
+    // Register safety-critical listener with highest priority
+    register_event_listener(
+        "energy_discharge",
+        handle_energy_discharge,
+        energy_discharge_filter,
+        10  // Highest priority
+    )
+    
+    print_to_cora_log("Collection array event listeners registered")
+}
+
+// Arrays to maintain history of recent resource events
+var recent_resource_events = []
+var recent_discharge_events = []
+
+// Function to track events and update history
+function track_event(event_type, event_data) {
+    // Get current time (would be provided by the game engine)
+    current_time = get_current_time()
+    
+    if (event_type == "resource_detected") {
+        event_data.timestamp = current_time
+        recent_resource_events.push(event_data)
+        
+        // Keep only recent events (last 5 minutes)
+        recent_resource_events = recent_resource_events.filter(function(event) {
+            return event.timestamp > (current_time - 300)
+        })
+    } else if (event_type == "energy_discharge") {
+        event_data.timestamp = current_time
+        recent_discharge_events.push(event_data)
+        
+        // Keep only recent events (last 5 minutes)
+        recent_discharge_events = recent_discharge_events.filter(function(event) {
+            return event.timestamp > (current_time - 300)
+        })
+    }
+    
+    // After updating history, check for patterns
+    detect_resource_patterns()
+}
+
+// Function to detect patterns in resource events
+function detect_resource_patterns() {
+    // Check for chronocrystal formation pattern
+    // (Energy discharge followed by computational resource bloom within 30 seconds)
+    if (recent_discharge_events.length > 0 && recent_resource_events.length > 0) {
+        latest_discharge = recent_discharge_events[recent_discharge_events.length - 1]
+        
+        // Look for computational resources that appeared just after discharge
+        for (i = 0; i < recent_resource_events.length; i++) {
+            resource = recent_resource_events[i]
+            
+            if (resource.resource_category == "computational" &&
+                resource.timestamp - latest_discharge.timestamp <= 30 &&
+                resource.timestamp - latest_discharge.timestamp >= 0) {
+                
+                // Pattern detected! Create a custom event
+                trigger_event("pattern_detected", {
+                    "pattern_name": "chronocrystal_formation",
+                    "coordinates": resource.coordinates,
+                    "estimated_quality": resource.complexity * 1.5,
+                    "window_duration": 45,  // seconds until opportunity passes
+                    "required_arrays": ["north", "south"]
+                })
+                
+                break
+            }
+        }
+    }
+    
+    // Check for rare resources occurring in sequence
+    if (recent_resource_events.length >= 3) {
+        // Get the three most recent events
+        recent_three = recent_resource_events.slice(-3)
+        
+        // Check if they're from different categories and occurred close together
+        categories = recent_three.map(function(event) {
+            return event.resource_category
+        })
+        
+        unique_categories = categories.filter(function(value, index, self) {
+            return self.indexOf(value) === index
+        })
+        
+        if (unique_categories.length == 3 &&
+            recent_three[2].timestamp - recent_three[0].timestamp < 60) {
+            
+            // Pattern detected! Create a custom event
+            trigger_event("pattern_detected", {
+                "pattern_name": "convergence_nexus",
+                "coordinates": recent_three[2].coordinates,
+                "estimated_duration": 90,
+                "rarity": "very_rare",
+                "required_arrays": ["north", "east", "south", "west"]
+            })
+        }
+    }
+}
+
+// Handle pattern detection events
+function handle_pattern_detection(event_data) {
+    print_to_cora_log("PATTERN DETECTED: " + event_data.pattern_name)
+    
+    if (event_data.pattern_name == "chronocrystal_formation") {
+        print_to_cora_log("Chronocrystal formation detected - Quality: " + event_data.estimated_quality)
+        
+        // Configure arrays for synchronized collection
+        configure_synchronized_collection({
+            "primary_array": "south",
+            "supporting_arrays": ["north"],
+            "focus_coordinates": event_data.coordinates,
+            "synchronization_pattern": "oscillating",
+            "intensity": event_data.estimated_quality / 20
+        })
+    } else if (event_data.pattern_name == "convergence_nexus") {
+        print_to_cora_log("Convergence nexus detected - rare multi-resource opportunity!")
+        
+        // Configure quad-array synchronized collection
+        configure_synchronized_collection({
+            "primary_array": "north",
+            "supporting_arrays": ["east", "south", "west"],
+            "focus_coordinates": event_data.coordinates,
+            "synchronization_pattern": "harmonic",
+            "intensity": 10  // Maximum intensity
+        })
+    }
+}
+
+// Function to initialize the collection array system
+function initialize_collection_arrays() {
+    // Register event listeners for resources and discharges
+    setup_array_event_listeners()
+    
+    // Register pattern detection handler
+    register_event_listener(
+        "pattern_detected",
+        handle_pattern_detection,
+        null,  // No filter, handle all patterns
+        9      // High priority, but below safety-critical
+    )
+    
+    // Register event tracking middleware
+    register_event_middleware(track_event)
+    
+    // Reset event history
+    recent_resource_events = []
+    recent_discharge_events = []
+    
+    print_to_cora_log("Collection array system initialized")
+    return true
+}
+
+// Stub functions for game engine operations
+function reset_array_event_listeners() {
+    print_to_cora_log("Event listeners reset")
+    return true
+}
+
+function register_event_listener(event_type, handler, filter, priority) {
+    print_to_cora_log("Registered " + event_type + " listener with priority " + priority)
+    return true
+}
+
+function register_event_middleware(middleware_func) {
+    print_to_cora_log("Registered event middleware function")
+    return true
+}
+
+function trigger_event(event_type, event_data) {
+    print_to_cora_log("Triggered " + event_type + " event")
+    return true
+}
+
+function configure_north_array(settings) {
+    print_to_cora_log("North array configured with frequency " + settings.frequency)
+    return true
+}
+
+function configure_east_array(settings) {
+    print_to_cora_log("East array configured with resonance " + settings.resonance)
+    return true
+}
+
+function configure_south_array(settings) {
+    print_to_cora_log("South array configured with precision level " + settings.precision_level)
+    return true
+}
+
+function configure_west_array(settings) {
+    print_to_cora_log("West array configured with containment level " + settings.containment_level)
+    return true
+}
+
+function start_collection_cycle(array, coordinates) {
+    print_to_cora_log("Started collection cycle on " + array + " array")
+    return true
+}
+
+function pause_collection_cycle(array) {
+    print_to_cora_log("Paused collection cycle on " + array + " array")
+    return true
+}
+
+function emergency_array_shutdown() {
+    print_to_cora_log("EMERGENCY: All arrays shut down")
+    return true
+}
+
+function raise_discharge_shields() {
+    print_to_cora_log("Discharge shields activated")
+    return true
+}
+
+function raise_localized_shields(coordinates, radius) {
+    print_to_cora_log("Localized shields activated in affected area")
+    return true
+}
+
+function adjust_array_sensitivity(coordinates, factor) {
+    print_to_cora_log("Array sensitivity adjusted to " + factor)
+    return true
+}
+
+function determine_optimal_beam_width(dimensions) {
+    return Math.max(dimensions.x, dimensions.y, dimensions.z) * 1.2
+}
+
+function determine_containment(hazard_level) {
+    if (hazard_level > 6) return "high"
+    if (hazard_level > 3) return "medium"
+    return "low"
+}
+
+function is_within_array_range(array, coordinates) {
+    // Would check if coordinates are within range of specified array
+    return true
+}
+
+function calculate_affected_arrays(coordinates, radius) {
+    // Would calculate which arrays are affected by a discharge
+    return ["north", "east"] // Example return
+}
+
+function get_current_time() {
+    // Would be provided by game engine
+    return Date.now() / 1000
+}
+
+function configure_synchronized_collection(settings) {
+    print_to_cora_log("Configured synchronized collection with pattern: " + settings.synchronization_pattern)
+    return true
+}
+
+//------------------------------------------------------------------------------
+// --- SECTION 4: RESOURCE CLASSIFICATION SYSTEM ---
+//------------------------------------------------------------------------------
+
+// Resource type definitions with processing requirements
+var resource_types = {
+    "chronofuel": {
+        "category": "energy",
+        "stability_threshold": 0.7,
+        "refinement_process": "temporal_compression",
+        "storage_conditions": "contained_field",
+        "hazard_level": 6
+    },
+    "void_energy": {
+        "category": "energy",
+        "stability_threshold": 0.5,
+        "refinement_process": "void_condensation",
+        "storage_conditions": "null_chamber",
+        "hazard_level": 8
+    },
+    "temporal_alloy": {
+        "category": "structural",
+        "stability_threshold": 0.8,
+        "refinement_process": "crystallization",
+        "storage_conditions": "standard",
+        "hazard_level": 3
+    },
+    "flux_matter": {
+        "category": "structural",
+        "stability_threshold": 0.6,
+        "refinement_process": "stabilization",
+        "storage_conditions": "vacuum_sealed",
+        "hazard_level": 5
+    },
+    "chronocrystal": {
+        "category": "computational",
+        "stability_threshold": 0.9,
+        "refinement_process": "precision_cutting",
+        "storage_conditions": "stasis_field",
+        "hazard_level": 2
+    },
+    "memory_lattice": {
+        "category": "computational",
+        "stability_threshold": 0.75,
+        "refinement_process": "neural_alignment",
+        "storage_conditions": "em_shielded",
+        "hazard_level": 4
+    },
+    "adaptive_cells": {
+        "category": "biological",
+        "stability_threshold": 0.65,
+        "refinement_process": "nutrient_infusion",
+        "storage_conditions": "cryo_preservation",
+        "hazard_level": 7
+    },
+    "chrono_spores": {
+        "category": "biological",
+        "stability_threshold": 0.55,
+        "refinement_process": "germination_control",
+        "storage_conditions": "sealed_incubation",
+        "hazard_level": 6
+    }
+}
+
+// Sample batch of collected resources
+var incoming_resources = [
+    {
+        "id": "res-1642",
+        "type": "chronofuel",
+        "purity": 0.82,
+        "quantity": 5.7,
+        "collected_by": "north",
+        "timestamp": 1620150000,
+        "properties": {
+            "energy_density": 8.2,
+            "half_life": 267,
+            "radiation_signature": "gamma-delta"
+        }
+    },
+    {
+        "id": "res-1643",
+        "type": "temporal_alloy",
+        "purity": 0.76,
+        "quantity": 12.3,
+        "collected_by": "east",
+        "timestamp": 1620150120,
+        "properties": {
+            "tensile_strength": 1450,
+            "temporal_resistance": 8.7,
+            "molecular_alignment": 0.92
+        }
+    },
+    {
+        "id": "res-1644",
+        "type": "chronocrystal",
+        "purity": 0.95,
+        "quantity": 2.1,
+        "collected_by": "south",
+        "timestamp": 1620150300,
+        "properties": {
+            "lattice_complexity": 9.2,
+            "computational_potential": 9.7,
+            "resonance_frequency": 15620
+        }
+    },
+    {
+        "id": "res-1645",
+        "type": "adaptive_cells",
+        "purity": 0.67,
+        "quantity": 8.4,
+        "collected_by": "west",
+        "timestamp": 1620150450,
+        "properties": {
+            "viability": 88,
+            "adaptation_rate": 0.45,
+            "genetic_stability": 0.74
+        }
+    },
+    {
+        "id": "res-1646",
+        "type": "void_energy",
+        "purity": 0.59,
+        "quantity": 3.2,
+        "collected_by": "north",
+        "timestamp": 1620150600,
+        "properties": {
+            "energy_density": 12.7,
+            "volatility": 7.8,
+            "containment_difficulty": 8.4
+        }
+    }
+]
+
+// Function to group resources by category
+function group_by_category(resources) {
+    categories = {}
+    
+    for (i = 0; i < resources.length; i++) {
+        resource = resources[i]
+        type_info = resource_types[resource.type]
+        category = type_info.category
+        
+        if (!categories[category]) {
+            categories[category] = []
+        }
+        
+        categories[category].push(resource)
+    }
+    
+    return categories
+}
+
+// Function to sort resources by priority (purity * quantity)
+function sort_by_priority(resources) {
+    // Clone array to avoid modifying original
+    sorted = resources.slice()
+    
+    sorted.sort(function(a, b) {
+        a_priority = a.purity * a.quantity
+        b_priority = b.purity * b.quantity
+        
+        return b_priority - a_priority  // Descending order
+    })
+    
+    return sorted
+}
+
+// Function to filter resources by minimum requirements
+function filter_by_quality(resources, min_purity, min_quantity) {
+    return resources.filter(function(resource) {
+        return resource.purity >= min_purity && resource.quantity >= min_quantity
+    })
+}
+
+// Function to validate resource stability
+function validate_stability(resource) {
+    type_info = resource_types[resource.type]
+    required_stability = type_info.stability_threshold
+    
+    // Different resource types have different stability indicators
+    actual_stability = 0
+    
+    if (type_info.category == "energy") {
+        // Energy resource stability calculation
+        actual_stability = (resource.purity * 0.8) - 
+                          (resource.properties.volatility || 0) / 10
+    } else if (type_info.category == "structural") {
+        // Structural resource stability calculation
+        actual_stability = resource.properties.molecular_alignment || 
+                          resource.purity * 0.9
+    } else if (type_info.category == "computational") {
+        // Computational resource stability calculation
+        actual_stability = (resource.purity * 0.7) + 
+                          (resource.properties.lattice_complexity || 0) / 20
+    } else if (type_info.category == "biological") {
+        // Biological resource stability calculation
+        actual_stability = resource.properties.genetic_stability || 
+                          (resource.properties.viability || 0) / 100
+    }
+    
+    // Add stability to resource object
+    resource.calculated_stability = actual_stability
+    resource.is_stable = actual_stability >= required_stability
+    
+    return resource
+}
+
+// Function to determine refinement process
+function determine_refinement(resource) {
+    type_info = resource_types[resource.type]
+    base_process = type_info.refinement_process
+    
+    // Determine refinement parameters based on resource properties
+    refinement_params = {}
+    
+    if (type_info.category == "energy") {
+        refinement_params = {
+            "temperature": resource.properties.energy_density * 20,
+            "duration": Math.max(50, 100 - resource.purity * 50),
+            "containment_level": type_info.hazard_level
+        }
+    } else if (type_info.category == "structural") {
+        refinement_params = {
+            "pressure": resource.properties.tensile_strength / 100,
+            "cooling_rate": 0.5 + (resource.purity * 0.5),
+            "atmosphere": "inert"
+        }
+    } else if (type_info.category == "computational") {
+        refinement_params = {
+            "precision": Math.min(10, Math.ceil(resource.purity * 10)),
+            "alignment_field": resource.properties.resonance_frequency,
+            "environment": "clean_room"
+        }
+    } else if (type_info.category == "biological") {
+        refinement_params = {
+            "nutrient_mix": "type-" + Math.ceil(resource.properties.adaptation_rate * 10),
+            "incubation_temp": 25 + (resource.properties.viability / 10),
+            "monitoring_interval": Math.max(4, 12 - resource.purity * 10)
+        }
+    }
+    
+    // Add refinement information to resource object
+    resource.refinement = {
+        "process": base_process,
+        "parameters": refinement_params,
+        "estimated_yield": resource.quantity * resource.purity * 0.9,
+        "estimated_duration": calculate_duration(resource, refinement_params)
+    }
+    
+    return resource
+}
+
+// Function to assign storage solution
+function assign_storage(resource) {
+    type_info = resource_types[resource.type]
+    base_storage = type_info.storage_conditions
+    
+    // Determine specific storage location and conditions
+    storage_location = determine_storage_location(resource.type)
+    
+    // Add storage information to resource object
+    resource.storage = {
+        "condition": base_storage,
+        "location": storage_location,
+        "max_duration": determine_max_storage_duration(resource),
+        "special_requirements": determine_special_requirements(resource)
+    }
+    
+    return resource
+}
+
+// Function to calculate resource value
+function calculate_value(resource) {
+    type_info = resource_types[resource.type]
+    
+    // Base value factors by category
+    base_factors = {
+        "energy": 5,
+        "structural": 3,
+        "computational": 7,
+        "biological": 4
+    }
+    
+    // Calculate base value
+    base_value = resource.quantity * resource.purity * base_factors[type_info.category]
+    
+    // Apply modifiers based on special properties
+    modifiers = 1.0
+    
+    if (resource.properties.energy_density && resource.properties.energy_density > 10) {
+        modifiers += 0.5
+    }
+    
+    if (resource.properties.computational_potential && resource.properties.computational_potential > 9) {
+        modifiers += 0.8
+    }
+    
+    if (resource.properties.genetic_stability && resource.properties.genetic_stability > 0.8) {
+        modifiers += 0.4
+    }
+    
+    if (resource.properties.molecular_alignment && resource.properties.molecular_alignment > 0.95) {
+        modifiers += 0.3
+    }
+    
+    // Calculate final value
+    resource.value = {
+        "base": base_value,
+        "modifiers": modifiers,
+        "total": Math.round(base_value * modifiers * 10) / 10
+    }
+    
+    return resource
+}
+
+// Create processing pipeline using function composition
+function process_resource(resource) {
+    return calculate_value(
+        assign_storage(
+            determine_refinement(
+                validate_stability(resource)
+            )
+        )
+    )
+}
+
+// Function to process a batch of resources
+function process_resource_batch(resources) {
+    processed_resources = []
+    
+    for (i = 0; i < resources.length; i++) {
+        processed_resources.push(process_resource(resources[i]))
+    }
+    
+    return processed_resources
+}
+
+// Handler for new resource arrival
+function handle_resource_arrival(event_data) {
+    print_to_cora_log("New resource arrived: " + event_data.id + " (" + event_data.type + ")")
+    
+    // Process the resource
+    processed_resource = process_resource(event_data)
+    
+    // Store in appropriate category
+    store_resource(processed_resource)
+    
+    // Check if refinement is needed immediately
+    if (should_refine_immediately(processed_resource)) {
+        start_refinement_process(processed_resource)
+    }
+    
+    // Update inventory status
+    update_inventory_status()
+    
+    print_to_cora_log("Resource " + processed_resource.id + " classified and processed")
+}
+
+// Handler for resource status change
+function handle_resource_status_change(event_data) {
+    print_to_cora_log("Resource status changed: " + event_data.id)
+    print_to_cora_log("New status: " + event_data.new_status)
+    
+    if (event_data.new_status == "degrading") {
+        // Resource is becoming unstable
+        print_to_cora_log("WARNING: Resource " + event_data.id + " showing signs of degradation")
+        print_to_cora_log("Initiating emergency refinement protocol")
+        
+        prioritize_refinement(event_data.id)
+    } else if (event_data.new_status == "refined") {
+        // Resource refinement complete
+        print_to_cora_log("Resource " + event_data.id + " refinement complete")
+        move_to_long_term_storage(event_data.id)
+    }
+}
+
+// Handler for inventory threshold events
+function handle_inventory_threshold(event_data) {
+    print_to_cora_log("Inventory threshold reached for: " + event_data.resource_type)
+    print_to_cora_log("Current quantity: " + event_data.current_quantity)
+    print_to_cora_log("Threshold: " + event_data.threshold)
+    
+    if (event_data.threshold_type == "maximum") {
+        // Too much of a resource
+        print_to_cora_log("Maximum storage capacity approaching for " + event_data.resource_type)
+        print_to_cora_log("Initiating bulk refinement process")
+        
+        start_bulk_refinement(event_data.resource_type)
+    } else if (event_data.threshold_type == "minimum") {
+        // Resource running low
+        print_to_cora_log("Resource levels low for " + event_data.resource_type)
+        print_to_cora_log("Adjusting collection array priorities")
+        
+        prioritize_collection(event_data.resource_type)
+    }
+}
+
+// Function to register event listeners for the classification system
+function setup_classification_event_listeners() {
+    register_event_listener(
+        "resource_arrival",
+        handle_resource_arrival,
+        null,  // No filter, process all arrivals
+        8      // High priority
+    )
+    
+    register_event_listener(
+        "resource_status_change",
+        handle_resource_status_change,
+        null,  // No filter
+        7
+    )
+    
+    register_event_listener(
+        "inventory_threshold",
+        handle_inventory_threshold,
+        null,  // No filter
+        6
+    )
+    
+    print_to_cora_log("Classification system event listeners registered")
+}
+
+// Function to initialize the classification system
+function initialize_classification_system() {
+    // Set up event listeners
+    setup_classification_event_listeners()
+    
+    // Process initial batch of resources
+    processed_batch = process_resource_batch(incoming_resources)
+    
+    // Group resources by category
+    categorized_resources = group_by_category(processed_batch)
+    
+    // Generate summary report for internal use
+    print_to_cora_log("Resource classification system initialized")
+    
+    return {
+        "processed_resources": processed_batch,
+        "categorized_resources": categorized_resources
+    }
+}
+
+// Stub functions for conceptual implementation
+function calculate_duration(resource, params) {
+    // Would calculate processing duration based on resource and parameters
+    return Math.ceil(60 + (resource.quantity * 10) / resource.purity)
+}
+
+function determine_storage_location(resource_type) {
+    // Would determine appropriate storage location
+    type_info = resource_types[resource_type]
+    
+    if (type_info.category == "energy") return "energy_vault"
+    if (type_info.category == "structural") return "materials_bay"
+    if (type_info.category == "computational") return "data_storage"
+    if (type_info.category == "biological") return "bio_containment"
+    
+    return "general_storage"
+}
+
+function determine_max_storage_duration(resource) {
+    // Would calculate how long a resource can be stored
+    type_info = resource_types[resource.type]
+    
+    if (type_info.category == "energy") {
+        return resource.properties.half_life ? resource.properties.half_life * 2 : 180
+    }
+    
+    if (type_info.category == "biological") {
+        return resource.properties.viability ? resource.properties.viability * 2 : 90
+    }
+    
+    // Default long term for stable materials
+    return 720 // 30 days
+}
+
+function determine_special_requirements(resource) {
+    // Would determine any special storage requirements
+    return []
+}
+
+function store_resource(resource) {
+    print_to_cora_log("Stored " + resource.id + " in " + resource.storage.location)
+    return true
+}
+
+function should_refine_immediately(resource) {
+    // Determine if a resource needs immediate refinement
+    return !resource.is_stable || resource.type == "void_energy"
+}
+
+function start_refinement_process(resource) {
+    print_to_cora_log("Started refinement process for " + resource.id)
+    return true
+}
+
+function update_inventory_status() {
+    print_to_cora_log("Inventory status updated")
+    return true
+}
+
+function prioritize_refinement(resource_id) {
+    print_to_cora_log("Prioritized refinement for " + resource_id)
+    return true
+}
+
+function move_to_long_term_storage(resource_id) {
+    print_to_cora_log("Moved " + resource_id + " to long-term storage")
+    return true
+}
+
+function start_bulk_refinement(resource_type) {
+    print_to_cora_log("Started bulk refinement for " + resource_type)
+    return true
+}
+
+function prioritize_collection(resource_type) {
+    print_to_cora_log("Prioritized collection for " + resource_type)
+    return true
+}
+
+//------------------------------------------------------------------------------
+// EXAMPLE USAGE
+//------------------------------------------------------------------------------
+
+/* 
+// The following example shows how to use the key functions from different sections
+// Uncomment to see how the systems would work together
+
+function example_usage() {
+    print_to_cora_log("RESOURCE HARVESTER ACTIVATION EXAMPLE")
+    print_to_cora_log("-------------------------------------")
+    
+    // Step 1: Run diagnostics
+    var sensor_data = initialize_sensor_data()
+    var diagnostic_report = generate_diagnostic_report(sensor_data)
+    
+    print_to_cora_log("System health: " + diagnostic_report.health + "%")
+    print_to_cora_log("Critical systems: " + diagnostic_report.critical_systems.length)
+    print_to_cora_log("Top maintenance priority: " + diagnostic_report.maintenance_queue[0].id)
+    
+    // Step 2: Optimize power distribution
+    var available_power = 400 // kilowatts
+    var optimized_allocator = with_power_recovery(allocate_by_priority)
+    var power_result = optimized_allocator(available_power, system_requirements, system_priorities)
+    
+    print_to_cora_log("Power distribution complete")
+    print_to_cora_log("Life support allocation: " + Math.round(power_result.improved_allocations.life_support) + " kW")
+    
+    // Step 3: Initialize collection arrays
+    initialize_collection_arrays()
+    
+    print_to_cora_log("Collection arrays calibrated")
+    
+    // Step 4: Initialize classification system
+    var classification_result = initialize_classification_system()
+    
+    print_to_cora_log("Classification system ready")
+    print_to_cora_log("Processed resources: " + classification_result.processed_resources.length)
+    
+    var categories = Object.keys(classification_result.categorized_resources)
+    print_to_cora_log("Resource categories: " + categories.join(", "))
+    
+    print_to_cora_log("Resource Harvester successfully activated!")
+}
+*/ 

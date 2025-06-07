@@ -1,0 +1,12 @@
+// Hello World with variables
+let name = "Chronovyan";
+let version = 1.0;
+
+print("Hello from " + name + " version " + version);
+
+// Using a function
+function greet(person) {
+  print("Welcome, " + person + "!");
+}
+
+greet("Time Traveler"); 

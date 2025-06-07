@@ -1,0 +1,21 @@
+// Simple test file for the lexer
+let x = 42;
+let y = 3.14;
+let name = "Chronovyan";
+
+if (x > 10) {
+    print("x is greater than 10");
+} else {
+    print("x is 10 or less");
+}
+
+// A simple function
+function add(a, b) {
+    return a + b;
+}
+
+// Resource allocation
+let resource = allocate_resources(100);
+if (resource) {
+    print("Allocated resource");
+}

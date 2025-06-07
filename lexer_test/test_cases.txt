@@ -1,0 +1,184 @@
+// ===== Number Literals =====
+// Decimal integers
+0
+123
+1_000_000
+1_2_3_  // Error: trailing separator
+
+// Floating point
+0.0
+.123
+123.
+1.23e4
+1.23e-4
+1_000.000_1
+1.2.3  // Error: multiple decimal points
+1e2e3  // Error: multiple exponents
+
+// Hexadecimal (currently failing)
+0x1A3F
+0x1A_3F
+0x1A3F_ABCD
+0x  // Error: incomplete hex literal
+0xG  // Error: invalid hex digit
+
+// Binary (currently failing)
+0b1010
+0b1010_0101
+0b  // Error: incomplete binary literal
+0b2  // Error: invalid binary digit
+
+// Octal (currently failing)
+0o123
+0o1_2_3
+0o  // Error: incomplete octal literal
+0o8  // Error: invalid octal digit
+
+// Legacy octal
+0123
+08  // Should this be an error or decimal 8?
+
+// ===== Character and String Literals =====
+// Character literals
+'a'
+'\n'
+'\x1F'
+'\u1234'
+'\''
+'\\'
+'\0'
+''  // Error: empty character literal
+'ab'  // Error: multiple characters
+'\x'  // Error: incomplete hex escape
+'\u'  // Error: incomplete unicode escape
+'\u123'  // Error: incomplete unicode escape
+'\uD800'  // Unpaired surrogate (should this be an error?)
+
+// String literals
+""  // Empty string
+"hello world"
+"hello\nworld"
+"\"quoted\""
+"\\escaped\\"
+"unterminated  // Error: missing closing quote
+"\x"  // Error: incomplete hex escape
+"\u"  // Error: incomplete unicode escape
+"\u123"  // Error: incomplete unicode escape
+
+// ===== Identifiers and Keywords =====
+// Identifiers
+variable
+_var
+var1
+var_1
+π
+変数
+αβγ
+1var  // Error: starts with digit
+
+// Keywords
+let
+if
+else
+while
+for
+function
+return
+true
+false
+null
+
+// ===== Operators and Punctuation =====
+// Arithmetic
++
+-
+*
+/
+%
+**
+
+// Comparison
+==
+!=
+<
+<=
+>
+>=
+
+// Logical
+&&
+||
+!
+
+// Bitwise
+&
+|
+^
+~
+<<
+>>
+>>>
+
+// Assignment
+=
++=
+-=
+*=
+/=
+%=
+&=
+|=
+^=
+<<=
+>>=
+>>>=
+
+// Increment/Decrement
+++
+--
+
+// Member access
+.
+?.
+
+// Other operators
+?:
+..
+...
+
+// Punctuation
+(
+)
+{
+}
+[
+]
+,
+;
+:
+::
+->
+
+// ===== Comments and Whitespace =====
+// Line comment
+/* Block comment */
+/* Nested /* block */ comment */
+
+// Unicode whitespace
+\u00A0  // Non-breaking space
+\u2003  // Em space
+
+// ===== Error Cases =====
+@  // Invalid character
+$  // Invalid character
+`  // Invalid character
+?  // Invalid character (unless used in ternary)
+
+// Numbers with invalid separators
+1__2  // Multiple consecutive separators
+1_   // Trailing separator
+_1   // Leading separator (should be identifier?)
+
+// Invalid escape sequences
+"\c"  // Unknown escape
+'\c'  // Unknown escape

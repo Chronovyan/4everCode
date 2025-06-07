@@ -1,0 +1,92 @@
+/*
+ * Chronovyan Language Syntax Guide
+ * ================================
+ * This file provides a comprehensive overview of the basic syntax patterns
+ * in the Chronovyan programming language.
+ */
+
+// Basic Output
+// ------------
+// Use the print() function to output text
+print("Hello, Chronovyan World!");
+
+// Comments
+// --------
+// Single line comments start with //
+// Multi-line comments are wrapped in /* */
+
+/*
+This is a
+multi-line
+comment
+*/
+
+// Variables
+// ---------
+// Variables can be declared using DECLARE with a modifier (CONF or REB)
+// CONF = Conformist (stable, deterministic)
+// REB = Rebel (probabilistic, quantum)
+
+// Standard variable declaration with type
+DECLARE CONF message : STRING = "Time is an illusion.";
+print(message);
+
+// Variables can also have flags like STATIC, VOLATILE, ANCHOR, etc.
+DECLARE CONF::STATIC constant : INT = 42;
+print("The answer is: " + constant);
+
+// Functions
+// ---------
+// Functions are defined using the FUNCTION keyword or as WEAVE_PATTERN
+
+// Simple function definition
+FUNCTION say_hello() {
+  print("Hello from a function!");
+}
+
+// Call the function
+say_hello();
+
+// Function with parameters
+FUNCTION add(a, b) {
+  RETURN a + b;
+}
+
+// Call with parameters
+print("2 + 3 = " + add(2, 3));
+
+// Control Flow
+// -----------
+// Conditional statements use IF/ELSE keywords
+
+DECLARE CONF x : INT = 10;
+
+IF (x > 5) {
+  print("x is greater than 5");
+} ELSE {
+  print("x is not greater than 5");
+}
+
+// Loops
+// -----
+// FOR_CHRONON is used for standard loops
+
+FOR_CHRONON (i = 0; i < 3; i = i + 1) {
+  print("Loop iteration: " + i);
+}
+
+// WHILE_EVENT is used for conditional loops
+
+DECLARE CONF count : INT = 0;
+WHILE_EVENT (count < 3) {
+  print("Count: " + count);
+  count = count + 1;
+}
+
+// Important Syntax Notes
+// ---------------------
+// 1. All statements must end with semicolons
+// 2. Blocks of code are enclosed in curly braces {}
+// 3. The language is case-sensitive
+// 4. Function and variable names are typically lower_snake_case
+// 5. Keywords are in UPPERCASE 

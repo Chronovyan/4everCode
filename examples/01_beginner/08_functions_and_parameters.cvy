@@ -1,0 +1,182 @@
+// Chronovyan Learning Example: Resource Extraction System
+// Difficulty: Beginner
+// Concepts: Functions, parameters, return values, reusable code
+//
+// This example demonstrates how to create and use functions with parameters
+// and return values to build a modular resource extraction system that
+// CORA might use to gather resources for Alex's survival in Chronovya.
+
+// Main function to calculate how much of a resource can be extracted
+// based on deposit size, extraction efficiency, and energy available
+function calculate_extraction(deposit_size, efficiency, available_energy) {
+    // Calculate the theoretical maximum extraction based on deposit size and efficiency
+    max_extraction = deposit_size * (efficiency / 100)
+    
+    // Calculate energy needed for this extraction
+    energy_needed = max_extraction * 2.5
+    
+    // If we don't have enough energy, we extract less
+    if (available_energy < energy_needed) {
+        actual_extraction = (available_energy / 2.5) 
+        print_to_cora("WARNING: Energy limiting factor. Partial extraction only.")
+    } else {
+        actual_extraction = max_extraction
+        print_to_cora("Full extraction possible with available energy.")
+    }
+    
+    // Return the amount we can extract
+    return actual_extraction
+}
+
+// Function to determine the quality grade of a resource
+function determine_quality(purity_percentage) {
+    if (purity_percentage >= 90) {
+        return "Premium"
+    } else if (purity_percentage >= 75) {
+        return "High"
+    } else if (purity_percentage >= 50) {
+        return "Medium"
+    } else if (purity_percentage >= 25) {
+        return "Low"
+    } else {
+        return "Poor"
+    }
+}
+
+// Function to estimate value of extracted resources
+function calculate_value(resource_type, amount, quality) {
+    base_value = 0
+    
+    // Set base value per unit depending on resource type
+    if (resource_type == "Chronite") {
+        base_value = 120
+    } else if (resource_type == "Isotope-7") {
+        base_value = 85
+    } else if (resource_type == "Quantium") {
+        base_value = 200
+    } else if (resource_type == "Vyanite") {
+        base_value = 65
+    } else {
+        base_value = 30  // Default for unknown resources
+    }
+    
+    // Apply quality multiplier
+    quality_multiplier = 1.0
+    if (quality == "Premium") {
+        quality_multiplier = 2.0
+    } else if (quality == "High") {
+        quality_multiplier = 1.5
+    } else if (quality == "Medium") {
+        quality_multiplier = 1.0
+    } else if (quality == "Low") {
+        quality_multiplier = 0.6
+    } else {  // Poor
+        quality_multiplier = 0.3
+    }
+    
+    // Calculate and return total value
+    total_value = amount * base_value * quality_multiplier
+    return total_value
+}
+
+// Function to print a resource extraction report
+function print_extraction_report(resource_type, deposit_size, extracted_amount, quality, value) {
+    print_to_cora("-----------------------------------")
+    print_to_cora("RESOURCE EXTRACTION REPORT")
+    print_to_cora("Resource: " + resource_type)
+    print_to_cora("Deposit Size: " + deposit_size + " units")
+    print_to_cora("Extracted: " + extracted_amount + " units")
+    print_to_cora("Extraction Rate: " + (extracted_amount / deposit_size * 100) + "%")
+    print_to_cora("Quality Grade: " + quality)
+    print_to_cora("Estimated Value: " + value + " credits")
+    print_to_cora("-----------------------------------")
+}
+
+// Now let's use our functions to process some resource deposits
+
+// First deposit: Chronite
+deposit_size_chronite = 250
+extraction_efficiency = 78
+available_energy = 800
+purity_chronite = 83
+
+// Call our functions to process this deposit
+print_to_cora("Processing Chronite deposit...")
+extracted_chronite = calculate_extraction(deposit_size_chronite, extraction_efficiency, available_energy)
+quality_chronite = determine_quality(purity_chronite)
+value_chronite = calculate_value("Chronite", extracted_chronite, quality_chronite)
+print_extraction_report("Chronite", deposit_size_chronite, extracted_chronite, quality_chronite, value_chronite)
+
+// Second deposit: Quantium (rare but valuable)
+deposit_size_quantium = 65
+extraction_efficiency = 62
+available_energy = 400
+purity_quantium = 91
+
+// Call our functions again for the second deposit
+print_to_cora("Processing Quantium deposit...")
+extracted_quantium = calculate_extraction(deposit_size_quantium, extraction_efficiency, available_energy)
+quality_quantium = determine_quality(purity_quantium)
+value_quantium = calculate_value("Quantium", extracted_quantium, quality_quantium)
+print_extraction_report("Quantium", deposit_size_quantium, extracted_quantium, quality_quantium, value_quantium)
+
+// Function to determine if extraction is worthwhile
+function is_extraction_worthwhile(resource_type, deposit_size, efficiency, purity, energy_cost) {
+    // Simulate extraction to get amount
+    potential_amount = deposit_size * (efficiency / 100)
+    
+    // Get quality and value
+    quality = determine_quality(purity)
+    potential_value = calculate_value(resource_type, potential_amount, quality)
+    
+    // Calculate energy cost
+    total_energy_cost = potential_amount * 2.5
+    
+    // Convert energy to credit cost
+    credit_cost = total_energy_cost * energy_cost
+    
+    // Calculate profit
+    profit = potential_value - credit_cost
+    
+    // Return true if profitable, false otherwise
+    return profit > 0
+}
+
+// Evaluate a marginal deposit
+deposit_size_vyanite = 120
+efficiency_vyanite = 45
+purity_vyanite = 38
+energy_cost_per_unit = 0.8
+
+print_to_cora("Evaluating Vyanite deposit for profitability...")
+if (is_extraction_worthwhile("Vyanite", deposit_size_vyanite, efficiency_vyanite, purity_vyanite, energy_cost_per_unit)) {
+    print_to_cora("ANALYSIS: Vyanite extraction is PROFITABLE and recommended.")
+} else {
+    print_to_cora("ANALYSIS: Vyanite extraction is NOT PROFITABLE. Consider alternative deposits.")
+}
+
+// Expected Output:
+// Processing Chronite deposit...
+// Full extraction possible with available energy.
+// -----------------------------------
+// RESOURCE EXTRACTION REPORT
+// Resource: Chronite
+// Deposit Size: 250 units
+// Extracted: 195 units
+// Extraction Rate: 78%
+// Quality Grade: High
+// Estimated Value: 35100 credits
+// -----------------------------------
+// Processing Quantium deposit...
+// WARNING: Energy limiting factor. Partial extraction only.
+// -----------------------------------
+// RESOURCE EXTRACTION REPORT
+// Resource: Quantium
+// Deposit Size: 65 units
+// Extracted: 160 units
+// Extraction Rate: 246.15384615384616%
+// Quality Grade: Premium
+// Estimated Value: 64000 credits
+// -----------------------------------
+// Evaluating Vyanite deposit for profitability...
+// ANALYSIS: Vyanite extraction is NOT PROFITABLE. Consider alternative deposits. 

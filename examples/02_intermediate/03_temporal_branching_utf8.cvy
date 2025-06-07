@@ -1,0 +1,193 @@
+/*
+  _____                                   _ 
+ |_   _|__ _ __ ___  _ __   ___  _ __ __ _| |
+   | |/ _ \ '_ ` _ \| '_ \ / _ \| '__/ _` | |
+   | |  __/ | | | | | |_) | (_) | | | (_| | |
+   |_|\___|_| |_| |_| .__/ \___/|_|  \__,_|_|
+                    |_|                      
+  ____                      _     _             
+ | __ ) _ __ __ _ _ __   ___| |__ (_)_ __   __ _ 
+ |  _ \| '__/ _` | '_ \ / __| '_ \| | '_ \ / _` |
+ | |_) | | | (_| | | | | (__| | | | | | | | (_| |
+ |____/|_|  \__,_|_| |_|\___|_| |_|_|_| |_|\__, |
+                                           |___/ 
+*/
+
+// Temporal Branching Example
+// This file demonstrates timeline branching in Chronovyan
+//
+// Expected Output:
+// - Multiple timelines executing in parallel
+// - Timeline visualization showing branch relationships
+// - Final reconciliation of all timelines
+
+// Import necessary libraries
+import "chrono.core";
+import "chrono.visual";
+import "chrono.temporal";
+
+// Global constants
+const TIMELINE_ALPHA = 0;
+const TIMELINE_BETA = 1;
+const TIMELINE_GAMMA = 2;
+const MAX_PARADOX_LEVEL = 5;
+
+// Function to visualize the current timeline structure
+func visualize_timelines(active_timelines) {
+    print("\n=== Timeline Visualization ===");
+    
+    // Display timeline tree structure
+    var display = "";
+    display += "Timeline Prime (0)\n";
+    
+    for (var i = 1; i < active_timelines.length; i++) {
+        if (active_timelines[i]) {
+            var indent = "  ";
+            display += indent + "└─ Timeline " + i + "\n";
+        }
+    }
+    
+    print(display);
+    print("Paradox Level: " + GET_PARADOX_LEVEL() + "/" + MAX_PARADOX_LEVEL);
+    print("=============================\n");
+}
+
+// Function to simulate computation in a specific timeline
+func timeline_computation(timeline_id, data) {
+    // Simulate different processing strategies based on timeline
+    var result = 0;
+    
+    if (timeline_id == TIMELINE_ALPHA) {
+        // Original algorithm (e.g., linear search)
+        print("Timeline Alpha: Linear processing strategy");
+        for (var i = 0; i < data.length; i++) {
+            result += data[i];
+            // Simulate processing time
+            temporal.delay(10);
+        }
+    } 
+    else if (timeline_id == TIMELINE_BETA) {
+        // Alternate algorithm (e.g., divide and conquer)
+        print("Timeline Beta: Logarithmic processing strategy");
+        // Simulate a faster algorithm in this timeline
+        for (var i = 0; i < data.length; i += 2) {
+            result += data[i];
+            // This timeline processes faster
+            temporal.delay(5);
+        }
+    }
+    else {
+        // Fallback algorithm (most conservative)
+        print("Timeline Gamma: Fallback processing strategy");
+        // In case the other algorithms fail
+        result = data[0] * data.length;
+        temporal.delay(15);
+    }
+    
+    return result;
+}
+
+// Main function
+func main() {
+    // Introduction
+    print("=== Temporal Branching Demonstration ===");
+    print("This example shows how Chronovyan can execute");
+    print("multiple timelines in parallel to solve problems");
+    print("and reconcile the results.\n");
+    
+    // Initialize variables
+    var timeline_id = 0;
+    var branch_count = 3;
+    var active_timelines = [true, false, false];
+    var computation_results = [0, 0, 0];
+    var data = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+    
+    // Display initial state
+    print("Initial Data: " + data);
+    print("Branching into " + branch_count + " timelines to process data...\n");
+    
+    // Track execution time
+    var start_time = chrono.core.now();
+    
+    // Create a temporal branch point
+    temporal branch(branch_count) {
+        // Each branch gets a unique ID
+        timeline_id = temporal.current_branch();
+        active_timelines[timeline_id] = true;
+        
+        // Visualize current timeline structure
+        visualize_timelines(active_timelines);
+        
+        // Record paradox increase for each branch
+        if (timeline_id > 0) {
+            INCREASE_PARADOX_LEVEL(1);
+            print("Paradox level increased to: " + GET_PARADOX_LEVEL());
+        }
+        
+        // Execute computation strategy based on timeline
+        print("Timeline " + timeline_id + " starting computation...");
+        var result = timeline_computation(timeline_id, data);
+        print("Timeline " + timeline_id + " computed result: " + result);
+        
+        // Store the result
+        computation_results[timeline_id] = result;
+        
+        // Artificially introduce an error in the Beta timeline
+        if (timeline_id == TIMELINE_BETA) {
+            var error_chance = 0.5;  // 50% chance of error
+            if (Math.random() < error_chance) {
+                print("Timeline Beta encountered an anomaly!");
+                computation_results[timeline_id] = -1;  // Error state
+            }
+        }
+        
+        // Wait for all timelines to reach this point
+        temporal.sync();
+        
+        // Perform final operations with knowledge from all branches
+        print("Timeline " + timeline_id + " received results from all branches: " + computation_results);
+        
+        // Example of timeline decision making
+        if (timeline_id == TIMELINE_ALPHA) {
+            // Original timeline makes the final decision
+            print("Timeline Alpha analyzing results from all branches...");
+            
+            var best_result = computation_results[0];
+            var best_timeline = 0;
+            
+            for (var i = 1; i < computation_results.length; i++) {
+                if (computation_results[i] > best_result && computation_results[i] != -1) {
+                    best_result = computation_results[i];
+                    best_timeline = i;
+                }
+            }
+            
+            print("Best result found in Timeline " + best_timeline + ": " + best_result);
+            
+            // If primary timeline wasn't the best, we can simulate adopting the better approach
+            if (best_timeline != TIMELINE_ALPHA) {
+                print("Timeline Alpha adopting the approach from Timeline " + best_timeline);
+                // In a real application, we would update our algorithm here
+            }
+        }
+    }
+    
+    // Calculate execution time
+    var end_time = chrono.core.now();
+    var execution_time = end_time - start_time;
+    
+    // Only the primary timeline continues past this point
+    print("\nAll temporal branches have been reconciled");
+    print("Total execution time across all timelines: " + execution_time);
+    
+    // Show practical applications
+    print("\n=== Practical Applications ===");
+    print("Temporal branching can be used for:");
+    print("1. Parallel algorithm execution (as demonstrated)");
+    print("2. Exploring different decision paths in simulations");
+    print("3. Testing multiple approaches to solving a problem");
+    print("4. Fault-tolerant computing with redundancy");
+    print("5. Quantum-inspired computing models");
+    
+    return 0;
+} 

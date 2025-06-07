@@ -1,0 +1,76 @@
+// Basic TEMPORAL_LOOP test file
+// This tests the core functionality of the TEMPORAL_LOOP construct
+
+// Test 1: Basic loop with condition
+PRINT("Test 1: Basic condition-based TEMPORAL_LOOP");
+DECLARE counter = 0;
+TEMPORAL_LOOP (counter < 5) {
+    PRINT("Iteration: " + counter);
+    counter = counter + 1;
+}
+
+// Test 2: Loop with duration
+PRINT("\nTest 2: TEMPORAL_LOOP with duration");
+DECLARE durationCounter = 0;
+TEMPORAL_LOOP DURATION(3) (TRUE) {
+    PRINT("Duration-based iteration: " + durationCounter);
+    durationCounter = durationCounter + 1;
+}
+
+// Test 3: Loop with variance
+PRINT("\nTest 3: TEMPORAL_LOOP with variance");
+DECLARE varianceCounter = 0;
+TEMPORAL_LOOP DURATION(5) (varianceCounter < 3) VARIANCE(0.5) {
+    PRINT("Variance-based iteration: " + varianceCounter);
+    varianceCounter = varianceCounter + 1;
+}
+
+// Test 4: Loop with control flow - BREAK_CHRONON
+PRINT("\nTest 4: TEMPORAL_LOOP with BREAK_CHRONON");
+DECLARE breakCounter = 0;
+TEMPORAL_LOOP (breakCounter < 10) {
+    breakCounter = breakCounter + 1;
+    PRINT("Break iteration: " + breakCounter);
+    
+    IF (breakCounter == 3) {
+        PRINT("Breaking out at iteration 3");
+        BREAK_CHRONON;
+    }
+}
+
+// Test 5: Loop with control flow - CONTINUE_WEAVE
+PRINT("\nTest 5: TEMPORAL_LOOP with CONTINUE_WEAVE");
+DECLARE continueCounter = 0;
+TEMPORAL_LOOP (continueCounter < 5) {
+    continueCounter = continueCounter + 1;
+    
+    IF (continueCounter == 2 || continueCounter == 4) {
+        PRINT("Skipping processing for iteration " + continueCounter);
+        CONTINUE_WEAVE;
+    }
+    
+    PRINT("Processing iteration: " + continueCounter);
+}
+
+// Test 6: Loop with flow reversal
+PRINT("\nTest 6: TEMPORAL_LOOP with REVERSE_FLOW");
+DECLARE reverseCounter = 0;
+DECLARE direction = "forward";
+TEMPORAL_LOOP (reverseCounter < 6 && reverseCounter >= 0) {
+    PRINT("Direction: " + direction + ", Counter: " + reverseCounter);
+    
+    // Reverse direction at counter = 3
+    IF (reverseCounter == 3 && direction == "forward") {
+        PRINT("Reversing flow direction");
+        direction = "backward";
+        REVERSE_FLOW;
+    } ELSE {
+        IF (direction == "forward") {
+            reverseCounter = reverseCounter + 1;
+        } ELSE {
+            reverseCounter = reverseCounter - 1;
+        }
+    }
+}
+
+PRINT("\nAll TEMPORAL_LOOP tests completed successfully!"); 

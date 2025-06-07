@@ -1,0 +1,8 @@
+Starting loop...
+Counting: 1 (odd)
+Counting: 2 (even)
+Counting: 3 (odd)
+Counting: 4 (even)
+Counting: 5 (odd)
+Loop completed. Final counter value: 6
+Counter exceeded maximum value as expected. 

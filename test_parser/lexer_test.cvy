@@ -1,0 +1,104 @@
+// Comprehensive lexer test file for Chronovyan
+
+// 1. Variable declarations
+let x = 42;
+let y = 3.14159;
+let name = "Chronovyan";
+let is_valid = true;
+let list = [1, 2, 3];
+
+// 2. Function definition
+fn add(a: int, b: int) -> int {
+    return a + b;
+}
+
+// 3. Control flow
+if (x > 10) {
+    print("x is greater than 10");
+} else if (x > 5) {
+    print("x is greater than 5 but less than or equal to 10");
+} else {
+    print("x is 5 or less");
+}
+
+// 4. Loops
+for (let i = 0; i < 5; i++) {
+    print(i);
+}
+
+let j = 0;
+while (j < 5) {
+    print(j);
+    j++;
+}
+
+// 5. Operators
+let a = 10;
+let b = 3;
+let sum = a + b;
+let difference = a - b;
+let product = a * b;
+let quotient = a / b;
+let remainder = a % b;
+
+// 6. Comparison and logical operators
+let is_equal = (a == b);
+let is_not_equal = (a != b);
+let is_greater = (a > b);
+let is_less = (a < b);
+let logical_and = (a > 5 && b < 5);
+let logical_or = (a < 5 || b > 5);
+let logical_not = !is_valid;
+
+// 7. String operations
+let greeting = "Hello, " + name + "!";
+let length = name.length();
+let first_char = name[0];
+
+// 8. Function calls
+let result = add(5, 3);
+print("5 + 3 =", result);
+
+// 9. Arrays and maps
+let numbers = [1, 2, 3, 4, 5];
+let person = {
+    "name": "Alice",
+    "age": 30,
+    "is_active": true
+};
+
+// 10. Special tokens and edge cases
+let special_chars = "!@#$%^&*()_+-=[]{}|;:'\",.<>/?`~";
+let empty_string = "";
+let zero = 0;
+let negative = -1;
+let decimal = 3.14;
+
+// 11. Comments
+// This is a single-line comment
+
+/*
+ * This is a
+ * multi-line comment
+ */
+
+// 12. Keywords
+let should_break = false;
+let should_continue = true;
+let value = null;
+
+// 13. Type annotations
+let count: int = 10;
+let price: float = 9.99;
+let text: string = "Hello";
+let flag: bool = true;
+
+// 14. Type casting
+let number = 42;
+let text_number = number as string;
+let back_to_number = text_number as int;
+
+// 15. Error cases (these should generate lexer errors)
+let invalid_number = 123abc;
+let unterminated_string = "Hello, world;
+let invalid_char = `;

@@ -1,0 +1,30 @@
+// String literal tests
+let str1 = "Simple string";
+let str2 = "String with \"quotes\" inside";
+let str3 = "String with \\ backslash";
+let str4 = "String with \n newline";
+let str5 = "String with \t tab";
+let str6 = "String with \x41\x42\x43 hex codes";
+let str7 = "";  // Empty string
+
+// Character literal tests
+let char1 = 'a';
+let char2 = '\'';  // Single quote
+let char3 = '\\';  // Backslash
+let char4 = '\n';  // Newline
+let char5 = '\t';  // Tab
+let char6 = '\x41';  // Hex code for 'A'
+
+// Error cases (should show errors)
+let bad_str1 = "Unterminated string;
+let bad_str2 = "Bad escape \z";
+let bad_char1 = '';  // Empty char
+let bad_char2 = 'ab';  // Multiple chars
+let bad_char3 = '\xZZ';  // Invalid hex
+
+// String with special characters
+let special1 = "!@#$%^&*()_+-=[]{}|;:,.<>/?`~\"";
+let special2 = "Unicode: ✓, ❤, 😊";
+
+// Multi-line string
+let multiLine = "This is a multi-line\nstring with\nline breaks";

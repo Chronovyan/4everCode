@@ -1,0 +1,15 @@
+// Simple test file for the Chronovyan lexer
+let x = 42;
+let y = 3.14;
+let name = "Chronovyan";
+
+// A simple function
+fn add(a: int, b: int) -> int {
+    return a + b;
+}
+
+// Call the function
+let result = add(x, 10);
+
+// Print the result
+print("The result is: ", result);

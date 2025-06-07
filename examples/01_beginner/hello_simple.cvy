@@ -1,0 +1,6 @@
+// Simple Hello World
+print("Hello, World!");
+
+// Variables
+let name = "Chronovyan";
+print("Hello from " + name); 

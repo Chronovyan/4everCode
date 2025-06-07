@@ -1,0 +1,80 @@
+// PARALLEL_EXECUTION Basic Test
+// This test demonstrates the basic functionality of the PARALLEL_EXECUTION construct
+
+// Test 1: Basic parallel execution with a specified number of threads
+CONF var totalSum = 0;
+
+// Execute a block in parallel with 4 threads
+PARALLEL_EXECUTION THREADS(4) (true) {
+    CONF var thread_id = THREAD_ID;
+    CONF var total_threads = TOTAL_THREADS;
+    
+    print("Thread " + thread_id + " of " + total_threads + " started");
+    
+    // Each thread adds its ID to the total sum
+    totalSum = totalSum + thread_id;
+    
+    print("Thread " + thread_id + " of " + total_threads + " completed");
+}
+
+print("Total sum after parallel execution: " + totalSum);
+// Note: The result may vary between runs due to thread execution order, but should be 0+1+2+3=6
+
+// Test 2: Parallel execution with a condition
+REB var resultArray = [0, 0, 0, 0, 0];
+
+PARALLEL_EXECUTION THREADS(5) (true) {
+    CONF var thread_id = THREAD_ID;
+    
+    // Only process even-numbered threads
+    IF (thread_id % 2 == 0) {
+        resultArray[thread_id] = thread_id * 10;
+        print("Thread " + thread_id + " set resultArray[" + thread_id + "] to " + (thread_id * 10));
+    } ELSE {
+        print("Thread " + thread_id + " skipped (odd ID)");
+    }
+}
+
+print("Result array after conditional parallel execution: " + resultArray);
+// Expected: [0, 0, 20, 0, 40]
+
+// Test 3: Parallel execution with synchronization points
+REB var syncTestValue = 0;
+
+PARALLEL_EXECUTION THREADS(3) (true) 
+SYNC_POINT(syncTestValue == 3) {
+    CONF var thread_id = THREAD_ID;
+    
+    // Thread 0 sets the sync value
+    IF (thread_id == 0) {
+        print("Thread 0 setting syncTestValue to 3");
+        syncTestValue = 3;
+    }
+    
+    // All threads wait for the sync point before continuing
+    print("Thread " + thread_id + " waiting at sync point");
+    
+    // After sync point, all threads should see syncTestValue as 3
+    print("Thread " + thread_id + " continuing after sync point, syncTestValue = " + syncTestValue);
+}
+
+print("Final syncTestValue: " + syncTestValue);
+
+// Test 4: Parallel resource usage
+CONF var initialAethel = GET_AETHEL_LEVEL();
+CONF var initialChronons = GET_CHRONONS_LEVEL();
+
+// Executing with more threads should use more resources
+PARALLEL_EXECUTION THREADS(8) (true) {
+    CONF var thread_id = THREAD_ID;
+    print("Thread " + thread_id + " running");
+}
+
+CONF var aethelUsed = initialAethel - GET_AETHEL_LEVEL();
+CONF var chrononsUsed = initialChronons - GET_CHRONONS_LEVEL();
+
+print("Resources used by parallel execution:");
+print("Aethel: " + aethelUsed);
+print("Chronons: " + chrononsUsed);
+
+print("All PARALLEL_EXECUTION tests completed!"); 

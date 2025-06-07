@@ -1,0 +1,4 @@
+print("Hello, World!");
+
+let name = "Chronovyan";
+print("Hello from " + name); 

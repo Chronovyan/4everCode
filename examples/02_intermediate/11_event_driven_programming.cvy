@@ -1,0 +1,339 @@
+// Chronovyan Learning Example: Event-Driven Programming
+// Difficulty: Intermediate
+// Concepts: Event listeners, event handlers, event triggering, reactive programming
+//
+// This example demonstrates how to implement event-driven programming
+// in Chronovyan, allowing your code to respond to events as they occur.
+
+// --- Basic Event Handling ---
+
+// Define a simple event handler function
+func handle_temperature_alert(event_data) {
+    print_to_cora("Temperature alert triggered!");
+    print_to_cora("Current temperature: " + event_data.temperature + "°C");
+    
+    if (event_data.temperature > 80) {
+        print_to_cora("WARNING: Temperature critically high!");
+    } else if (event_data.temperature < 0) {
+        print_to_cora("WARNING: Temperature critically low!");
+    } else {
+        print_to_cora("Temperature outside normal range.");
+    }
+}
+
+// Register the event handler
+register_event_listener("temperature_change", handle_temperature_alert);
+
+print_to_cora("Temperature monitor initialized...");
+
+// Simulate triggering an event
+trigger_event("temperature_change", {
+    "temperature": 85,
+    "sensor_id": "main",
+    "timestamp": 1620000000
+});
+
+// --- Multiple Event Types ---
+
+// Handler for resource detection events
+func handle_resource_detected(event_data) {
+    print_to_cora("\nResource detected:");
+    print_to_cora("Type: " + event_data.resource_type);
+    print_to_cora("Quality: " + event_data.quality + "%");
+    print_to_cora("Location: " + event_data.location);
+}
+
+// Handler for system status events
+func handle_system_status(event_data) {
+    print_to_cora("\nSystem status update:");
+    print_to_cora("Status: " + event_data.status);
+    print_to_cora("Battery: " + event_data.battery + "%");
+    print_to_cora("Memory: " + event_data.memory + "% used");
+}
+
+// Register multiple event handlers
+register_event_listener("resource_detected", handle_resource_detected);
+register_event_listener("system_status", handle_system_status);
+
+// Simulate triggering different event types
+trigger_event("resource_detected", {
+    "resource_type": "chronocrystal",
+    "quality": 87,
+    "location": "sector_7"
+});
+
+trigger_event("system_status", {
+    "status": "operational",
+    "battery": 72,
+    "memory": 45
+});
+
+// --- Event Filtering ---
+
+// Define a filter function for temperature events
+func high_temperature_filter(event_data) {
+    // Only handle events where temperature is above 50°C
+    return event_data.temperature > 50;
+}
+
+// Register an event handler with a filter
+register_event_listener("temperature_change", 
+                      handle_high_temperature_alert, 
+                      high_temperature_filter);
+
+func handle_high_temperature_alert(event_data) {
+    print_to_cora("\nHIGH TEMPERATURE ALERT:");
+    print_to_cora("Temperature: " + event_data.temperature + "°C");
+    print_to_cora("Take immediate action!");
+}
+
+// Simulate events - only the second one should trigger our filtered handler
+print_to_cora("\nTesting filtered events:");
+trigger_event("temperature_change", { "temperature": 45 }); // Ignored by filter
+trigger_event("temperature_change", { "temperature": 62 }); // Triggers handler
+
+// --- Event Priorities ---
+
+// Define handlers with different priorities
+func handle_critical_alert(event_data) {
+    print_to_cora("\nCRITICAL ALERT: " + event_data.message);
+}
+
+func handle_warning(event_data) {
+    print_to_cora("\nWARNING: " + event_data.message);
+}
+
+func handle_info(event_data) {
+    print_to_cora("\nINFO: " + event_data.message);
+}
+
+// Register handlers with priority levels (higher number = higher priority)
+register_event_listener("alert", handle_critical_alert, null, 10); // Highest priority
+register_event_listener("alert", handle_warning, null, 5);        // Medium priority
+register_event_listener("alert", handle_info, null, 1);           // Lowest priority
+
+// Function to process events in priority order
+func process_prioritized_events(events) {
+    print_to_cora("\nProcessing events by priority:");
+    
+    // Sort events by priority (higher numbers first)
+    var sorted_events = events.sort(function(a, b) {
+        return b.priority - a.priority;
+    });
+    
+    // Process events in priority order
+    for (var i = 0; i < sorted_events.length; i++) {
+        print_to_cora("Handling " + sorted_events[i].type + 
+                     " (Priority: " + sorted_events[i].priority + ")");
+        
+        // In a real system, we would call the appropriate handler here
+    }
+}
+
+// Simulate a queue of events with different priorities
+var event_queue = [
+    { "type": "info", "priority": 1 },
+    { "type": "critical", "priority": 10 },
+    { "type": "warning", "priority": 5 }
+];
+
+process_prioritized_events(event_queue);
+
+// --- Custom Event Creation ---
+
+// Function to check conditions and potentially trigger events
+func monitor_system_conditions() {
+    print_to_cora("\nMonitoring system conditions...");
+    
+    // Simulate gathering sensor data
+    var temperature = 78;
+    var pressure = 110;
+    var radiation = 15;
+    
+    // Check for conditions that would trigger events
+    if (temperature > 75) {
+        trigger_event("temperature_change", { 
+            "temperature": temperature,
+            "rate_of_change": 2.5
+        });
+    }
+    
+    if (pressure > 100) {
+        trigger_event("pressure_warning", {
+            "pressure": pressure,
+            "location": "main_chamber"
+        });
+    }
+    
+    // Check for a combination of conditions that indicates a pattern
+    if (temperature > 70 && pressure > 100 && radiation > 10) {
+        // Create a custom event for this pattern
+        trigger_event("system_stress_pattern", {
+            "temperature": temperature,
+            "pressure": pressure,
+            "radiation": radiation,
+            "severity": "high",
+            "recommended_action": "reduce_system_load"
+        });
+    }
+}
+
+// Handler for the custom pattern event
+func handle_system_stress_pattern(event_data) {
+    print_to_cora("\nPATTERN DETECTED: System Stress");
+    print_to_cora("Temperature: " + event_data.temperature + "°C");
+    print_to_cora("Pressure: " + event_data.pressure + " kPa");
+    print_to_cora("Radiation: " + event_data.radiation + " mSv");
+    print_to_cora("Severity: " + event_data.severity);
+    print_to_cora("Recommended Action: " + event_data.recommended_action);
+}
+
+// Register handler for our custom pattern event
+register_event_listener("system_stress_pattern", handle_system_stress_pattern);
+
+// Simulate running the monitor
+monitor_system_conditions();
+
+// --- Timed Events ---
+
+// Simulate a set_interval function that calls a function repeatedly
+func demo_interval_events() {
+    print_to_cora("\nDemonstrating timed events:");
+    
+    var counter = 0;
+    
+    // In a real system, this would be called every 5 seconds
+    func timed_check() {
+        counter++;
+        print_to_cora("Timed check #" + counter + " executed");
+        
+        if (counter >= 3) {
+            print_to_cora("Timed checks complete");
+            // In a real system, we would call clear_interval(interval_id) here
+        }
+    }
+    
+    // Simulate three calls to demonstrate
+    timed_check();
+    timed_check();
+    timed_check();
+}
+
+demo_interval_events();
+
+// --- Complete Event System Example ---
+
+// Simulate a complete event-driven sensor system
+func sensor_system_demo() {
+    print_to_cora("\n=== SENSOR SYSTEM DEMONSTRATION ===");
+    
+    // Define our event handlers
+    func handle_sensor_reading(event_data) {
+        print_to_cora("Sensor " + event_data.sensor_id + " reading: " + 
+                     event_data.value + " " + event_data.unit);
+    }
+    
+    func handle_threshold_exceeded(event_data) {
+        print_to_cora("ALERT: Sensor " + event_data.sensor_id + 
+                     " exceeded threshold (" + event_data.value + 
+                     " > " + event_data.threshold + ")");
+    }
+    
+    func handle_system_event(event_data) {
+        print_to_cora("System event: " + event_data.event_type);
+    }
+    
+    // Register handlers
+    register_event_listener("sensor_reading", handle_sensor_reading);
+    register_event_listener("threshold_exceeded", handle_threshold_exceeded);
+    register_event_listener("system_event", handle_system_event);
+    
+    // Simulate sensor readings triggering events
+    print_to_cora("Activating sensors...");
+    
+    // Normal reading
+    trigger_event("sensor_reading", {
+        "sensor_id": "temp_1",
+        "value": 22.5,
+        "unit": "°C"
+    });
+    
+    // Reading that exceeds threshold
+    var reading = 95.2;
+    var threshold = 90;
+    
+    trigger_event("sensor_reading", {
+        "sensor_id": "pressure_2",
+        "value": reading,
+        "unit": "kPa"
+    });
+    
+    if (reading > threshold) {
+        trigger_event("threshold_exceeded", {
+            "sensor_id": "pressure_2",
+            "value": reading,
+            "threshold": threshold,
+            "unit": "kPa"
+        });
+    }
+    
+    // System startup completed
+    trigger_event("system_event", {
+        "event_type": "startup_complete",
+        "timestamp": 1620010000
+    });
+    
+    print_to_cora("Sensor system demonstration complete");
+}
+
+sensor_system_demo();
+
+// Expected Output:
+// Temperature monitor initialized...
+// Temperature alert triggered!
+// Current temperature: 85°C
+// WARNING: Temperature critically high!
+//
+// Resource detected:
+// Type: chronocrystal
+// Quality: 87%
+// Location: sector_7
+//
+// System status update:
+// Status: operational
+// Battery: 72%
+// Memory: 45% used
+//
+// Testing filtered events:
+//
+// HIGH TEMPERATURE ALERT:
+// Temperature: 62°C
+// Take immediate action!
+//
+// Processing events by priority:
+// Handling critical (Priority: 10)
+// Handling warning (Priority: 5)
+// Handling info (Priority: 1)
+//
+// Monitoring system conditions...
+//
+// PATTERN DETECTED: System Stress
+// Temperature: 78°C
+// Pressure: 110 kPa
+// Radiation: 15 mSv
+// Severity: high
+// Recommended Action: reduce_system_load
+//
+// Demonstrating timed events:
+// Timed check #1 executed
+// Timed check #2 executed
+// Timed check #3 executed
+// Timed checks complete
+//
+// === SENSOR SYSTEM DEMONSTRATION ===
+// Activating sensors...
+// Sensor temp_1 reading: 22.5 °C
+// Sensor pressure_2 reading: 95.2 kPa
+// ALERT: Sensor pressure_2 exceeded threshold (95.2 > 90)
+// System event: startup_complete
+// Sensor system demonstration complete 

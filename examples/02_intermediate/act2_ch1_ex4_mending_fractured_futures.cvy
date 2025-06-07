@@ -1,0 +1,965 @@
+/**
+ * @file mending_fractured_futures.cvy
+ * @brief Chronovyan Example: Error Handling & Resilient Systems
+ * @difficulty Intermediate
+ * @concepts Error Handling, Dissonance Protocols, Resource Management, Graceful Degradation
+ *
+ * This example demonstrates error handling techniques in Chronovyan,
+ * showing how to build resilient systems that can operate reliably
+ * even in unstable temporal conditions where failures are inevitable.
+ *
+ * @copyright Chronovyan Project
+ */
+
+// Import the standard Chronovyan library
+import stdlib.chronovyan;
+import stdlib.temporal.resilience;
+
+//===============================================================
+// Utility Functions
+//===============================================================
+
+/**
+ * Prints a formatted section header
+ * @param title The title of the section
+ */
+define_pattern print_section_header(title: String) {
+    print("\n========== " + title + " ==========\n");
+}
+
+/**
+ * Simulates temporal instability by randomly generating errors
+ * @param instability_level The likelihood of generating an error (0.0-1.0)
+ * @return True if no error is generated
+ * @throws Various dissonance types if an error is generated
+ */
+define_pattern simulate_temporal_instability(instability_level: Float) {
+    if (random() < instability_level) {
+        // Determine which type of error to generate
+        CONF error_type = Math.floor(random() * 4);
+        
+        switch (error_type) {
+            case 0:
+                throw new ResourceDepletionDissonance("Temporal energy reserves depleted");
+            case 1:
+                throw new DataCorruptionDissonance("Timeline data corrupted due to interference");
+            case 2:
+                throw new OperationFailureDissonance("Temporal operation failed to complete");
+            case 3:
+                throw new ParadoxDissonance("Causal loop detected in operation");
+        }
+    }
+    
+    return true;
+}
+
+//===============================================================
+// Part 1: Basic Error Handling
+//===============================================================
+
+/**
+ * Demonstrates basic error handling with ATTEMPT_WEAVE and ON_DISSONANCE
+ */
+define_pattern demonstrate_basic_error_handling() {
+    print_section_header("Basic Error Handling");
+    
+    print("Demonstrating basic error handling with ATTEMPT_WEAVE and ON_DISSONANCE");
+    
+    // Example 1: Simple error handling
+    print("\nExample 1: Simple error catching");
+    ATTEMPT_WEAVE {
+        print("Attempting a potentially unstable operation...");
+        
+        // Simulate a high likelihood of failure
+        simulate_temporal_instability(0.8);
+        
+        print("Operation completed successfully!");
+    } ON_DISSONANCE (dissonance) {
+        print("ERROR CAUGHT: " + dissonance.message);
+        print("Error type: " + dissonance.constructor.name);
+    }
+    
+    // Example 2: Returning values from error handling blocks
+    print("\nExample 2: Returning values from error handling blocks");
+    CONF result = ATTEMPT_WEAVE {
+        print("Attempting to retrieve temporal data...");
+        
+        // Simulate a moderate likelihood of failure
+        simulate_temporal_instability(0.6);
+        
+        print("Data retrieved successfully!");
+        return {
+            status: "SUCCESS",
+            data: "Valid temporal data",
+            timestamp: Date.now()
+        };
+    } ON_DISSONANCE (dissonance) {
+        print("ERROR CAUGHT: Failed to retrieve data: " + dissonance.message);
+        
+        // Return a fallback result
+        return {
+            status: "ERROR",
+            error_message: dissonance.message,
+            error_type: dissonance.constructor.name,
+            timestamp: Date.now()
+        };
+    }
+    
+    print("Operation result:");
+    print("  Status: " + result.status);
+    if (result.status === "SUCCESS") {
+        print("  Data: " + result.data);
+    } else {
+        print("  Error: " + result.error_message);
+        print("  Type: " + result.error_type);
+    }
+    
+    // Example 3: Nested error handling
+    print("\nExample 3: Nested error handling");
+    ATTEMPT_WEAVE {
+        print("Beginning outer operation...");
+        
+        ATTEMPT_WEAVE {
+            print("Beginning inner operation...");
+            
+            // High likelihood of failure
+            simulate_temporal_instability(0.9);
+            
+            print("Inner operation completed successfully!");
+        } ON_DISSONANCE (dissonance) {
+            print("Inner error caught: " + dissonance.message);
+            
+            // We might re-throw the error if it's serious
+            if (dissonance instanceof ParadoxDissonance) {
+                print("Paradox detected! Re-throwing to outer handler...");
+                throw dissonance;
+            }
+            
+            print("Handled inner error and continuing...");
+        }
+        
+        print("Outer operation continuing after inner block...");
+        
+        // Moderate likelihood of failure
+        simulate_temporal_instability(0.4);
+        
+        print("Outer operation completed successfully!");
+    } ON_DISSONANCE (dissonance) {
+        print("Outer error caught: " + dissonance.message);
+        print("Outer operation failed.");
+    }
+    
+    print("Basic error handling demonstration complete");
+}
+
+//===============================================================
+// Part 2: Handling Specific Dissonance Types
+//===============================================================
+
+/**
+ * Demonstrates handling different types of dissonances
+ */
+define_pattern demonstrate_specific_dissonance_handling() {
+    print_section_header("Specific Dissonance Types");
+    
+    print("Demonstrating handling of specific dissonance types");
+    
+    // Function that may generate different types of errors
+    define_pattern perform_temporal_operation(operation_name: String) {
+        print("Performing temporal operation: " + operation_name);
+        
+        // High likelihood of failure to demonstrate different handlers
+        CONF instability = 0.8;
+        
+        ATTEMPT_WEAVE {
+            print("Executing " + operation_name + "...");
+            simulate_temporal_instability(instability);
+            print(operation_name + " completed successfully!");
+            return "SUCCESS";
+        } ON_DISSONANCE (ResourceDepletionDissonance, dissonance) {
+            // Handle resource depletion specifically
+            print("RESOURCE ERROR: " + dissonance.message);
+            print("Activating emergency energy reserves...");
+            return "PARTIAL_SUCCESS_WITH_EMERGENCY_RESOURCES";
+        } ON_DISSONANCE (DataCorruptionDissonance, dissonance) {
+            // Handle data corruption specifically
+            print("DATA ERROR: " + dissonance.message);
+            print("Attempting data recovery procedures...");
+            return "PARTIAL_SUCCESS_WITH_RECOVERED_DATA";
+        } ON_DISSONANCE (ParadoxDissonance, dissonance) {
+            // Handle paradoxes specifically - these are the most serious
+            print("CRITICAL PARADOX ERROR: " + dissonance.message);
+            print("Initiating paradox containment protocol!");
+            return "FAILURE_PARADOX_CONTAINED";
+        } ON_DISSONANCE (dissonance) {
+            // Generic handler for any other dissonance types
+            print("GENERAL ERROR: " + dissonance.message);
+            print("Error type: " + dissonance.constructor.name);
+            return "FAILURE";
+        }
+    }
+    
+    // Test with multiple operations to see different error types
+    CONF operations = [
+        "Temporal Scan",
+        "Timeline Recalibration",
+        "Chrono-field Stabilization",
+        "Causality Verification"
+    ];
+    
+    for (CONF operation of operations) {
+        CONF result = perform_temporal_operation(operation);
+        print("Operation result: " + result + "\n");
+    }
+    
+    print("Specific dissonance handling demonstration complete");
+}
+
+//===============================================================
+// Part 3: Resource Management with ENSURE_HARMONY
+//===============================================================
+
+/**
+ * Demonstrates resource management using ENSURE_HARMONY
+ */
+define_pattern demonstrate_resource_management() {
+    print_section_header("Resource Management with ENSURE_HARMONY");
+    
+    print("Demonstrating resource management with ENSURE_HARMONY");
+    
+    // Simulate opening a temporal portal
+    define_pattern open_temporal_portal(destination: String) {
+        print("Opening temporal portal to: " + destination);
+        
+        // Return a simulated portal object
+        return {
+            id: "portal-" + Math.floor(random() * 1000),
+            destination: destination,
+            status: "open",
+            stability: 0.7 + (random() * 0.3), // Random stability between 0.7-1.0
+            open_timestamp: Date.now()
+        };
+    }
+    
+    // Simulate closing a temporal portal
+    define_pattern close_temporal_portal(portal) {
+        print("Closing temporal portal to: " + portal.destination + " (ID: " + portal.id + ")");
+        
+        // Simulate potential issues when closing
+        if (random() < 0.3) {
+            throw new OperationFailureDissonance("Failed to close portal cleanly");
+        }
+        
+        portal.status = "closed";
+        portal.closed_timestamp = Date.now();
+        print("Portal closed successfully");
+        return true;
+    }
+    
+    // Example 1: Basic resource management
+    print("\nExample 1: Basic resource management");
+    ATTEMPT_WEAVE {
+        print("Attempting temporal operation with portal...");
+        
+        // Open the portal - this is our resource
+        CONF portal = open_temporal_portal("Cretaceous Period");
+        
+        ATTEMPT_WEAVE {
+            print("Portal opened successfully. Performing operations through portal...");
+            
+            // Simulate operations that might fail
+            if (random() < 0.7) {
+                throw new OperationFailureDissonance("Portal operation failed");
+            }
+            
+            print("Portal operations completed successfully!");
+        } ENSURE_HARMONY {
+            // This will ALWAYS execute, even if there's an error above
+            print("Ensuring portal is closed...");
+            close_temporal_portal(portal);
+        }
+    } ON_DISSONANCE (dissonance) {
+        print("ERROR in portal operation: " + dissonance.message);
+    }
+    
+    // Example 2: Nested resource management
+    print("\nExample 2: Nested resource management");
+    ATTEMPT_WEAVE {
+        print("Initializing complex temporal operation...");
+        
+        // Open first portal
+        CONF portal1 = open_temporal_portal("Renaissance Italy");
+        
+        ATTEMPT_WEAVE {
+            print("First portal established. Creating second portal...");
+            
+            // Open second portal
+            CONF portal2 = open_temporal_portal("Victorian England");
+            
+            ATTEMPT_WEAVE {
+                print("Both portals active. Performing cross-temporal operation...");
+                
+                // Simulate operation that may fail
+                if (random() < 0.6) {
+                    throw new DataCorruptionDissonance("Cross-temporal data stream corrupted");
+                }
+                
+                print("Cross-temporal operation successful!");
+            } ENSURE_HARMONY {
+                // This ensures the second portal is closed
+                print("Closing second portal regardless of operation outcome...");
+                ATTEMPT_WEAVE {
+                    close_temporal_portal(portal2);
+                } ON_DISSONANCE (dissonance) {
+                    print("WARNING: Issue closing second portal: " + dissonance.message);
+                    print("Emergency closure protocol initiated");
+                }
+            }
+        } ENSURE_HARMONY {
+            // This ensures the first portal is closed
+            print("Closing first portal regardless of operation outcome...");
+            ATTEMPT_WEAVE {
+                close_temporal_portal(portal1);
+            } ON_DISSONANCE (dissonance) {
+                print("WARNING: Issue closing first portal: " + dissonance.message);
+                print("Emergency closure protocol initiated");
+            }
+        }
+    } ON_DISSONANCE (dissonance) {
+        print("ERROR in complex operation: " + dissonance.message);
+    }
+    
+    print("Resource management demonstration complete");
+}
+
+//===============================================================
+// Part 4: Building Resilient Functions
+//===============================================================
+
+/**
+ * Demonstrates building functions that are resilient to failures
+ */
+define_pattern demonstrate_resilient_functions() {
+    print_section_header("Building Resilient Functions");
+    
+    print("Demonstrating patterns for building resilient functions");
+    
+    // Example 1: Retry pattern
+    print("\nExample 1: Retry pattern");
+    
+    // Define a function that implements the retry pattern
+    define_pattern perform_with_retry(operation: Function, max_attempts: Integer = 3) {
+        CONF attempts = 0;
+        
+        while (attempts < max_attempts) {
+            attempts++;
+            
+            ATTEMPT_WEAVE {
+                print("Attempt " + attempts + " of " + max_attempts + "...");
+                CONF result = operation();
+                print("Operation succeeded on attempt " + attempts);
+                return {
+                    success: true,
+                    result: result,
+                    attempts: attempts
+                };
+            } ON_DISSONANCE (dissonance) {
+                if (attempts >= max_attempts) {
+                    print("All " + max_attempts + " attempts failed. Last error: " + dissonance.message);
+                    return {
+                        success: false,
+                        error: dissonance,
+                        attempts: attempts
+                    };
+                }
+                
+                print("Attempt " + attempts + " failed: " + dissonance.message);
+                print("Retrying...");
+                // Could implement exponential backoff here
+                sleep(500); // Simple delay between retries
+            }
+        }
+    }
+    
+    // Test the retry pattern with an operation that sometimes succeeds
+    CONF retry_result = perform_with_retry(function() {
+        // This operation has a 40% chance of success
+        if (random() < 0.4) {
+            return "Operation data";
+        } else {
+            throw new OperationFailureDissonance("Random operation failure");
+        }
+    }, 5); // Try up to 5 times
+    
+    print("Retry operation result: " + (retry_result.success ? "SUCCESS" : "FAILURE"));
+    print("  Attempts: " + retry_result.attempts);
+    if (retry_result.success) {
+        print("  Result: " + retry_result.result);
+    } else {
+        print("  Error: " + retry_result.error.message);
+    }
+    
+    // Example 2: Circuit breaker pattern
+    print("\nExample 2: Circuit breaker pattern");
+    
+    // Define a simple circuit breaker
+    define_structure CircuitBreaker {
+        CONF name: String,
+        CONF failure_threshold: Integer = 3,
+        CONF reset_timeout_ms: Integer = 5000,
+        
+        REB failure_count: Integer = 0,
+        REB state: String = "CLOSED", // CLOSED = operational, OPEN = not allowing operations
+        REB last_failure_time: Integer = 0
+    }
+    
+    implement CircuitBreaker {
+        execute(operation: Function) {
+            // Check if circuit is OPEN (not allowing operations)
+            if (this.state === "OPEN") {
+                // Check if we should try resetting the circuit
+                CONF current_time = Date.now();
+                if (current_time - this.last_failure_time > this.reset_timeout_ms) {
+                    print("Circuit " + this.name + " reset timeout elapsed, trying half-open state");
+                    this.state = "HALF-OPEN";
+                } else {
+                    print("Circuit " + this.name + " is OPEN - fast failing operation");
+                    return {
+                        success: false,
+                        circuit_state: this.state,
+                        error: "Circuit breaker open"
+                    };
+                }
+            }
+            
+            // Execute the operation
+            ATTEMPT_WEAVE {
+                CONF result = operation();
+                
+                // If we get here, operation succeeded
+                if (this.state === "HALF-OPEN") {
+                    print("Operation succeeded in HALF-OPEN state, resetting circuit " + this.name);
+                    this.state = "CLOSED";
+                    this.failure_count = 0;
+                }
+                
+                return {
+                    success: true,
+                    circuit_state: this.state,
+                    result: result
+                };
+            } ON_DISSONANCE (dissonance) {
+                // Operation failed
+                this.failure_count++;
+                this.last_failure_time = Date.now();
+                
+                if (this.state === "HALF-OPEN" || 
+                    (this.state === "CLOSED" && this.failure_count >= this.failure_threshold)) {
+                    print("Circuit " + this.name + " tripped - too many failures");
+                    this.state = "OPEN";
+                }
+                
+                return {
+                    success: false,
+                    circuit_state: this.state,
+                    error: dissonance.message
+                };
+            }
+        }
+        
+        get_state() {
+            return {
+                name: this.name,
+                state: this.state,
+                failure_count: this.failure_count,
+                last_failure_time: this.last_failure_time
+            };
+        }
+    }
+    
+    // Create a circuit breaker
+    CONF breaker = CircuitBreaker {
+        name: "temporal-scanner",
+        failure_threshold: 2, // Trip after 2 failures
+        reset_timeout_ms: 2000 // Try again after 2 seconds
+    };
+    
+    // Test function that fails most of the time
+    define_pattern unreliable_operation() {
+        print("Executing unreliable operation...");
+        if (random() < 0.2) { // Only 20% chance of success
+            print("Operation succeeded");
+            return "Operation data";
+        } else {
+            print("Operation failed");
+            throw new OperationFailureDissonance("Simulated failure in unreliable operation");
+        }
+    }
+    
+    // Run multiple operations through the circuit breaker
+    for (CONF i = 0; i < 6; i++) {
+        print("\nOperation " + (i + 1) + ":");
+        CONF circuit_state = breaker.get_state();
+        print("Circuit state before operation: " + circuit_state.state + 
+              " (Failures: " + circuit_state.failure_count + ")");
+        
+        CONF result = breaker.execute(unreliable_operation);
+        
+        print("Operation result: " + (result.success ? "SUCCESS" : "FAILURE"));
+        print("Circuit state after: " + result.circuit_state);
+        
+        sleep(1000); // Wait between operations
+    }
+    
+    print("Resilient function patterns demonstration complete");
+}
+
+//===============================================================
+// Part 5: Graceful Degradation
+//===============================================================
+
+/**
+ * Demonstrates building systems that gracefully degrade
+ */
+define_pattern demonstrate_graceful_degradation() {
+    print_section_header("Graceful Degradation");
+    
+    print("Demonstrating systems that gracefully degrade under failure");
+    
+    // Define a monitoring station with multiple subsystems
+    define_structure MonitoringStation {
+        CONF name: String,
+        CONF location: String,
+        
+        REB temporal_scanner: Boolean = false,
+        REB anomaly_detector: Boolean = false,
+        REB prediction_engine: Boolean = false,
+        REB warning_system: Boolean = false,
+        
+        REB operation_mode: String = "OFFLINE"
+    }
+    
+    implement MonitoringStation {
+        // Initialize the station and its subsystems
+        initialize() {
+            print("Initializing " + this.name + " at " + this.location + "...");
+            
+            // Try to initialize each subsystem independently
+            this.temporal_scanner = this._initialize_subsystem("Temporal Scanner", 0.7);
+            this.anomaly_detector = this._initialize_subsystem("Anomaly Detector", 0.7);
+            this.prediction_engine = this._initialize_subsystem("Prediction Engine", 0.6);
+            this.warning_system = this._initialize_subsystem("Warning System", 0.8);
+            
+            // Determine operating mode based on available subsystems
+            this._update_operation_mode();
+            
+            print(this.name + " initialized in " + this.operation_mode + " mode");
+            return this.operation_mode !== "OFFLINE";
+        }
+        
+        // Helper to initialize a subsystem with possibility of failure
+        _initialize_subsystem(subsystem_name: String, success_probability: Float) {
+            print("  Initializing " + subsystem_name + "...");
+            
+            ATTEMPT_WEAVE {
+                // Simulate initialization that might fail
+                if (random() < success_probability) {
+                    print("  " + subsystem_name + " initialized successfully");
+                    return true;
+                } else {
+                    throw new ResourceDepletionDissonance("Failed to allocate resources");
+                }
+            } ON_DISSONANCE (dissonance) {
+                print("  FAILED to initialize " + subsystem_name + ": " + dissonance.message);
+                return false;
+            }
+        }
+        
+        // Update operation mode based on available subsystems
+        _update_operation_mode() {
+            CONF available_subsystems = 0;
+            if (this.temporal_scanner) available_subsystems++;
+            if (this.anomaly_detector) available_subsystems++;
+            if (this.prediction_engine) available_subsystems++;
+            if (this.warning_system) available_subsystems++;
+            
+            // Determine mode based on available subsystems and critical dependencies
+            if (available_subsystems === 0) {
+                this.operation_mode = "OFFLINE";
+            } else if (this.temporal_scanner && this.warning_system && available_subsystems >= 3) {
+                this.operation_mode = "FULL";
+            } else if (this.temporal_scanner && this.warning_system) {
+                this.operation_mode = "LIMITED";
+            } else if (this.temporal_scanner || this.anomaly_detector) {
+                this.operation_mode = "MINIMAL";
+            } else {
+                this.operation_mode = "EMERGENCY";
+            }
+        }
+        
+        // Collect data from the environment
+        collect_data() {
+            print(this.name + " collecting data in " + this.operation_mode + " mode...");
+            
+            if (this.operation_mode === "OFFLINE") {
+                throw new SystemFailureDissonance("Station is offline");
+            }
+            
+            CONF data = {};
+            CONF warnings = [];
+            
+            // Collect data from each available subsystem
+            if (this.temporal_scanner) {
+                ATTEMPT_WEAVE {
+                    print("  Scanning temporal environment...");
+                    data.temporal_scan = this._perform_temporal_scan();
+                } ON_DISSONANCE (dissonance) {
+                    print("  WARNING: Temporal scanner failed: " + dissonance.message);
+                    warnings.push("Temporal scanner failure");
+                    this.temporal_scanner = false; // Mark as failed
+                    this._update_operation_mode();
+                }
+            }
+            
+            if (this.anomaly_detector) {
+                ATTEMPT_WEAVE {
+                    print("  Detecting anomalies...");
+                    data.anomalies = this._detect_anomalies(data.temporal_scan);
+                } ON_DISSONANCE (dissonance) {
+                    print("  WARNING: Anomaly detector failed: " + dissonance.message);
+                    warnings.push("Anomaly detector failure");
+                    this.anomaly_detector = false; // Mark as failed
+                    this._update_operation_mode();
+                }
+            }
+            
+            if (this.prediction_engine && data.temporal_scan && data.anomalies) {
+                ATTEMPT_WEAVE {
+                    print("  Generating predictions...");
+                    data.predictions = this._generate_predictions(data.temporal_scan, data.anomalies);
+                } ON_DISSONANCE (dissonance) {
+                    print("  WARNING: Prediction engine failed: " + dissonance.message);
+                    warnings.push("Prediction engine failure");
+                    this.prediction_engine = false; // Mark as failed
+                    this._update_operation_mode();
+                }
+            }
+            
+            // Generate safety recommendations based on available data
+            CONF safety_level = "UNKNOWN";
+            
+            if (this.operation_mode === "FULL" && data.predictions) {
+                safety_level = data.predictions.safety_level;
+            } else if (this.operation_mode === "LIMITED" && data.anomalies) {
+                // Simplified safety assessment without predictions
+                safety_level = data.anomalies.length > 3 ? "DANGER" : 
+                               data.anomalies.length > 0 ? "CAUTION" : "SAFE";
+            } else if (this.operation_mode === "MINIMAL" && data.temporal_scan) {
+                // Very basic assessment based only on scan
+                safety_level = data.temporal_scan.stability < 0.3 ? "DANGER" :
+                               data.temporal_scan.stability < 0.7 ? "CAUTION" : "SAFE";
+            } else {
+                // Emergency mode - no reliable data
+                safety_level = "UNKNOWN_ASSUME_DANGER";
+            }
+            
+            // Issue warnings if needed
+            if (this.warning_system && (safety_level === "DANGER" || safety_level === "UNKNOWN_ASSUME_DANGER")) {
+                ATTEMPT_WEAVE {
+                    print("  !!! ISSUING SAFETY WARNING: " + safety_level + " !!!");
+                    this._issue_warning(safety_level, data);
+                } ON_DISSONANCE (dissonance) {
+                    print("  CRITICAL: Warning system failed: " + dissonance.message);
+                    warnings.push("Warning system failure - CRITICAL");
+                    this.warning_system = false; // Mark as failed
+                    this._update_operation_mode();
+                }
+            }
+            
+            // If mode changed due to failures, report it
+            if (warnings.length > 0) {
+                print("  Station operating mode degraded to " + this.operation_mode + 
+                      " due to subsystem failures");
+            }
+            
+            return {
+                station: this.name,
+                timestamp: Date.now(),
+                operation_mode: this.operation_mode,
+                data: data,
+                safety_level: safety_level,
+                warnings: warnings
+            };
+        }
+        
+        // Simulated temporal scan
+        _perform_temporal_scan() {
+            // Simulate scan that might fail
+            if (random() < 0.2) {
+                throw new DataCorruptionDissonance("Scan data corrupted");
+            }
+            
+            return {
+                stability: Math.round((0.2 + random() * 0.8) * 100) / 100,
+                fluctuation: Math.round(random() * 100) / 100,
+                energy_level: Math.round((0.4 + random() * 0.6) * 100) / 100
+            };
+        }
+        
+        // Simulated anomaly detection
+        _detect_anomalies(scan_data) {
+            if (!scan_data) {
+                // Try to use cached data if no scan available
+                scan_data = {
+                    stability: 0.5,
+                    fluctuation: 0.5,
+                    energy_level: 0.5,
+                    is_cached: true
+                };
+            }
+            
+            // Simulate detection that might fail
+            if (random() < 0.2) {
+                throw new OperationFailureDissonance("Anomaly detection failed");
+            }
+            
+            // Generate some anomalies based on stability
+            CONF anomaly_count = Math.floor((1 - scan_data.stability) * 5);
+            CONF anomalies = [];
+            
+            for (CONF i = 0; i < anomaly_count; i++) {
+                anomalies.push({
+                    id: "anomaly-" + Date.now() + "-" + i,
+                    severity: Math.round((0.3 + random() * 0.7) * 100) / 100,
+                    type: ["FLUX", "PARADOX", "DISPLACEMENT", "ECHO"][Math.floor(random() * 4)]
+                });
+            }
+            
+            return anomalies;
+        }
+        
+        // Simulated prediction generation
+        _generate_predictions(scan_data, anomalies) {
+            if (!scan_data || !anomalies) {
+                throw new DataCorruptionDissonance("Insufficient data for predictions");
+            }
+            
+            // Simulate prediction that might fail
+            if (random() < 0.3) {
+                throw new OperationFailureDissonance("Prediction calculations failed");
+            }
+            
+            // Calculate a safety level based on scan and anomalies
+            CONF total_severity = 0;
+            for (CONF anomaly of anomalies) {
+                total_severity += anomaly.severity;
+            }
+            
+            CONF danger_index = (1 - scan_data.stability) * 0.6 + 
+                               (total_severity / (anomalies.length || 1)) * 0.4;
+            
+            CONF safety_level = danger_index > 0.7 ? "DANGER" :
+                               danger_index > 0.3 ? "CAUTION" : "SAFE";
+            
+            return {
+                safety_level: safety_level,
+                danger_index: Math.round(danger_index * 100) / 100,
+                stability_forecast: Math.round((scan_data.stability * 0.8 + random() * 0.2) * 100) / 100,
+                recommended_actions: this._get_recommended_actions(safety_level)
+            };
+        }
+        
+        // Get recommended actions based on safety level
+        _get_recommended_actions(safety_level) {
+            switch (safety_level) {
+                case "DANGER":
+                    return [
+                        "Avoid further temporal ascent",
+                        "Prepare temporal stabilizers",
+                        "Seek shelter in stabilized zone"
+                    ];
+                case "CAUTION":
+                    return [
+                        "Proceed with caution",
+                        "Monitor temporal fluctuations",
+                        "Keep stabilizers ready"
+                    ];
+                case "SAFE":
+                    return [
+                        "Safe to proceed normally",
+                        "Continue regular monitoring"
+                    ];
+                default:
+                    return [
+                        "Assume danger",
+                        "Retreat to last known safe point",
+                        "Await further instructions"
+                    ];
+            }
+        }
+        
+        // Issue a warning
+        _issue_warning(safety_level, data) {
+            // Simulate warning that might fail
+            if (random() < 0.1) {
+                throw new OperationFailureDissonance("Warning transmission failed");
+            }
+            
+            print("  *** WARNING DETAILS ***");
+            print("  Safety Level: " + safety_level);
+            
+            if (data.predictions && data.predictions.recommended_actions) {
+                print("  Recommended Actions:");
+                for (CONF action of data.predictions.recommended_actions) {
+                    print("    - " + action);
+                }
+            }
+            
+            return true;
+        }
+        
+        // Shutdown the station
+        shutdown() {
+            print("Shutting down " + this.name + "...");
+            
+            // Try to gracefully shutdown each active subsystem
+            if (this.temporal_scanner) {
+                ATTEMPT_WEAVE {
+                    print("  Shutting down Temporal Scanner...");
+                    this.temporal_scanner = false;
+                } ON_DISSONANCE (dissonance) {
+                    print("  WARNING: Failed to cleanly shutdown Temporal Scanner: " + dissonance.message);
+                }
+            }
+            
+            if (this.anomaly_detector) {
+                ATTEMPT_WEAVE {
+                    print("  Shutting down Anomaly Detector...");
+                    this.anomaly_detector = false;
+                } ON_DISSONANCE (dissonance) {
+                    print("  WARNING: Failed to cleanly shutdown Anomaly Detector: " + dissonance.message);
+                }
+            }
+            
+            if (this.prediction_engine) {
+                ATTEMPT_WEAVE {
+                    print("  Shutting down Prediction Engine...");
+                    this.prediction_engine = false;
+                } ON_DISSONANCE (dissonance) {
+                    print("  WARNING: Failed to cleanly shutdown Prediction Engine: " + dissonance.message);
+                }
+            }
+            
+            if (this.warning_system) {
+                ATTEMPT_WEAVE {
+                    print("  Shutting down Warning System...");
+                    this.warning_system = false;
+                } ON_DISSONANCE (dissonance) {
+                    print("  WARNING: Failed to cleanly shutdown Warning System: " + dissonance.message);
+                }
+            }
+            
+            this.operation_mode = "OFFLINE";
+            print(this.name + " shutdown complete");
+            return true;
+        }
+    }
+    
+    // Create and test a monitoring station
+    CONF station = MonitoringStation {
+        name: "Temporal Nexus Monitoring Station",
+        location: "Mountain Pass Alpha-7"
+    };
+    
+    // Initialize the station
+    ATTEMPT_WEAVE {
+        CONF initialization_result = station.initialize();
+        
+        if (initialization_result) {
+            print("\nStation initialized successfully. Testing data collection...\n");
+            
+            // Collect data multiple times to simulate operation
+            for (CONF i = 0; i < 3; i++) {
+                print("\nCollection cycle " + (i + 1) + ":");
+                
+                ATTEMPT_WEAVE {
+                    CONF report = station.collect_data();
+                    print("\nData collection report:");
+                    print("  Mode: " + report.operation_mode);
+                    print("  Safety: " + report.safety_level);
+                    if (report.warnings.length > 0) {
+                        print("  Warnings: " + report.warnings.join(", "));
+                    }
+                } ON_DISSONANCE (dissonance) {
+                    print("CRITICAL: Failed to collect data: " + dissonance.message);
+                }
+                
+                sleep(500); // Brief pause between cycles
+            }
+            
+            // Shutdown the station
+            station.shutdown();
+        } else {
+            print("Station failed to initialize");
+        }
+    } ON_DISSONANCE (dissonance) {
+        print("CRITICAL ERROR: " + dissonance.message);
+        
+        // Try to ensure station shutdown even after errors
+        ATTEMPT_WEAVE {
+            station.shutdown();
+        } ON_DISSONANCE (shutdown_error) {
+            print("EMERGENCY: Failed to shut down station: " + shutdown_error.message);
+        }
+    }
+    
+    print("Graceful degradation demonstration complete");
+}
+
+//===============================================================
+// Main Demonstration
+//===============================================================
+
+/**
+ * Main function that demonstrates all error handling concepts
+ */
+define_pattern main() {
+    print_section_header("Chronovyan Error Handling & Resilient Systems Demonstration");
+    print("This example demonstrates techniques for handling errors and building resilient systems in Chronovyan.");
+    
+    // Part 1: Basic Error Handling
+    demonstrate_basic_error_handling();
+    
+    // Part 2: Handling Specific Dissonance Types
+    demonstrate_specific_dissonance_handling();
+    
+    // Part 3: Resource Management
+    demonstrate_resource_management();
+    
+    // Part 4: Building Resilient Functions
+    demonstrate_resilient_functions();
+    
+    // Part 5: Graceful Degradation
+    demonstrate_graceful_degradation();
+    
+    // Final summary
+    print_section_header("Demonstration Summary");
+    print("You have successfully mastered error handling and resilient system design!");
+    print("Key concepts demonstrated:");
+    print("  1. Basic error handling with ATTEMPT_WEAVE and ON_DISSONANCE");
+    print("  2. Handling specific types of dissonances with targeted recovery strategies");
+    print("  3. Ensuring resource cleanup with ENSURE_HARMONY");
+    print("  4. Building resilient functions using patterns like retry and circuit breaker");
+    print("  5. Designing systems that gracefully degrade when components fail");
+    
+    print("With these techniques, you can create Chronovyan scripts that operate reliably");
+    print("even in the most unstable temporal conditions!");
+    
+    return {
+        status: "SUCCESS",
+        message: "All error handling demonstrations completed successfully"
+    };
+}
+
+// Run the main demonstration
+main(); 

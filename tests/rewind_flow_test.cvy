@@ -1,0 +1,150 @@
+// Chronovyan - Enhanced REWIND_FLOW Test
+// Demonstrates the precise control capabilities of REWIND_FLOW
+
+// Set debug logging to true for more verbose output
+var DEBUG_LOGGING = true;
+
+// Test 1: Basic REWIND_FLOW with HALT_REWIND
+TEMPORAL_PROGRAM RewindHaltTest {
+    // Initialize variables
+    var counter = 0;
+    var iterations = 0;
+    
+    // Basic REWIND_FLOW loop with early termination
+    PRINT "Test 1: REWIND_FLOW with HALT_REWIND";
+    PRINT "Starting counter: " + counter;
+    
+    REWIND_FLOW (counter < 10) {
+        counter = counter + 1;
+        iterations = iterations + 1;
+        PRINT "Iteration " + iterations + ": counter = " + counter;
+        
+        // Use HALT_REWIND to terminate early when counter reaches 5
+        IF (counter >= 5) {
+            PRINT "Counter reached 5, halting rewind";
+            HALT_REWIND;
+            PRINT "This line should still execute before halting";
+        }
+        
+        PRINT "End of iteration " + iterations;
+    }
+    
+    PRINT "Final counter: " + counter;
+    PRINT "Total iterations: " + iterations;
+    PRINT "-----------------------";
+}
+
+// Test 2: REWIND_FLOW with STABILIZE_TIMELINE
+TEMPORAL_PROGRAM StabilizeTest {
+    // Initialize variables
+    var counter = 0;
+    var stability = 0.0;
+    
+    PRINT "Test 2: REWIND_FLOW with STABILIZE_TIMELINE";
+    
+    REWIND_FLOW (counter < 5) {
+        counter = counter + 1;
+        PRINT "Iteration " + counter + " (stability: " + stability + ")";
+        
+        // Increase stabilization factor with each iteration
+        stability = counter / 5.0;
+        PRINT "Setting stability to: " + stability;
+        STABILIZE_TIMELINE stability;
+        
+        PRINT "  - Timeline stabilized at " + stability;
+    }
+    
+    PRINT "Final stability: " + stability;
+    PRINT "-----------------------";
+}
+
+// Test 3: REWIND_FLOW with PREVENT_MODIFICATION
+TEMPORAL_PROGRAM PreventModTest {
+    // Initialize variables
+    var original = 100;
+    var modified = 0;
+    
+    PRINT "Test 3: REWIND_FLOW with PREVENT_MODIFICATION";
+    PRINT "Original value: " + original;
+    
+    REWIND_FLOW (modified < 3) {
+        modified = modified + 1;
+        PRINT "Iteration " + modified;
+        
+        // Try to modify original value (should fail after PREVENT_MODIFICATION)
+        IF (modified == 1) {
+            original = 200;
+            PRINT "  - First iteration: successfully modified to " + original;
+        }
+        
+        IF (modified == 2) {
+            PRINT "  - Second iteration: activating PREVENT_MODIFICATION";
+            PREVENT_MODIFICATION "local";
+            PRINT "  - PREVENT_MODIFICATION activated";
+            
+            // This should have no effect due to PREVENT_MODIFICATION
+            original = 300;
+            PRINT "  - Attempted to modify to 300, actual value: " + original;
+        }
+        
+        IF (modified == 3) {
+            // This should still have no effect
+            PRINT "  - Third iteration: attempting modification again";
+            original = 400;
+            PRINT "  - Attempted to modify to 400, actual value: " + original;
+        }
+    }
+    
+    PRINT "Final value: " + original;
+    PRINT "-----------------------";
+}
+
+// Test 4: Combining multiple control mechanisms
+TEMPORAL_PROGRAM CombinedControlTest {
+    // Initialize variables
+    var counter = 0;
+    var modified = false;
+    
+    PRINT "Test 4: Combined Control Mechanisms";
+    
+    REWIND_FLOW (counter < 10) {
+        counter = counter + 1;
+        PRINT "Iteration " + counter;
+        
+        // Apply different control mechanisms based on the counter value
+        IF (counter == 3) {
+            PRINT "  - Iteration 3: applying high stabilization";
+            STABILIZE_TIMELINE 0.8;
+            PRINT "  - Applied high stabilization (0.8)";
+        }
+        
+        IF (counter == 5) {
+            PRINT "  - Iteration 5: activating global modification prevention";
+            PREVENT_MODIFICATION "global";
+            PRINT "  - Activated global modification prevention";
+            modified = true; // This should have no effect
+            PRINT "  - Modified flag value: " + modified; // Should still be false
+        }
+        
+        IF (counter == 7) {
+            PRINT "  - Iteration 7: halting rewind operation";
+            HALT_REWIND;
+            PRINT "  - Halting command issued";
+        }
+    }
+    
+    PRINT "Final counter: " + counter;
+    PRINT "Modified flag: " + modified; // Should still be false
+    PRINT "-----------------------";
+}
+
+// Run all tests with clear separation
+PRINT "\n=== STARTING REWIND_FLOW CONTROL TESTS ===\n";
+RewindHaltTest();
+PRINT "\n";
+StabilizeTest();
+PRINT "\n";
+PreventModTest();
+PRINT "\n";
+CombinedControlTest();
+PRINT "\n=== ALL TESTS COMPLETED ===\n"; 

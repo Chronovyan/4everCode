@@ -1,0 +1,84 @@
+╔════════════════════════════════════════════════════╗
+║  PROFESSOR THORNE'S FIELD NOTES - ENTRY 12         ║
+║  "Advanced Environmental Response"                 ║
+╚════════════════════════════════════════════════════╝
+
+The unusual radiation patterns in Chronovya require careful
+monitoring and adaptive shielding. I've developed this algorithm
+to dynamically adjust CORA's protective field based on both
+radiation levels and the type of radiation encountered.
+
+// === NESTED CONDITIONALS CODE ===
+
+// Declare variables for our environmental readings
+radiation_level = 45.3     // Current radiation level (0-100)
+radiation_type = "gamma"   // Type of radiation (alpha, beta, gamma)
+power_available = 75       // Available power for shielding (%)
+
+// Primary check for radiation level severity
+if (radiation_level > 75) {
+    // High radiation detected - Critical response
+    print_to_cora("WARNING: High radiation detected!")
+    
+    // Nested check for radiation type to determine response
+    if (radiation_type == "gamma") {
+        // Gamma radiation requires maximum shielding
+        if (power_available >= 60) {
+            print_to_cora("Activating maximum gamma shielding")
+            shield_strength = 3
+            power_consumption = 50
+        } else {
+            print_to_cora("ALERT: Insufficient power for gamma shielding!")
+            print_to_cora("Seeking shelter recommended")
+            shield_strength = 1
+            power_consumption = 20
+        }
+    } else if (radiation_type == "beta") {
+        // Beta radiation requires moderate shielding
+        print_to_cora("Activating enhanced beta shielding")
+        shield_strength = 2
+        power_consumption = 30
+    } else {
+        // Alpha radiation requires minimal shielding
+        print_to_cora("Activating standard alpha shielding")
+        shield_strength = 1
+        power_consumption = 15
+    }
+} else if (radiation_level > 30) {
+    // Moderate radiation detected
+    print_to_cora("Caution: Moderate radiation detected")
+    
+    // Nested check for type with different responses
+    if (radiation_type == "gamma" || radiation_type == "beta") {
+        print_to_cora("Activating standard shielding")
+        shield_strength = 1
+        power_consumption = 20
+    } else {
+        print_to_cora("Minimal shielding sufficient")
+        shield_strength = 0.5
+        power_consumption = 10
+    }
+} else {
+    // Low radiation - minimal response needed
+    print_to_cora("Nominal radiation levels detected")
+    shield_strength = 0
+    power_consumption = 0
+}
+
+// Final power check and adjustment
+remaining_power = power_available - power_consumption
+print_to_cora("Shield strength: " + shield_strength)
+print_to_cora("Power consumption: " + power_consumption + "%")
+print_to_cora("Remaining power: " + remaining_power + "%")
+
+/* 
+This shielding algorithm demonstrates how nested conditions allow
+for precise control flow based on multiple factors. The outer
+condition evaluates the radiation level, while inner conditions
+adapt the response based on radiation type and available power.
+
+Use similar patterns when CORA needs to make complex decisions
+with multiple variables and interdependencies.
+*/
+
+- PT 

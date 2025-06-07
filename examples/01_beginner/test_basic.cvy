@@ -1,0 +1,5 @@
+// Test 1: Basic Print Statement
+print("TEST 1: Basic print - should work");
+
+// Test 2: String Concatenation
+print("TEST 2: String concatenation - " + "should work"); 

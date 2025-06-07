@@ -1,0 +1,32 @@
+# <type>(<scope>): <subject>
+# |<----  Using a Maximum Of 50 Characters   ---->|
+
+# Explain why this change is being made
+# |<----   Try To Limit Each Line to 72 Characters   ---->|
+
+# Provide link or ticket reference if available
+#
+# --- COMMIT GUIDE ---
+# Type can be:
+#   feat     (new feature)
+#   fix      (bug fix)
+#   refactor (code change that neither fixes a bug nor adds a feature)
+#   style    (formatting, missing semi colons, etc; no code change)
+#   docs     (documentation changes)
+#   test     (adding missing tests, refactoring tests; no production code change)
+#   chore    (updating build tasks, package manager configs; no production code change)
+#
+# Scope is optional, but should be a noun describing a section of the codebase
+#
+# Subject uses imperative, present tense: "change" not "changed" nor "changes"
+#
+# Body explains WHAT and WHY, not HOW
+#
+# Footer should contain any references to issue trackers (e.g., Fixes #123)
+
+# --------------------
+# Remember to:
+#   - Use the present tense ("add feature" not "added feature")
+#   - Use the imperative mood ("move cursor to..." not "moves cursor to...")
+#   - Remove all these comments before committing
+# --------------------

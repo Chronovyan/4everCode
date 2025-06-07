@@ -1,0 +1,65 @@
+﻿/*
+ ____  _                                              
+/  __\| |__  _ __ ___  _ __   _____   ___   __ _ _ __  
+| /   |  _ \| '__/ _ \| '_ \ / _ \ \ / / | | | '_  \/ _ \ 
+| \__ | | | | | | (_) | | | | (_) \ V /| |_| | | | |  __/ 
+\____|_| |_|_|  \___/|_| |_|\___/ \_/  \__, |_| |_|\___| 
+                                       |___/             
+*/
+
+// Hello World Example
+// This is the simplest possible Chronovyan program
+// Expected Output: Text showing welcome message, current time, and temporal status
+
+// Import the standard library
+import "chrono.core";
+
+// The main function is the entry point of a Chronovyan program
+func main() {
+    // ===== Basic Output =====
+    // Print a greeting to the console
+    print("Hello, Chronovyan World!");
+    
+    // ===== Variable Types Demonstration =====
+    
+    // CONF (Conformist) variable - standard behavior
+    var CONF current_time = chrono.core.now();
+    print("Current temporal index: " + current_time);
+    
+    // REB (Rebel) variable - can change unexpectedly based on timeline shifts
+    var REB quantum_flux = 3.14159;
+    print("Quantum flux reading: " + quantum_flux);
+    
+    // Boolean variables
+    var is_primary_timeline = true;
+    print("Primary timeline: " + is_primary_timeline);
+    
+    // String variables with concatenation
+    var timeline_name = "Alpha";
+    print("Timeline designation: " + timeline_name);
+    
+    // Numeric operations
+    var chronons_available = 100;
+    var chronons_used = 25;
+    print("Chronons remaining: " + (chronons_available - chronons_used));
+    
+    // ===== Conditional Logic =====
+    // Simple conditional example
+    if (current_time % 2 == 0) {
+        print("We are in an even temporal slice");
+    } else {
+        print("We are in an odd temporal slice");
+    }
+    
+    // ===== Variable Modifiers =====
+    // ::STATIC variables maintain their value across timeline branches
+    var ::STATIC reference_point = current_time;
+    print("Static reference point: " + reference_point);
+    
+    // ===== Temporal Resources =====
+    print("Current aethel level: " + GET_AETHEL_LEVEL());
+    print("Current chronon level: " + GET_CHRONONS_LEVEL());
+    
+    // Return a success code
+    return 0;
+}

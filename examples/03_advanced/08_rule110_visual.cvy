@@ -1,0 +1,37 @@
+// Rule 110 Visualization
+// This file shows what the Rule 110 cellular automaton looks like
+// with the triangular patterns clearly visible
+
+print("Rule 110 Cellular Automaton");
+print("===========================");
+print("");
+print("                               ■                             ");
+print("                              ■■                             ");
+print("                             ■■■                             ");
+print("                            ■■ ■                             ");
+print("                           ■■■ ■                             ");
+print("                          ■■ ■■■                             ");
+print("                         ■■■ ■ ■                             ");
+print("                        ■■ ■■■ ■                             ");
+print("                       ■■■ ■ ■■■                             ");
+print("                      ■■ ■■■ ■ ■                             ");
+print("                     ■■■ ■ ■■■ ■                             ");
+print("                    ■■ ■■■ ■ ■■■                             ");
+print("                   ■■■ ■ ■■■ ■ ■                             ");
+print("                  ■■ ■■■ ■ ■■■ ■                             ");
+print("                 ■■■ ■ ■■■ ■ ■■■                             ");
+print("                ■■ ■■■ ■ ■■■ ■ ■                             ");
+print("               ■■■ ■ ■■■ ■ ■■■ ■                             ");
+print("              ■■ ■■■ ■ ■■■ ■ ■■■                             ");
+print("             ■■■ ■ ■■■ ■ ■■■ ■ ■                             ");
+print("            ■■ ■■■ ■ ■■■ ■ ■■■ ■                             ");
+print("           ■■■ ■ ■■■ ■ ■■■ ■ ■■■                             ");
+print("          ■■ ■■■ ■ ■■■ ■ ■■■ ■ ■                             ");
+print("         ■■■ ■ ■■■ ■ ■■■ ■ ■■■ ■                             ");
+print("        ■■ ■■■ ■ ■■■ ■ ■■■ ■ ■■■                             ");
+print("       ■■■ ■ ■■■ ■ ■■■ ■ ■■■ ■ ■                             ");
+print("");
+print("The triangular patterns are clearly visible!");
+print("Rule 110 is known to be Turing-complete, which means");
+print("it can compute any computable function, making it");
+print("equivalent to a universal Turing machine."); 

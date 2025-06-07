@@ -1,0 +1,113 @@
+// examples/rule110_simulation_utf8.cvy
+// Demonstrates Rule 110 cellular automaton with Chronovyan temporal concepts.
+
+ANTECEDENCE {
+    DECLARE CONF::STATIC World_Width : INT = 60;
+    DECLARE CONF::STATIC Generations_To_Simulate : INT = 30;
+    
+    // Initial state: a single '1' in the middle for Rule 110
+    DECLARE CONF::ANCHOR Initial_Generation_Pattern : CONF_ARRAY = create_temporal_array(World_Width);
+    // Initialize with single cell in the middle
+    // Initial_Generation_Pattern[World_Width / 2] = 1; 
+
+    DECLARE REB::ECHO Simulation_History : ARRAY<CONF_ARRAY>; // Stores each generation
+    DECLARE CONF Current_Generation : CONF_ARRAY = Initial_Generation_Pattern;
+    
+    // Define Rule 110 function
+    DECLARE CONF::STATIC Rule110_Logic : WEAVE_PATTERN = define_pattern("ApplyRule110", [
+        // Parameters: left_cell, current_cell, right_cell
+        // Returns: new_current_cell_state (0 or 1)
+        // Logic for Rule 110: 
+        // 111 -> 0
+        // 110 -> 1
+        // 101 -> 1
+        // 100 -> 0
+        // 011 -> 1
+        // 010 -> 1
+        // 001 -> 1
+        // 000 -> 0
+        DECLARE CONF L, C, R : INT; // Input params
+        DECLARE CONF New_State : INT;
+        
+        // Rule 110 implementation
+        // The formula: new_state = L*C*R + L*C + L*R + C
+        New_State = (L & C & R) ^ (L & C) ^ (L & R) ^ C;
+        
+        RETURN New_State;
+    ]);
+    
+    // Helper function to convert cell state to visible character
+    DECLARE CONF::STATIC VisualizeCell : WEAVE_PATTERN = define_pattern("VisualizeCell", [
+        DECLARE CONF Cell_State : INT;
+        DECLARE CONF Result : STRING;
+        
+        IF (Cell_State == 1) {
+            Result = "■"; // Full block for live cells
+        } ELSE {
+            Result = " "; // Space for dead cells
+        }
+        
+        RETURN Result;
+    ]);
+}
+
+CONCURRENCY {
+    PRINT("Starting Rule 110 Simulation...");
+    
+    // Initialize the first generation with a single cell
+    Current_Generation[World_Width / 2] = 1; 
+    
+    SNAPSHOT(Current_Generation); // Initial snapshot
+    Simulation_History.push(Current_Generation);
+    
+    // Print initial generation
+    DECLARE CONF Initial_Visualization : STRING = "";
+    CYCLE FOR i FROM 0 TO World_Width - 1 {
+        Initial_Visualization += apply_pattern(VisualizeCell, [Current_Generation[i]]);
+    }
+    PRINT("Initial state: " + Initial_Visualization);
+
+    CYCLE FOR Gen_Count FROM 1 TO Generations_To_Simulate {
+        DECLARE CONF Next_Generation : CONF_ARRAY = create_temporal_array(World_Width);
+        
+        // Calculate next generation using the Rule110_Logic pattern
+        CYCLE FOR Cell_Index FROM 0 TO World_Width - 1 {
+            DECLARE CONF Left_Neighbor : INT = Cell_Index == 0 ? 
+                Current_Generation[World_Width-1] : Current_Generation[Cell_Index-1]; // Wrap-around
+            DECLARE CONF Center_Cell : INT = Current_Generation[Cell_Index];
+            DECLARE CONF Right_Neighbor : INT = Cell_Index == World_Width-1 ? 
+                Current_Generation[0] : Current_Generation[Cell_Index+1]; // Wrap-around
+            
+            Next_Generation[Cell_Index] = apply_pattern(Rule110_Logic, [Left_Neighbor, Center_Cell, Right_Neighbor]);
+        }
+        
+        Current_Generation = Next_Generation;
+        Simulation_History.push(Current_Generation);
+        
+        // Visualize this generation with characters
+        DECLARE CONF Line_Visualization : STRING = "";
+        CYCLE FOR i FROM 0 TO World_Width - 1 {
+            Line_Visualization += apply_pattern(VisualizeCell, [Current_Generation[i]]);
+        }
+        
+        PRINT(Line_Visualization);
+    }
+}
+
+CONSEQUENCE {
+    PRINT("Rule 110 Simulation Complete.");
+    PRINT("Total Generations Simulated: " + Generations_To_Simulate);
+    PRINT("Final PARADOX_LEVEL: " + PARADOX_LEVEL);
+    
+    // Analyze the final pattern for complexity
+    DECLARE CONF Final_Pattern_Complexity : FLOAT = calculate_complexity(Simulation_History.last());
+    
+    PRINT("Pattern complexity: " + Final_Pattern_Complexity);
+    
+    IF Final_Pattern_Complexity > 0.8 { // Assuming some complexity metric
+        PRINT("Complex pattern detected - the Rule 110 automaton is Turing complete!");
+        LOOT_TABLE { 0.3: LOOT("Pattern_of_Emergence"); }
+    }
+    
+    DEJAVU(Simulation_History, PARADOX_LEVEL, "Rule110 Weave Audit");
+} 

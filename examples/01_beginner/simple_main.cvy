@@ -1,0 +1,11 @@
+// Simple Hello World with main pattern
+IMPORT "chrono.core";
+
+// Define a simple entry point
+DECLARE CONF main : WEAVE_PATTERN = define_pattern("main", [
+    // Print a greeting to the console
+    PRINT("Hello, Chronovyan World!");
+    
+    // Return a success code
+    RETURN 0;
+]); 

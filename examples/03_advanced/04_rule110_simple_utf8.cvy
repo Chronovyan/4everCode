@@ -1,0 +1,154 @@
+/*
+  ____        _        _ _  ___   
+ |  _ \ _   _| | ___  / / |/ _ \  
+ | |_) | | | | |/ _ \/ /| | | | | 
+ |  _ <| |_| | |  __/ / | | |_| | 
+ |_| \_\\__,_|_|\___/_/  |_|\___/ 
+                                 
+ Cellular Automaton Simulation
+*/
+
+// Rule 110 Simplified Simulation
+// Expected output: A visual pattern of Rule 110 cellular automaton evolution
+// showing the characteristic triangular patterns
+
+// Import required libraries
+import "chrono.core";
+import "chrono.visual";
+
+// Configuration options (can be modified for different effects)
+var CONF world_size = 31;         // Size of the cellular world
+var CONF generations = 20;        // Number of generations to simulate
+var CONF use_color = true;        // Use colored output if supported
+var CONF display_delay = 100;     // Milliseconds between generations
+var CONF wrap_edges = true;       // Whether edges wrap around
+
+// Display character options
+var live_cell_char = "■";
+var dead_cell_char = " ";
+var REB live_cell_color = "cyan"; // REB variable allows color to shift across timelines
+
+// Initialize a world (array of cells)
+func initialize_world() {
+    var world = new Array(world_size);
+    
+    // Initialize with a single live cell in the middle
+    for (var i = 0; i < world_size; i++) {
+        world[i] = 0;
+    }
+    
+    // Set middle cell alive (or can use random pattern with SET_RANDOM_SEED)
+    world[Math.floor(world_size / 2)] = 1;
+    
+    return world;
+}
+
+// Display the current state of the world
+func display_world(world, generation) {
+    var display = "";
+    
+    // Generate the display string
+    for (var i = 0; i < world.length; i++) {
+        if (use_color && world[i] == 1) {
+            // Use colored output if enabled
+            display += visual.colored_text(live_cell_char, live_cell_color);
+        } else {
+            display += world[i] == 1 ? live_cell_char : dead_cell_char;
+        }
+    }
+    
+    // Print the current generation
+    print("Gen " + generation.toString().padStart(2, '0') + ": " + display);
+    
+    // Add delay between generations for visual effect
+    if (display_delay > 0) {
+        temporal.delay(display_delay);
+    }
+}
+
+// Apply Rule 110 to a cell based on its neighborhood
+func apply_rule110(left, center, right) {
+    // Rule 110 is a specific cellular automaton rule with the following transitions:
+    // 111 -> 0 : If all three cells are alive, the center cell dies
+    // 110 -> 1 : If left and center are alive, right is dead, center stays alive
+    // 101 -> 1 : If left and right are alive, center is dead, center becomes alive
+    // 100 -> 0 : If only left is alive, center stays/becomes dead
+    // 011 -> 1 : If center and right are alive, left is dead, center stays alive
+    // 010 -> 1 : If only center is alive, it stays alive
+    // 001 -> 1 : If only right is alive, center becomes alive
+    // 000 -> 0 : If all cells are dead, center stays dead
+    
+    // The rule can be compactly represented as binary: 01101110 (0x6E)
+    var pattern = (left << 2) | (center << 1) | right;
+    return (0x6E >> pattern) & 1;
+}
+
+// Simulate one generation of the cellular automaton
+func simulate_generation(world) {
+    var new_world = new Array(world.length);
+    
+    // Apply Rule 110 to each cell
+    for (var i = 0; i < world.length; i++) {
+        // Get the three cells (with wrap-around if enabled)
+        var left, right;
+        
+        if (wrap_edges) {
+            left = (i == 0) ? world[world.length - 1] : world[i - 1];
+            right = (i == world.length - 1) ? world[0] : world[i + 1];
+        } else {
+            left = (i == 0) ? 0 : world[i - 1];
+            right = (i == world.length - 1) ? 0 : world[i + 1];
+        }
+        
+        var center = world[i];
+        
+        // Apply the rule
+        new_world[i] = apply_rule110(left, center, right);
+    }
+    
+    return new_world;
+}
+
+// Main function
+func main() {
+    // Display header
+    print("=== Rule 110 Cellular Automaton Simulation ===");
+    print("Rule 110 is known to be Turing-complete");
+    print("Watch for the emergence of complex triangular patterns");
+    print("");
+    
+    // Initialize the world
+    var world = initialize_world();
+    
+    // Display the initial state
+    display_world(world, 0);
+    
+    // Simulate for the specified number of generations
+    for (var gen = 1; gen <= generations; gen++) {
+        // Get the next generation
+        world = simulate_generation(world);
+        
+        // Display the current generation
+        display_world(world, gen);
+        
+        // Create a temporal branch every 5 generations
+        // This demonstrates how Chronovyan can create parallel simulations
+        if (gen % 5 == 0) {
+            temporal branch(2) {
+                var branch_id = temporal.current_branch();
+                if (branch_id == 1) {
+                    // In the alternate timeline, change the color
+                    live_cell_color = "magenta";
+                    print("Timeline branch: Color shifted");
+                }
+            }
+        }
+    }
+    
+    // Final output
+    print("");
+    print("Simulation complete");
+    print("To run with different parameters, modify the configuration options at the top");
+    
+    return 0;
+} 

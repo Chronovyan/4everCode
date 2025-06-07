@@ -1,0 +1,159 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+        build_type: [Debug, Release]
+        exclude:
+          - os: macos-latest
+            build_type: Debug
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Install dependencies (Ubuntu)
+      if: runner.os == 'Linux'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential cmake ninja-build
+    
+    - name: Install dependencies (macOS)
+      if: runner.os == 'macOS'
+      run: |
+        brew update
+        brew install cmake ninja
+    
+    - name: Install dependencies (Windows)
+      if: runner.os == 'Windows'
+      run: |
+        choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System'
+        choco install ninja
+    
+    - name: Create build directory
+      run: mkdir -p build
+    
+    - name: Configure CMake
+      shell: bash
+      run: |
+        cmake -B build -G Ninja \
+          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
+          -DBUILD_TESTS=ON \
+          -DBUILD_EXAMPLES=OFF
+    
+    - name: Build
+      shell: bash
+      run: cmake --build build --config ${{ matrix.build_type }} -- -j 4
+    
+    - name: Run tests
+      shell: bash
+      run: |
+        cd build
+        ctest --output-on-failure -C ${{ matrix.build_type }}
+    
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results-${{ matrix.os }}-${{ matrix.build_type }}
+        path: build/Testing/**/*.xml
+        retention-days: 5
+
+  coverage:
+    name: Code Coverage
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        build_type: [Debug]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential cmake ninja-build lcov gcovr
+    
+    - name: Configure with coverage
+      run: |
+        mkdir -p build-coverage
+        cd build-coverage
+        cmake .. -G Ninja \
+          -DCMAKE_BUILD_TYPE=Debug \
+          -DBUILD_TESTS=ON \
+          -DCMAKE_CXX_FLAGS="--coverage" \
+          -DCMAKE_EXE_LINKER_FLAGS="--coverage"
+    
+    - name: Build with coverage
+      run: |
+        cd build-coverage
+        cmake --build . -- -j 4
+    
+    - name: Run tests with coverage
+      run: |
+        cd build-coverage
+        ctest --output-on-failure
+        lcov --capture --directory . --output-file coverage.info
+        lcov --remove coverage.info '/usr/*' '*/tests/*' --output-file coverage.info
+        lcov --list coverage.info
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        file: build-coverage/coverage.info
+        fail_ci_if_error: false
+
+  clang-tidy:
+    name: Clang-Tidy
+    needs: []  # Run independently of build job
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y clang-tidy cmake ninja-build
+    
+    - name: Configure CMake
+      run: |
+        mkdir -p build
+        cd build
+        cmake -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+    
+    - name: Run clang-tidy
+      run: |
+        cd build
+        python3 /usr/share/clang/run-clang-tidy.py -j$(nproc) -p . \
+          '^((?!_deps).)*\.(c|cc|cpp|cxx|h|hh|hpp|hxx)$' \
+          -header-filter='^((?!_deps).)*\.(h|hh|hpp|hxx)$' \
+          -quiet > clang-tidy-report.txt || true
+    
+    - name: Upload clang-tidy report
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: clang-tidy-report
+        path: build/clang-tidy-report.txt
+        retention-days: 5

@@ -1,0 +1,9 @@
+# Documentation migration dependencies
+python-frontmatter>=1.0.0
+markdown>=3.3.0
+beautifulsoup4>=4.9.0
+PyYAML>=5.4.0
+python-slugify>=5.0.0
+markdown-include>=0.6.0
+mkdocs>=1.2.0
+mkdocs-material>=7.0.0

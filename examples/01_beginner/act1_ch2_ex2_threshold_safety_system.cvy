@@ -1,0 +1,152 @@
+// Chronovyan Example: Threshold Safety System
+// Difficulty: Beginner
+// Concepts: Comparison operators (==, !=, <, >, <=, >=), threshold-based logic, functions
+// Related Quest: Radiation Shield (Act I, Chapter 2)
+
+//------------------------------------------------------------------------------
+// RADIATION SHIELD MANAGEMENT: Threshold Safety System
+//------------------------------------------------------------------------------
+
+// Define radiation safety thresholds for different radiation types (measured in mSv)
+// These values represent the boundaries between safe, elevated, and dangerous levels
+var alpha_safe_threshold = 0.5    // Below this level, minimal shielding needed
+var alpha_danger_threshold = 2.0   // At or above this level, maximum shielding required
+
+var gamma_safe_threshold = 0.3     // Gamma radiation has lower safe threshold
+var gamma_danger_threshold = 1.5    // And lower danger threshold
+
+var neutron_safe_threshold = 0.2   // Neutron radiation is dangerous at lower levels
+var neutron_danger_threshold = 1.0  // Therefore lowest danger threshold
+
+// Main function that sets appropriate shield strength based on radiation levels
+// This demonstrates comparison operators and threshold-based decision making
+function set_shield_strength(radiation_type_name, current_level, safe_level, danger_level) {
+    var shield_strength = 0
+    var status = ""
+    
+    // Check if radiation level is below safe threshold
+    if (current_level < safe_level) {
+        // Safe level - minimal shielding required (20%)
+        shield_strength = 20
+        status = "MINIMAL"
+    } 
+    // Check if radiation level is between safe and danger thresholds
+    else if (current_level < danger_level) {
+        // Elevated level - proportional shielding required
+        // Calculate shield strength on a scale from 20% to 100%
+        // based on how close current_level is to danger_level
+        
+        // First, determine what percentage of the way we are from safe to danger
+        var danger_range = danger_level - safe_level
+        var level_above_safe = current_level - safe_level
+        var percentage_to_danger = level_above_safe / danger_range
+        
+        // Then scale that to a shield strength between 20 and 100
+        shield_strength = 20 + Math.round(percentage_to_danger * 80)
+        status = "ELEVATED"
+    }
+    // Check if radiation level is at or above danger threshold 
+    else if (current_level >= danger_level) {
+        // Dangerous level - maximum shielding required (100%)
+        shield_strength = 100
+        status = "MAXIMUM"
+    }
+    
+    // Activate the shield at calculated strength
+    // (This is a conceptual function provided by the game engine)
+    Shield.activate(radiation_type_name, shield_strength)
+    
+    // Return the status for monitoring purposes
+    return status
+}
+
+// Helper function to get a more descriptive status message
+function get_status_message(radiation_type, level, status) {
+    if (status == "MINIMAL") {
+        return radiation_type + " radiation at " + level + " mSv - Safe level. Minimal shielding active."
+    } else if (status == "ELEVATED") {
+        return radiation_type + " radiation at " + level + " mSv - Elevated level. Proportional shielding active."
+    } else if (status == "MAXIMUM") {
+        return "WARNING: " + radiation_type + " radiation at " + level + " mSv - Dangerous level! Maximum shielding active."
+    } else {
+        return "ERROR: Unknown status for " + radiation_type + " radiation."
+    }
+}
+
+//------------------------------------------------------------------------------
+// EXAMPLE USAGE: Here's how to use the Threshold Safety System
+//------------------------------------------------------------------------------
+
+// Sample radiation readings from CORA's sensors
+var alpha_radiation = 0.3
+var gamma_radiation = 0.7
+var neutron_radiation = 1.2
+
+// Set shield strength for each radiation type
+print_to_cora("CORA RADIATION SHIELD SYSTEM - INITIALIZING\n")
+
+// Alpha radiation - below safe threshold
+var alpha_status = set_shield_strength("Alpha", alpha_radiation, alpha_safe_threshold, alpha_danger_threshold)
+print_to_cora(get_status_message("Alpha", alpha_radiation, alpha_status))
+
+// Gamma radiation - between safe and danger thresholds
+var gamma_status = set_shield_strength("Gamma", gamma_radiation, gamma_safe_threshold, gamma_danger_threshold)
+print_to_cora(get_status_message("Gamma", gamma_radiation, gamma_status))
+
+// Neutron radiation - above danger threshold
+var neutron_status = set_shield_strength("Neutron", neutron_radiation, neutron_safe_threshold, neutron_danger_threshold)
+print_to_cora(get_status_message("Neutron", neutron_radiation, neutron_status))
+
+// Check overall system status and issue warnings if necessary
+print_to_cora("\nOverall System Status Check:")
+
+// Using comparison operators (==) to check for specific status values
+if (neutron_status == "MAXIMUM" || gamma_status == "MAXIMUM") {
+    print_to_cora("CRITICAL WARNING: Dangerous radiation levels detected!")
+    print_to_cora("Recommend immediate relocation to safer area.")
+} else if (neutron_status == "ELEVATED" || gamma_status == "ELEVATED") {
+    print_to_cora("CAUTION: Elevated radiation levels detected.")
+    print_to_cora("Shields active but prolonged exposure not recommended.")
+} else {
+    print_to_cora("All radiation levels within acceptable parameters.")
+    print_to_cora("Safe to proceed with minimal shielding.")
+}
+
+// Example of checking exact equality with multiple conditions
+if (alpha_status == "MINIMAL" && gamma_status != "MINIMAL" && neutron_status == "MAXIMUM") {
+    print_to_cora("NOTE: Current radiation profile matches Pattern #27.")
+    print_to_cora("This suggests proximity to a quantum fracture zone.")
+}
+
+//------------------------------------------------------------------------------
+// NOTES ON USAGE AND APPLICATION:
+//------------------------------------------------------------------------------
+// - This system uses comparison operators (<, >, <=, >=, ==, !=) to compare
+//   radiation levels against defined safety thresholds
+// - The proportional calculation demonstrates how to create a graduated response
+//   based on the severity of a condition
+// - Multiple status checks can be combined using logical operators (&&, ||)
+//   to create complex decision systems
+// - Constants (threshold variables) make the code more readable and easier to modify
+// - Using functions to encapsulate logic makes the code reusable and modular
+//
+// NEXT STEPS:
+// - Integrate with real-time radiation monitoring systems
+// - Add automated alerts based on sustained elevated readings
+// - Implement power optimization that balances shield strength with power consumption
+//------------------------------------------------------------------------------
+
+// Expected output:
+/*
+CORA RADIATION SHIELD SYSTEM - INITIALIZING
+
+Alpha radiation at 0.3 mSv - Safe level. Minimal shielding active.
+Gamma radiation at 0.7 mSv - Elevated level. Proportional shielding active.
+WARNING: Neutron radiation at 1.2 mSv - Dangerous level! Maximum shielding active.
+
+Overall System Status Check:
+CRITICAL WARNING: Dangerous radiation levels detected!
+Recommend immediate relocation to safer area.
+NOTE: Current radiation profile matches Pattern #27.
+This suggests proximity to a quantum fracture zone.
+*/ 

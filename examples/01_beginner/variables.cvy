@@ -1,0 +1,25 @@
+// Chronovyan Variable Declaration Examples
+
+// Basic variable declaration with DECLARE
+DECLARE CONF message : STRING = "Hello, Chronovyan!";
+print(message);
+
+// Integer variable
+DECLARE CONF count : INT = 42;
+print("The count is: " + count);
+
+// Float variable
+DECLARE CONF pi : FLOAT = 3.14159;
+print("Pi is approximately: " + pi);
+
+// Boolean variable
+DECLARE CONF is_active : BOOLEAN = true;
+print("Is active: " + is_active);
+
+// Variable with STATIC flag (immutable)
+DECLARE CONF::STATIC constant : INT = 100;
+print("The constant is: " + constant);
+
+// Another string variable
+DECLARE CONF language : STRING = "Chronovyan";
+print("Programming in: " + language); 

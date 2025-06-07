@@ -1,0 +1,106 @@
+// Loot System Demo
+// This script demonstrates the loot discovery mechanics in Chronovyan
+
+// Define a loot table with discovery probabilities
+LOOT_TABLE treasure_hunter {
+    "time_shard": 0.5,        // 50% chance to discover
+    "aethel_crystal": 0.3,    // 30% chance to discover
+    "chrono_compass": 0.1,    // 10% chance to discover
+    "flux_stabilizer": 0.05,  // 5% chance to discover
+    "timewalker_boots": 0.01, // 1% chance to discover
+    "void_crystal": 0.001     // 0.1% chance to discover
+}
+
+// Register the loot table with the runtime
+REGISTER_LOOT_TABLE(treasure_hunter);
+
+// Function to manipulate timeline and increase paradox
+func increase_paradox(amount) {
+    print("Increasing paradox level by " + amount);
+    
+    // Timeline operations increase paradox
+    for (var i = 0; i < amount; i++) {
+        BRANCH_TIMELINE("paradox_" + i);
+    }
+    
+    // Each branch operation has a chance to discover loot
+    print("Current paradox level: " + GET_PARADOX_LEVEL());
+    
+    // Show discovered loot
+    print("Discovered loot:");
+    var loot = GET_DISCOVERED_LOOT();
+    if (loot.length == 0) {
+        print("No loot discovered yet.");
+    } else {
+        for (var i = 0; i < loot.length; i++) {
+            print("- " + loot[i].name + " (" + loot[i].rarity + "): " + loot[i].description);
+        }
+    }
+}
+
+// Function to manipulate resources and potentially discover loot
+func deplete_resources() {
+    print("Depleting temporal resources...");
+    
+    // Consume a large amount of Aethel (might trigger loot discovery)
+    CONSUME_AETHEL(40.0);
+    print("Aethel level: " + GET_AETHEL_LEVEL());
+    
+    // Consume a large amount of Chronons (might trigger loot discovery)
+    CONSUME_CHRONONS(35.0);
+    print("Chronons level: " + GET_CHRONONS_LEVEL());
+    
+    // Show discovered loot
+    print("Discovered loot:");
+    var loot = GET_DISCOVERED_LOOT();
+    if (loot.length == 0) {
+        print("No loot discovered yet.");
+    } else {
+        for (var i = 0; i < loot.length; i++) {
+            print("- " + loot[i].name + " (" + loot[i].rarity + "): " + loot[i].description);
+        }
+    }
+}
+
+// Main function
+func main() {
+    print("Loot System Demonstration");
+    print("========================");
+    print("");
+    
+    // Initial state
+    print("Initial paradox level: " + GET_PARADOX_LEVEL());
+    print("Initial aethel: " + GET_AETHEL_LEVEL());
+    print("Initial chronons: " + GET_CHRONONS_LEVEL());
+    print("");
+    
+    // Run the paradox-increasing function
+    increase_paradox(10);
+    print("");
+    
+    // Run the resource-depleting function
+    deplete_resources();
+    print("");
+    
+    // Final state
+    print("Final paradox level: " + GET_PARADOX_LEVEL());
+    print("Final aethel: " + GET_AETHEL_LEVEL());
+    print("Final chronons: " + GET_CHRONONS_LEVEL());
+    print("");
+    
+    // Final loot check
+    print("Final loot check...");
+    CHECK_FOR_LOOT();
+    
+    print("Discovered loot:");
+    var loot = GET_DISCOVERED_LOOT();
+    if (loot.length == 0) {
+        print("No loot discovered.");
+    } else {
+        for (var i = 0; i < loot.length; i++) {
+            print("- " + loot[i].name + " (" + loot[i].rarity + "): " + loot[i].description);
+        }
+    }
+    
+    return 0;
+} 

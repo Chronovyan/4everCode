@@ -1,0 +1,16 @@
+// A simple test file for the lexer
+let x = 42;
+let y = "Hello, world!";
+let z = 'a';
+
+if (x > 10) {
+    print(y);
+}
+
+// A simple function
+func add(a, b) {
+    return a + b;
+}
+
+// Test the function
+let result = add(5, 7);
