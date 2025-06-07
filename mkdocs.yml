@@ -3,7 +3,7 @@ site_name: Chronovyan
 site_url: https://chronovyan.github.io/
 site_description: A temporal programming language for weaving narratives across time
 site_author: Chronovyan Team
-copyright: Copyright &copy; 2023 Chronovyan Team
+copyright: Copyright &copy; 2025 Chronovyan Team
 
 # Repository
 repo_name: Chronovyan/Chronovyan.github.io
@@ -18,8 +18,6 @@ theme:
     - navigation.sections
     - navigation.indexes
     - search.highlight
-    - content.code.annotate
-    - content.tabs.link
     - content.code.copy
     - content.action.edit
   palette:
@@ -47,14 +45,8 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
-  - pymdownx.tabbed
   - pymdownx.highlight:
       anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.magiclink
-  - pymdownx.mark
-  - pymdownx.smartsymbols
-  - pymdownx.snippets
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -76,39 +68,24 @@ plugins:
   - awesome-pages:
       filename: .pages
       collapse_single_pages: true
-  - markdownextradata
-  - git-authors
-  - redirects:
-      redirect_maps:
-        'index.html': 'getting-started/installation/'
   - mermaid2:
       arguments:
         theme: 'default'
         themeCSS: |
           .mermaid { font-family: 'Roboto', sans-serif; }
   - section-index
-  - mkdocstrings:
-      default_handler: python
-      handlers:
-        python:
-          options:
-            docstring_style: google
-            show_root_heading: true
-            show_source: true
 
 # Navigation
 nav:
   - Home: index.md
   - Getting Started:
     - Installation: getting-started/installation.md
+    - First Steps: getting-started/first-steps.md
     - Quick Start: getting-started/quickstart.md
-  - Language Guide:
-    - Basics: guides/Getting Started - The Journey of a Temporal Developer.md
-    - Core Concepts: core/Core Concepts - The Foundation of Temporal Programming.md
-    - Advanced Features: advanced/Advanced Features - The Art of Temporal Mastery.md
-  - Tutorials: 
-    - Tutorial Roadmap: TUTORIAL_ROADMAP.md
-    - Act 1: tutorials/act1/README.md
+  - Concepts: concepts/index.md
+  - Reference: reference/index.md
+  - Examples: examples/index.md
+  - Contributing: CONTRIBUTING.md
 
 # Extra
 extra:

@@ -1,11 +1,3 @@
----
-title: Changelog
-description: Documentation for CHANGELOG
-date_created: '2025-06-07'
-status: draft
-last_updated: '2025-06-07'
----
-
 # Changelog
 
 All notable changes to the Chronovyan project will be documented in this file.
@@ -16,34 +8,46 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- **TemporalSynchronizer**: A new thread-safe component for managing temporal flow synchronization
-  - Thread-safe operations with mutex protection
-  - Background thread for asynchronous processing
-  - Metrics tracking for synchronization quality
-  - Event callback system for synchronization completion
-- **CI/CD Pipeline**: GitHub Actions workflow for automated testing
-  - Build and test on Windows, Linux, and macOS
-  - Multiple build configurations (Debug/Release)
-  - Test result artifact uploads
+- **Core Library**:
+  - `Timeline` class for managing and executing events in temporal order
+  - `Event` class for defining time-based actions with callbacks
+  - Support for delayed events and event dependencies
+  - Thread-safe operations for concurrent timeline management
+
+- **Command Line Interface**:
+  - `chronovyan` command for running timelines from the command line
+  - Support for creating and managing events with delays and data
+
+- **Examples**:
+  - Basic usage example demonstrating core functionality
+  - Event synchronization example showing task dependencies
+
 - **Developer Tooling**:
-  - `setup_dev_env.ps1` script for one-time environment setup
-  - Comprehensive test suite for the TemporalSynchronizer
-  - Documentation in `docs/temporal_synchronizer.md`
+  - Comprehensive test suite with pytest
+  - Type annotations and static type checking with mypy
+  - Code formatting with Black and isort
+  - Linting with flake8
+  - Automated testing with GitHub Actions
+
+- **Documentation**:
+  - API reference documentation
+  - Getting started guide
+  - Example code and tutorials
 
 ### Changed
-- Updated build system to include the new TemporalSynchronizer library
-- Enhanced README.md with information about the new component
-- Improved thread safety across the codebase
+- Modernized project structure to follow Python best practices
+- Updated build system to use pyproject.toml (PEP 621)
+- Improved error handling and validation
 
 ### Fixed
-- Various minor bug fixes and improvements
+- Various bug fixes and performance improvements
 
-## [0.1.0] - YYYY-MM-DD
+## [0.1.0] - 2025-06-07
 ### Added
-- Initial project structure
-- Core temporal primitives and runtime
-- Basic standard library implementation
-- Example applications
+- Initial release of Chronovyan Python package
+- Core timeline and event management functionality
+- Basic command-line interface
+- Example applications and documentation
 
-[Unreleased]: https://github.com/yourusername/chronovyan/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/yourusername/chronovyan/releases/tag/v0.1.0
+[Unreleased]: https://github.com/Chronovyan/Chronovyan/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/Chronovyan/Chronovyan/releases/tag/v0.1.0

@@ -1,54 +1,136 @@
----
-title: Contributing
-description: Documentation for CONTRIBUTING
-date_created: '2025-06-07'
-status: draft
-last_updated: '2025-06-07'
----
-
 # Contributing to Chronovyan
 
 Thank you for your interest in contributing to Chronovyan! We welcome contributions from the community to help improve this project.
 
-## Getting Started
+## Code of Conduct
+
+This project and everyone participating in it is governed by our [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
+
+## How to Contribute
 
 1. **Fork** the repository on GitHub
 2. **Clone** the project to your own machine
-3. **Commit** changes to your own branch
-4. **Push** your work back up to your fork
-5. Submit a **Pull Request** so we can review your changes
+3. **Create a branch** for your changes
+4. **Commit** changes to your branch
+5. **Push** your work back up to your fork
+6. Submit a **Pull Request** with a clear description of your changes
 
 ## Development Environment Setup
 
 ### Prerequisites
 
-- CMake 3.12 or higher
-- C++20 compatible compiler (GCC 10+, Clang 10+, MSVC 2019+)
+- Python 3.8 or higher
+- pip (Python package manager)
 - Git
-- Python 3.8+ (for build scripts)
 
 ### Setup
 
-1. Clone the repository:
+1. **Fork and clone** the repository:
    ```bash
-   git clone https://github.com/yourusername/chronovyan.git
-   cd chronovyan
+   git clone https://github.com/yourusername/Chronovyan.git
+   cd Chronovyan
    ```
 
-2. Run the setup script (Windows):
-   ```powershell
-   .\scripts\setup_dev_env.ps1
-   ```
+2. **Set up a virtual environment** (recommended):
+   ```bash
+   # On Windows
+   python -m venv venv
+   .\venv\Scripts\activate
    
-   Or on Linux/macOS:
-   ```bash
-   chmod +x ./scripts/setup_dev_env.sh
-   ./scripts/setup_dev_env.sh
+   # On macOS/Linux
+   python3 -m venv venv
+   source venv/bin/activate
    ```
 
-3. Build the project:
+3. **Install the package in development mode** with all development dependencies:
    ```bash
-   mkdir build
+   pip install -e ".[dev]"
+   ```
+
+4. **Install pre-commit hooks** to ensure code quality:
+   ```bash
+   pre-commit install
+   ```
+
+## Development Workflow
+
+1. **Create a new branch** for your feature or bugfix:
+   ```bash
+   git checkout -b feature/your-feature-name
+   # or
+   git checkout -b bugfix/issue-number-description
+   ```
+
+2. **Make your changes** following the project's coding standards
+
+3. **Run tests** to ensure nothing is broken:
+   ```bash
+   pytest
+   ```
+
+4. **Format and lint** your code:
+   ```bash
+   black .
+   isort .
+   flake8
+   mypy .
+   ```
+
+5. **Commit your changes** with a descriptive message:
+   ```bash
+   git add .
+   git commit -m "feat: add new feature"
+   # or
+   git commit -m "fix: resolve issue with timeline"
+   ```
+
+6. **Push your changes** to your fork:
+   ```bash
+   git push origin your-branch-name
+   ```
+
+7. **Open a Pull Request** from your fork to the main repository
+
+## Code Style
+
+- Follow [PEP 8](https://www.python.org/dev/peps/pep-0008/) style guide
+- Use type hints for all function signatures and variables
+- Write docstrings following [Google style](https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings)
+- Keep lines under 88 characters (Black's default)
+
+## Testing
+
+- Write tests for all new features and bug fixes
+- Ensure all tests pass before submitting a pull request
+- Aim for good test coverage (90%+)
+
+## Documentation
+
+- Update documentation when adding new features or changing behavior
+- Keep docstrings up to date
+- Add examples for new features
+
+## Reporting Issues
+
+When reporting issues, please include:
+
+1. A clear, descriptive title
+2. Steps to reproduce the issue
+3. Expected vs. actual behavior
+4. Python version and operating system
+5. Any relevant error messages or logs
+
+## Feature Requests
+
+We welcome feature requests! Please:
+
+1. Check if the feature already exists or has been requested
+2. Explain why this feature would be valuable
+3. Include any relevant use cases or examples
+
+## License
+
+By contributing to Chronovyan, you agree that your contributions will be licensed under the [MIT License](LICENSE).
    cd build
    cmake ..
    cmake --build .
