@@ -78,7 +78,6 @@ plugins:
       collapse_single_pages: true
   - markdownextradata
   - git-authors
-  - git-committers
   - redirects:
       redirect_maps:
         'index.html': 'getting-started/installation/'
