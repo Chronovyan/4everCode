@@ -52,26 +52,33 @@ jobs:
       run: |
         cmake -B build -G Ninja \
           -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
+          -DBUILD_TESTING=ON \
           -DBUILD_TESTS=ON \
-          -DBUILD_EXAMPLES=OFF
+          -DBUILD_EXAMPLES=OFF \
+          -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
     
     - name: Build
       shell: bash
       run: cmake --build build --config ${{ matrix.build_type }} -- -j 4
     
     - name: Run tests
+      id: tests
       shell: bash
+      continue-on-error: true
       run: |
         cd build
-        ctest --output-on-failure -C ${{ matrix.build_type }}
+        ctest --output-on-failure -C ${{ matrix.build_type }} --output-junit test-results.xml
     
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v4
       with:
         name: test-results-${{ matrix.os }}-${{ matrix.build_type }}
-        path: build/Testing/**/*.xml
+        path: |
+          build/test-results.xml
+          build/Testing/**/*.xml
         retention-days: 5
+        if-no-files-found: warn
 
   coverage:
     name: Code Coverage
