@@ -5,12 +5,23 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Set up Python 3.10
@@ -20,27 +31,22 @@ jobs:
 
       - name: Install dependencies
         run: |
-          echo "Installing MkDocs and plugins..."
           python -m pip install --upgrade pip
           pip install mkdocs==1.5.3
           pip install mkdocs-material==9.5.3
           pip install mkdocs-minify-plugin==0.8.0
-          pip list
-          mkdocs --version
 
       - name: Build site
-        run: |
-          echo "Building MkDocs site..."
-          mkdocs build --strict --verbose
-          ls -la site/
+        run: mkdocs build --strict --verbose
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './site'
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages  # The branch the action should deploy to.
-          folder: site  # The folder the action should deploy.
-          clean: true  # Automatically remove deleted files from the deploy branch
-          token: ${{ secrets.GITHUB_TOKEN }}
-          single-commit: true  # Push all changes in a single commit
+        uses: actions/deploy-pages@v4
