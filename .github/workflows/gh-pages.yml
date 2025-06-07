@@ -6,19 +6,10 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+  contents: write
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,18 +26,15 @@ jobs:
           pip install mkdocs==1.5.3
           pip install mkdocs-material==9.5.3
           pip install mkdocs-minify-plugin==0.8.0
+          pip install ghp-import
 
       - name: Build site
         run: mkdocs build --strict --verbose
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './site'
-
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          ghp-import -n -p -f ./site
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
