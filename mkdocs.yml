@@ -20,21 +20,38 @@ theme:
     - navigation.tabs
     - navigation.sections
     - navigation.indexes
+    - navigation.top
     - search.highlight
+    - content.code.annotate
     - content.code.copy
     - content.action.edit
+    - content.tabs
+    - content.tooltips
+    - content.code.select
+    - header.autohide
+    - navigation.footer
+    - navigation.instant
+    - navigation.prune
+    - navigation.tracking
+    - search.suggest
+    - search.share
+    - toc.follow
+    - toc.integrate
+    - content.tabs.link
   palette:
-    - scheme: default
-      primary: deep purple
-      accent: deep purple
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
-    - scheme: slate
-      primary: deep purple
-      accent: deep purple
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
       toggle:
         icon: material/weather-sunny
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
         name: Switch to light mode
   font:
     text: Roboto
@@ -42,6 +59,7 @@ theme:
   icon:
     logo: material/timer-sand
     repo: fontawesome/brands/github
+    edit: material/pencil
 
 # Extensions
 markdown_extensions:
@@ -90,73 +108,16 @@ nav:
     - Hello World: examples/hello_world.md
   - Contributing: CONTRIBUTING.md
 
-# Theme features
-theme:
-  features:
-    - navigation.tabs
-    - navigation.sections
-    - navigation.indexes
-    - navigation.top
-    - search.highlight
-    - content.code.annotate
-    - content.code.copy
-    - content.action.edit
-    - content.tabs
-    - content.tooltips
-    - content.code.select
-    - header.autohide
-    - navigation.footer
-    - navigation.instant
-    - navigation.prune
-    - navigation.tracking
-    - search.suggest
-    - search.share
-    - toc.follow
-    - toc.integrate
-    - content.tabs.link
+# Custom CSS and JS
+extra_css:
+  - css/extra.css
+extra_javascript:
+  - js/extra.js
+
+# Search
+search:
   language: en
-
-  # Customization
-  palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/weather-night
-        name: Switch to light mode
-
-  # Font
-  font:
-    text: Roboto
-    code: Roboto Mono
-
-  # Logo and favicon
-  logo: assets/logo.svg
-  favicon: assets/favicon.ico
-  
-  # Icons
-  icon:
-    repo: fontawesome/brands/github
-    edit: material/pencil
-
-  # Custom CSS and JS
-  extra_css:
-    - css/extra.css
-  extra_javascript:
-    - js/extra.js
-
-  # Search
-  search:
-    language: en
-    separator: '[\s\-]+'
+  separator: '[\s\-]+'
 
 # Extra
 extra:
