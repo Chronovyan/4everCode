@@ -26,12 +26,32 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://chronovyan.github.io/concepts/concurrency/</loc>
+         <lastmod>2025-06-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://chronovyan.github.io/concepts/resource_management/</loc>
+         <lastmod>2025-06-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://chronovyan.github.io/concepts/temporal_programming/</loc>
+         <lastmod>2025-06-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://chronovyan.github.io/examples/</loc>
          <lastmod>2025-06-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chronovyan.github.io/examples/hello_world/</loc>
+         <lastmod>2025-06-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://chronovyan.github.io/examples/temporal_examples/</loc>
          <lastmod>2025-06-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -52,6 +72,16 @@
     </url>
     <url>
          <loc>https://chronovyan.github.io/reference/</loc>
+         <lastmod>2025-06-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://chronovyan.github.io/reference/api_reference/</loc>
+         <lastmod>2025-06-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://chronovyan.github.io/reference/language_specification/</loc>
          <lastmod>2025-06-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
