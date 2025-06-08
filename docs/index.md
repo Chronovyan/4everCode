@@ -109,8 +109,8 @@ Chronovyan is built around the concept of **Temporal Programming**, where time i
 
 ## Development
 
-- [Building from Source](development/building.md)
 - [Contributing](CONTRIBUTING.md)
+- [GitHub Repository](https://github.com/Chronovyan/Chronovyan.github.io)
 - [Roadmap](ROADMAP.md)
 
 ## Community

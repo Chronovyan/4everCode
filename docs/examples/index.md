@@ -10,8 +10,8 @@ This section contains practical examples of using Chronovyan for various tasks.
 
 ## Intermediate Examples
 
-- [Multiple Timelines](multiple_timelines.md) - Working with concurrent timelines
-- [Event Synchronization](synchronization.md) - Synchronizing events across timelines
+- [Temporal Examples](temporal_examples.md) - Advanced temporal programming concepts
+- [Hello World](hello_world.md) - A simple introduction to Chronovyan
 
 ## Advanced Examples
 
