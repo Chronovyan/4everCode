@@ -139,7 +139,7 @@ plugins:
       minify_js: true
       minify_css: true
   - rss:
-      match_path: "news/.*\.md"
+      match_path: "news/.*\\.md"
       categories:
         - category
       date_from_meta:
