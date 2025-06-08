@@ -31,6 +31,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main  # Always build from main branch
+          fetch-depth: 0  # Get full git history for accurate revision dates
       
       - name: Set up Python
         uses: actions/setup-python@v5
