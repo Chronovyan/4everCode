@@ -5,7 +5,7 @@ site_author: 'Chronovyan Team'
 site_url: https://chronovyan.github.io
 
 # Repository
-repo_name: 'Chronovyan/Chronovyan.github.io'
+repo_name: 'Chronovyan/ForeverCode'
 repo_url: https://github.com/Chronovyan/ForeverCode
 edit_uri: edit/main/docs/
 
@@ -142,9 +142,7 @@ plugins:
       match_path: "news/.*\\.md"
       categories:
         - category
-      date_from_meta:
-        as_creation: date
-        date_from_meta: last_updated
+      date_from_meta: date
   - git-revision-date-localized:
       type: timeago
       fallback_to_build_date: true
@@ -155,6 +153,9 @@ plugins:
       j2_block_end_string: '-%}'
       j2_variable_start_string: '{{'
       j2_variable_end_string: '}}'
+
+# Watch configuration
+watch: ["docs"]
 
 # Markdown extensions
 markdown_extensions:
