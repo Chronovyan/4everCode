@@ -395,34 +395,162 @@ FUNC &STR longest<'a>(&'a STR a, &'a STR b) -> &'a STR {
 
 ## 11. Temporal Programming
 
-### 11.1 Timeline Operations
+Chronovyan's temporal programming model is built around first-class support for time-aware computations, quantum operations, and timeline management.
+
+### 11.1 Core Temporal Types
+
+| Type         | Description                                      | Example                     |
+|--------------|--------------------------------------------------|-----------------------------|
+| `MOMENT`     | A point in time                                  | `NOW()`                     |
+| `DURATION`   | A length of time                                 | `5s`, `2h30m`               |
+| `TIMELINE`   | A sequence of temporal events                   | `TIMELINE_NEW("events")`   |
+| `TEMPORAL<T>`| A value that changes over time                  | `TEMPORAL<INT> counter`     |
+| `QUANTUM<T>` | A quantum state that can be in superposition    | `QUANTUM<BOOL> q`          |
+| `AETHEL`     | Temporal energy resource                        | `AETHEL energy = 100.0`     |
+| `CHRONON`    | Basic quantum of time                           | `CHRONON t = NOW()`         |
+
+
+### 11.2 Timeline Operations
+
+Timelines are the foundation of Chronovyan's temporal model, allowing you to sequence and manage events over time.
 
 ```chronovyan
-// Create a new timeline
-DECLARE tl = TIMELINE_NEW("my_timeline");
+// Create a new named timeline
+DECLARE timeline = TIMELINE_NEW("simulation");
 
-// Add an event
-TIMELINE_ADD_EVENT(tl, NOW() + 1s, \() {
-    io::println("Event fired!");
+
+// Schedule events with temporal precision
+TIMELINE_ADD_EVENT(timeline, NOW() + 100ms, \() {
+    io::println("100ms elapsed");
 });
 
-// Run the timeline
-TIMELINE_RUN(tl);
+// Add a periodic event
+TIMELINE_ADD_RECURRING(timeline, 1s, \() {
+    static INT counter = 0;
+    io::println("Tick ", counter++);
+});
+
+// Run the timeline asynchronously
+DECLARE timeline_handle = TIMELINE_RUN_ASYNC(timeline);
+
+// Later, pause or stop the timeline
+TIMELINE_PAUSE(timeline);
+// ...
+TIMELINE_RESUME(timeline);
+// ...
+TIMELINE_STOP(timeline);
+AWAIT timeline_handle;  // Wait for completion
 ```
 
-### 11.2 Quantum Computing
+### 11.3 Quantum Programming
+
+Chronovyan provides first-class support for quantum computing operations.
 
 ```chronovyan
-// Create qubits
-DECLARE q1 = QUBIT(0);
-DECLARE q2 = QUBIT(1);
+// Quantum teleportation example
+FUNC QUANTUM<BOOL> quantum_teleport(QUANTUM<BOOL> q) {
+    // Create entangled pair (Bell pair)
+    DECLARE q1 = QUBIT(0);
+    DECLARE q2 = QUBIT(1);
+    H(q1);
+    CNOT(q1, q2);
+    
+    // Entangle with input qubit
+    CNOT(q, q1);
+    H(q);
+    
+    // Measure and correct
+    IF (MEASURE(q)) { Z(q2); }
+    IF (MEASURE(q1)) { X(q2); }
+    
+    RETURN q2;
+}
 
-// Apply quantum gates
-H(q1);  // Hadamard
-CNOT(q1, q2);
+// Using quantum operations
+FUNC VOID main() {
+    // Create a qubit in superposition
+    DECLARE q = QUBIT(0);
+    H(q);
+    
+    // Teleport the quantum state
+    DECLARE teleported = quantum_teleport(q);
+    
+    // Measure the result
+    IF (MEASURE(teleported)) {
+        io::println("Measured |1>");
+    } ELSE {
+        io::println("Measured |0>");
+    }
+}
+```
 
-// Measure
-DECLARE result = MEASURE(q1);
+### 11.4 Temporal Variables and State
+
+Chronovyan provides special variable types for handling time-dependent state.
+
+```chronovyan
+// A static temporal variable (fixed point in time)
+DECLARE CONF::STATIC program_start = NOW();
+
+// A flux variable that changes over time
+DECLARE REB::FLUX<FLOAT> temperature = 20.0;
+
+// Monitor temperature changes
+TIMELINE_ADD_RECURRING(main_timeline, 1s, \() {
+    io::println("Current temperature: ", temperature, "°C");
+    
+    // Update temperature (simulated)
+    temperature = 20.0 + 5.0 * SIN((NOW() - program_start).as_seconds());
+});
+
+// Quantum state that can be in superposition
+DECLARE QUANTUM::ENTANGLED coin = QUBIT(0);
+H(coin);  // Put in superposition
+
+// Measure collapses the superposition
+IF (MEASURE(coin)) {
+    io::println("Heads!");
+} ELSE {
+    io::println("Tails!");
+}
+```
+
+### 11.5 Temporal Resource Management
+
+Chronovyan includes special mechanisms for managing temporal resources.
+
+```chronovyan
+// AETHEL represents temporal energy
+DECLARE AETHEL energy = 100.0;
+
+// Temporal functions consume AETHEL
+FUNC TEMPORAL<INT> count_down(INT start) {
+    // Consume temporal energy
+    TEMPORAL_EXPEND(10.0);
+    
+    DECLARE current = start;
+    RETURN TEMPORAL<INT> {
+        next: \() -> OPTION<INT> {
+            IF (current > 0) {
+                RETURN SOME(current--);
+            } ELSE {
+                RETURN NONE;
+            }
+        }
+    };
+}
+
+// Using temporal resources
+FUNC VOID main() {
+    DECLARE counter = count_down(5);
+    WHILE (TRUE) {
+        MATCH counter.next() {
+            SOME(n) => io::println(n),
+            NONE => BREAK,
+        }
+        DELAY 1s;
+    }
+}
 ```
 
 ## 12. Implementation Notes

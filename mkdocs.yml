@@ -1,0 +1,164 @@
+# Project information
+site_name: Chronovyan
+site_description: 'A Temporal Programming Language and Runtime'
+site_author: 'Chronovyan Team'
+site_url: https://chronovyan.github.io/
+
+# Repository
+repo_name: 'Chronovyan/Chronovyan'
+repo_url: 'https://github.com/Chronovyan/Chronovyan'
+edit_uri: edit/main/docs/
+
+# Copyright
+copyright: 'Copyright &copy; 2025 Chronovyan Team'
+
+# Theme configuration
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - navigation.footer
+    - navigation.instant
+    - navigation.tracking
+    - navigation.expand
+    - navigation.prune
+    - navigation.path
+    - toc.integrate
+    - header.autohide
+    - content.tabs.link
+    - content.code.copy
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.tooltips
+    - content.tooltips.blocks
+    - content.tooltips.links
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+      primary: indigo
+      accent: indigo
+    - scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+      primary: indigo
+      accent: indigo
+  icon:
+    logo: material/clock-time-four-outline
+  favicon: assets/favicon.ico
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - toc:
+      permalink: true
+
+# Plugins
+plugins:
+  - search
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+  - git-revision-date-localized:
+      type: timeago
+      fallback_to_build_date: true
+  - markdownextradata
+  - awesome-pages
+  - section-index
+  - macros:
+      include_dir: docs/include
+  - redirects:
+      redirect_maps:
+        'old/path': 'new/path'
+
+# Navigation
+nav:
+  - Home: index.md
+  - Getting Started:
+      - guides/getting-started/index.md
+      - guides/getting-started/installation.md
+      - guides/getting-started/first-steps.md
+  - Guides:
+      - guides/examples/index.md
+      - guides/advanced/index.md
+  - Reference:
+      - reference/language/specification.md
+      - reference/stdlib/index.md
+  - Development:
+      - development/building.md
+      - development/contributing.md
+      - development/code-style.md
+      - development/documentation-guide.md
+      - development/style-guide.md
+  - Design:
+      - design/architecture.md
+      - design/compiler.md
+      - design/bytecode-format.md
+  - Community:
+      - community/code-of-conduct.md
+      - community/security.md
+      - community/roadmap.md
+  - About:
+      - about/changelog.md
+      - about/license.md
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Chronovyan/Chronovyan
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/chronovyan
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/chronovyan
+
+# Extra CSS/JS
+extra_css:
+  - assets/stylesheets/custom.css
+
+extra_javascript:
+  - assets/javascripts/custom.js
+
+# Build options
+strict: true
+use_directory_urls: true
+
+# Dev server
+dev_addr: '127.0.0.1:8000'

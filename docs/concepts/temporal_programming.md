@@ -204,4 +204,4 @@ Chronovyan enforces temporal safety through:
 
 - [Resource Management](resource_management.md)
 - [Concurrency Model](concurrency.md)
-- [Language Reference](../reference/language_specification.md)
+- [Language Reference](reference/language/specification.md)

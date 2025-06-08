@@ -30,9 +30,9 @@ draft: true
   - [Chapter 4: Functions](../tutorials/act1/chapter4_functions.md)
   - [Chapter 5: Stabilizing Cora's Power Core](../tutorials/act1/chapter5_stabilizing_coras_power_core.md)
 - [Act 2 Guides](../project_documentation/)
-  - [Advanced Mechanics](../project_documentation/chronovyan_language_guide_act2_advanced_mechanics.md)
-  - [Primer](../project_documentation/chronovyan_language_guide_act2_primer.md)
-- [TUTORIAL_ROADMAP](../docs/TUTORIAL_ROADMAP.md) - Overview of all tutorials and learning paths
+  - [Advanced Mechanics](guides/advanced/advanced-mechanics.md)
+  - [Primer](guides/advanced/primer.md)
+- [TUTORIAL_ROADMAP](roadmap/index.md) - Overview of all tutorials and learning paths
 
 ### Conceptual Documentation
 - [Glossary](../docs/Chronovyan_Glossary.md) - Definitions of key Chronovyan terms
@@ -59,15 +59,15 @@ draft: true
 - [Chronolog of Dissonance](../project_documentation/chronolog_of_dissonance.md) - Record of issues and their resolution
 
 ### Compiler Documentation
-- [Compiler Design](../docs/chronicle_compiler_design.md) - Overview of the compiler architecture
+- [Compiler Design](architecture/compiler.md) - Overview of the compiler architecture
 - [Compiler Progress](../docs/compiler_progress.md) - Current status of compiler implementation
-- [Compiler Implementation Roadmap](../docs/compiler_implementation_roadmap.md) - Plan for compiler development
-- [Bytecode Format](../docs/chronicle_bytecode_format.md) - Specification of the bytecode format
-- [IR Design](../docs/chronicle_ir_design.md) - Design of the intermediate representation
-- [Lexer Parser Design](../docs/lexer_parser_design.md) - Design of the lexical analyzer and parser
+- [Compiler Implementation Roadmap](roadmap/index.md) - Plan for compiler development
+- [Bytecode Format](architecture/bytecode-format.md) - Specification of the bytecode format
+- [IR Design](architecture/intermediate-representation.md) - Design of the intermediate representation
+- [Lexer Parser Design](design/lexer-parser.md) - Design of the lexical analyzer and parser
 
 ### Tools Documentation
-- [Deja Vu Debugger Design](../docs/deja_vu_debugger_design.md) - Design of the Chronovyan debugger
+- [Deja Vu Debugger Design](design/deja-vu-debugger.md) - Design of the Chronovyan debugger
 - [Tools Directory](../docs/tools/) - Documentation for various development tools
 
 ## Types and Libraries
@@ -86,7 +86,7 @@ draft: true
 
 - [Resource Management](../docs/resource_management.md) - Overview of resource management in Chronovyan
 - [Automatic Resource Optimizer](../docs/automatic_resource_optimizer.md) - Documentation of the resource optimizer
-- [Advanced Optimization Algorithms](../docs/advanced_optimization_algorithms.md) - Advanced algorithms for resource optimization
+- [Advanced Optimization Algorithms](guides/advanced/optimization-algorithms.md) - Advanced algorithms for resource optimization
 - [Temporal Debt Alert System](../docs/temporal_debt_alert_system.md) - Documentation of the debt alert system
 
 ## Testing and Quality Assurance
@@ -100,13 +100,13 @@ draft: true
 
 ## Project Management
 
-- [ROADMAP.md](../ROADMAP.md) - Complete project roadmap with current status
+- [ROADMAP.md](roadmap/index.md) - Complete project roadmap with current status
 - [TIMELINE.md](../docs/TIMELINE.md) - Timeline of project development
 - [CHANGELOG.md](../docs/CHANGELOG.md) - Record of changes made to the project
 - [Phase Summaries](../docs/phase_summaries/) - Summaries of project phases
 - [Technical Debt Documentation](../docs/TECHNICAL_DEBT.md) - Overview of technical debt
 - [Technical Debt Code Locations](../docs/TECH_DEBT_CODE_LOCATIONS.md) - Specific locations of technical debt in code
-- [Technical Debt Roadmap](../docs/TECH_DEBT_ROADMAP.md) - Plan for addressing technical debt
+- [Technical Debt Roadmap](roadmap/index.md) - Plan for addressing technical debt
 - [Workspace Cleanup](../CHRONOLOG.md#ws-2023-12-008) - Documentation of the comprehensive workspace cleanup (WS-2023-12-008)
 
 ## Troubleshooting

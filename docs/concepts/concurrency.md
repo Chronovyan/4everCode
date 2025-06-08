@@ -1,196 +1,288 @@
 ---
 title: Concurrency Model
 description: Understanding concurrency and parallelism in Chronovyan
+weight: 20
+draft: false
 ---
 
 # Concurrency in Chronovyan
 
 ## Overview
 
-Chronovyan's concurrency model is designed to handle the complexities of temporal programming, providing safe and efficient mechanisms for parallel execution while maintaining temporal consistency.
+Chronovyan's concurrency model is built on three core principles:
 
-## Threading Model
+1. **Temporal Safety**: Ensures that concurrent operations maintain temporal consistency
+2. **Structured Concurrency**: Child operations complete before their parents
+3. **Composition**: Concurrent operations can be combined predictably
+
+## Core Concepts
 
 ### 1. Temporal Threads
 
-- Lightweight, cooperative threads
-- Scheduled by the runtime
-- Non-preemptive scheduling
+Temporal threads are lightweight, cooperative tasks that enable concurrent execution while maintaining temporal consistency.
 
-**Example**:
+#### Key Features:
+- **Cooperative Scheduling**: Threads yield control explicitly with `YIELD`
+- **Structured Lifetime**: Child threads complete before their parent
+- **Temporal Isolation**: Each thread maintains its own timeline
+
+**Example: Basic Threading**
 ```chronovyan
 // Create a new temporal thread
-DECLARE t1 = SPAWN {
+DECLARE worker = SPAWN {
     // This code runs concurrently
-    FOR i IN 1..10 {
-        PRINT("Thread 1: ", i);
-        YIELD;
+    FOR i IN 1..5 {
+        PRINT("Worker: Processing item ", i);
+        YIELD;  // Explicitly yield control
     }
+    RETURN "Done";
 };
 
 // Main thread continues execution
-FOR i IN 1..10 {
-    PRINT("Main thread: ", i);
+FOR i IN 1..3 {
+    PRINT("Main: Working on task ", i);
     YIELD;
 }
 
-// Wait for thread to complete
-AWAIT t1;
+// Wait for worker to complete and get result
+DECLARE result = AWAIT worker;
+PRINT("Worker completed with: ", result);
 ```
 
 ### 2. Worker Pools
 
-- Fixed-size thread pools
-- For CPU-bound work
-- Managed by the runtime
+For CPU-bound work, Chronovyan provides managed worker pools.
 
-**Example**:
+**Example: Parallel Processing**
 ```chronovyan
-// Execute work in parallel
-DECLARE results = PARALLEL_MAP(1..100, \i -> {
-    // Expensive computation
-    RETURN i * i;
-});
+// Process items in parallel
+DECLARE results = PARALLEL_MAP(1..10, \i -> {
+    // Simulate CPU-intensive work
+    DECLARE sum = 0;
+    FOR j IN 1..1_000_000 {
+        sum = (sum + i * j) % 1000;
+    }
+    RETURN sum;
+}, max_workers: 4);  // Limit concurrent workers
+
+PRINT("Results: ", results);
 ```
 
 ## Synchronization Primitives
 
 ### 1. Temporal Locks
 
-- Time-aware mutexes
-- Deadlock prevention
-- Timeout support
+Time-aware mutexes that prevent deadlocks and support timeouts.
 
-**Example**:
+**Example: Bank Transfer with Locking**
 ```chronovyan
-// Create a temporal lock
-DECLARE lock = NEW_TEMPORAL_LOCK();
+// Shared account data
+TYPE Account = STRUCT {
+    balance: MUTEX<FLOAT>,
+    id: INT
+};
 
-// Acquire with timeout
-IF (TRY_LOCK(lock, 1s)) {
-    // Critical section
-    UNLOCK(lock);
-} ELSE {
-    // Handle timeout
+FUNC BOOL transfer(Account &from, Account &to, FLOAT amount) {
+    // Try to acquire both locks with timeout
+    LOCK (from.balance, to.balance) WITH_TIMEOUT(1s) {
+        IF (from.balance < amount) {
+            RETURN FALSE;  // Insufficient funds
+        }
+        from.balance -= amount;
+        to.balance += amount;
+        RETURN TRUE;
+    } ELSE {
+        // Handle timeout
+        PRINT("Transfer timed out");
+        RETURN FALSE;
+    }
 }
 ```
 
 ### 2. Channels
 
-- Thread-safe communication
-- Buffered and unbuffered
-- Select statement support
+Thread-safe communication primitives for message passing.
 
-**Example**:
+**Example: Producer-Consumer Pattern**
 ```chronovyan
-// Create a channel
-DECLARE ch = NEW_CHANNEL<INT>(10);  // Buffer size 10
+// Create a buffered channel
+DECLARE ch = CHANNEL<INT>(capacity: 5);
 
 // Producer
-SPAWN {
+DECLARE producer = SPAWN {
     FOR i IN 1..10 {
+        // Simulate work
+        DELAY 100ms;
+        // Send data
         SEND(ch, i);
     }
-    CLOSE(ch);
+    CLOSE(ch);  // Signal completion
 };
 
 // Consumer
-FOR VALUE i IN ch {
-    PRINT("Received: ", i);
-}
+SPAWN {
+    FOR VALUE item IN ch {
+        PRINT("Processed: ", item);
+        DELAY 200ms;  // Simulate processing time
+    }
+    PRINT("All items processed");
+};
+
+AWAIT producer;
 ```
 
 ## Temporal Consistency
 
 ### 1. Happens-Before Relationship
 
-- Defines event ordering
-- Ensures consistency
-- Enforced by the runtime
+Chronovyan enforces a strict happens-before relationship for all operations:
+
+1. **Thread Start**: Operations in the parent thread before `SPAWN` happen before the new thread starts
+2. **Thread Join**: All operations in a thread happen before the `AWAIT` completes
+3. **Message Passing**: A message send happens before the corresponding receive
 
 ### 2. Snapshot Isolation
 
-- Consistent views of data
-- Prevents temporal anomalies
-- Supports nested transactions
+Transactions see a consistent snapshot of shared state.
 
-**Example**:
+**Example: Account Balance Transfer**
 ```chronovyan
 // Start a transaction
-BEGIN_TRANSACTION {
-    // Read consistent snapshot
-    DECLARE balance = GET_BALANCE(account_id);
+TRANSACTION {
+    // These operations see a consistent snapshot
+    DECLARE from_balance = GET_BALANCE(from_account);
+    DECLARE to_balance = GET_BALANCE(to_account);
+    
+    // Validate
+    IF (from_balance < amount) {
+        ROLLBACK "Insufficient funds";
+    }
     
     // Make changes
-    SET_BALANCE(account_id, balance - amount);
+    SET_BALANCE(from_account, from_balance - amount);
+    SET_BALANCE(to_account, to_balance + amount);
     
     // Commit if all operations succeed
     COMMIT;
-} ON_CONFLICT {
+} ON_CONFLICT (error) {
     // Handle conflicts
-    ROLLBACK;
+    PRINT("Transaction failed: ", error);
 }
 ```
 
 ## Best Practices
 
-1. **Minimize Shared State**
-   - Prefer message passing
-   - Use value semantics
-   - Isolate mutable state
+### 1. Minimize Shared State
 
-2. **Use Higher-Level Abstractions**
-   - Prefer `PARALLEL_MAP` over manual threading
-   - Use channels for communication
-   - Leverage the type system
+```chronovyan
+// Prefer message passing
+DECLARE results = CHANNEL<RESULT>();
 
-3. **Handle Errors Gracefully**
-   - Timeout all blocking operations
-   - Implement backpressure
-   - Monitor resource usage
+SPAWN {
+    DECLARE result = expensive_computation();
+    SEND(results, result);
+};
+
+// Instead of shared variables
+// DECLARE shared_result;
+// SPAWN { shared_result = expensive_computation(); };
+```
+
+### 2. Use Structured Concurrency
+
+```chronovyan
+WITH_TIMEOUT(5s) {
+    // All spawned tasks must complete within 5 seconds
+    DECLARE task1 = SPAWN { process_data(data1); };
+    DECLARE task2 = SPAWN { process_data(data2); };
+    
+    AWAIT task1;
+    AWAIT task2;
+} ON_TIMEOUT {
+    // Clean up if timeout occurs
+    PRINT("Operation timed out");
+}
+```
+
+### 3. Error Handling
+
+```chronovyan
+TRY {
+    DECLARE result = AWAIT some_async_operation();
+    PROCESS(result);
+} CATCH (e) {
+    IF (e IS TimeoutError) {
+        HANDLE_TIMEOUT();
+    } ELSE {
+        LOG_ERROR(e);
+        THROW e;  // Re-throw if unhandled
+    }
+}
+```
 
 ## Performance Considerations
 
 ### 1. Task Granularity
 
-- Balance between overhead and parallelism
-- Consider cache effects
-- Profile and measure
+```chronovyan
+// Too fine-grained
+FOR i IN 1..1000 {
+    SPAWN { process_item(i); };  // Overhead of task creation
+}
+
+// Better: Process chunks
+FOR chunk IN CHUNK(1..1000, size: 100) {
+    SPAWN {
+        FOR item IN chunk {
+            process_item(item);
+        }
+    };
+}
+```
 
 ### 2. Memory Locality
 
-- Keep data close to computation
-- Minimize cross-thread communication
-- Consider NUMA effects
-
-### 3. Load Balancing
-
-- Dynamic work distribution
-- Work stealing
-- Adaptive scheduling
+```chronovyan
+// Process data in cache-friendly chunks
+FOR chunk IN CHUNK(large_array, size: 1024) {
+    PROCESS_CHUNK(chunk);
+}
+```
 
 ## Advanced Topics
 
-### 1. Lock-Free Data Structures
+### 1. Lock-Free Algorithms
 
-- Atomic operations
-- Memory ordering
-- Hazard pointers
+```chronovyan
+// Atomic operations
+DECLARE counter = ATOMIC<INT>(0);
 
-### 2. Software Transactional Memory
+SPAWN {
+    counter.fetch_add(1, ORDERING::RELAXED);
+};
+```
 
-- Atomic blocks
-- Optimistic concurrency
-- Conflict detection
+### 2. Software Transactional Memory (STM)
 
-### 3. Distributed Computing
-
-- Message passing
-- Consistency models
-- Failure handling
+```chronovyan
+// Atomic block
+ATOMIC {
+    // These operations execute atomically
+    DECLARE a = shared_value_a;
+    DECLARE b = shared_value_b;
+    shared_value_a = a + b;
+    shared_value_b = a - b;
+};
+```
 
 ## Next Steps
 
-- [Temporal Programming](temporal_programming.md)
-- [Resource Management](resource_management.md)
-- [Performance Considerations](../concepts/index.md#performance-considerations)
+- [Temporal Programming](temporal_programming.md) - Advanced time-based concurrency
+- [Resource Management](../concepts/resource_management.md) - Managing system resources
+- [Performance Tuning](../concepts/performance.md) - Optimizing concurrent applications
+
+## See Also
+
+- [Language Specification](reference/language/specification.md) - Complete language reference
+- [Standard Library](../../reference/stdlib/index.md) - Built-in concurrency utilities
+- [Recipes](../../examples/concurrency) - Practical concurrency patterns

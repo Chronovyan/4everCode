@@ -1,0 +1,12 @@
+# This file configures the navigation for the docs directory
+# It's used by the mkdocs-awesome-pages-plugin
+
+nav:
+  - index.md
+  - Getting Started: guides/getting-started/
+  - Guides: guides/
+  - Reference: reference/
+  - Development: development/
+  - Design: design/
+  - Community: community/
+  - About: about/

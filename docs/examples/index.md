@@ -5,11 +5,11 @@ This section contains practical examples of using Chronovyan for various tasks.
 ## Basic Examples
 
 - [Hello World](hello_world.md) - A simple introduction to Chronovyan
-- [Temporal Examples](temporal_examples.md) - Creating custom event types and managing time
+- [Temporal Examples](guides/examples/index.md) - Creating custom event types and managing time
 
 ## Intermediate Examples
 
-- [Temporal Examples](temporal_examples.md) - Advanced temporal programming concepts
+- [Temporal Examples](guides/examples/index.md) - Advanced temporal programming concepts
 - [Hello World](hello_world.md) - A simple introduction to Chronovyan
 
 ## Advanced Examples

@@ -8,6 +8,20 @@ repos:
     -   id: check-added-large-files
     -   id: check-merge-conflict
     -   id: check-json
+    -   id: markdownlint
+        additional_dependencies: [mdformat]
+
+# Documentation validation
+-   repo: local
+    hooks:
+    -   id: validate-docs
+        name: Validate Documentation
+        entry: bash scripts/validate_docs.sh
+        language: system
+        types: [markdown, yaml, rst, txt]
+        pass_filenames: false
+        always_run: true
+        verbose: true
 
 -   repo: https://github.com/psf/black
     rev: 23.3.0
