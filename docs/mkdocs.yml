@@ -38,21 +38,19 @@ theme:
     - content.tooltips
     - content.tooltips.blocks
     - content.tooltips.links
+  # Font settings
   font:
     text: Inter
     code: Fira Code
+    
+  # Icons and logos
   icon:
     logo: material/infinity
-  favicon: assets/images/favicon.ico
-  
-  # Custom fonts
-  font_family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
-  font_family_code: "Fira Code", "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono", "Liberation Mono", monospace
-  
+    
   # Custom logo
   logo: assets/images/logo.svg
   
-  # Custom favicon
+  # Favicon
   favicon: assets/images/favicon.ico
   features:
     - navigation.tabs
