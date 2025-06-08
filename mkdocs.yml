@@ -68,9 +68,7 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.highlight:
       anchor_linenums: true
-  - pymdownx.emoji:
-      emoji_index: emojione
-      emoji_generator: svg
+  - pymdownx.emoji
   - attr_list
   - md_in_html
   - toc:
