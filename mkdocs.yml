@@ -129,7 +129,7 @@ plugins:
       type: timeago
       fallback_to_build_date: true
   - macros:
-      include_dir: includes/
+      include_dir: docs/includes/
       include_yaml: !ENV [INCLUDE_YAML, []]
       j2_block_start_string: '{%-'
       j2_block_end_string: '-%}'
