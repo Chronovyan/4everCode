@@ -4,6 +4,7 @@
   
   [![PyPI](https://img.shields.io/pypi/v/chronovyan)](https://pypi.org/project/chronovyan/)
   [![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://chronovyan.github.io/)
+  [![Jekyll site CI](https://github.com/Chronovyan/Chronovyan.github.io/actions/workflows/jekyll.yml/badge.svg)](https://github.com/Chronovyan/Chronovyan.github.io/actions/workflows/jekyll.yml)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
   [![Python Version](https://img.shields.io/pypi/pyversions/chronovyan)](https://pypi.org/project/chronovyan/)
   [![Tests](https://github.com/Chronovyan/Chronovyan/actions/workflows/tests.yml/badge.svg)](https://github.com/Chronovyan/Chronovyan/actions)
