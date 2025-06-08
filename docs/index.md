@@ -1,8 +1,8 @@
 <div class="mdx-hero" style="text-align: center; margin: 2em 0 4em 0;">
     <h1>⏳ Chronovyan</h1>
-    <p class="lead">A C++ temporal programming language for time-aware applications</p>
+    <p class="lead">A statically-typed temporal programming language for time-aware applications</p>
     <p>
-        <a href="getting-started/installation/" class="md-button md-button--primary">
+        <a href="getting-started/quickstart/" class="md-button md-button--primary">
             Get Started
         </a>
         <a href="examples/" class="md-button">
@@ -34,16 +34,15 @@
 
 ## 📖 Quick Start
 
-1. **Build Chronovyan**
+1. **Install Chronovyan**
    ```bash
    # Clone the repository
    git clone https://github.com/Chronovyan/Chronovyan.git
    cd Chronovyan
    
-   # Configure and build
-   mkdir build && cd build
-   cmake ..
-   make
+   # Install dependencies and build
+   ./scripts/setup.sh
+   ./scripts/build.sh
    ```
 
 2. **Your First Chronovyan Program**

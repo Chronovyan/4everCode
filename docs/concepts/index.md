@@ -10,8 +10,8 @@ Welcome to the core concepts of Chronovyan, a statically-typed temporal programm
 - [Resource Management](resource_management.md)
   - [Chronon](#chronon)
   - [Aethel](#aethel)
-- [Memory Management](#memory-management)
-- [Performance Considerations](#performance-considerations)
+- [Concurrency](concurrency.md)
+- [Advanced Features](advanced_features.md)
 
 ## The Great Duality {#the-great-duality}
 
@@ -21,34 +21,69 @@ Chronovyan is built around two fundamental principles that govern all temporal o
    - Stability and predictability
    - Enforced through `CONF` variables and `::STATIC` flags
    - Ensures deterministic behavior
+   - Prevents temporal paradoxes
+   - Enables compile-time optimizations
 
 2. **Flux (Rebellion)**
    - Dynamic adaptation and change
    - Enabled by `REB` variables and `::FLUX` flags
    - Allows for temporal manipulation
+   - Supports runtime flexibility
+   - Enables adaptive algorithms
 
 ## Temporal Resources {#temporal-resources}
 
 ### Chronon {#chronon}
-- Basic quantum of time
+- Basic quantum of time in Chronovyan
 - Represents discrete moments in the timeline
 - Used for scheduling and ordering events
+- Immutable and strictly increasing
+- Fundamental unit of temporal measurement
 
 ### Aethel {#aethel}
 - Temporal energy resource
 - Consumed by temporal operations
 - Must be managed to prevent paradoxes
+- Automatically tracked by the runtime
+- Can be optimized by the compiler
 
-## Memory Management {#memory-management}
+## Memory Management
 
 Chronovyan provides several memory management strategies:
 
-## Performance Considerations {#performance-considerations}
+1. **Static Allocation**
+   - Fixed at compile-time
+   - Zero runtime overhead
+   - Used for constant data
+
+2. **Arena Allocation**
+   - Efficient for short-lived objects
+   - Fast allocation/deallocation
+   - Reduces memory fragmentation
+
+3. **Reference Counting**
+   - Automatic memory management
+   - Predictable performance
+   - No garbage collection pauses
+
+## Performance Considerations
 
 When working with Chronovyan, keep these performance considerations in mind:
 
-1. **Static Allocation**
-   - Fixed at compile-time
+1. **Temporal Locality**
+   - Group related temporal operations
+   - Minimize context switches
+   - Optimize for cache coherence
+
+2. **Resource Management**
+   - Monitor `Aethel` consumption
+   - Use appropriate allocation strategies
+   - Profile and optimize hot paths
+
+3. **Concurrency Model**
+   - Leverage temporal isolation
+   - Minimize shared state
+   - Use message passing when appropriate
    - Most efficient for known sizes
 
 2. **Dynamic Allocation**
