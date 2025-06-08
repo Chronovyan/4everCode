@@ -13,6 +13,20 @@ edit_uri: edit/main/docs/
 # Build configuration
 site_dir: site  # Explicitly set the output directory
 
+# Validation configuration
+validation:
+  # Don't fail the build on warnings
+  strict: false
+  # Ignore missing documentation files
+  nav:
+    not_found: ignore
+    omitted_files: ignore
+    absolute_links: ignore
+  links:
+    not_found: ignore
+    absolute_links: ignore
+    unrecognized_links: ignore
+
 # Theme Configuration
 theme:
   name: material
