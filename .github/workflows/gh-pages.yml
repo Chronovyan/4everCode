@@ -45,8 +45,7 @@ jobs:
       
       - name: Build
         run: |
-          cd docs
-          mkdocs build --strict --verbose --site-dir ../site
+          mkdocs build --strict --verbose
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
