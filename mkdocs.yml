@@ -183,7 +183,7 @@ markdown_extensions:
 # Build options
 docs_dir: docs
 use_directory_urls: true
-strict: true
+strict: false  # Temporarily disabled to see validation warnings
 
 # Navigation
 nav:
