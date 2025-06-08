@@ -44,6 +44,16 @@ theme:
   icon:
     logo: material/infinity
   favicon: assets/images/favicon.ico
+  
+  # Custom fonts
+  font_family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
+  font_family_code: "Fira Code", "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono", "Liberation Mono", monospace
+  
+  # Custom logo
+  logo: assets/images/logo.svg
+  
+  # Custom favicon
+  favicon: assets/images/favicon.ico
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -67,29 +77,29 @@ theme:
     - content.tooltips.blocks
     - content.tooltips.links
   palette:
-    # Light theme
+    # Light theme (not primary, but kept for reference)
     - scheme: default
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
-      primary: '#4A148C'  # Deep Purple
-      accent: '#8E24AA'   # Purple
+      primary: '#1A0033'  # Deepest Violet/Near Black
+      accent: '#8E24AA'   # Medium Purple
       background: '#FFFFFF'
       surface: '#FAFAFA'
       text:
-        primary: '#1A0033'  # Almost Black
-        secondary: '#4A4A4A'
-    # Dark theme
+        primary: '#1A0033'  # Deepest Violet/Near Black
+        secondary: '#4A148C' # Darker Purple
+    # Dark theme (Cosmic Flow)
     - scheme: slate
       toggle:
         icon: material/weather-night
         name: Switch to light mode
-      primary: '#8E24AA'   # Purple
-      accent: '#BA68C8'    # Light Purple
-      background: '#1A0033' # Deep Purple
-      surface: '#0F001F'
+      primary: '#4A148C'   # Darker Purple
+      accent: '#D81B60'    # Vibrant Rose
+      background: '#1A0033' # Deepest Violet/Near Black
+      surface: '#0F001F'   # Slightly lighter than background
       text:
-        primary: '#E0E0E0'
+        primary: '#E0E0E0'  # Light Gray for readability
         secondary: '#B0B0B0'
 
 # Extra CSS and JavaScript
