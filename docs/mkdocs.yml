@@ -6,7 +6,7 @@ site_url: https://chronovyan.github.io
 
 # Repository
 repo_name: 'Chronovyan/Chronovyan.github.io'
-repo_url: 'https://github.com/Chronovyan/Chronovyan.github.io'
+repo_url: https://github.com/Chronovyan/ForeverCode
 edit_uri: edit/main/docs/
 
 # Copyright
@@ -144,7 +144,7 @@ plugins:
         - category
       date_from_meta:
         as_creation: date
-        as_last_update_date: last_updated
+        date_from_meta: last_updated
   - git-revision-date-localized:
       type: timeago
       fallback_to_build_date: true
