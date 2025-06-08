@@ -27,14 +27,14 @@ Tracks and manages temporal resources (Aethel and Chronon).
 
 ```chronovyan
 // Create a new resource tracker
-LET tracker = NEW ResourceTracker(
+DECLARE tracker = NEW ResourceTracker(
     initial_aethel: 100,
     initial_chronon: 50
 );
 
 // Check current resource levels
-LET aethel = tracker.get_aethel();
-LET chronon = tracker.get_chronon();
+DECLARE aethel = tracker.get_aethel();
+DECLARE chronon = tracker.get_chronon();
 
 // Consume resources
 TRACKED_OPERATION(tracker, 10, 5) {
@@ -48,7 +48,7 @@ Processes and optimizes resource allocations.
 
 ```chronovyan
 // Create a processor with a tracker
-LET processor = NEW ResourceProcessor(tracker);
+DECLARE processor = NEW ResourceProcessor(tracker);
 
 // Optimize resource allocation
 processor.optimize_allocation(
@@ -78,7 +78,7 @@ processor.process_operation(
 
 ```chronovyan
 // Create a new timeline
-LET timeline = NEW Timeline("main_timeline");
+DECLARE timeline = NEW Timeline("main_timeline");
 
 // Add an event
 TIMELINE_ADD_EVENT(
@@ -88,7 +88,7 @@ TIMELINE_ADD_EVENT(
 );
 
 // Branch the timeline
-LET branch = TIMELINE_BRANCH("alternate_reality");
+DECLARE branch = TIMELINE_BRANCH("alternate_reality");
 
 // Merge timelines
 TIMELINE_MERGE(source: branch, target: timeline);
@@ -114,10 +114,10 @@ DECLARE QUANTUM::ENTANGLED particle_spin: INT = 0;
 QUANTUM_ENTANGLE(particle_a, particle_b);
 
 // Superposition
-LET qbit = QUANTUM_SUPERPOSITION(0, 1);
+DECLARE qbit = QUANTUM_SUPERPOSITION(0, 1);
 
 // Quantum measurement
-LET result = MEASURE(qbit);
+DECLARE result = MEASURE(qbit);
 ```
 
 ## 3. Standard Library
@@ -141,33 +141,33 @@ LET result = MEASURE(qbit);
 
 ```chronovyan
 // Get current timestamp
-LET now = NOW();
+DECLARE now = NOW();
 
 // Create a duration
-LET duration = DURATION(hours: 1, minutes: 30);
+DECLARE duration = DURATION(hours: 1, minutes: 30);
 
 // Sleep for a duration
 SLEEP(duration);
 
 // Create a timer
-LET timer = TIMER(START);
+DECLARE timer = TIMER(START);
 // ...
-LET elapsed = TIMER(STOP, timer);
+DECLARE elapsed = TIMER(STOP, timer);
 ```
 
 #### Mathematical Functions
 
 ```chronovyan
 // Basic math
-LET sum = ADD(5, 3);
-LET product = MULTIPLY(4, 7);
+DECLARE sum = ADD(5, 3);
+DECLARE product = MULTIPLY(4, 7);
 
 // Advanced math
-LET root = SQRT(16);
-LET power = POW(2, 10);
+DECLARE root = SQRT(16);
+DECLARE power = POW(2, 10);
 
 // Random numbers
-LET rand = RANDOM(1, 100);
+DECLARE rand = RANDOM(1, 100);
 ```
 
 #### I/O Functions
@@ -177,11 +177,11 @@ LET rand = RANDOM(1, 100);
 PRINT("Hello, Chronovyan!");
 
 // Read input
-LET name = INPUT("Enter your name: ");
+DECLARE name = INPUT("Enter your name: ");
 
 // File operations
-LET file = FILE_OPEN("data.txt", "r");
-LET content = FILE_READ(file);
+DECLARE file = FILE_OPEN("data.txt", "r");
+DECLARE content = FILE_READ(file);
 FILE_CLOSE(file);
 ```
 

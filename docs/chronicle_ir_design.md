@@ -583,7 +583,7 @@ EXPEND_RESOURCES {
 
 } {
 
-    LET x = 42;
+    DECLARE x = 42;
 
     PRINT(x);
 
@@ -667,7 +667,7 @@ block_end:
 
 REWIND_FLOW (i < 10) {
 
-    LET i = i + 1;
+    DECLARE i = i + 1;
 
     IF (i == 5) {
 
@@ -777,13 +777,13 @@ BRANCH_TIMELINE {
 
     PATH_A: {
 
-        LET result = "Timeline A";
+        DECLARE result = "Timeline A";
 
     }
 
     PATH_B: {
 
-        LET result = "Timeline B";
+        DECLARE result = "Timeline B";
 
     }
 

@@ -288,7 +288,7 @@ Consider debugging a `REWIND_FLOW` construct:
 
 ```
 REWIND_FLOW (i < 10) {
-    LET i = i + 1;
+    DECLARE i = i + 1;
     PRINT(i);
     
     IF (i == 5) {

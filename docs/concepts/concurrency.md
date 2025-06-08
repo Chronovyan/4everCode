@@ -20,7 +20,7 @@ Chronovyan's concurrency model is designed to handle the complexities of tempora
 **Example**:
 ```chronovyan
 // Create a new temporal thread
-LET t1 = SPAWN {
+DECLARE t1 = SPAWN {
     // This code runs concurrently
     FOR i IN 1..10 {
         PRINT("Thread 1: ", i);
@@ -47,7 +47,7 @@ AWAIT t1;
 **Example**:
 ```chronovyan
 // Execute work in parallel
-LET results = PARALLEL_MAP(1..100, \i -> {
+DECLARE results = PARALLEL_MAP(1..100, \i -> {
     // Expensive computation
     RETURN i * i;
 });
@@ -64,7 +64,7 @@ LET results = PARALLEL_MAP(1..100, \i -> {
 **Example**:
 ```chronovyan
 // Create a temporal lock
-LET lock = NEW_TEMPORAL_LOCK();
+DECLARE lock = NEW_TEMPORAL_LOCK();
 
 // Acquire with timeout
 IF (TRY_LOCK(lock, 1s)) {
@@ -84,7 +84,7 @@ IF (TRY_LOCK(lock, 1s)) {
 **Example**:
 ```chronovyan
 // Create a channel
-LET ch = NEW_CHANNEL<INT>(10);  // Buffer size 10
+DECLARE ch = NEW_CHANNEL<INT>(10);  // Buffer size 10
 
 // Producer
 SPAWN {
@@ -119,7 +119,7 @@ FOR VALUE i IN ch {
 // Start a transaction
 BEGIN_TRANSACTION {
     // Read consistent snapshot
-    LET balance = GET_BALANCE(account_id);
+    DECLARE balance = GET_BALANCE(account_id);
     
     // Make changes
     SET_BALANCE(account_id, balance - amount);

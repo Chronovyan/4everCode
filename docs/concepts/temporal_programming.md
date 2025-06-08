@@ -106,7 +106,7 @@ FUNC VOID increment_counter() {
 ### 2. Temporal References
 ```chronovyan
 // Reference to a value at a specific time
-LET past_value = GET_AT(sensor_data, 5 SECONDS AGO);
+DECLARE past_value = GET_AT(sensor_data, 5 SECONDS AGO);
 
 // Schedule a future update
 SET_AT(sensor_data, 10 SECONDS FROM NOW, new_value);

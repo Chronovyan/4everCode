@@ -23,10 +23,10 @@ Chronovyan's resource management system is designed to handle the unique challen
 **Example**:
 ```chronovyan
 // Get the current chronon
-LET current = NOW();
+DECLARE current = NOW();
 
 // Create a specific point in time
-LET future_time = current + 1h + 30m;
+DECLARE future_time = current + 1h + 30m;
 ```
 
 ### 2. Aethel
@@ -41,7 +41,7 @@ LET future_time = current + 1h + 30m;
 **Example**:
 ```chronovyan
 // Check available Aethel
-LET available = GET_AVAILABLE_AETHEL();
+DECLARE available = GET_AVAILABLE_AETHEL();
 
 // Allocate Aethel for an operation
 ALLOCATE_AETHEL(50);
@@ -74,8 +74,8 @@ DECLARE CONF::STATIC buffer[BUFFER_SIZE];
 **Example**:
 ```chronovyan
 // Dynamically allocate memory
-LET size = calculate_required_size();
-LET buffer = ALLOCATE(size);
+DECLARE size = calculate_required_size();
+DECLARE buffer = ALLOCATE(size);
 
 // Don't forget to free!
 DEALLOCATE(buffer);
@@ -90,10 +90,10 @@ DEALLOCATE(buffer);
 **Example**:
 ```chronovyan
 // Create a pool of 100 events
-LET event_pool = CREATE_POOL(EVENT, 100);
+DECLARE event_pool = CREATE_POOL(EVENT, 100);
 
 // Get an event from the pool
-LET evt = POOL_ALLOCATE(event_pool);
+DECLARE evt = POOL_ALLOCATE(event_pool);
 
 // Return to pool when done
 POOL_FREE(event_pool, evt);
@@ -110,7 +110,7 @@ POOL_FREE(event_pool, evt);
 **Example**:
 ```chronovyan
 // Transfer ownership with MOVE
-LET resource = ACQUIRE_RESOURCE();
+DECLARE resource = ACQUIRE_RESOURCE();
 PROCESS_RESOURCE(MOVE(resource));  // Ownership transferred
 // resource is no longer valid here
 ```
@@ -124,10 +124,10 @@ PROCESS_RESOURCE(MOVE(resource));  // Ownership transferred
 **Example**:
 ```chronovyan
 // Create a reference-counted object
-LET rc = MAKE_REFCOUNTED<MyObject>(arg1, arg2);
+DECLARE rc = MAKE_REFCOUNTED<MyObject>(arg1, arg2);
 
 // References are automatically managed
-LET another_ref = rc;  // Reference count increases
+DECLARE another_ref = rc;  // Reference count increases
 ```
 
 ## Best Practices

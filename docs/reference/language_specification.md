@@ -86,7 +86,7 @@ CONF INT immutable = 42;
 REB INT mutable = 0;
 
 // Type inference
-LET inferred = "Type inferred as string";
+DECLARE inferred = "Type inferred as string";
 
 // Constants
 CONST FLOAT PI = 3.14159;
@@ -127,18 +127,18 @@ DECLARE QUANTUM::ENTANGLED qbit = 0;
 
 ```chronovyan
 // Fixed-size array
-LET numbers: INT[5] = [1, 2, 3, 4, 5];
+DECLARE numbers: INT[5] = [1, 2, 3, 4, 5];
 
 // Dynamic array
-LET dynamic: ARRAY<STRING> = ["one", "two"];
+DECLARE dynamic: ARRAY<STRING> = ["one", "two"];
 dynamic.push("three");
 ```
 
 #### 4.2.2 Tuples
 
 ```chronovyan
-LET pair: (INT, STRING) = (42, "answer");
-LET (num, str) = pair;  // Destructuring
+DECLARE pair: (INT, STRING) = (42, "answer");
+DECLARE (num, str) = pair;  // Destructuring
 ```
 
 #### 4.2.3 Structs
@@ -153,7 +153,7 @@ TYPE Person {
     }
 }
 
-LET alice = Person { name: "Alice", age: 30 };
+DECLARE alice = Person { name: "Alice", age: 30 };
 ```
 
 ### 4.3 Temporal Types
@@ -193,7 +193,7 @@ MATCH value {
 
 ```chronovyan
 // For loop
-FOR (LET i = 0; i < 10; i++) {
+FOR (DECLARE i = 0; i < 10; i++) {
     io::println(i);
 }
 
@@ -223,7 +223,7 @@ DELAY 1s;
 
 
 // Create a branch in time
-LET branch = TIMELINE_BRANCH("alternate");
+DECLARE branch = TIMELINE_BRANCH("alternate");
 
 // Merge timelines
 TIMELINE_MERGE(branch);
@@ -253,7 +253,7 @@ FUNC STRING greet(STRING name = "World") {
 
 // Variadic function
 FUNC INT sum(INT... numbers) {
-    LET total = 0;
+    DECLARE total = 0;
     FOR (n IN numbers) {
         total += n;
     }
@@ -270,8 +270,8 @@ FUNC INT apply(INT a, INT b, FUNC(INT,INT) op) {
 }
 
 // Lambda expression
-LET add = \\(INT a, INT b) -> INT { RETURN a + b; };
-LET result = apply(5, 3, add);
+DECLARE add = \\(INT a, INT b) -> INT { RETURN a + b; };
+DECLARE result = apply(5, 3, add);
 ```
 
 ## 7. Error Handling
@@ -305,7 +305,7 @@ FUNC INT divide(INT a, INT b) {
 
 // Recover from panic
 TRY {
-    LET result = divide(10, 0);
+    DECLARE result = divide(10, 0);
 } CATCH (e) {
     io::println("Caught: " + e.message());
 }
@@ -317,7 +317,7 @@ TRY {
 
 ```chronovyan
 // Spawn a new thread
-LET handle = SPAWN {
+DECLARE handle = SPAWN {
     // This runs in parallel
     io::println("Hello from another thread");
 };
@@ -330,7 +330,7 @@ AWAIT handle;
 
 ```chronovyan
 // Create a channel
-LET (tx, rx) = CHANNEL<INT>();
+DECLARE (tx, rx) = CHANNEL<INT>();
 
 // Send data in one thread
 SPAWN {
@@ -338,7 +338,7 @@ SPAWN {
 };
 
 // Receive in another
-LET value = rx.recv();
+DECLARE value = rx.recv();
 ```
 
 ## 9. Memory Management
@@ -347,8 +347,8 @@ LET value = rx.recv();
 
 ```chronovyan
 // Transfer ownership
-LET s1 = "Hello".to_string();
-LET s2 = s1;  // s1 is moved, not copied
+DECLARE s1 = "Hello".to_string();
+DECLARE s2 = s1;  // s1 is moved, not copied
 // s1 is no longer valid here
 
 // Borrowing
@@ -399,7 +399,7 @@ FUNC &STR longest<'a>(&'a STR a, &'a STR b) -> &'a STR {
 
 ```chronovyan
 // Create a new timeline
-LET tl = TIMELINE_NEW("my_timeline");
+DECLARE tl = TIMELINE_NEW("my_timeline");
 
 // Add an event
 TIMELINE_ADD_EVENT(tl, NOW() + 1s, \() {
@@ -414,15 +414,15 @@ TIMELINE_RUN(tl);
 
 ```chronovyan
 // Create qubits
-LET q1 = QUBIT(0);
-LET q2 = QUBIT(1);
+DECLARE q1 = QUBIT(0);
+DECLARE q2 = QUBIT(1);
 
 // Apply quantum gates
 H(q1);  // Hadamard
 CNOT(q1, q2);
 
 // Measure
-LET result = MEASURE(q1);
+DECLARE result = MEASURE(q1);
 ```
 
 ## 12. Implementation Notes

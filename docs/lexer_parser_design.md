@@ -30,7 +30,7 @@ The following token types will be recognized by the Chronovyan lexer:
 
 ```
 ALLOCATE_RESOURCES  EXPEND_RESOURCES  BORROW_RESOURCES  REPAY_DEBT
-LET                 CONST             CONF              REB
+DECLARE             CONST             CONF              REB
 IF                  ELSE              WHILE             FOR
 FUNCTION            RETURN            IMPORT            EXPORT
 BRANCH_TIMELINE     MERGE_TIMELINES   REWIND_FLOW       REVERSE_FLOW
@@ -450,8 +450,8 @@ REVERSE_FLOW;
 The lexer and parser will recognize the CONF/REB variable classification modifiers:
 
 ```
-LET x::CONF = 42;
-LET y::REB = "Hello";
+DECLARE x::CONF = 42;
+DECLARE y::REB = "Hello";
 ```
 
 ## 5. Implementation Plan
