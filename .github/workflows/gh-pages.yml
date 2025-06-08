@@ -1,25 +1,18 @@
 name: Deploy MkDocs to GitHub Pages
 
-# Only run on push to gh-pages-new branch or manually triggered
+# Simple trigger - run on push to main or manually
 on:
   push:
-    branches:
-      - gh-pages-new
-    # Only run when documentation files change
-    paths:
-      - 'docs/**'
-      - 'mkdocs.yml'
-      - '.github/workflows/gh-pages.yml'
-      - 'docs_old/**'
-  workflow_dispatch:  # Allow manual triggering
+    branches: [main]
+  workflow_dispatch:
 
-# Set permissions for the workflow
+# Set minimal required permissions
 permissions:
-  contents: write  # Needed to push to the gh-pages branch
+  contents: write
   pages: write
   id-token: write
 
-# Cancel any in-progress runs when a new commit is pushed
+# Allow concurrent runs for faster feedback
 concurrency:
   group: "pages"
   cancel-in-progress: true
@@ -60,14 +53,11 @@ jobs:
           ls -la site/ 2>/dev/null || (echo "Site directory not found!" && exit 1)
       
       - name: Deploy to GitHub Pages
-        id: deploy
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          branch: gh-pages  # The branch the action should deploy to
-          folder: site  # The folder the action should deploy (matches mkdocs default)
-          clean: true  # Automatically remove deleted files from the deploy branch
-          token: ${{ secrets.GITHUB_TOKEN }}  # Token for the deployment
-          # Output the GitHub Pages URL
-          repository-name: ${{ github.repository }}
-          # Set the deployment URL as an output
-          silent: false
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          keep_files: false
+          force_orphan: true
+          user_name: 'GitHub Action'
+          user_email: 'action@github.com'
