@@ -1,104 +1,62 @@
 ---
 title: API Reference
 description: Comprehensive reference for Chronovyan's standard library and built-in functions
+weight: 20
 ---
 
 # Chronovyan API Reference
 
 ## Table of Contents
 
-- [1. Resource Management](#1-resource-management)
-  - [1.1 ResourceTracker](#11-resourcetracker)
-  - [1.2 ResourceProcessor](#12-resourceprocessor)
-  - [1.3 Resource Types](#13-resource-types)
-- [2. Temporal Operations](#2-temporal-operations)
-  - [2.1 Timeline Management](#21-timeline-management)
-  - [2.2 Temporal Variables](#22-temporal-variables)
-  - [2.3 Quantum Operations](#23-quantum-operations)
-- [3. Standard Library](#3-standard-library)
-  - [3.1 Core Types](#31-core-types)
-  - [3.2 Built-in Functions](#32-built-in-functions)
+- [Standard Library](./stdlib/index.md) - Comprehensive reference for all standard library modules
+- [Language Specification](reference/language/specification.md) - Detailed language syntax and semantics
+- [Temporal Programming](./stdlib/temporal.md) - Time and timeline manipulation
+- [Concurrency](./stdlib/concurrency.md) - Parallel and concurrent programming
+- [Collections](./stdlib/collections.md) - Data structures and algorithms
 
-## 1. Resource Management
+## Quick Links
 
-### 1.1 ResourceTracker
+- [Getting Started Guide](guides/getting-started/index.md)
+- [Examples](../examples/index.md)
+- [Contributing Guide](https://github.com/Chronovyan/Chronovyan.github.io/CONTRIBUTING.md)
 
-Tracks and manages temporal resources (Aethel and Chronon).
+## Overview
 
-```chronovyan
-// Create a new resource tracker
-LET tracker = NEW ResourceTracker(
-    initial_aethel: 100,
-    initial_chronon: 50
-);
+This section provides a high-level overview of the Chronovyan API. For detailed documentation, please refer to the specific module documentation linked above.
 
-// Check current resource levels
-LET aethel = tracker.get_aethel();
-LET chronon = tracker.get_chronon();
+## Core Concepts
 
-// Consume resources
-TRACKED_OPERATION(tracker, 10, 5) {
-    // Operation that consumes 10 Aethel and 5 Chronon
-}
-```
+### Temporal Programming
 
-### 1.2 ResourceProcessor
+Chronovyan's unique approach to handling time and concurrency is documented in the [Temporal Programming](./stdlib/temporal.md) guide.
 
-Processes and optimizes resource allocations.
+### Concurrency Model
 
-```chronovyan
-// Create a processor with a tracker
-LET processor = NEW ResourceProcessor(tracker);
+Learn about Chronovyan's concurrency primitives and best practices in the [Concurrency](./stdlib/concurrency.md) documentation.
 
-// Optimize resource allocation
-processor.optimize_allocation(
-    required_aethel: 50,
-    required_chronon: 25
-);
+### Standard Library
 
-// Process a temporal operation
-processor.process_operation(
-    operation_type: "TIMELINE_SPLIT",
-    parameters: {"branches": 2}
-);
-```
+Explore the comprehensive [Standard Library](./stdlib/index.md) documentation for all available modules and functions.
 
-### 1.3 Resource Types
+## Migration Guides
 
-| Type | Description | Default Value |
-|------|-------------|---------------|
-| Aethel | Temporal energy resource | 0 |
-| Chronon | Basic quantum of time | 0 |
-| Timeline | Sequence of temporal events | null |
-| QuantumState | Quantum state representation | null |
+- [From v0.1 to v0.2](../migration/0.1_to_0.2.md)
+- [From v0.2 to v0.3](../migration/0.2_to_0.3.md)
 
-## 2. Temporal Operations
+## API Stability
 
-### 2.1 Timeline Management
+Chronovyan follows [Semantic Versioning](https://semver.org/). The following stability levels are used:
 
-```chronovyan
-// Create a new timeline
-LET timeline = NEW Timeline("main_timeline");
+- **Stable**: Fully supported and backward compatible
+- **Beta**: Feature complete but may have minor issues
+- **Experimental**: Under active development, API may change
+- **Deprecated**: Scheduled for removal in a future version
 
-// Add an event
-TIMELINE_ADD_EVENT(
-    timeline: timeline,
-    timestamp: NOW() + 1h,
-    callback: \() { PRINT("Event triggered"); }
-);
+## Getting Help
 
-// Branch the timeline
-LET branch = TIMELINE_BRANCH("alternate_reality");
-
-// Merge timelines
-TIMELINE_MERGE(source: branch, target: timeline);
-```
-
-### 2.2 Temporal Variables
-
-```chronovyan
-// CONF (Conformity) variable
-DECLARE CONF::STATIC MAX_ITERATIONS: INT = 100;
+- [GitHub Issues](https://github.com/Chronovyan/Chronovyan.github.io/issues)
+- [Discord Community](https://discord.gg/chronovyan)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/chronovyan)
 
 // REB (Rebellion) variable
 DECLARE REB::FLUX current_state: STRING = "initial";
@@ -114,10 +72,10 @@ DECLARE QUANTUM::ENTANGLED particle_spin: INT = 0;
 QUANTUM_ENTANGLE(particle_a, particle_b);
 
 // Superposition
-LET qbit = QUANTUM_SUPERPOSITION(0, 1);
+DECLARE qbit = QUANTUM_SUPERPOSITION(0, 1);
 
 // Quantum measurement
-LET result = MEASURE(qbit);
+DECLARE result = MEASURE(qbit);
 ```
 
 ## 3. Standard Library
@@ -141,33 +99,33 @@ LET result = MEASURE(qbit);
 
 ```chronovyan
 // Get current timestamp
-LET now = NOW();
+DECLARE now = NOW();
 
 // Create a duration
-LET duration = DURATION(hours: 1, minutes: 30);
+DECLARE duration = DURATION(hours: 1, minutes: 30);
 
 // Sleep for a duration
 SLEEP(duration);
 
 // Create a timer
-LET timer = TIMER(START);
+DECLARE timer = TIMER(START);
 // ...
-LET elapsed = TIMER(STOP, timer);
+DECLARE elapsed = TIMER(STOP, timer);
 ```
 
 #### Mathematical Functions
 
 ```chronovyan
 // Basic math
-LET sum = ADD(5, 3);
-LET product = MULTIPLY(4, 7);
+DECLARE sum = ADD(5, 3);
+DECLARE product = MULTIPLY(4, 7);
 
 // Advanced math
-LET root = SQRT(16);
-LET power = POW(2, 10);
+DECLARE root = SQRT(16);
+DECLARE power = POW(2, 10);
 
 // Random numbers
-LET rand = RANDOM(1, 100);
+DECLARE rand = RANDOM(1, 100);
 ```
 
 #### I/O Functions
@@ -177,11 +135,11 @@ LET rand = RANDOM(1, 100);
 PRINT("Hello, Chronovyan!");
 
 // Read input
-LET name = INPUT("Enter your name: ");
+DECLARE name = INPUT("Enter your name: ");
 
 // File operations
-LET file = FILE_OPEN("data.txt", "r");
-LET content = FILE_READ(file);
+DECLARE file = FILE_OPEN("data.txt", "r");
+DECLARE content = FILE_READ(file);
 FILE_CLOSE(file);
 ```
 
@@ -210,6 +168,6 @@ FILE_CLOSE(file);
 
 ## See Also
 
-- [Language Specification](language_specification.md)
-- [Examples](../examples/temporal_examples.md)
-- [Performance Considerations](../concepts/index.md#performance-considerations)
+- [Language Specification](reference/language/specification.md)
+- [Standard Library](./stdlib/index.md)
+- [Contributing Guide](https://github.com/Chronovyan/Chronovyan.github.io/CONTRIBUTING.md)

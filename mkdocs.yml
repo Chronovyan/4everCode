@@ -1,78 +1,61 @@
-# Project Information
+# Project information
 site_name: Chronovyan
-site_url: https://chronovyan.github.io
-repo_url: https://github.com/Chronovyan/Chronovyan.github.io
-repo_name: Chronovyan/Chronovyan.github.io
+site_description: 'A Temporal Programming Language and Runtime'
+site_author: 'Chronovyan Team'
+site_url: https://chronovyan.github.io/
+
+# Repository
+repo_name: 'Chronovyan/Chronovyan'
+repo_url: 'https://github.com/Chronovyan/Chronovyan'
 edit_uri: edit/main/docs/
 
 # Copyright
-copyright: Copyright &copy; 2025 Chronovyan
+copyright: 'Copyright &copy; 2025 Chronovyan Team'
 
-# Build settings
-site_dir: site
-strict: false
-use_directory_urls: true
-dev_addr: 127.0.0.1:8000
-
-# Theme Configuration
+# Theme configuration
 theme:
   name: material
-  language: en
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - navigation.footer
+    - navigation.instant
+    - navigation.tracking
+    - navigation.expand
+    - navigation.prune
+    - navigation.path
+    - toc.integrate
+    - header.autohide
+    - content.tabs.link
+    - content.code.copy
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.tooltips
+    - content.tooltips.blocks
+    - content.tooltips.links
   palette:
     - scheme: default
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
+      primary: indigo
+      accent: indigo
     - scheme: slate
       toggle:
         icon: material/weather-night
         name: Switch to light mode
-  features:
-    - navigation.tabs
-    - navigation.tabs.sticky
-    - navigation.sections
-    - navigation.indexes
-    - navigation.top
-    - search.highlight
-    - search.suggest
-    - content.code.copy
-    - content.code.annotate
-    - content.tooltips
-    - content.tabs
-    - content.tabs.link
+      primary: indigo
+      accent: indigo
   icon:
-    logo: material/clock-time-eight-outline
+    logo: material/clock-time-four-outline
+  favicon: assets/favicon.ico
   font:
     text: Roboto
     code: Roboto Mono
-
-# Customization
-extra_css:
-  - css/extra.css
-
-extra_javascript:
-  - js/extra.js
-
-# Navigation
-nav:
-  - Home: 'index.md'
-  - Getting Started:
-    - 'Installation': 'getting-started/installation.md'
-    - 'First Steps': 'getting-started/first-steps.md'
-    - 'Quick Start': 'getting-started/quickstart.md'
-  - Examples:
-    - 'Overview': 'examples/index.md'
-    - 'Temporal Examples': 'examples/temporal_examples.md'
-  - Concepts:
-    - 'Overview': 'concepts/index.md'
-    - 'Temporal Programming': 'concepts/temporal_programming.md'
-    - 'Resource Management': 'concepts/resource_management.md'
-    - 'Concurrency': 'concepts/concurrency.md'
-  - Reference:
-    - 'Overview': 'reference/index.md'
-    - 'API Reference': 'reference/api_reference.md'
-    - 'Language Specification': 'reference/language_specification.md'
-  - 'Contributing': 'CONTRIBUTING.md'
 
 # Extensions
 markdown_extensions:
@@ -81,137 +64,30 @@ markdown_extensions:
   - attr_list
   - def_list
   - footnotes
-  - meta
   - md_in_html
-  - toc:
-      permalink: true
-      toc_depth: 4
-  - pymdownx.arithmatex
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.betterem:
       smart_enable: all
-  - pymdownx.caret
   - pymdownx.details
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.snippets
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-
-# Plugins
-plugins:
-  - search
-  - mermaid2:
-      arguments:
-        theme: default
-        themeCSS: |
-          .mermaid { font-family: 'Roboto', sans-serif; }
-  - git-revision-date-localized:
-      type: timeago
-      fallback_to_build_date: true
-  - minify:
-      minify_html: true
-      minify_js: true
-      minify_css: true
-
-# Extra
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/Chronovyan/Chronovyan.github.io
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/ChronovyanLang
-
-# Build environment
-env:
-  - PYTHONPATH: .
-  - pymdownx.superfences
-  - pymdownx.highlight
-  - pymdownx.emoji
-  - attr_list
-  - md_in_html
-
-# Plugins
-plugins:
-  - search
-  - minify
-
-# Theme Configuration
-theme:
-  name: material
-  features:
-    - navigation.tabs
-    - navigation.sections
-    - navigation.indexes
-    - navigation.top
-    - search.highlight
-    - content.code.annotate
-    - content.code.copy
-    - content.action.edit
-    - content.tabs
-    - content.tooltips
-    - content.code.select
-    - header.autohide
-    - navigation.footer
-    - navigation.instant
-    - navigation.prune
-    - navigation.tracking
-    - search.suggest
-    - search.share
-    - toc.follow
-    - toc.integrate
-    - content.tabs.link
-  palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/weather-night
-        name: Switch to light mode
-  font:
-    text: Roboto
-    code: Roboto Mono
-  icon:
-    logo: material/timer-sand
-    repo: fontawesome/brands/github
-    edit: material/pencil
-
-# Markdown Extensions
-markdown_extensions:
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.emoji
-  - attr_list
-  - md_in_html
   - toc:
       permalink: true
-      permalink_class: headerlink
 
 # Plugins
 plugins:
@@ -223,47 +99,66 @@ plugins:
   - git-revision-date-localized:
       type: timeago
       fallback_to_build_date: true
-  - awesome-pages:
-      filename: .pages
-      collapse_single_pages: true
-  - mermaid2:
-      arguments:
-        theme: default
-        themeCSS: |
-          .mermaid { font-family: 'Roboto', sans-serif; }
+  - markdownextradata
+  - awesome-pages
   - section-index
+  - macros:
+      include_dir: docs/include
+  - redirects:
+      redirect_maps:
+        'old/path': 'new/path'
 
 # Navigation
 nav:
   - Home: index.md
   - Getting Started:
-    - Installation: getting-started/installation.md
-    - First Steps: getting-started/first-steps.md
-  - API Reference: api.md
-  - Examples: 
-    - Basic Examples: examples.md
-    - Hello World: examples/hello_world.md
-  - Contributing: CONTRIBUTING.md
+      - guides/getting-started/index.md
+      - guides/getting-started/installation.md
+      - guides/getting-started/first-steps.md
+  - Guides:
+      - guides/examples/index.md
+      - guides/advanced/index.md
+  - Reference:
+      - reference/language/specification.md
+      - reference/stdlib/index.md
+  - Development:
+      - development/building.md
+      - development/contributing.md
+      - development/code-style.md
+      - development/documentation-guide.md
+      - development/style-guide.md
+  - Design:
+      - design/architecture.md
+      - design/compiler.md
+      - design/bytecode-format.md
+  - Community:
+      - community/code-of-conduct.md
+      - community/security.md
+      - community/roadmap.md
+  - About:
+      - about/changelog.md
+      - about/license.md
 
-# Custom CSS and JS
-extra_css:
-  - css/extra.css
-extra_javascript:
-  - js/extra.js
-
-# Search configuration is handled by the material/search plugin
-
-# Extra
+# Customization
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/Chronovyan
+      link: https://github.com/Chronovyan/Chronovyan
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/chronovyan
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/chronovyan
 
-# Copyright
-copyright: >-
-  Copyright &copy; 2023 Chronovyan Team - 
-  <a href="https://github.com/Chronovyan/Chronovyan.github.io/blob/main/LICENSE">
-    MIT License
-  </a>
+# Extra CSS/JS
+extra_css:
+  - assets/stylesheets/custom.css
+
+extra_javascript:
+  - assets/javascripts/custom.js
+
+# Build options
+strict: true
+use_directory_urls: true
+
+# Dev server
+dev_addr: '127.0.0.1:8000'

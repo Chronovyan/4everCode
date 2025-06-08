@@ -60,4 +60,4 @@ Timeline complete!
 - Try modifying the delays between events
 - Add more events to the timeline
 - Experiment with different callback functions
-- For more examples, see the [Temporal Examples](temporal_examples.md) page.
+- For more examples, see the [Temporal Examples](guides/examples/index.md) page.

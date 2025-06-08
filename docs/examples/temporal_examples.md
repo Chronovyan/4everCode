@@ -254,6 +254,6 @@ temporal_program {
 
 ## Next Steps
 
-- [Language Reference](../reference/language_specification.md)
+- [Language Reference](reference/language/specification.md)
 - [API Reference](../reference/api_reference.md)
 - [Performance Tips](../concepts/index.md#performance-considerations)

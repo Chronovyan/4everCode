@@ -1,113 +1,83 @@
 # ⏳ Chronovyan
 
-*A statically-typed temporal programming language for time-aware applications*
+*A modern temporal programming language and runtime for building time-aware applications*
 
-[Get Started](getting-started/quickstart.md) | [View Examples](examples/)
+[![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://chronovyan.github.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Build Status](https://github.com/Chronovyan/Chronovyan/actions/workflows/ci.yml/badge.svg)](https://github.com/Chronovyan/Chronovyan/actions)
 
 ---
 
-## 🚀 Features
+## 🚀 Why Chronovyan?
 
-### Temporal Programming
-- First-class time types and operations
-- Native support for temporal logic
-- Deterministic execution model
+Chronovyan is designed from the ground up for temporal programming, making it easy to work with time-dependent computations, event scheduling, and time-series data processing.
 
-### Resource Management
-- Built-in tracking of temporal resources
-- Efficient `Chronon` and `Aethel` management
-- Predictable resource allocation
+### Key Features
 
-### Powerful Type System
-- Static typing with type inference
-- Temporal type safety
-- Extensible type system
-
-## 📖 Quick Start
-
-1. **Install Chronovyan**
-   ```bash
-   # Clone the repository
-   git clone https://github.com/Chronovyan/Chronovyan.git
-   cd Chronovyan
-   
-   # Install dependencies and build
-   ./scripts/setup.sh
-   ./scripts/build.sh
-   ```
-
-2. **Your First Chronovyan Program**
-   ```chronovyan
-   // hello_world.cvy
-   MODULE hello_world;
-   
-   IMPORT std.io;
-   
-   FUNC VOID main() {
-       io::println("Hello, Chronovyan!");
-       
-       // Basic temporal operation
-       DECLARE CONF::STATIC start_time = NOW();
-       DELAY 1.0s;  // Wait for 1 second
-       DECLARE CONF::STATIC end_time = NOW();
-       
-       io::println("Elapsed: ", (end_time - start_time), " seconds");
-   }
-   ```
-
-3. **Explore the Documentation**
-   - [Installation Guide](getting-started/installation.md)
-   - [Language Reference](reference/language_specification.md)
-   - [Examples](examples/index.md)
-
-## Chronovyan: Temporal Programming Redefined
-
-Chronovyan is a statically-typed, temporal programming language designed for building robust and efficient time-aware applications. It introduces first-class concepts of time, temporal resources, and timeline management, making it ideal for simulations, event-driven systems, and any application where time is a critical component.
-
-## Core Philosophy
-
-Chronovyan is built around the concept of **Temporal Programming**, where time is a first-class citizen. The language is designed with two fundamental principles:
-
-1. **Order (Conformity)**: For stability and predictability
-2. **Flux (Rebellion)**: For dynamic adaptation and temporal manipulation
-
-## Key Features
-
-- **Temporal Types**: Native support for time points, durations, and intervals
-- **Resource Management**: Built-in tracking of temporal resources (`Chronon` and `Aethel`)
+- **Temporal Types**: First-class support for time-based data types and operations
+- **Concurrent by Design**: Built-in primitives for safe concurrency and parallelism
 - **Deterministic Execution**: Predictable behavior for time-dependent operations
-- **Concurrency Model**: Safe and efficient handling of temporal concurrency
-- **Type Safety**: Strong static typing with type inference
+- **Resource Management**: Efficient handling of temporal resources
+- **Type Safety**: Strong, static type system with type inference
+- **Intuitive API**: Designed to be easy to use and understand
+- **Flexible**: Suitable for a wide range of applications
 
-## Getting Started
+## 🏁 Quick Start
 
-- [Installation Guide](getting-started/installation.md)
-- [Quick Start](getting-started/quickstart.md)
-- [Examples](examples.md)
+### 1. Install Dependencies
 
-## Core Concepts
+```bash
+# Prerequisites:
+# - C++20 compatible compiler (GCC 11+, Clang 12+, or MSVC 2019 16.11+)
+# - CMake 3.20 or higher
+# - Python 3.8+ (for build scripts)
+# - Git
 
-- [Temporal Programming](concepts/temporal_programming.md)
-- [Resource Management](concepts/resource_management.md)
-- [Concurrency Model](concepts/concurrency.md)
+# Clone the repository
+git clone https://github.com/Chronovyan/Chronovyan.git
+cd Chronovyan
 
-## Language Reference
+# Install build dependencies
+pip install -r requirements-dev.txt
 
-- [Language Specification](reference/language_specification.md)
-- [API Reference](reference/api_reference.md)
-- [API Reference](reference/api_reference.md)
+# Configure and build
+mkdir build && cd build
+cmake ..
+cmake --build . --config Release
 
-## Development
+# Run tests
+ctest -C Release --output-on-failure
+```
 
-- [Contributing](CONTRIBUTING.md)
-- [GitHub Repository](https://github.com/Chronovyan/Chronovyan.github.io)
-- [Roadmap](https://github.com/Chronovyan/Chronovyan.github.io/blob/main/ROADMAP.md)
+### 2. Your First Chronovyan Program
 
-## Community
+Create a file named `hello.chrono`:
 
-- [GitHub Repository](https://github.com/yourusername/chronovyan)
-- [Issue Tracker](https://github.com/yourusername/chronovyan/issues)
-- [Discussions](https://github.com/yourusername/chronovyan/discussions)
+```rust
+// A simple Chronovyan program
+fn main() {
+    // Print a greeting
+    println!("Hello, Chronovyan!");
+    
+    // Demonstrate a simple temporal operation
+    let now = time::now();
+    println!("Current time: {}", now);
+    
+    // Schedule a future event
+    let future = now + Duration::seconds(5);
+    println!("Will print again at: {}", future);
+    
+    // Wait for the future time
+    time::sleep_until(future);
+    println!("Five seconds later...");
+}
+```
+
+Run the program:
+
+```bash
+./build/bin/chrono run hello.chrono
+```
 
 ## 🎯 Use Cases
 
@@ -115,30 +85,43 @@ Chronovyan is built around the concept of **Temporal Programming**, where time i
 - **Simulations**: Model complex temporal systems
 - **Data Processing**: Schedule and coordinate data pipelines
 - **Interactive Applications**: Create responsive UIs with timed interactions
-
-## 🌟 Why Chronovyan?
-
-- **Intuitive API**: Designed to be easy to use and understand
-- **Flexible**: Suitable for a wide range of applications
-- **Well-documented**: Comprehensive guides and API reference
-- **Active Development**: Regular updates and improvements
+- **Financial Systems**: Process time-series data and events
+- **IoT Applications**: Handle device synchronization and scheduling
 
 ## 📚 Documentation
 
 Explore the documentation to learn more about Chronovyan:
 
-- [Getting Started](getting-started/installation.md) - Set up Chronovyan and take your first steps
-- [Examples](examples.md) - Practical examples and use cases
-- [API Reference](api.md) - Comprehensive API documentation
-- [Contributing](CONTRIBUTING.md) - How to contribute to Chronovyan
+### Getting Started
+- [Installation Guide](getting-started/installation.md)
+- [Quick Start](getting-started/quickstart.md)
+- [Examples](guides/examples/index.md)
 
-## 🤝 Contributing
+### Core Concepts
+- [Temporal Programming](concepts/temporal_programming.md)
+- [Resource Management](concepts/resource_management.md)
+- [Concurrency Model](concepts/concurrency.md)
+
+### References
+- [Language Specification](reference/language/specification.md)
+- [Standard Library](reference/stdlib/)
+- [API Reference](reference/api_reference.md)
+
+### Development
+- [Building from Source](development/building.md)
+- [Contributing Guide](development/contributing.md)
+- [Code Style](development/code-style.md)
+
+## 🛠 Development & Community
 
 We welcome contributions from the community! Whether you're fixing bugs, adding new features, or improving documentation, your help is appreciated.
 
-[Learn how to contribute →](CONTRIBUTING.md)
+### Get Involved
+- [GitHub Issues](https://github.com/Chronovyan/Chronovyan/issues): Report bugs or request features
+- [Discord](https://discord.gg/chronovyan): Join the community
+- [Twitter](https://twitter.com/chronovyan): Follow us for updates
+- [Contributing Guide](development/contributing.md): Learn how to contribute
 
 ## 📄 License
 
-Chronovyan is licensed under the [MIT License](https://github.com/Chronovyan/Chronovyan.github.io/blob/main/LICENSE).
-
+Chronovyan is licensed under the [MIT License](LICENSE).

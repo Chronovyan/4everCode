@@ -1,148 +1,266 @@
 <div align="center">
   <h1>⏳ Chronovyan</h1>
-  <h3>A Temporal Programming Library for Python</h3>
+  <h3>A Temporal Programming Language and Runtime</h3>
   
-  [![PyPI](https://img.shields.io/pypi/v/chronovyan)](https://pypi.org/project/chronovyan/)
-  [![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://chronovyan.github.io/)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-  [![Python Version](https://img.shields.io/pypi/pyversions/chronovyan)](https://pypi.org/project/chronovyan/)
-  [![Tests](https://github.com/Chronovyan/Chronovyan/actions/workflows/tests.yml/badge.svg)](https://github.com/Chronovyan/Chronovyan/actions)
+  [![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://chronovyan.github.io/)
+  [![Build Status](https://github.com/Chronovyan/Chronovyan/actions/workflows/ci.yml/badge.svg)](https://github.com/Chronovyan/Chronovyan/actions)
+  [![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
   
   *"Time is the canvas, and we are the weavers of its threads."* - Ancient Weaver Proverb
 </div>
 
 ## 🌟 About Chronovyan
 
-Chronovyan is a Python library that provides a powerful framework for working with time as a first-class construct. It enables developers to create, manage, and synchronize events across different points in time with an intuitive and Pythonic API.
+Chronovyan is a modern programming language designed for temporal programming, enabling developers to express time-based computations and concurrent operations with clarity and precision. It provides first-class support for temporal types, event handling, and distributed computing.
 
 ### Key Features
 
-- **Temporal Programming Model**: Work with time as a primary construct
-- **Event Management**: Schedule and manage events with precision
-- **Time Manipulation**: Control the flow of time in your applications
-- **Thread-Safe**: Built with concurrency in mind
-- **Extensible**: Create custom event types and timelines
-- **Zero Dependencies**: Pure Python with no external dependencies
-- **Type Annotations**: Full support for static type checking
+- **Temporal Types**: Native support for time-based data types and operations
+- **Concurrent by Design**: Built-in primitives for safe concurrency and parallelism
+- **Event-Driven Architecture**: First-class support for event handling and processing
+- **Distributed Computing**: Seamless integration with distributed systems
+- **Type Safety**: Strong, static type system with type inference
+- **Performance**: Optimized for high-performance temporal computations
 
 ## 📚 Documentation
 
-Comprehensive documentation is available at [https://chronovyan.github.io/](https://chronovyan.github.io/).
+Comprehensive documentation is available in the `docs` directory and online at [https://chronovyan.github.io/](https://chronovyan.github.io/).
 
-### Quick Links
+### Documentation Structure
 
-- [Getting Started](https://chronovyan.github.io/getting-started/installation/)
-- [API Reference](https://chronovyan.github.io/reference/)
-- [Examples](https://github.com/Chronovyan/Chronovyan/tree/main/examples)
+- **Guides**: Tutorials and how-to guides for learning Chronovyan
+  - [Getting Started](./docs/guides/getting-started/)
+  - [Advanced Topics](./docs/guides/advanced/)
+  - [Examples](./docs/guides/examples/)
+
+- **Reference**: Language and API references
+  - [Language Specification](./docs/reference/language/specification.md)
+  - [Standard Library](./docs/reference/stdlib/)
+
+- **Development**: Resources for contributors
+  - [Building Chronovyan](./docs/development/building/)
+  - [Contributing Guide](./docs/development/contributing/)
+
+- **Design**: Architecture and design documents
+  - [Compiler Architecture](./docs/architecture/compiler.md)
+  - [Bytecode Format](./docs/architecture/bytecode-format.md)
+
+- **Community**: Guidelines and policies
+  - [Code of Conduct](./docs/community/code-of-conduct.md)
+  - [Security Policy](./docs/community/security.md)
+
+For a complete overview of the documentation structure, see [STRUCTURE.md](./docs/STRUCTURE.md).
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
-- Python 3.8 or higher
-- pip (Python package manager)
+- C++20 compatible compiler (GCC 11+, Clang 12+, or MSVC 2019 16.11+)
+- CMake 3.20 or higher
+- Python 3.8+ (for build scripts)
+- Git
 
-### Installation
+### Building from Source
 
-```bash
-# Install from PyPI
-pip install chronovyan
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Chronovyan/Chronovyan.git
+   cd Chronovyan
+   ```
 
-# Or install in development mode from source
-git clone https://github.com/Chronovyan/Chronovyan.git
-cd Chronovyan
-pip install -e .
-```
+2. Configure the build:
+   ```bash
+   mkdir build && cd build
+   cmake ..
+   ```
 
-### Basic Usage
+3. Build the project:
+   ```bash
+   cmake --build . --config Release
+   ```
 
-```python
-import time
-from chronovyan import Timeline, Event
+4. Run tests:
+   ```bash
+   ctest -C Release --output-on-failure
+   ```
 
-def on_event(event):
-    print(f"{event.name} at {event.timestamp:.2f} seconds")
+For more detailed build instructions, see the [Building Chronovyan](./docs/development/building/) guide.
 
-# Create a timeline
-timeline = Timeline()
+### Your First Chronovyan Program
 
-# Add some events
-timeline.add_event(Event("Hello", on_trigger=on_event))
-timeline.add_event(Event("World", delay=1.0, on_trigger=on_event))
+Create a file named `hello.chrono` with the following content:
 
-# Run the timeline
-timeline.run()
-```
-
-### Advanced Example: Task Dependencies
-
-```python
-from chronovyan import Timeline, Event
-
-def create_task(name, duration, dependencies=None):
-    def task_handler(event):
-        print(f"🚀 Starting {name} (takes {duration}s)")
-        
-        def on_complete():
-            print(f"✅ Completed {name}")
-            
-            # Trigger dependent tasks
-            for dep in dependencies or []:
-                if not dep.is_triggered:
-                    dep.trigger()
-        
-        # Schedule completion
-        timeline.add_event(Event(f"Complete {name}", on_trigger=on_complete), delay=duration)
+```rust
+// A simple Chronovyan program
+fn main() {
+    // Print a greeting
+    println!("Hello, Chronovyan!");
     
-    return Event(f"Start {name}", on_trigger=task_handler)
-
-# Create tasks with dependencies
-timeline = Timeline()
-task_a = create_task("Task A", 1.0)
-task_b = create_task("Task B", 2.0, [task_a])
-task_c = create_task("Task C", 1.5, [task_a])
-task_d = create_task("Task D", 1.0, [task_b, task_c])
-
-# Start with Task A
-timeline.add_event(task_a)
-timeline.run()
+    // Demonstrate a simple temporal operation
+    let now = time::now();
+    println!("Current time: {}", now);
+    
+    // Schedule a future event
+    let future = now + Duration::seconds(5);
+    println!("Will print again at: {}", future);
+    
+    // Wait for the future time
+    time::sleep_until(future);
+    println!("Five seconds later...");
+}
 ```
 
-## 🔍 Examples
-
-Check out the [examples](examples/) directory for more usage examples:
-
-1. [Basic Usage](examples/basic_usage.py) - Introduction to core concepts
-2. [Event Synchronization](examples/event_synchronization.py) - Managing task dependencies
-
-## 🧪 Testing
-
-To run the test suite:
+Run the program:
 
 ```bash
-# Install test dependencies
-pip install -r requirements-dev.txt
+./build/bin/chrono run hello.chrono
+```
 
-# Run tests
-pytest tests/
+## 🛠 Development
+
+### Prerequisites
+
+- C++20 compatible compiler
+- CMake 3.20+
+- Python 3.8+ (for build scripts)
+- Git
+- [Conan](https://conan.io/) (for dependency management)
+- [pre-commit](https://pre-commit.com/) (for git hooks)
+
+### Development Setup
+
+1. Clone the repository:
+   ```bash
+   git clone --recurse-submodules https://github.com/Chronovyan/Chronovyan.git
+   cd Chronovyan
+   ```
+
+2. Install Python dependencies:
+   ```bash
+   pip install -r requirements-dev.txt
+   ```
+
+3. Set up pre-commit hooks:
+   ```bash
+   pre-commit install
+   ```
+
+4. Configure the build:
+   ```bash
+   mkdir -p build && cd build
+   cmake .. -DCMAKE_BUILD_TYPE=Debug
+   ```
+
+5. Build the project:
+   ```bash
+   cmake --build . --parallel
+   ```
+
+### Running Tests
+
+```bash
+# Run all tests
+cd build
+ctest --output-on-failure
+
+# Run specific test
+./tests/chrono_tests
+
+# Run with verbose output
+ctest -V
+```
+
+### Code Style
+
+We use `clang-format` for C++ code formatting. To format your code:
+
+```bash
+# Format all source files
+./scripts/format.sh
 ```
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details on how to get started.
+We welcome contributions from the community! Whether you're fixing bugs, adding new features, or improving documentation, your help is appreciated.
 
-## 📜 License
+### Documentation Development
+
+We've created several tools to make documentation development easier and more consistent:
+
+#### Setup Documentation Environment
+
+1. **Windows (PowerShell)**:
+   ```powershell
+   .\scripts\setup_docs.ps1
+   ```
+
+2. **Unix-like systems (Linux/macOS)**:
+   ```bash
+   chmod +x ./scripts/setup_docs.sh
+   ./scripts/setup_docs.sh
+   ```
+
+#### Creating New Documentation
+
+Use the documentation generator to create new pages with the correct structure:
+
+- **Windows (PowerShell)**:
+  ```powershell
+  .\scripts\new_doc.bat
+  ```
+
+- **Unix-like systems**:
+  ```bash
+  ./scripts/new_doc.sh
+  ```
+
+#### Validating Documentation
+
+Before submitting changes, validate the documentation:
+
+- **Windows (PowerShell)**:
+  ```powershell
+  .\scripts\validate_docs.ps1
+  ```
+
+- **Unix-like systems**:
+  ```bash
+  ./scripts/validate_docs.sh
+  ```
+
+#### Serving Documentation Locally
+   ```bash
+   mkdocs serve
+   ```
+   Then open http://127.0.0.1:8000 in your browser.
+
+3. Validate your changes:
+   ```bash
+   # Windows
+   .\scripts\validate_docs.ps1
+   
+   # Unix-like systems
+   chmod +x ./scripts/validate_docs.sh
+   ./scripts/validate_docs.sh
+   ```
+
+Before contributing, please review our [Code of Conduct](./docs/community/code-of-conduct.md) and [Contributing Guide](./docs/development/contributing.md).
+
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📞 Support
+## 📬 Contact
 
-For help and support:
-- Check the [documentation](https://chronovyan.github.io/)
-- Open an [issue](https://github.com/Chronovyan/Chronovyan/issues)
-- Join our [Discord community](https://discord.gg/chronovyan)
+For questions or feedback, please open an issue on our [GitHub repository](https://github.com/Chronovyan/Chronovyan/issues).
 
 ## 🙏 Acknowledgments
 
-- All contributors who have helped shape Chronovyan
-- The open-source community for inspiration and support
+Chronovyan is made possible by the contributions of many people. We'd like to thank all our contributors and the open-source community for their support.
+
+Special thanks to the following projects that inspired Chronovyan:
+- Rust Programming Language
+- LLVM/Clang
+- Chrono (C++ date and time library)
+- The broader open-source community
