@@ -1,32 +1,57 @@
-# Project Information
+# Minimal MkDocs configuration
 site_name: Chronovyan
 site_url: https://chronovyan.github.io
-site_description: A temporal programming language for weaving narratives across time
-site_author: Chronovyan Team
-copyright: Copyright &copy; 2025 Chronovyan Team
-
-# Repository
-repo_name: Chronovyan/Chronovyan.github.io
 repo_url: https://github.com/Chronovyan/Chronovyan.github.io
-edit_uri: edit/main/docs/
+repo_name: Chronovyan/Chronovyan.github.io
 
-# Build configuration
-site_dir: site  # Explicitly set the output directory
-
-# Disable strict mode to prevent build failures on warnings
+# Build settings
+site_dir: site
 strict: false
 
-# Configure validation
-validation:
-  # Ignore missing documentation files
-  nav:
-    not_found: warn
-    omitted_files: warn
-    absolute_links: warn
-  links:
-    not_found: warn
-    absolute_links: warn
-    unrecognized_links: warn
+# Theme
+use_directory_urls: true
+
+# Navigation
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - First Steps: getting-started/first-steps.md
+  - Examples:
+    - Hello World: examples/hello_world.md
+  - Concepts:
+    - Overview: concepts/index.md
+  - Reference:
+    - API Reference: reference/api_reference.md
+    - Language Specification: reference/language_specification.md
+  - Contributing: CONTRIBUTING.md
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - search.highlight
+    - content.code.copy
+
+# Markdown extensions
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+  - fenced_code
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.emoji
+  - attr_list
+  - md_in_html
+
+# Plugins
+plugins:
+  - search
+  - minify
 
 # Theme Configuration
 theme:
