@@ -113,10 +113,7 @@ extra_css:
 extra_javascript:
   - js/extra.js
 
-# Search
-search:
-  language: en
-  separator: '[\s\-]+'
+# Search configuration is handled by the material/search plugin
 
 # Extra
 extra:
