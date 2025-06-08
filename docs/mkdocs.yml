@@ -1,12 +1,12 @@
 # Project information
-site_name: Forever Code
-site_description: 'A Paradigm for Immutable, Persistent, and Perpetual Digital Entities'
-site_author: 'Forever Code Team'
-site_url: https://forevercode.dev/
+site_name: Chronovyan
+site_description: 'A Modern C++ Library for Time Series Analysis and Temporal Data Processing'
+site_author: 'Chronovyan Team'
+site_url: https://chronovyan.github.io
 
 # Repository
-repo_name: 'ForeverCode/forevercode'
-repo_url: 'https://github.com/ForeverCode/forevercode'
+repo_name: 'Chronovyan/Chronovyan.github.io'
+repo_url: 'https://github.com/Chronovyan/Chronovyan.github.io'
 edit_uri: edit/main/docs/
 
 # Copyright
