@@ -1,6 +1,7 @@
 # Build and distribution
 dist/
 build/
+vcpkg/
 *.egg-info/
 *.egg
 *.pyc
