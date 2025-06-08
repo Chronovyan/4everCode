@@ -1,36 +1,27 @@
-<div class="mdx-hero" style="text-align: center; margin: 2em 0 4em 0;">
-    <h1>⏳ Chronovyan</h1>
-    <p class="lead">A statically-typed temporal programming language for time-aware applications</p>
-    <p>
-        <a href="getting-started/quickstart/" class="md-button md-button--primary">
-            Get Started
-        </a>
-        <a href="examples/" class="md-button">
-            View Examples
-        </a>
-    </p>
-</div>
+# ⏳ Chronovyan
+
+*A statically-typed temporal programming language for time-aware applications*
+
+[Get Started](getting-started/quickstart/) | [View Examples](examples/)
+
+---
 
 ## 🚀 Features
 
-<div class="grid cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2em 0;">
+### Temporal Programming
+- First-class time types and operations
+- Native support for temporal logic
+- Deterministic execution model
 
-- **Temporal Programming**
-  - First-class time types and operations
-  - Native support for temporal logic
-  - Deterministic execution model
+### Resource Management
+- Built-in tracking of temporal resources
+- Efficient `Chronon` and `Aethel` management
+- Predictable resource allocation
 
-- **Resource Management**
-  - Built-in tracking of temporal resources
-  - Efficient `Chronon` and `Aethel` management
-  - Predictable resource allocation
-
-- **Powerful Type System**
-  - Static typing with type inference
-  - Temporal type safety
-  - Extensible type system
-
-</div>
+### Powerful Type System
+- Static typing with type inference
+- Temporal type safety
+- Extensible type system
 
 ## 📖 Quick Start
 
