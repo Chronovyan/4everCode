@@ -2,7 +2,7 @@
 
 *A statically-typed temporal programming language for time-aware applications*
 
-[Get Started](getting-started/quickstart/) | [View Examples](examples/)
+[Get Started](getting-started/quickstart.md) | [View Examples](examples/)
 
 ---
 
