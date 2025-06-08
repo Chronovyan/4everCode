@@ -44,8 +44,8 @@ jobs:
       
       - name: Lint Markdown
         run: |
-          pip install markdownlint-cli2
-          markdownlint-cli2 "**/*.md" "#node_modules" "#.github"
+          pip install markdownlint-cli
+          markdownlint "**/*.md" --ignore "node_modules" --ignore ".github" --ignore "_build"
       
       - name: Build
         run: |
