@@ -52,28 +52,6 @@ theme:
   
   # Favicon
   favicon: assets/images/favicon.ico
-  features:
-    - navigation.tabs
-    - navigation.tabs.sticky
-    - navigation.sections
-    - navigation.top
-    - navigation.indexes
-    - navigation.footer
-    - navigation.instant
-    - navigation.tracking
-    - navigation.expand
-    - navigation.prune
-    - navigation.path
-    - toc.integrate
-    - header.autohide
-    - content.tabs.link
-    - content.code.copy
-    - content.action.edit
-    - content.action.view
-    - content.code.annotate
-    - content.tooltips
-    - content.tooltips.blocks
-    - content.tooltips.links
   palette:
     # Light theme (not primary, but kept for reference)
     - scheme: default
