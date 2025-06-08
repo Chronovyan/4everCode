@@ -1,7 +1,143 @@
 # Build and distribution
 dist/
 build/
+bin/
+lib/
+*.lib
+*.a
+*.dll
+*.exe
+*.exp
+*.ilk
+*.pdb
+*.sdf
+*.suo
+*.user
+*.filters
+*.sln
+*.vcxproj*
+*.vcxproj.user
+*.vcxproj.filters
+*.ipch
+*.pch
+*.obj
+*.o
+*.d
+*.log
+*.tlog
+*.lastbuildstate
+*.idb
+*.ipdb
+*.iobj
+*.bsc
+*.sbr
+
+# IDE specific files
+.vs/
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+.env
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# Local development
+.DS_Store
+Thumbs.db
+
+# VCPKG
 vcpkg/
+vcpkg_installed/
+
+# Documentation
+site/
+chronovyan_docs/
+
+# Test artifacts
+test_*
+*.test
+
+# Temporary files
+*.tmp
+*.temp
+*~
+*.bak
+*.swp
+*.swo
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Project specific
+*.chron
+*.cvy
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+*.cmake
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+Testing/
+
+# Ninja
+.ninja_deps
+.ninja_log
+build.ninja
+
+# Doxygen
+docs/doxygen/
+docs/html/
+docs/xml/
+
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Visual Studio
+*.VC.db
+*.VC.VC.opendb
+*.VC.VC.db
+*.VC.VC.db-shm
+*.VC.VC.db-wal
 *.egg-info/
 *.egg
 *.pyc
