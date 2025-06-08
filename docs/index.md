@@ -67,8 +67,8 @@
 
 3. **Explore the Documentation**
    - [Installation Guide](getting-started/installation.md)
-   - [Language Reference](reference/syntax.md)
-   - [Examples](examples.md)
+   - [Language Reference](reference/language_specification.md)
+   - [Examples](examples/index.md)
 
 ## Chronovyan: Temporal Programming Redefined
 
@@ -105,13 +105,13 @@ Chronovyan is built around the concept of **Temporal Programming**, where time i
 
 - [Language Specification](reference/language_specification.md)
 - [API Reference](reference/api_reference.md)
-- [Standard Library](reference/stdlib/index.md)
+- [API Reference](reference/api_reference.md)
 
 ## Development
 
 - [Contributing](CONTRIBUTING.md)
 - [GitHub Repository](https://github.com/Chronovyan/Chronovyan.github.io)
-- [Roadmap](ROADMAP.md)
+- [Roadmap](https://github.com/Chronovyan/Chronovyan.github.io/blob/main/ROADMAP.md)
 
 ## Community
 
@@ -150,4 +150,4 @@ We welcome contributions from the community! Whether you're fixing bugs, adding 
 
 ## 📄 License
 
-Chronovyan is licensed under the [MIT License](LICENSE).
+Chronovyan is licensed under the [MIT License](https://github.com/Chronovyan/Chronovyan.github.io/blob/main/LICENSE).

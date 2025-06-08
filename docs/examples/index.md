@@ -5,8 +5,7 @@ This section contains practical examples of using Chronovyan for various tasks.
 ## Basic Examples
 
 - [Hello World](hello_world.md) - A simple introduction to Chronovyan
-- [Temporal Examples](temporal_examples.md) - Creating custom event types
-- [Timing and Delays](timing.md) - Managing time in Chronovyan
+- [Temporal Examples](temporal_examples.md) - Creating custom event types and managing time
 
 ## Intermediate Examples
 
@@ -15,9 +14,13 @@ This section contains practical examples of using Chronovyan for various tasks.
 
 ## Advanced Examples
 
-- [Animation](animation/) - Creating animations with Chronovyan
-- [Simulations](simulations/) - Building simulations
-- [Game Development](games/) - Game development examples
+Coming soon! We're working on adding more advanced examples, including:
+
+- Creating animations
+- Building simulations
+- Game development
+
+Check back soon or contribute your own examples on [GitHub](https://github.com/Chronovyan/Chronovyan.github.io)!
 
 ## Getting Started with Examples
 

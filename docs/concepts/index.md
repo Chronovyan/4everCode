@@ -7,17 +7,13 @@ Welcome to the core concepts of Chronovyan, a statically-typed temporal programm
 - [Temporal Programming](temporal_programming.md)
   - [The Great Duality](#the-great-duality)
   - [Temporal Resources](#temporal-resources)
-  - [Temporal Safety](#temporal-safety)
 - [Resource Management](resource_management.md)
   - [Chronon](#chronon)
   - [Aethel](#aethel)
-  - [Allocation Strategies](#allocation-strategies)
-- [Concurrency Model](concurrency.md)
-  - [Threading](#threading-model)
-  - [Synchronization](#synchronization-primitives)
-  - [Temporal Consistency](#temporal-consistency)
+- [Memory Management](#memory-management)
+- [Performance Considerations](#performance-considerations)
 
-## The Great Duality
+## The Great Duality {#the-great-duality}
 
 Chronovyan is built around two fundamental principles that govern all temporal operations:
 
@@ -31,21 +27,25 @@ Chronovyan is built around two fundamental principles that govern all temporal o
    - Enabled by `REB` variables and `::FLUX` flags
    - Allows for temporal manipulation
 
-## Temporal Resources
+## Temporal Resources {#temporal-resources}
 
-### Chronon
+### Chronon {#chronon}
 - Basic quantum of time
 - Represents discrete moments in the timeline
 - Used for scheduling and ordering events
 
-### Aethel
+### Aethel {#aethel}
 - Temporal energy resource
 - Consumed by temporal operations
 - Must be managed to prevent paradoxes
 
-## Memory Management
+## Memory Management {#memory-management}
 
 Chronovyan provides several memory management strategies:
+
+## Performance Considerations {#performance-considerations}
+
+When working with Chronovyan, keep these performance considerations in mind:
 
 1. **Static Allocation**
    - Fixed at compile-time

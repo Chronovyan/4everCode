@@ -210,6 +210,6 @@ FILE_CLOSE(file);
 
 ## See Also
 
-- [Language Specification](/reference/language_specification.md)
-- [Examples](/examples/temporal_examples.md)
-- [Performance Guide](/guides/performance.md)
+- [Language Specification](language_specification.md)
+- [Examples](../examples/temporal_examples.md)
+- [Performance Considerations](../concepts/index.md#performance-considerations)

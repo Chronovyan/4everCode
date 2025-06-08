@@ -68,4 +68,4 @@ We welcome feature requests! Please open an issue and describe:
 
 ## License
 
-By contributing to Chronovyan, you agree that your contributions will be licensed under the project's [LICENSE](LICENSE) file.
+By contributing to Chronovyan, you agree that your contributions will be licensed under the project's [LICENSE](https://github.com/Chronovyan/Chronovyan.github.io/blob/main/LICENSE) file.

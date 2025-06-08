@@ -193,4 +193,4 @@ BEGIN_TRANSACTION {
 
 - [Temporal Programming](temporal_programming.md)
 - [Resource Management](resource_management.md)
-- [Performance Tuning](/guides/performance.md)
+- [Performance Considerations](../concepts/index.md#performance-considerations)

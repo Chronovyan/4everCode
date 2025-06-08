@@ -254,6 +254,6 @@ temporal_program {
 
 ## Next Steps
 
-- [Language Reference](/reference/syntax.md)
-- [Standard Library](/reference/stdlib/index.md)
-- [Performance Tuning](/guides/performance.md)
+- [Language Reference](../reference/language_specification.md)
+- [API Reference](../reference/api_reference.md)
+- [Performance Tips](../concepts/index.md#performance-considerations)

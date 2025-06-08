@@ -17,11 +17,18 @@ nav:
   - Getting Started:
     - Installation: getting-started/installation.md
     - First Steps: getting-started/first-steps.md
+    - Quick Start: getting-started/quickstart.md
   - Examples:
+    - Overview: examples/index.md
     - Hello World: examples/hello_world.md
+    - Temporal Examples: examples/temporal_examples.md
   - Concepts:
     - Overview: concepts/index.md
+    - Temporal Programming: concepts/temporal_programming.md
+    - Resource Management: concepts/resource_management.md
+    - Concurrency: concepts/concurrency.md
   - Reference:
+    - Overview: reference/index.md
     - API Reference: reference/api_reference.md
     - Language Specification: reference/language_specification.md
   - Contributing: CONTRIBUTING.md

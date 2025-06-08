@@ -171,4 +171,4 @@ LET another_ref = rc;  // Reference count increases
 
 - [Temporal Programming](temporal_programming.md)
 - [Concurrency Model](concurrency.md)
-- [Performance Optimization](/guides/performance.md)
+- [Performance Considerations](../concepts/index.md#performance-considerations)
