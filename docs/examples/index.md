@@ -5,14 +5,13 @@ This section contains practical examples of using Chronovyan for various tasks.
 ## Basic Examples
 
 - [Hello World](hello_world.md) - A simple introduction to Chronovyan
-- [Event Handling](event_handling.md) - How to work with events
+- [Temporal Examples](temporal_examples.md) - Creating custom event types
 - [Timing and Delays](timing.md) - Managing time in Chronovyan
 
 ## Intermediate Examples
 
 - [Multiple Timelines](multiple_timelines.md) - Working with concurrent timelines
 - [Event Synchronization](synchronization.md) - Synchronizing events across timelines
-- [Custom Events](custom_events.md) - Creating custom event types
 
 ## Advanced Examples
 

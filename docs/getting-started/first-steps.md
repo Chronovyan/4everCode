@@ -70,7 +70,7 @@ timeline.add_event(event)
 
 Now that you've taken your first steps with Chronovyan, you can explore:
 
-- [Advanced Features](../guides/advanced-features.md) - Learn about more advanced capabilities
+- [Examples](../examples/index.md) - Check out our examples section for more advanced features and techniques
 - [API Reference](../reference/index.md) - Detailed documentation of all classes and methods
 - [Core Concepts](../concepts/index.md) - Deep dive into Chronovyan's architecture
 

@@ -103,8 +103,8 @@ Chronovyan is built around the concept of **Temporal Programming**, where time i
 
 ## Language Reference
 
-- [Syntax](reference/syntax.md)
-- [Types](reference/types.md)
+- [Language Specification](reference/language_specification.md)
+- [API Reference](reference/api_reference.md)
 - [Standard Library](reference/stdlib/index.md)
 
 ## Development
