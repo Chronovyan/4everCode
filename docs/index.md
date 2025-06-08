@@ -150,3 +150,4 @@ We welcome contributions from the community! Whether you're fixing bugs, adding 
 ## 📄 License
 
 Chronovyan is licensed under the [MIT License](https://github.com/Chronovyan/Chronovyan.github.io/blob/main/LICENSE).
+
