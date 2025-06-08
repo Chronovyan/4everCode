@@ -142,7 +142,8 @@ plugins:
       match_path: "news/.*\\.md"
       categories:
         - category
-      date_from_meta: date
+      date_from_meta:
+        as_creation: date
   - git-revision-date-localized:
       type: timeago
       fallback_to_build_date: true
