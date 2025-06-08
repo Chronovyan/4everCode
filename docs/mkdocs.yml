@@ -155,8 +155,6 @@ plugins:
       j2_variable_start_string: '{{'
       j2_variable_end_string: '}}'
 
-# Watch configuration
-watch: ["docs"]
 
 # Markdown extensions
 markdown_extensions:
@@ -205,25 +203,6 @@ markdown_extensions:
 docs_dir: .
 use_directory_urls: true
 strict: true
-watch:
-  - .overrides
-
-# Remove duplicate markdown extensions and plugins
-  - minify:
-      minify_html: true
-      minify_js: true
-      minify_css: true
-  - git-revision-date-localized:
-      type: timeago
-      fallback_to_build_date: true
-  - markdownextradata
-  - awesome-pages
-  - section-index
-  - macros:
-      include_dir: docs/include
-  - redirects:
-      redirect_maps:
-        'old/path': 'new/path'
 
 # Navigation
 nav:
