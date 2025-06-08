@@ -1,64 +1,57 @@
 <div align="center">
   <h1>⏳ Chronovyan</h1>
-  <h3>A Temporal Programming Language and Runtime</h3>
+  <h3>A Modern C++20 Library for Temporal Programming</h3>
   
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-  [![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://chronovyan.github.io/)
-  [![Build Status](https://github.com/Chronovyan/Chronovyan/actions/workflows/ci.yml/badge.svg)](https://github.com/Chronovyan/Chronovyan/actions)
-  [![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+  [![C++ Standard](https://img.shields.io/badge/C%2B%2B-20-blue.svg)](https://en.cppreference.com/w/cpp/20)
+  [![CMake](https://img.shields.io/badge/CMake-3.15%2B-064F8C)](https://cmake.org/)
+  [![Documentation](https://img.shields.io/badge/docs-gh--pages-blue)](https://chronovyan.github.io/)
   
   *"Time is the canvas, and we are the weavers of its threads."* - Ancient Weaver Proverb
 </div>
 
 ## 🌟 About Chronovyan
 
-Chronovyan is a modern programming language designed for temporal programming, enabling developers to express time-based computations and concurrent operations with clarity and precision. It provides first-class support for temporal types, event handling, and distributed computing.
+Chronovyan is a modern C++20 library designed for temporal programming, providing powerful abstractions for time-based computations and concurrent operations. It offers a clean, type-safe interface for working with temporal data and events in C++ applications.
 
 ### Key Features
 
-- **Temporal Types**: Native support for time-based data types and operations
-- **Concurrent by Design**: Built-in primitives for safe concurrency and parallelism
-- **Event-Driven Architecture**: First-class support for event handling and processing
-- **Distributed Computing**: Seamless integration with distributed systems
-- **Type Safety**: Strong, static type system with type inference
-- **Performance**: Optimized for high-performance temporal computations
+- **Header-Only Option**: Use as a header-only library or build as a shared/static library
+- **Temporal Types**: Comprehensive support for time points, durations, and intervals
+- **Concurrency Primitives**: Safe and efficient concurrency utilities
+- **Event System**: Flexible event handling with type-safe callbacks
+- **Modern C++**: Leverages C++20 features for clean and expressive code
+- **Cross-Platform**: Works on Windows, Linux, and macOS
 
 ## 📚 Documentation
 
-Comprehensive documentation is available in the `docs` directory and online at [https://chronovyan.github.io/](https://chronovyan.github.io/).
+Comprehensive documentation is available in the [docs](docs/) directory and online at [https://chronovyan.github.io/](https://chronovyan.github.io/).
 
 ### Documentation Structure
 
-- **Guides**: Tutorials and how-to guides for learning Chronovyan
-  - [Getting Started](./docs/guides/getting-started/)
-  - [Advanced Topics](./docs/guides/advanced/)
-  - [Examples](./docs/guides/examples/)
+- **Getting Started**: Quick start guide and basic usage
+- **API Reference**: Detailed class and function documentation
+- **Examples**: Sample code demonstrating key features
+- **Contributing**: Guidelines for contributing to the project
 
-- **Reference**: Language and API references
-  - [Language Specification](./docs/reference/language/specification.md)
-  - [Standard Library](./docs/reference/stdlib/)
+To build documentation locally:
 
-- **Development**: Resources for contributors
-  - [Building Chronovyan](./docs/development/building/)
-  - [Contributing Guide](./docs/development/contributing/)
+```bash
+# Install requirements
+pip install -r docs/requirements.txt
 
-- **Design**: Architecture and design documents
-  - [Compiler Architecture](./docs/architecture/compiler.md)
-  - [Bytecode Format](./docs/architecture/bytecode-format.md)
-
-- **Community**: Guidelines and policies
-  - [Code of Conduct](./docs/community/code-of-conduct.md)
-  - [Security Policy](./docs/community/security.md)
-
-For a complete overview of the documentation structure, see [STRUCTURE.md](./docs/STRUCTURE.md).
+# Build documentation
+mkdocs serve  # For live preview
+# or
+mkdocs build  # For static site generation
+```
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
 - C++20 compatible compiler (GCC 11+, Clang 12+, or MSVC 2019 16.11+)
-- CMake 3.20 or higher
-- Python 3.8+ (for build scripts)
+- CMake 3.15 or higher
 - Git
 
 ### Building from Source
@@ -69,23 +62,40 @@ For a complete overview of the documentation structure, see [STRUCTURE.md](./doc
    cd Chronovyan
    ```
 
-2. Configure the build:
+2. Configure and build:
    ```bash
+   # Create build directory
    mkdir build && cd build
-   cmake ..
-   ```
-
-3. Build the project:
-   ```bash
+   
+   # Configure with CMake
+   cmake .. -DCMAKE_BUILD_TYPE=Release
+   
+   # Build the library and tests
    cmake --build . --config Release
-   ```
-
-4. Run tests:
-   ```bash
+   
+   # Run tests
    ctest -C Release --output-on-failure
    ```
 
-For more detailed build instructions, see the [Building Chronovyan](./docs/development/building/) guide.
+### Using as a CMake Dependency
+
+Add Chronovyan to your project using `FetchContent`:
+
+```cmake
+include(FetchContent)
+FetchContent_Declare(
+  chronovyan
+  GIT_REPOSITORY https://github.com/Chronovyan/Chronovyan.git
+  GIT_TAG main  # or a specific version tag
+)
+FetchContent_MakeAvailable(chronovyan)
+
+target_link_libraries(your_target PRIVATE chronovyan::chronovyan_lib)
+```
+
+### Header-Only Usage
+
+For header-only usage, simply copy the `include/chronovyan` directory to your project's include path.
 
 ### Your First Chronovyan Program
 

@@ -1,8 +1,8 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.15)
 project(Chronovyan VERSION 0.1.0 LANGUAGES CXX)
 
-# Set C++ standard
-set(CMAKE_CXX_STANDARD 17)
+# Set C++ standard to C++20
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
@@ -21,116 +21,65 @@ if(MSVC)
         /WX         # Warnings as errors
         /permissive- # Standards conformance
     )
+    add_compile_options($<$<CONFIG:Debug>:/Od /Zi>)
+    add_compile_options($<$<CONFIG:Release>:/O2>)
 else()
     add_compile_options(
         -Wall -Wextra -Wpedantic
         -Werror
         -fexceptions
     )
-    
-    if(NOT APPLE)
+    if(NOT WIN32 AND NOT APPLE)
         add_compile_options(-fPIC)
     endif()
 endif()
 
-# Add include directories
-include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
+# Windows-specific settings
+if(WIN32)
+    add_definitions(-D_WIN32_WINNT=0x0A00 -DNOMINMAX)
+else()
+    set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+endif()
+
+# Create a minimal library with just the core functionality
+add_library(chronovyan_lib
+    src/chronovyan.cpp
 )
 
-# Add source files
-file(GLOB_RECURSE SOURCES 
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.c"
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.h"
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.hpp"
+target_include_directories(chronovyan_lib
+    PUBLIC 
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:include>
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
-# Create the main library
-add_library(chronovyan_core_lib STATIC ${SOURCES})
-target_link_libraries(chronovyan_core_lib PRIVATE Threads::Threads)
+target_link_libraries(chronovyan_lib
+    PUBLIC
+        Threads::Threads
+)
 
-# Create an alias for backward compatibility
-add_library(chronovyan_lib ALIAS chronovyan_core_lib)
+set_target_properties(chronovyan_lib PROPERTIES
+    VERSION ${PROJECT_VERSION}
+    SOVERSION ${PROJECT_VERSION_MAJOR}
+    PUBLIC_HEADER "include/chronovyan/chronovyan.hpp"
+)
 
 # Enable testing
 enable_testing()
 
-# Enable CTest
-include(CTest)
-
 # Add tests if requested
 option(BUILD_TESTS "Build tests" ON)
-option(BUILD_TESTING "Build testing tree" ON)
 
-if(BUILD_TESTS AND BUILD_TESTING)
-    # Download and build GoogleTest using FetchContent
-    include(FetchContent)
-
-    # Set policy for FetchContent if available
-    if(POLICY CMP0135)
-        cmake_policy(SET CMP0135 NEW)
-    endif()
-
-    # Download and build GoogleTest
-    message(STATUS "Downloading and building GoogleTest...")
-
-    # Use GitHub archive URL which is more reliable
-    FetchContent_Declare(
-        googletest
-        URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.tar.gz
-        URL_HASH SHA256=8ad598c73ad796e0d8280b082cebd82a630d73e73cd3c70057938a6501bba5d7
-    )
-
-    # Prevent overriding the parent project's compiler/linker settings on Windows
-    set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+if(BUILD_TESTS)
+    # Add test subdirectory
+    add_subdirectory(test)
     
-    # Populate GTest
-    FetchContent_MakeAvailable(googletest)
-
-    # Create alias for consistency
-    if(NOT TARGET GTest::GTest AND TARGET gtest)
-        add_library(GTest::GTest ALIAS gtest)
-        add_library(GTest::Main ALIAS gtest_main)
-    endif()
-    
-    # Add test directory
-    add_subdirectory(tests)
-    
-    # Configure CTest for JUnit output
-    set(CTEST_OUTPUT_ON_FAILURE ON)
-    set(CTEST_TEST_TIMEOUT 300)
-    
-    # Enable XML output for tests
-    if(CMAKE_CROSSCOMPILING)
-        set(GTEST_DISABLE_XML_OUTPUT ON)
-    else()
-        set(GTEST_DISABLE_XML_OUTPUT OFF)
-    endif()
-    
-    # Create a test target that will run all tests
-    add_custom_target(run_all_tests
+    # Add a custom target to run all tests
+    add_custom_target(run_tests
         COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure -C $<CONFIG>
         WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
         COMMENT "Running all tests..."
+        DEPENDS chronovyan_test
     )
-    
-    # Make sure tests are built before running them
-    add_dependencies(run_all_tests gtest gtest_main)
-    
-    # Make check target depend on run_all_tests
-    add_custom_target(check
-        COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure -C $<CONFIG>
-        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
-        DEPENDS run_all_tests
-        COMMENT "Running tests..."
-    )
-    
-    # Enable test coverage if requested
-    option(ENABLE_COVERAGE "Enable coverage reporting" OFF)
-    if(ENABLE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-        message(STATUS "Enabling code coverage")
-        add_compile_options(--coverage -O0 -g)
-        add_link_options(--coverage)
-    endif()
 endif()

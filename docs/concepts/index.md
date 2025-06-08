@@ -1,104 +1,150 @@
 # Core Concepts
 
-Welcome to the core concepts of Chronovyan, a statically-typed temporal programming language. This section covers the fundamental principles that make Chronovyan unique and powerful.
+Welcome to the core concepts of **Forever Code**, a revolutionary approach to building immutable, persistent, and perpetual digital entities. This section covers the fundamental principles that make Forever Code unique and powerful.
 
 ## Table of Contents
 
-- [Temporal Programming](temporal_programming.md)
-  - [The Great Duality](#the-great-duality)
-  - [Temporal Resources](#temporal-resources)
-- [Resource Management](resource_management.md)
-  - [Chronon](#chronon)
-  - [Aethel](#aethel)
-- [Concurrency](concurrency.md)
-- [Advanced Features](advanced_features.md)
+1. [Entities](./entities.md)
+   - Defining entities
+   - Fields and types
+   - Lifecycle hooks
+   - Relationships
 
-## The Great Duality {#the-great-duality}
+2. [Persistence](./persistence.md)
+   - Saving and loading
+   - Transactions
+   - Querying data
+   - Indexing
 
-Chronovyan is built around two fundamental principles that govern all temporal operations:
+3. [Immutability](./immutability.md)
+   - Versioning
+   - History and audit trails
+   - Conflict resolution
+   - Garbage collection
 
-1. **Order (Conformity)**
-   - Stability and predictability
-   - Enforced through `CONF` variables and `::STATIC` flags
-   - Ensures deterministic behavior
-   - Prevents temporal paradoxes
-   - Enables compile-time optimizations
+4. [Distributed Systems](./distributed.md)
+   - Event sourcing
+   - Conflict-free Replicated Data Types (CRDTs)
+   - Eventual consistency
+   - Sharding and replication
 
-2. **Flux (Rebellion)**
-   - Dynamic adaptation and change
-   - Enabled by `REB` variables and `::FLUX` flags
-   - Allows for temporal manipulation
-   - Supports runtime flexibility
-   - Enables adaptive algorithms
+5. [Security](./security.md)
+   - Authentication
+   - Authorization
+   - Data encryption
+   - Audit logging
 
-## Temporal Resources {#temporal-resources}
+6. [Performance](./performance.md)
+   - Caching strategies
+   - Indexing
+   - Query optimization
+   - Load balancing
 
-### Chronon {#chronon}
-- Basic quantum of time in Chronovyan
-- Represents discrete moments in the timeline
-- Used for scheduling and ordering events
-- Immutable and strictly increasing
-- Fundamental unit of temporal measurement
+## Core Principles
 
-### Aethel {#aethel}
-- Temporal energy resource
-- Consumed by temporal operations
-- Must be managed to prevent paradoxes
-- Automatically tracked by the runtime
-- Can be optimized by the compiler
+Forever Code is built on three fundamental principles that define its approach to data and computation:
 
-## Memory Management
+1. **Immutability**
+   - Data is never modified in place
+   - Every change creates a new version
+   - Complete history is preserved
+   - Enables time-travel debugging
+   - Simplifies concurrency
 
-Chronovyan provides several memory management strategies:
+2. **Persistence**
+   - Data outlives the process
+   - Built-in persistence layer
+   - Automatic versioning
+   - Efficient storage strategies
+   - Seamless loading/saving
 
-1. **Static Allocation**
-   - Fixed at compile-time
-   - Zero runtime overhead
-   - Used for constant data
+3. **Perpetuity**
+   - Data is designed to last forever
+   - Forward-compatible formats
+   - Self-describing data
+   - Migration tools
+   - Long-term storage strategies
 
-2. **Arena Allocation**
-   - Efficient for short-lived objects
-   - Fast allocation/deallocation
-   - Reduces memory fragmentation
+## Core Abstractions
 
-3. **Reference Counting**
-   - Automatic memory management
-   - Predictable performance
-   - No garbage collection pauses
+### Entity {#entity}
+- Fundamental unit of data
+- Strongly typed
+- Immutable by default
+- Versioned
+- Self-contained
+
+### Repository {#repository}
+- Manages entity lifecycle
+- Handles persistence
+- Provides query interface
+- Manages transactions
+- Handles concurrency
+
+### Event {#event}
+- Represents state changes
+- Immutable and append-only
+- Ordered sequence
+- Supports event sourcing
+- Enables time-travel debugging
+
+## Data Management
+
+Forever Code provides several data management strategies:
+
+1. **In-Memory**
+   - Fast access
+   - Limited by RAM
+   - Great for caching
+
+2. **Local Storage**
+   - Persistent on disk
+   - Transactional
+   - ACID compliant
+
+3. **Distributed Storage**
+   - Horizontally scalable
+   - Highly available
+   - Eventually consistent
 
 ## Performance Considerations
 
-When working with Chronovyan, keep these performance considerations in mind:
+When working with Forever Code, keep these performance considerations in mind:
 
-1. **Temporal Locality**
-   - Group related temporal operations
-   - Minimize context switches
-   - Optimize for cache coherence
+1. **Data Access Patterns**
+   - Optimize for read/write patterns
+   - Use appropriate indexes
+   - Leverage caching
 
-2. **Resource Management**
-   - Monitor `Aethel` consumption
-   - Use appropriate allocation strategies
-   - Profile and optimize hot paths
+2. **Storage Optimization**
+   - Choose right storage backend
+   - Optimize data structures
+   - Monitor storage growth
 
-3. **Concurrency Model**
-   - Leverage temporal isolation
-   - Minimize shared state
-   - Use message passing when appropriate
-   - Most efficient for known sizes
+3. **Query Optimization**
+   - Use appropriate indexes
+   - Optimize query patterns
+   - Leverage materialized views
 
-2. **Dynamic Allocation**
-   - Flexible runtime allocation
-   - Requires explicit management
+## Getting Started
 
-3. **Pooled Allocation**
-   - Pre-allocated resource pools
-   - Reduces allocation overhead
+New to Forever Code? Start with our [Getting Started Guide](../getting-started/).
+
+## Next Steps
+
+- Explore the [API Reference](../reference/)
+- Check out the [Guides](../guides/)
+- Read the [FAQ](../faq/)
+- Join our [Community](../community/)
 
 ## Concurrency Model
 
-Chronovyan's concurrency model is designed to handle temporal operations safely and efficiently:
+Forever Code's concurrency model is designed to handle distributed operations safely and efficiently:
 
-- **Temporal Threads**: Lightweight, cooperative threads
+- **Isolated Transactions**: ACID-compliant operations
+- **Optimistic Concurrency Control**: For high throughput
+- **Eventual Consistency**: For distributed systems
+- **Conflict Resolution**: Automatic conflict resolution strategies
 - **Worker Pools**: For CPU-bound operations
 - **Channels**: Thread-safe communication
 - **Synchronization Primitives**: Locks, barriers, and conditions
