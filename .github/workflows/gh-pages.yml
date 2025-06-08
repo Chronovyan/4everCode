@@ -3,9 +3,8 @@ name: Deploy MkDocs to GitHub Pages
 # Run on push to main branch or manually
 on:
   push:
-    branches: [main]
+    branches: [main, gh-pages]  # Trigger on both main and gh-pages
   workflow_dispatch:
-
   schedule:
     # Run every Sunday to catch dependency updates
     - cron: '0 0 * * 0'
@@ -30,6 +29,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main  # Always build from main branch
       
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -45,7 +46,7 @@ jobs:
       - name: Build
         run: |
           cd docs
-          mkdocs build --strict --verbose
+          mkdocs build --strict --verbose --site-dir ../site
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -53,7 +54,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'docs/site'
+          path: 'site'  # Changed from docs/site to site
           
       - name: Deploy to GitHub Pages
         id: deployment
