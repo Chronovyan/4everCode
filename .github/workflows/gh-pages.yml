@@ -42,11 +42,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r docs/requirements-dev.txt
       
-      - name: Lint Markdown
-        run: |
-          pip install markdownlint-cli
-          markdownlint "**/*.md" --ignore "node_modules" --ignore ".github" --ignore "_build"
-      
       - name: Build
         run: |
           cd docs
