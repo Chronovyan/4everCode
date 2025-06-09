@@ -1,0 +1,9 @@
+// Simple test program in Forever
+fn main() {
+    println("Hello from Forever!");
+    
+    // Simple loop
+    for i in 1..5 {
+        println("Counting: " + i);
+    }
+}

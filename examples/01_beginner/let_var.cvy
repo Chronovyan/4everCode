@@ -1,3 +1,0 @@
-// Variable with let keyword
-let message = "Hello, Chronovyan!";
-print(message); 

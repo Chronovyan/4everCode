@@ -1,18 +1,18 @@
 <div align="center">
-  <h1>⏳ Chronovyan</h1>
+  <h1>⏳ Forever</h1>
   <h3>A Modern C++20 Library for Temporal Programming</h3>
   
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
   [![C++ Standard](https://img.shields.io/badge/C%2B%2B-20-blue.svg)](https://en.cppreference.com/w/cpp/20)
   [![CMake](https://img.shields.io/badge/CMake-3.15%2B-064F8C)](https://cmake.org/)
-  [![Documentation](https://img.shields.io/badge/docs-gh--pages-blue)](https://chronovyan.github.io/)
+  [![Documentation](https://img.shields.io/badge/docs-gh--pages-blue)](https://Forever.github.io/)
   
   *"Time is the canvas, and we are the weavers of its threads."* - Ancient Weaver Proverb
 </div>
 
-## 🌟 About Chronovyan
+## 🌟 About Forever
 
-Chronovyan is a modern C++20 library designed for temporal programming, providing powerful abstractions for time-based computations and concurrent operations. It offers a clean, type-safe interface for working with temporal data and events in C++ applications.
+Forever is a modern C++20 library designed for temporal programming, providing powerful abstractions for time-based computations and concurrent operations. It offers a clean, type-safe interface for working with temporal data and events in C++ applications.
 
 ### Key Features
 
@@ -25,7 +25,7 @@ Chronovyan is a modern C++20 library designed for temporal programming, providin
 
 ## 📚 Documentation
 
-Comprehensive documentation is available in the [docs](docs/) directory and online at [https://chronovyan.github.io/](https://chronovyan.github.io/).
+Comprehensive documentation is available in the [docs](docs/) directory and online at [https://Forever.github.io/](https://Forever.github.io/).
 
 ### Documentation Structure
 
@@ -58,8 +58,8 @@ mkdocs build  # For static site generation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Chronovyan/Chronovyan.git
-   cd Chronovyan
+   git clone https://github.com/Forever/Forever.git
+   cd Forever
    ```
 
 2. Configure and build:
@@ -79,33 +79,33 @@ mkdocs build  # For static site generation
 
 ### Using as a CMake Dependency
 
-Add Chronovyan to your project using `FetchContent`:
+Add Forever to your project using `FetchContent`:
 
 ```cmake
 include(FetchContent)
 FetchContent_Declare(
-  chronovyan
-  GIT_REPOSITORY https://github.com/Chronovyan/Chronovyan.git
+  Forever
+  GIT_REPOSITORY https://github.com/Forever/Forever.git
   GIT_TAG main  # or a specific version tag
 )
-FetchContent_MakeAvailable(chronovyan)
+FetchContent_MakeAvailable(Forever)
 
-target_link_libraries(your_target PRIVATE chronovyan::chronovyan_lib)
+target_link_libraries(your_target PRIVATE Forever::Forever_lib)
 ```
 
 ### Header-Only Usage
 
-For header-only usage, simply copy the `include/chronovyan` directory to your project's include path.
+For header-only usage, simply copy the `include/Forever` directory to your project's include path.
 
-### Your First Chronovyan Program
+### Your First Forever Program
 
-Create a file named `hello.chrono` with the following content:
+Create a file named `hello.forev` with the following content:
 
 ```rust
-// A simple Chronovyan program
+// A simple Forever program
 fn main() {
     // Print a greeting
-    println!("Hello, Chronovyan!");
+    println!("Hello, Forever!");
     
     // Demonstrate a simple temporal operation
     let now = time::now();
@@ -124,7 +124,7 @@ fn main() {
 Run the program:
 
 ```bash
-./build/bin/chrono run hello.chrono
+./build/bin/forev run hello.forev
 ```
 
 ## 🛠 Development
@@ -142,8 +142,8 @@ Run the program:
 
 1. Clone the repository:
    ```bash
-   git clone --recurse-submodules https://github.com/Chronovyan/Chronovyan.git
-   cd Chronovyan
+   git clone --recurse-submodules https://github.com/Forever/Forever.git
+   cd Forever
    ```
 
 2. Install Python dependencies:
@@ -175,7 +175,7 @@ cd build
 ctest --output-on-failure
 
 # Run specific test
-./tests/chrono_tests
+./tests/forev_tests
 
 # Run with verbose output
 ctest -V
@@ -263,14 +263,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📬 Contact
 
-For questions or feedback, please open an issue on our [GitHub repository](https://github.com/Chronovyan/Chronovyan/issues).
+For questions or feedback, please open an issue on our [GitHub repository](https://github.com/Forever/Forever/issues).
 
 ## 🙏 Acknowledgments
 
-Chronovyan is made possible by the contributions of many people. We'd like to thank all our contributors and the open-source community for their support.
+Forever is made possible by the contributions of many people. We'd like to thank all our contributors and the open-source community for their support.
 
-Special thanks to the following projects that inspired Chronovyan:
+Special thanks to the following projects that inspired Forever:
 - Rust Programming Language
 - LLVM/Clang
-- Chrono (C++ date and time library)
+- forev (C++ date and time library)
 - The broader open-source community

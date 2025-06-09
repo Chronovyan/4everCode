@@ -1,3 +1,0 @@
-// Simple variable declaration
-DECLARE CONF message : STRING = "Hello, Chronovyan!";
-print(message); 

@@ -1,5 +1,5 @@
 """
-The Timeline class is the core of Chronovyan, managing a sequence of events over time.
+The Timeline class is the core of Forever, managing a sequence of events over time.
 """
 import time
 import heapq

@@ -1,5 +1,5 @@
 ""
-Command-line interface for Chronovyan.
+Command-line interface for Forever.
 """
 import argparse
 import sys
@@ -35,13 +35,13 @@ def run_timeline(timeline: Timeline, duration: Optional[float] = None):
 
 def parse_args(args: List[str]) -> argparse.Namespace:
     """Parse command line arguments."""
-    parser = argparse.ArgumentParser(description="Chronovyan - A temporal programming language")
+    parser = argparse.ArgumentParser(description="Forever - A temporal programming language")
     
     # Global arguments
     parser.add_argument(
         "-v", "--version", 
         action="version",
-        version=f"Chronovyan {__version__}",
+        version=f"Forever {__version__}",
         help="Show version and exit"
     )
     

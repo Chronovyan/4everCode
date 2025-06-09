@@ -1,6 +1,0 @@
-// Simple Hello World with proper semicolons
-print("Hello, World!");
-
-// Variables with semicolons
-let name = "Chronovyan";
-print("Hello from " + name); 

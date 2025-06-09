@@ -1,6 +1,0 @@
-// Hello World with DECLARE
-print("Hello, World!");
-
-// Variables with DECLARE syntax
-DECLARE CONF name : STRING = "Chronovyan";
-print("Hello from " + name); 

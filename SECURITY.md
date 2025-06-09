@@ -19,7 +19,7 @@ Last Updated: June 7, 2025
 
 ## Supported Versions
 
-Chronovyan follows [Semantic Versioning](https://semver.org/) and provides security updates according to the following schedule:
+Forever follows [Semantic Versioning](https://semver.org/) and provides security updates according to the following schedule:
 
 | Version | Status           | Security Support Until |
 |---------|------------------|------------------------|
@@ -45,8 +45,8 @@ We are committed to working with security researchers to resolve vulnerabilities
 ### How to Report
 
 Please report security vulnerabilities to:  
-**Email**: [security@chronovyan.org](mailto:security@chronovyan.org)  
-**PGP Key**: [0x12345678ABCDEF01](https://chronovyan.org/security/pgp.asc)
+**Email**: [security@Forever.org](mailto:security@Forever.org)  
+**PGP Key**: [0x12345678ABCDEF01](https://Forever.org/security/pgp.asc)
 
 ### Required Information
 
@@ -207,22 +207,22 @@ We extend our gratitude to the following individuals and organizations for their
 ## Security Contacts
 
 ### Primary Contacts
-- **Security Team**: [security@chronovyan.org](mailto:security@chronovyan.org) (encrypted)
-- **Lead Security Engineer**: [alice@chronovyan.org](mailto:alice@chronovyan.org)
-- **Infrastructure Lead**: [bob@chronovyan.org](mailto:bob@chronovyan.org)
+- **Security Team**: [security@Forever.org](mailto:security@Forever.org) (encrypted)
+- **Lead Security Engineer**: [alice@Forever.org](mailto:alice@Forever.org)
+- **Infrastructure Lead**: [bob@Forever.org](mailto:bob@Forever.org)
 
 ### Emergency Contact
 For critical security issues outside business hours:  
 **Phone**: +1 (555) 123-4567 (Signal/WhatsApp)  
-**PGP Key**: [0x12345678ABCDEF01](https://chronovyan.org/security/pgp.asc)
+**PGP Key**: [0x12345678ABCDEF01](https://Forever.org/security/pgp.asc)
 
 ### Mailing Lists
-- **Security Announcements**: [security-announce@chronovyan.org](mailto:security-announce@chronovyan.org) (read-only)
-- **Security Discussion**: [security-discuss@chronovyan.org](mailto:security-discuss@chronovyan.org)
+- **Security Announcements**: [security-announce@Forever.org](mailto:security-announce@Forever.org) (read-only)
+- **Security Discussion**: [security-discuss@Forever.org](mailto:security-discuss@Forever.org)
 
 ## Policy Updates
 
-This policy is reviewed and updated at least quarterly. The latest version is always available at [https://chronovyan.org/security/policy](https://chronovyan.org/security/policy).
+This policy is reviewed and updated at least quarterly. The latest version is always available at [https://Forever.org/security/policy](https://Forever.org/security/policy).
 
 ### Version History
 - **v1.0.0** (2025-06-07): Initial Security Policy

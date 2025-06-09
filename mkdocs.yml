@@ -1,15 +1,15 @@
 # Project information
-site_name: Chronovyan
+site_name: Forever
 site_description: 'A Modern C++ Library for Time Series Analysis and Temporal Data Processing'
-site_author: 'Chronovyan Team'
-site_url: https://forevercode.chronovyan.com
+site_author: 'Forever Team'
+site_url: https://forevercode.Forever.com
 
 docs_dir: docs
 site_dir: site
 
 # Repository
-repo_name: 'Chronovyan/ForeverCode'
-repo_url: https://github.com/Chronovyan/ForeverCode
+repo_name: 'Forever/ForeverCode'
+repo_url: https://github.com/Forever/ForeverCode
 edit_uri: edit/main/docs/
 
 # Copyright
@@ -273,9 +273,9 @@ nav:
 # Customization
 extra:
   social:
-    - { icon: fontawesome/brands/github, link: 'https://github.com/Chronovyan/Chronovyan', name: GitHub }
-    - { icon: fontawesome/brands/twitter, link: 'https://twitter.com/chronovyan', name: Twitter }
-    - { icon: fontawesome/brands/discord, link: 'https://discord.gg/chronovyan', name: Discord }
+    - { icon: fontawesome/brands/github, link: 'https://github.com/Forever/Forever', name: GitHub }
+    - { icon: fontawesome/brands/twitter, link: 'https://twitter.com/Forever', name: Twitter }
+    - { icon: fontawesome/brands/discord, link: 'https://discord.gg/Forever', name: Discord }
 
 # Extra CSS/JS
 extra_css:

@@ -1,6 +1,6 @@
-# Chronovyan Release Process
+# Forever Release Process
 
-This document outlines the process for creating new releases of the Chronovyan programming language. Following this process ensures consistent, high-quality releases.
+This document outlines the process for creating new releases of the Forever programming language. Following this process ensures consistent, high-quality releases.
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@ This document outlines the process for creating new releases of the Chronovyan p
 
 ## Release Schedule
 
-Chronovyan follows [Semantic Versioning](https://semver.org/) (SemVer) for version numbers: `MAJOR.MINOR.PATCH`.
+Forever follows [Semantic Versioning](https://semver.org/) (SemVer) for version numbers: `MAJOR.MINOR.PATCH`.
 
 ### Regular Release Cadence
 
@@ -217,14 +217,14 @@ All releases are cryptographically signed using GPG:
 
 ```bash
 # Verify release signature
-gpg --verify chronovyan-X.Y.Z.tar.gz.asc
+gpg --verify Forever-X.Y.Z.tar.gz.asc
 ```
 
 ## Security Releases
 
 For security-related issues:
 
-1. Report to security@chronovyan.org
+1. Report to security@Forever.org
 2. Embargo period for fixes
 3. Coordinated disclosure
 4. Security advisories
@@ -260,9 +260,9 @@ Current release managers:
 
 ### Emergency Contacts
 
-- Security: security@chronovyan.org
-- Infrastructure: infra@chronovyan.org
-- Community: community@chronovyan.org
+- Security: security@Forever.org
+- Infrastructure: infra@Forever.org
+- Community: community@Forever.org
 
 ---
 

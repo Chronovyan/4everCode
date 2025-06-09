@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(Chronovyan VERSION 0.1.0 LANGUAGES CXX)
+project(Forever VERSION 0.1.0 LANGUAGES CXX)
 
 # Set C++ standard to C++20
 set(CMAKE_CXX_STANDARD 20)
@@ -42,11 +42,11 @@ else()
 endif()
 
 # Create a minimal library with just the core functionality
-add_library(chronovyan_lib
-    src/chronovyan.cpp
+add_library(Forever_lib
+    src/Forever.cpp
 )
 
-target_include_directories(chronovyan_lib
+target_include_directories(Forever_lib
     PUBLIC 
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>
@@ -54,15 +54,15 @@ target_include_directories(chronovyan_lib
         ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
-target_link_libraries(chronovyan_lib
+target_link_libraries(Forever_lib
     PUBLIC
         Threads::Threads
 )
 
-set_target_properties(chronovyan_lib PROPERTIES
+set_target_properties(Forever_lib PROPERTIES
     VERSION ${PROJECT_VERSION}
     SOVERSION ${PROJECT_VERSION_MAJOR}
-    PUBLIC_HEADER "include/chronovyan/chronovyan.hpp"
+    PUBLIC_HEADER "include/Forever/Forever.hpp"
 )
 
 # Enable testing
@@ -80,6 +80,6 @@ if(BUILD_TESTS)
         COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure -C $<CONFIG>
         WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
         COMMENT "Running all tests..."
-        DEPENDS chronovyan_test
+        DEPENDS Forever_test
     )
 endif()

@@ -1,6 +1,0 @@
-// Test for Simple Arithmetic
-print("TEST: Simple arithmetic");
-print("5 + 10 = " + (5 + 10));
-print("20 - 5 = " + (20 - 5));
-print("4 * 3 = " + (4 * 3));
-print("10 / 2 = " + (10 / 2)); 

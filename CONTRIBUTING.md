@@ -1,6 +1,6 @@
-# Contributing to Chronovyan
+# Contributing to Forever
 
-Thank you for your interest in contributing to Chronovyan! We're excited to have you on board. This guide will help you get started with contributing to the project.
+Thank you for your interest in contributing to Forever! We're excited to have you on board. This guide will help you get started with contributing to the project.
 
 ## Table of Contents
 
@@ -24,11 +24,11 @@ Thank you for your interest in contributing to Chronovyan! We're excited to have
 
 ## Code of Conduct
 
-This project and everyone participating in it is governed by our [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report any unacceptable behavior to [contact@chronovyan.org](mailto:contact@chronovyan.org).
+This project and everyone participating in it is governed by our [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report any unacceptable behavior to [contact@Forever.org](mailto:contact@Forever.org).
 
 ## Ways to Contribute
 
-There are many ways to contribute to Chronovyan:
+There are many ways to contribute to Forever:
 
 - **Code Contributions**: Implement new features or fix bugs
 - **Documentation**: Improve documentation, add examples, or fix typos
@@ -57,8 +57,8 @@ There are many ways to contribute to Chronovyan:
 1. **Fork the Repository**
    ```bash
    # Fork on GitHub first, then clone your fork
-   git clone https://github.com/your-username/Chronovyan.git
-   cd Chronovyan
+   git clone https://github.com/your-username/Forever.git
+   cd Forever
    ```
 
 2. **Set Up the Build Environment**
@@ -99,8 +99,8 @@ For advanced users who want to build with specific features:
 
 ```bash
 # Clone with submodules
-git clone --recursive https://github.com/Chronovyan/Chronovyan.git
-cd Chronovyan
+git clone --recursive https://github.com/Forever/Forever.git
+cd Forever
 
 # Configure the build
 mkdir -p build && cd build
@@ -237,7 +237,7 @@ When reporting issues, please include:
 4. **Environment**
    - OS and version
    - Rust version
-   - Chronovyan version
+   - Forever version
 5. **Additional Context**
    - Logs
    - Screenshots
@@ -279,11 +279,11 @@ When reporting issues, please include:
 
 ## Community
 
-- **Discord**: [Join our community](https://discord.gg/chronovyan)
-- **Twitter**: [@ChronovyanLang](https://twitter.com/ChronovyanLang)
-- **Email**: [contact@chronovyan.org](mailto:contact@chronovyan.org)
+- **Discord**: [Join our community](https://discord.gg/Forever)
+- **Twitter**: [@ForeverLang](https://twitter.com/ForeverLang)
+- **Email**: [contact@Forever.org](mailto:contact@Forever.org)
 - **Weekly Meetings**: Tuesdays at 3 PM UTC
 
 ## License
 
-By contributing to Chronovyan, you agree that your contributions will be licensed under the [MIT License](LICENSE).
+By contributing to Forever, you agree that your contributions will be licensed under the [MIT License](LICENSE).
