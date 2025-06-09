@@ -15,9 +15,11 @@ edit_uri: edit/main/docs/
 # Copyright
 copyright: 'Copyright &copy; 2025 Forever Code Team'
 
-# Extra files to include in the build
-extra_files:
-  - CNAME
+# Extra configuration
+extra:
+  # Files to include in the build
+  include:
+    - CNAME
 
 # Theme configuration
 theme:
