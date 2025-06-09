@@ -405,6 +405,164 @@ gantt
 - **Pre-allocate** buffers when the maximum size is known
 - **Reserve** capacity for containers when the size is predictable
 
+## Memory Management
+
+Efficient memory management is crucial for high-performance time handling. Here are some key strategies:
+
+### Avoid Unnecessary Copies
+
+```cpp
+// ❌ Inefficient: Creates multiple string copies
+std::string format_time(const time_point<system_clock>& tp) {
+    auto t = system_clock::to_time_t(tp);
+    std::tm tm = *std::localtime(&t);
+    std::ostringstream ss;
+    ss << std::put_time(&tm, "%Y-%m-%d %H:%M:%S");
+    return ss.str();  // Returns a new string
+}
+
+// ✅ More efficient: Use string views and pre-allocate
+void format_time_to(const time_point<system_clock>& tp, std::string& out) {
+    thread_local std::tm tm;
+    auto t = system_clock::to_time_t(tp);
+    localtime_r(&t, &tm);  // Thread-safe version
+    
+    out.resize(20);  // Pre-allocate sufficient space
+    strftime(out.data(), out.size(), "%Y-%m-%d %H:%M:%S", &tm);
+}
+```
+
+### Use Stack Allocation When Possible
+
+```cpp
+// Stack allocation is faster than heap allocation
+void process_timestamp(const time_point<system_clock>& tp) {
+    char buffer[64];  // Stack-allocated buffer
+    auto t = system_clock::to_time_t(tp);
+    std::strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", std::localtime(&t));
+    // Use buffer...
+}
+```
+
+### Smart Pointers for Resource Management
+
+```cpp
+// Use unique_ptr for exclusive ownership of time zone data
+struct TimeZoneCache {
+    std::unique_ptr<time_zone> tz;
+    // ...
+};
+
+// Use shared_ptr for shared ownership when needed
+auto create_shared_time_zone() {
+    return std::make_shared<time_zone>(/* ... */);
+}
+```
+
+### Memory Pools for Frequent Allocations
+
+```cpp
+// Use a memory pool for frequent small allocations
+class TimePointPool {
+    std::vector<std::unique_ptr<time_point<system_clock>>> pool_;
+    // ...
+public:
+    time_point<system_clock>* acquire() {
+        if (pool_.empty()) {
+            return new time_point<system_clock>();
+        }
+        auto ptr = std::move(pool_.back());
+        pool_.pop_back();
+        return ptr.release();
+    }
+    
+    void release(time_point<system_clock>* tp) {
+        pool_.emplace_back(tp);
+    }
+};
+```
+
+### Memory Layout Optimization
+
+```cpp
+// Optimize memory layout for temporal data
+struct TemporalData {
+    time_point<system_clock> timestamp;  // 8 bytes
+    double value;                        // 8 bytes
+    // Total: 16 bytes (good for cache lines)
+};
+
+// Avoid padding and cache line issues
+struct alignas(64) CacheAlignedTemporalData {
+    time_point<system_clock> timestamp;
+    double value;
+    char padding[64 - sizeof(time_point<system_clock>) - sizeof(double)];
+};
+```
+
+### Memory-Mapped Files for Large Datasets
+
+```cpp
+#include <boost/interprocess/file_mapping.hpp>
+#include <boost/interprocess/mapped_region.hpp>
+
+void process_large_temporal_data(const std::string& filename) {
+    using namespace boost::interprocess;
+    
+    // Map the file to memory
+    file_mapping m_file(filename.c_str(), read_only);
+    mapped_region region(m_file, read_only);
+    
+    // Access the data directly
+    const auto* data = static_cast<const char*>(region.get_address());
+    size_t size = region.get_size();
+    
+    // Process the memory-mapped data...
+}
+```
+
+### Custom Allocators
+
+```cpp
+template <typename T>
+class TemporalAllocator {
+    // Implementation of a custom allocator optimized for temporal data
+    // with specific alignment and allocation patterns
+};
+
+// Usage
+using TemporalVector = std::vector<time_point<system_clock>, TemporalAllocator<time_point<system_clock>>>;
+```
+
+### Memory Leak Detection
+
+```cpp
+// Use tools like Valgrind, AddressSanitizer, or custom tracking
+#ifdef _DEBUG
+#define TRACK_ALLOCATIONS
+#endif
+
+#ifdef TRACK_ALLOCATIONS
+struct AllocationTracker {
+    static std::atomic<size_t> allocations;
+    static std::atomic<size_t> deallocations;
+    
+    static void* allocate(size_t size) {
+        ++allocations;
+        return std::malloc(size);
+    }
+    
+    static void deallocate(void* ptr) {
+        ++deallocations;
+        std::free(ptr);
+    }
+};
+
+std::atomic<size_t> AllocationTracker::allocations{0};
+std::atomic<size_t> AllocationTracker::deallocations{0};
+#endif
+```
+
 ## Duration Types
 
 ```mermaid

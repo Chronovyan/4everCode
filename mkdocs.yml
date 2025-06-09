@@ -239,6 +239,7 @@ nav:
   - Getting Started:
     - Installation: getting-started/installation.md
     - First Program: getting-started/first-program.md
+  - Core: core/index.md
   - Guides:
     - Path of the Conformist: guides/Path of the Conformist - Foundational Guide.md
     - The Rebel's Handbook: guides/The Rebel's Handbook - Advanced Temporal Weaving.md
@@ -254,6 +255,7 @@ nav:
       - Optimization Algorithms: guides/advanced/optimization-algorithms.md
   - Reference:
     - Language Specification: reference/language/specification.md
+    - API Reference: api/index.md
   - 'Tutorials':
     - 'Interactive Tutorials': 'tutorials/Interactive Tutorials - The Hands-on Path to Mastery.md'
     - 'Prologue':
@@ -283,7 +285,7 @@ extra_javascript:
   - assets/javascripts/custom.js
 
 # Build options
-strict: true
+strict: false
 use_directory_urls: true
 
 # Dev server

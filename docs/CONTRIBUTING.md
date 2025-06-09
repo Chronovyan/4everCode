@@ -1,107 +1,71 @@
-# Contributing to Forever Code
+# Contributing to Chronovyan
 
-Thank you for your interest in contributing to Forever Code! We appreciate your time and effort in helping us improve this project. This guide will help you get started with contributing.
+Thank you for your interest in contributing to Chronovyan! We welcome all contributions, whether they're bug reports, feature requests, documentation improvements, or code contributions.
 
-## Table of Contents
+## How to Contribute
 
-- [Code of Conduct](#code-of-conduct)
-- [How Can I Contribute?](#how-can-i-contribute)
-  - [Reporting Bugs](#reporting-bugs)
-  - [Suggesting Enhancements](#suggesting-enhancements)
-  - [Your First Code Contribution](#your-first-code-contribution)
-  - [Pull Requests](#pull-requests)
-- [Development Environment](#development-environment)
-- [Style Guides](#style-guides)
-  - [Git Commit Messages](#git-commit-messages)
-  - [Code Style](#code-style)
-  - [Documentation Style](#documentation-style)
-- [License](#license)
+1. **Fork** the repository on GitHub
+2. **Clone** your fork locally
+3. **Create a branch** for your changes
+4. **Make your changes**
+5. **Test your changes**
+6. **Commit** your changes with a clear commit message
+7. **Push** to your fork
+8. Open a **Pull Request**
 
-## Code of Conduct
-
-This project and everyone participating in it is governed by our [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report any unacceptable behavior to [contact@forevercode.dev](mailto:contact@forevercode.dev).
-
-## How Can I Contribute?
-
-### Reporting Bugs
-
-Before creating bug reports, please check [this list](#before-submitting-a-bug-report) as you might find out that you don't need to create one. When you are creating a bug report, please include as many details as possible.
-
-### Suggesting Enhancements
-
-Enhancement suggestions are tracked as [GitHub issues](https://github.com/ForeverCode/forevercode/issues). When you are creating an enhancement suggestion, please include:
-
-1. A clear and descriptive title
-2. A step-by-step description of the suggested enhancement
-3. Examples of the new feature in action
-4. Any additional context or screenshots
-
-### Your First Code Contribution
-
-1. Fork the repository
-2. Create a new branch: `git checkout -b my-branch-name`
-3. Make your changes
-4. Test your changes
-5. Commit your changes: `git commit -m 'Add some feature'`
-6. Push to the branch: `git push origin my-branch-name`
-7. Open a pull request
-
-### Pull Requests
-
-- Include screenshots and animated GIFs in your pull request whenever possible
-- Follow the [style guides](#style-guides)
-- Make sure all tests pass
-- Update the documentation for API changes
-- Include tests for new features and bug fixes
-
-## Development Environment
+## Development Setup
 
 ### Prerequisites
 
 - Python 3.8+
-- Node.js 16+
+- pip
 - Git
 
-### Setup
+### Installation
 
-1. Fork and clone the repository
-2. Install Python dependencies: `pip install -r requirements-dev.txt`
-3. Install pre-commit hooks: `pre-commit install`
-4. Start the development server: `mkdocs serve`
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/Chronovyan.github.io.git
+cd Chronovyan.github.io
 
-## Style Guides
+# Install dependencies
+pip install -r requirements.txt
+```
 
-### Git Commit Messages
+### Building the Documentation
 
-- Use the present tense ("Add feature" not "Added feature")
-- Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
-- Limit the first line to 72 characters or less
-- Reference issues and pull requests liberally
-- Consider starting the commit message with an applicable emoji:
-  - 🎨 `:art:` when improving the format/structure of the code
-  - 🐛 `:bug:` when fixing a bug
-  - 🔥 `:fire:` when removing code or files
-  - ✨ `:sparkles:` when adding a new feature
-  - 📝 `:memo:` when writing docs
-  - 🚀 `:rocket:` when improving performance
-  - ✅ `:white_check_mark:` when adding tests
-  - 🔧 `:wrench:` when changing configuration
-  - ⬆️ `:arrow_up:` when upgrading dependencies
+```bash
+# Serve the documentation locally
+mkdocs serve
 
-### Code Style
+# Build the documentation
+mkdocs build
+```
 
-- Follow [PEP 8](https://www.python.org/dev/peps/pep-0008/) for Python code
-- Use [Black](https://github.com/psf/black) for code formatting
-- Use [isort](https://github.com/timothycrosley/isort) for import sorting
-- Use [Flake8](https://flake8.pycqa.org/) for linting
+## Code Style
 
-### Documentation Style
+Please follow the existing code style in the project. We use:
 
-- Use [Google Style](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) docstrings
-- Keep lines under 100 characters
-- Use [MkDocs](https://www.mkdocs.org/) for documentation
-- Follow the [Google Developer Documentation Style Guide](https://developers.google.com/style)
+- [Black](https://github.com/psf/black) for code formatting
+- [PEP 8](https://www.python.org/dev/peps/pep-0008/) for Python code style
+
+## Reporting Issues
+
+When reporting issues, please include:
+
+1. A clear title and description
+2. Steps to reproduce the issue
+3. Expected vs. actual behavior
+4. Any relevant error messages
+
+## Feature Requests
+
+We welcome feature requests! Please open an issue and describe:
+
+1. The feature you'd like to see
+2. Why it's useful
+3. Any implementation ideas (optional)
 
 ## License
 
-By contributing to Forever Code, you agree that your contributions will be licensed under its [MIT License](LICENSE).
+By contributing to Chronovyan, you agree that your contributions will be licensed under the project's [LICENSE](https://github.com/Chronovyan/Chronovyan.github.io/blob/main/LICENSE) file.

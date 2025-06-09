@@ -1,0 +1,327 @@
+{% extends "main.html" %}
+
+{% block content %}
+  <div class="error-404">
+    <div class="error-content">
+      <div class="error-code floating">404</div>
+      <h1 class="error-title">Page Not Found</h1>
+      <p class="error-message">The page you're looking for doesn't exist or has been moved.</p>
+      
+      <!-- Search form -->
+      <div class="error-search">
+        <form action="{{ 'search.html' | url }}" method="get">
+          <div class="md-search" data-md-component="search" role="search">
+            <label class="md-search__overlay" for="__search"></label>
+            <div class="md-search__inner" role="search">
+              <input
+                type="search"
+                class="md-search__input"
+                name="q"
+                aria-label="Search"
+                placeholder="Search documentation..."
+                autocapitalize="off"
+                autocorrect="off"
+                autocomplete="off"
+                spellcheck="false"
+                data-md-component="search-query"
+                required
+              >
+              <label class="md-search__icon md-icon" for="__search">
+                {% include ".icons/material/magnify.svg" %}
+                {% include ".icons/material/close.svg" %}
+              </label>
+              <nav class="md-search__options" aria-label="Search">
+                <button
+                  type="reset"
+                  class="md-search__icon md-icon"
+                  aria-label="Clear"
+                  tabindex="-1"
+                >
+                  {% include ".icons/material/close.svg" %}
+                </button>
+              </nav>
+            </div>
+          </div>
+        </form>
+      </div>
+      
+      <!-- Action buttons -->
+      <div class="error-actions">
+        <a href="{{ nav.homepage.url|url }}" class="md-button md-button--primary">
+          <span class="twemoji">
+            {% include ".icons/material/home.svg" %}
+          </span>
+          Go to homepage
+        </a>
+        <a href="https://github.com/ForeverCode/forevercode/issues/new/choose" class="md-button">
+          <span class="twemoji">
+            {% include ".icons/fontawesome/regular/flag.svg" %}
+          </span>
+          Report an issue
+        </a>
+      </div>
+      
+      <!-- Quick links -->
+      <div class="error-suggestions">
+        <h3>Popular Pages</h3>
+        <ul>
+          <li><a href="{{ 'getting-started/'|url }}">Getting Started</a></li>
+          <li><a href="{{ 'concepts/'|url }}">Core Concepts</a></li>
+          <li><a href="{{ 'guides/'|url }}">Guides</a></li>
+          <li><a href="{{ 'reference/'|url }}">API Reference</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Decorative illustration -->
+    <div class="error-illustration">
+      <div class="floating" style="animation-delay: 0.5s;">
+        <svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M200 50C200 22.3858 222.386 0 250 0C277.614 0 300 22.3858 300 50V250C300 277.614 277.614 300 250 300H150C122.386 300 100 277.614 100 250V50C100 22.3858 122.386 0 150 0C177.614 0 200 22.3858 200 50Z" fill="#4A148C" fill-opacity="0.1"/>
+          <path d="M200 50C200 22.3858 222.386 0 250 0C277.614 0 300 22.3858 300 50V150C300 177.614 277.614 200 250 200H200V50Z" fill="#4A148C" fill-opacity="0.2"/>
+          <path d="M150 0C122.386 0 100 22.3858 100 50V150C100 177.614 122.386 200 150 200H200V50C200 22.3858 177.614 0 150 0Z" fill="#4A148C" fill-opacity="0.3"/>
+          <path d="M200 100H300V150C300 177.614 277.614 200 250 200H200V100Z" fill="#4A148C" fill-opacity="0.4"/>
+          <path d="M100 150V100H200V200H150C122.386 200 100 177.614 100 150Z" fill="#4A148C" fill-opacity="0.4"/>
+          <path d="M200 200V250C200 277.614 177.614 300 150 300H250C277.614 300 300 277.614 300 250V200H200Z" fill="#4A148C" fill-opacity="0.5"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block styles %}
+  {{ super() }}
+  <style>
+    /* 404 Page Styles */
+    .error-404 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 120px);
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    
+    .error-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .error-code {
+      font-size: 8rem;
+      font-weight: 900;
+      line-height: 1;
+      margin: 0;
+      background: linear-gradient(135deg, #4A148C 0%, #1A237E 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .error-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 1rem 0 0.5rem;
+      color: var(--md-default-fg-color--light);
+    }
+    
+    .error-message {
+      font-size: 1.25rem;
+      margin: 0 0 2rem;
+      color: var(--md-default-fg-color--light);
+    }
+    
+    .error-search {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    
+    .error-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+    
+    .error-actions .md-button {
+      margin: 0.25rem 0;
+      padding: 0.6rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 0.375rem;
+      transition: all 0.2s ease-in-out;
+    }
+    
+    .error-actions .md-button--primary {
+      background: linear-gradient(135deg, #4A148C 0%, #1A237E 100%);
+      border: none;
+      color: white;
+    }
+    
+    .error-actions .md-button--primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .error-actions .md-button--secondary {
+      background-color: transparent;
+      border: 2px solid var(--md-primary-fg-color);
+      color: var(--md-primary-fg-color);
+    }
+    
+    .error-actions .md-button--secondary:hover {
+      background-color: rgba(74, 20, 140, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .error-suggestions {
+      margin-top: 2rem;
+    }
+    
+    .error-suggestions h3 {
+      margin-bottom: 1rem;
+      color: var(--md-default-fg-color--light);
+    }
+    
+    .error-suggestions ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .error-suggestions a {
+      color: var(--md-primary-fg-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    
+    .error-suggestions a:hover {
+      color: var(--md-accent-fg-color);
+      text-decoration: underline;
+    }
+    
+    .error-illustration {
+      margin-top: 2rem;
+      max-width: 100%;
+    }
+    
+    /* Animation */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .floating {
+      animation: float 3s ease-in-out infinite;
+      display: inline-block;
+    }
+    
+    /* Dark mode adjustments */
+    [data-md-color-scheme="slate"] {
+      --error-title-color: var(--md-default-fg-color--light);
+      --error-message-color: var(--md-default-fg-color--light);
+      --suggestions-heading-color: var(--md-default-fg-color--light);
+      --secondary-button-border: var(--md-primary-fg-color);
+      --secondary-button-color: var(--md-primary-fg-color);
+      --secondary-button-hover: rgba(255, 255, 255, 0.1);
+    }
+    
+    .error-title,
+    .error-message {
+      color: var(--error-title-color, var(--md-default-fg-color--light));
+    }
+    
+    .error-suggestions h3 {
+      color: var(--suggestions-heading-color, var(--md-default-fg-color--light));
+    }
+    
+    .error-actions .md-button--secondary {
+      border-color: var(--secondary-button-border, var(--md-primary-fg-color));
+      color: var(--secondary-button-color, var(--md-primary-fg-color));
+    }
+    
+    .error-actions .md-button--secondary:hover {
+      background-color: var(--secondary-button-hover, rgba(74, 20, 140, 0.1));
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 76.1875em) {
+      .error-code {
+        font-size: 6rem;
+      }
+      
+      .error-title {
+        font-size: 2rem;
+      }
+      
+      .error-message {
+        font-size: 1.1rem;
+      }
+      
+      .error-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .error-actions .md-button {
+        width: 100%;
+        max-width: 250px;
+      }
+      
+      .error-suggestions ul {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+    }
+    
+    /* Medium screens and up */
+    @media (min-width: 76.25em) {
+      .error-404 {
+        flex-direction: row;
+        text-align: left;
+      }
+      
+      .error-content {
+        flex: 1;
+        padding-right: 2rem;
+      }
+      
+      .error-illustration {
+        flex: 1;
+        margin-top: 0;
+      }
+    }
+    
+    /* Print styles */
+    @media print {
+      .error-404 {
+        min-height: auto;
+        padding: 1rem;
+      }
+      
+      .error-illustration {
+        display: none;
+      }
+      
+      .error-actions {
+        display: none;
+      }
+    }
+  </style>
+{% endblock %}
