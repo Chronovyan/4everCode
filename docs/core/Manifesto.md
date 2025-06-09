@@ -1,9 +1,13 @@
 ---
 title: 'The 4ever Manifesto: A Declaration of Temporal Weaving'
-description: Documentation for core\Manifesto.md
+description: 'The philosophical foundation of the 4ever programming language'
 weight: 120
-draft: true
+draft: false
 ---
+
+> **Version**: 1.0.0  
+> **Last Updated**: 2025-06-09  
+> **Status**: Active
 
 # The 4ever Manifesto: A Declaration of Temporal Weaving
 
