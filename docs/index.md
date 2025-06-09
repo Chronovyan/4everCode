@@ -94,23 +94,21 @@ Explore the documentation to learn more about Chronovyan:
 
 ### Getting Started
 - [Installation Guide](getting-started/installation.md)
-- [Quick Start](getting-started/quickstart.md)
+- [First Program](getting-started/first-program.md)
 - [Examples](guides/examples/index.md)
 
 ### Core Concepts
-- [Temporal Programming](concepts/temporal_programming.md)
-- [Resource Management](concepts/resource_management.md)
-- [Concurrency Model](concepts/concurrency.md)
+- [Temporal Programming](guides/Temporal%20Synchronization%20-%20The%20Art%20of%20Temporal%20Harmony.md)
+- [Style Guide](guides/Style%20Guide%20-%20The%20Art%20of%20Temporal%20Expression.md)
+- [Standard Library Guide](guides/standard_library_guide.md)
 
 ### References
 - [Language Specification](reference/language/specification.md)
-- [Standard Library](reference/stdlib/)
-- [API Reference](reference/api_reference.md)
+- [Standard Library Overview](guides/standard_library_guide.md)
 
 ### Development
 - [Building from Source](development/building.md)
-- [Contributing Guide](development/contributing.md)
-- [Code Style](development/code-style.md)
+- [Contributing](development/contributing/index.md)
 
 ## 🛠 Development & Community
 

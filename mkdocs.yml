@@ -15,6 +15,10 @@ edit_uri: edit/main/docs/
 # Copyright
 copyright: 'Copyright &copy; 2025 Forever Code Team'
 
+# Extra files to include in the build
+extra_files:
+  - CNAME
+
 # Theme configuration
 theme:
   name: material
@@ -128,13 +132,14 @@ plugins:
   - git-revision-date-localized:
       type: timeago
       fallback_to_build_date: true
-  - macros:
-      include_dir: docs/includes/
-      include_yaml: !ENV [INCLUDE_YAML, []]
-      j2_block_start_string: '{%-'
-      j2_block_end_string: '-%}'
-      j2_variable_start_string: '{{'
-      j2_variable_end_string: '}}'
+  # Macros plugin is disabled as it's not being used and causing warnings
+  # - macros:
+  #     include_dir: docs/includes/
+  #     include_yaml: !ENV [INCLUDE_YAML, []]
+  #     j2_block_start_string: '{%-'
+  #     j2_block_end_string: '-%}'
+  #     j2_variable_start_string: '{{'
+  #     j2_variable_end_string: '}}'
 
 
 # Markdown extensions
@@ -185,46 +190,88 @@ docs_dir: docs
 use_directory_urls: true
 strict: false  # Temporarily disabled to see validation warnings
 
+# Exclude patterns for files and directories
+exclude_docs: |
+  # Exclude archive directory completely
+  archive/**
+  
+  # Exclude tutorial files with missing dependencies
+  tutorials/act1/chapter1/00_arrival_narrative.md
+  tutorials/act1/chapter1/README.md
+  tutorials/act1/chapter2/README.md
+  tutorials/act2/chapter1/README.md
+  
+  # Exclude reference files with broken links
+  reference/stdlib/collections.md
+  reference/stdlib/concurrency.md
+  reference/stdlib/io.md
+  reference/stdlib/math.md
+  reference/stdlib/random.md
+  reference/stdlib/reflection.md
+  reference/stdlib/string.md
+  reference/stdlib/temporal.md
+  reference/stdlib/testing.md
+  reference/stdlib/time.md
+  
+  # Exclude problematic files
+  concepts/concurrency.md
+  concepts/temporal_programming.md
+  development/contributing.md
+  development/contributing/index.md
+  examples/hello_world.md
+  examples/temporal_examples.md
+  examples/index.md
+  reference/stdlib/index.md
+  
+  # Exclude files with broken links
+  reference/index.md
+  reference/api_reference.md
+  guides/getting-started/index.md
+  tutorials/act1/README.md
+  concepts/index.md
+  README.md
+
 # Navigation
 nav:
   - Home: index.md
   - Getting Started:
-      - guides/getting-started/index.md
-      - guides/getting-started/installation.md
-      - guides/getting-started/first-steps.md
+    - Installation: getting-started/installation.md
+    - First Program: getting-started/first-program.md
   - Guides:
-      - guides/examples/index.md
-      - guides/advanced/index.md
+    - Path of the Conformist: guides/Path of the Conformist - Foundational Guide.md
+    - The Rebel's Handbook: guides/The Rebel's Handbook - Advanced Temporal Weaving.md
+    - Style Guide: guides/Style Guide - The Art of Temporal Expression.md
+    - Temporal Synchronization: guides/Temporal Synchronization - The Art of Temporal Harmony.md
+    - Standard Library Guide: guides/standard_library_guide.md
+    - Timezones: guides/timezones.md
+    - Performance: guides/performance.md
+    - Choosing Optimization Strategies: guides/choosing_optimization_strategies.md
+    - Advanced:
+      - Primer: guides/advanced/primer.md
+      - Advanced Mechanics: guides/advanced/advanced-mechanics.md
+      - Optimization Algorithms: guides/advanced/optimization-algorithms.md
   - Reference:
-      - reference/language/specification.md
-      - reference/stdlib/index.md
-  - Development:
-      - development/building.md
-      - development/contributing.md
-      - development/code-style.md
-      - development/documentation-guide.md
-      - development/style-guide.md
-  - Design:
-      - design/architecture.md
-      - design/compiler.md
-      - design/bytecode-format.md
-  - Community:
-      - community/code-of-conduct.md
-      - community/security.md
-      - community/roadmap.md
-  - About:
-      - about/changelog.md
-      - about/license.md
+    - Language Specification: reference/language/specification.md
+  - 'Tutorials':
+    - 'Interactive Tutorials': 'tutorials/Interactive Tutorials - The Hands-on Path to Mastery.md'
+    - 'Prologue':
+      - 'Phase 0': 'tutorials/prologue/phase0_accidental_catalyst.md'
+    - 'Act 1':
+      - 'Chapter 1': 'tutorials/act1/chapter1_variables.md'
+      - 'Chapter 2': 'tutorials/act1/chapter2_conditionals.md'
+      - 'Chapter 3': 'tutorials/act1/chapter3_loops.md'
+      - 'Chapter 4': 'tutorials/act1/chapter4_functions.md'
+      - 'Chapter 5': 'tutorials/act1/chapter5_stabilizing_coras_power_core.md'
+  - Roadmap:
+    - Overview: roadmap/index.md
+    - Compiler Implementation: roadmap/compiler-implementation.md
 
 # Customization
 extra:
   social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/Chronovyan/Chronovyan
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/chronovyan
-    - icon: fontawesome/brands/discord
-      link: https://discord.gg/chronovyan
+    - { icon: fontawesome/brands/github, link: 'https://github.com/Chronovyan/Chronovyan', name: GitHub }
+    - { icon: fontawesome/brands/twitter, link: 'https://twitter.com/chronovyan', name: Twitter }
+    - { icon: fontawesome/brands/discord, link: 'https://discord.gg/chronovyan', name: Discord }
 
 # Extra CSS/JS
 extra_css:
