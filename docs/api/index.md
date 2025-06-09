@@ -1,6 +1,6 @@
 # API Reference
 
-Welcome to the Chronovyan API reference. This documentation provides detailed information about the Chronovyan programming language's standard library and built-in functions.
+Welcome to the 4ever API reference. This documentation provides detailed information about the 4ever programming language's standard library and built-in functions.
 
 ## Table of Contents
 
@@ -33,7 +33,7 @@ Welcome to the Chronovyan API reference. This documentation provides detailed in
 
 ## Type System
 
-Chronovyan is a statically-typed language with the following built-in types:
+4ever is a statically-typed language with the following built-in types:
 
 - `Int`: 64-bit signed integer
 - `Float`: 64-bit floating point number

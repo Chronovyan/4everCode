@@ -200,6 +200,11 @@ instance/
 # Sphinx documentation
 docs/_build/
 
+# MkDocs site
+site/
+/docs/site/
+/docs/_build/
+
 # PyBuilder
 .pybuilder/
 target/

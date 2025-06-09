@@ -1,6 +1,6 @@
-# Contributing to Chronovyan
+# Contributing to 4ever
 
-Thank you for your interest in contributing to Chronovyan! We welcome contributions from everyone.
+Thank you for your interest in contributing to 4ever! We welcome contributions from everyone.
 
 ## How to Contribute
 
@@ -9,8 +9,8 @@ Thank you for your interest in contributing to Chronovyan! We welcome contributi
 
 2. **Clone your fork**
    ```bash
-   git clone https://github.com/your-username/Chronovyan.git
-   cd Chronovyan
+   git clone https://github.com/your-username/4ever.git
+   cd 4ever
    ```
 
 3. **Create a new branch**
@@ -63,4 +63,4 @@ See the [Installation Guide](getting-started/installation.md) for setup instruct
 
 ## License
 
-By contributing to Chronovyan, you agree that your contributions will be licensed under its [MIT License](LICENSE).
+By contributing to 4ever, you agree that your contributions will be licensed under its [MIT License](LICENSE).

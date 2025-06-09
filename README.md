@@ -1,18 +1,18 @@
 <div align="center">
-  <h1>⏳ Forever</h1>
+  <h1>⏳ 4ever</h1>
   <h3>A Modern C++20 Library for Temporal Programming</h3>
   
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
   [![C++ Standard](https://img.shields.io/badge/C%2B%2B-20-blue.svg)](https://en.cppreference.com/w/cpp/20)
   [![CMake](https://img.shields.io/badge/CMake-3.15%2B-064F8C)](https://cmake.org/)
-  [![Documentation](https://img.shields.io/badge/docs-gh--pages-blue)](https://Forever.github.io/)
+  [![Documentation](https://img.shields.io/badge/docs-gh--pages-blue)](https://4ever.github.io/)
   
   *"Time is the canvas, and we are the weavers of its threads."* - Ancient Weaver Proverb
 </div>
 
-## 🌟 About Forever
+## 🌟 About 4ever
 
-Forever is a modern C++20 library designed for temporal programming, providing powerful abstractions for time-based computations and concurrent operations. It offers a clean, type-safe interface for working with temporal data and events in C++ applications.
+4ever is a modern C++20 library designed for temporal programming, providing powerful abstractions for time-based computations and concurrent operations. It offers a clean, type-safe interface for working with temporal data and events in C++ applications.
 
 ### Key Features
 
@@ -25,19 +25,20 @@ Forever is a modern C++20 library designed for temporal programming, providing p
 
 ## 📚 Documentation
 
-Comprehensive documentation is available in the [docs](docs/) directory and online at [https://Forever.github.io/](https://Forever.github.io/).
+Comprehensive documentation is available in the [docs](docs/) directory and online at [https://4ever.github.io/](https://4ever.github.io/).
 
 ### Documentation Structure
 
-- **Getting Started**: Quick start guide and basic usage
-- **API Reference**: Detailed class and function documentation
-- **Examples**: Sample code demonstrating key features
-- **Contributing**: Guidelines for contributing to the project
+- **Getting Started**: Installation and quick start guides
+- **Core Concepts**: Language fundamentals and philosophy
+- **Guides**: Tutorials and how-to guides
+- **Reference**: API documentation and language reference
+- **Advanced**: In-depth topics and specialized use cases
+- **Community**: Contribution guidelines and code of conduct
 
-To build documentation locally:
+### Building Documentation Locally
 
-```bash
-# Install requirements
+#### Prerequisites
 pip install -r docs/requirements.txt
 
 # Build documentation
@@ -58,8 +59,8 @@ mkdocs build  # For static site generation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Forever/Forever.git
-   cd Forever
+   git clone https://github.com/4ever/4ever.git
+   cd 4ever
    ```
 
 2. Configure and build:
@@ -79,33 +80,44 @@ mkdocs build  # For static site generation
 
 ### Using as a CMake Dependency
 
-Add Forever to your project using `FetchContent`:
+Add 4ever to your project using `FetchContent`:
 
 ```cmake
 include(FetchContent)
 FetchContent_Declare(
-  Forever
-  GIT_REPOSITORY https://github.com/Forever/Forever.git
+  4ever
+  GIT_REPOSITORY https://github.com/4ever/4ever.git
   GIT_TAG main  # or a specific version tag
 )
-FetchContent_MakeAvailable(Forever)
+FetchContent_MakeAvailable(4ever)
 
-target_link_libraries(your_target PRIVATE Forever::Forever_lib)
+target_link_libraries(your_target PRIVATE 4ever::4ever_lib)
 ```
 
 ### Header-Only Usage
 
-For header-only usage, simply copy the `include/Forever` directory to your project's include path.
+For header-only usage, simply copy the `include/4ever` directory to your project's include path.
 
-### Your First Forever Program
+### Documentation Scripts
+
+The `scripts/` directory contains several utilities for documentation development:
+
+- `validate_docs.py`: Validates documentation structure and links
+- `new_doc.py`: Generates new documentation pages with proper templates
+- `build_docs.ps1`: Builds and serves the documentation
+- `generate_pngs.py`: Converts SVG assets to PNG
+
+For more information, see the [scripts documentation](scripts/README.md).
+
+### Your First 4ever Program
 
 Create a file named `hello.forev` with the following content:
 
 ```rust
-// A simple Forever program
+// A simple 4ever program
 fn main() {
     // Print a greeting
-    println!("Hello, Forever!");
+    println!("Hello, 4ever!");
     
     // Demonstrate a simple temporal operation
     let now = time::now();
@@ -142,8 +154,8 @@ Run the program:
 
 1. Clone the repository:
    ```bash
-   git clone --recurse-submodules https://github.com/Forever/Forever.git
-   cd Forever
+   git clone --recurse-submodules https://github.com/4ever/4ever.git
+   cd 4ever
    ```
 
 2. Install Python dependencies:
@@ -263,13 +275,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📬 Contact
 
-For questions or feedback, please open an issue on our [GitHub repository](https://github.com/Forever/Forever/issues).
+For questions or feedback, please open an issue on our [GitHub repository](https://github.com/4ever/4ever/issues).
 
 ## 🙏 Acknowledgments
 
-Forever is made possible by the contributions of many people. We'd like to thank all our contributors and the open-source community for their support.
+4ever is made possible by the contributions of many people. We'd like to thank all our contributors and the open-source community for their support.
 
-Special thanks to the following projects that inspired Forever:
+Special thanks to the following projects that inspired 4ever:
 - Rust Programming Language
 - LLVM/Clang
 - forev (C++ date and time library)

@@ -1,0 +1,66 @@
+/* Primary colors */
+:root {
+  --md-primary-fg-color: #4F46E5;
+  --md-primary-fg-color--light: #8B5CF6;
+  --md-primary-fg-color--dark: #4338CA;
+  --md-accent-fg-color: #7C3AED;
+  --md-accent-fg-color--transparent: rgba(124, 58, 237, 0.1);
+}
+
+/* Dark mode colors */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #7C3AED;
+  --md-primary-fg-color--light: #A78BFA;
+  --md-primary-fg-color--dark: #6D28D9;
+  --md-accent-fg-color: #8B5CF6;
+}
+
+/* Logo in header */
+.md-header__button.md-logo {
+  padding: 0.2rem;
+}
+
+.md-header__button.md-logo img, .md-header__button.md-logo svg {
+  height: 1.8rem;
+  width: auto;
+}
+
+/* Brand gradient text */
+.brand-gradient {
+  background: linear-gradient(135deg, #4F46E5, #7C3AED);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+/* Dark mode toggle for logo */
+[data-md-color-scheme="slate"] .logo-light {
+  display: none;
+}
+
+[data-md-color-scheme="default"] .logo-dark {
+  display: none;
+}
+
+/* Brand color for code blocks */
+:root {
+  --md-code-hl-keyword-color: #4F46E5;
+  --md-code-hl-string-color: #7C3AED;
+  --md-code-hl-name-color: #4F46E5;
+}
+
+/* Button styling */
+.md-typeset .md-button {
+  border-radius: 0.25rem;
+  font-weight: 600;
+}
+
+.md-typeset .md-button--primary {
+  background-color: var(--md-primary-fg-color);
+  border-color: var(--md-primary-fg-color);
+}
+
+.md-typeset .md-button--primary:hover {
+  background-color: var(--md-primary-fg-color--dark);
+  border-color: var(--md-primary-fg-color--dark);
+}

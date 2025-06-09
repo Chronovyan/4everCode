@@ -8,7 +8,7 @@ last_updated: '2025-06-07'
 
 # Contributors
 
-We would like to thank all the people who have contributed to Forever. Your contributions help make this project better for everyone.
+We would like to thank all the people who have contributed to 4ever. Your contributions help make this project better for everyone.
 
 ## Core Team
 
@@ -24,11 +24,11 @@ We would like to thank all the people who have contributed to Forever. Your cont
 
 We welcome contributions from everyone! Here's how you can help:
 
-1. **Report bugs**: File an issue on our [issue tracker](https://github.com/pioneertrail/Forever/issues)
+1. **Report bugs**: File an issue on our [issue tracker](https://github.com/4ever/4ever/issues)
 2. **Suggest features**: Open an issue with the "enhancement" label
 3. **Write code**: Submit a pull request following our [contributing guidelines](CONTRIBUTING.md)
 4. **Improve documentation**: Help us make our docs better
-5. **Spread the word**: Tell others about Forever
+5. **Spread the word**: Tell others about 4ever
 
 ## Recognition
 
@@ -42,4 +42,4 @@ This project follows the [all-contributors](https://allcontributors.org) specifi
 
 ## License
 
-By contributing to Forever, you agree that your contributions will be licensed under its [MIT License](LICENSE).
+By contributing to 4ever, you agree that your contributions will be licensed under its [MIT License](LICENSE).

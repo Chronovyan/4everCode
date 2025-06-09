@@ -1,4 +1,4 @@
-# Forever Code of Conduct
+# 4ever Code of Conduct
 
 ## Table of Contents
 
@@ -81,10 +81,10 @@ Consequences for violating our community standards may include:
 
 ### Enforcement Process
 
-1. **Report**: Incidents should be reported to the Code of Conduct team at [conduct@Forever.org](mailto:conduct@Forever.org).
+1. **Report**: Incidents should be reported to the Code of Conduct team at [conduct@4ever.dev](mailto:conduct@4ever.dev).
 2. **Review**: The Code of Conduct team will review the incident and gather information.
 3 **Decision**: The team will decide on the appropriate response.
-4. **Appeal**: The individual may appeal the decision by emailing [conduct-appeals@Forever.org](mailto:conduct-appeals@Forever.org).
+4. **Appeal**: The individual may appeal the decision by emailing [conduct-appeals@4ever.dev](mailto:conduct-appeals@4ever.dev).
 
 ## Enforcement Guidelines
 
@@ -118,7 +118,7 @@ Community leaders will follow these guidelines in determining consequences:
 
 ### How to Report
 
-If you experience or witness unacceptable behavior, or have any other concerns, please report it by contacting the Code of Conduct team at [conduct@Forever.org](mailto:conduct@Forever.org). All reports will be handled with discretion.
+If you experience or witness unacceptable behavior, or have any other concerns, please report it by contacting the Code of Conduct team at [conduct@4ever.dev](mailto:conduct@4ever.dev). All reports will be handled with discretion.
 
 In your report, please include:
 - Your contact information
@@ -148,7 +148,7 @@ For conflicts that don't involve harassment or other Code of Conduct violations,
 
 ### Appeals
 
-Only permanent decisions (e.g., bans) may be appealed. To appeal a decision, contact [conduct-appeals@Forever.org](mailto:conduct-appeals@Forever.org).
+Only permanent decisions (e.g., bans) may be appealed. To appeal a decision, contact [conduct-appeals@4ever.dev](mailto:conduct-appeals@4ever.dev).
 
 ## Community Moderation
 

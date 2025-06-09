@@ -19,7 +19,7 @@ Last Updated: June 7, 2025
 
 ## Supported Versions
 
-Forever follows [Semantic Versioning](https://semver.org/) and provides security updates according to the following schedule:
+4ever follows [Semantic Versioning](https://semver.org/) and provides security updates according to the following schedule:
 
 | Version | Status           | Security Support Until |
 |---------|------------------|------------------------|
@@ -45,8 +45,8 @@ We are committed to working with security researchers to resolve vulnerabilities
 ### How to Report
 
 Please report security vulnerabilities to:  
-**Email**: [security@Forever.org](mailto:security@Forever.org)  
-**PGP Key**: [0x12345678ABCDEF01](https://Forever.org/security/pgp.asc)
+**Email**: [security@4ever.dev](mailto:security@4ever.dev)  
+**PGP Key**: [0x12345678ABCDEF01](https://4ever.dev/security/pgp.asc)
 
 ### Required Information
 
@@ -207,22 +207,22 @@ We extend our gratitude to the following individuals and organizations for their
 ## Security Contacts
 
 ### Primary Contacts
-- **Security Team**: [security@Forever.org](mailto:security@Forever.org) (encrypted)
-- **Lead Security Engineer**: [alice@Forever.org](mailto:alice@Forever.org)
-- **Infrastructure Lead**: [bob@Forever.org](mailto:bob@Forever.org)
+- **Security Team**: [security@4ever.dev](mailto:security@4ever.dev) (encrypted)
+- **Lead Security Engineer**: [alice@4ever.dev](mailto:alice@4ever.dev)
+- **Infrastructure Lead**: [bob@4ever.dev](mailto:bob@4ever.dev)
 
 ### Emergency Contact
 For critical security issues outside business hours:  
 **Phone**: +1 (555) 123-4567 (Signal/WhatsApp)  
-**PGP Key**: [0x12345678ABCDEF01](https://Forever.org/security/pgp.asc)
+**PGP Key**: [0x12345678ABCDEF01](https://4ever.dev/security/pgp.asc)
 
 ### Mailing Lists
-- **Security Announcements**: [security-announce@Forever.org](mailto:security-announce@Forever.org) (read-only)
-- **Security Discussion**: [security-discuss@Forever.org](mailto:security-discuss@Forever.org)
+- **Security Announcements**: [security-announce@4ever.dev](mailto:security-announce@4ever.dev) (read-only)
+- **Security Discussion**: [security-discuss@4ever.dev](mailto:security-discuss@4ever.dev)
 
 ## Policy Updates
 
-This policy is reviewed and updated at least quarterly. The latest version is always available at [https://Forever.org/security/policy](https://Forever.org/security/policy).
+This policy is reviewed and updated at least quarterly. The latest version is always available at [https://4ever.dev/security/policy](https://4ever.dev/security/policy).
 
 ### Version History
 - **v1.0.0** (2025-06-07): Initial Security Policy

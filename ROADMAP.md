@@ -1,12 +1,12 @@
-# Forever Documentation Roadmap
+# 4ever Documentation Roadmap
 
 ## Overview
-This document outlines our plan for enhancing and maintaining the Forever programming language documentation. It serves as a living document that will be updated as we make progress.
+This document outlines our plan for enhancing and maintaining the 4ever programming language documentation. It serves as a living document that will be updated as we make progress.
 
 ## Related Documents
 
 - [CHANGELOG.md](CHANGELOG.md) - Version history and release notes
-- [GitHub Issues](https://github.com/Forever/Forever.github.io/issues) - Bug reports and feature requests
+- [GitHub Issues](https://github.com/4ever/4ever.github.io/issues) - Bug reports and feature requests
 
 ## Current Focus: Documentation Enhancement (Q2 2025)
 
@@ -62,4 +62,4 @@ This document outlines our plan for enhancing and maintaining the Forever progra
 4. Reference any related issues
 
 ## Maintenance
-This document is maintained by the Forever Documentation Team. Last updated: 2025-06-07
+This document is maintained by the 4ever Documentation Team. Last updated: 2025-06-07

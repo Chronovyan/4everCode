@@ -1,0 +1,26 @@
+# Documentation tooling requirements
+mkdocs>=1.4.0
+mkdocs-material>=9.0.0
+mkdocs-git-revision-date-localized-plugin>=1.0.0
+pyyaml>=6.0
+markdown>=3.3.0
+linkchecker>=10.0.0
+mkdocs-minify-plugin>=0.6.0
+mkdocs-git-authors-plugin>=0.6.0
+mkdocs-git-committers-plugin-2>=1.2.0
+mkdocs-git-revision-date-localized-plugin>=1.0.0
+mkdocs-macros-plugin>=0.7.0
+mkdocs-markdownextra-file-filter>=0.1.0
+mkdocs-markdownextra-script-plugin>=0.3.0
+mkdocs-mermaid2-plugin>=0.6.0
+mkdocs-pymdownx-material-extras>=1.1.7
+mkdocs-redirects>=1.2.0
+mkdocs-rss-plugin>=1.2.0
+mkdocs-section-index>=0.3.0
+mkdocs-simple-hooks>=0.1.0
+mkdocs-simple-plugin>=0.2.0
+mkdocs-static-i18n>=0.54.0
+mkdocs-versioning>=0.2.0
+mkdocs-watch>=1.0.0
+mkdocs-awesome-pages-plugin>=2.7.0
+mkdocs-exclude>=1.0.2

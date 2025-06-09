@@ -1,6 +1,6 @@
-# Contributing to Forever
+# Contributing to 4ever
 
-Thank you for your interest in contributing to Forever! We're excited to have you on board. This guide will help you get started with contributing to the project.
+Thank you for your interest in contributing to 4ever! We're excited to have you on board. This guide will help you get started with contributing to the project.
 
 ## Table of Contents
 
@@ -24,11 +24,11 @@ Thank you for your interest in contributing to Forever! We're excited to have yo
 
 ## Code of Conduct
 
-This project and everyone participating in it is governed by our [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report any unacceptable behavior to [contact@Forever.org](mailto:contact@Forever.org).
+This project and everyone participating in it is governed by our [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report any unacceptable behavior to [contact@4ever.dev](mailto:contact@4ever.dev).
 
 ## Ways to Contribute
 
-There are many ways to contribute to Forever:
+There are many ways to contribute to 4ever:
 
 - **Code Contributions**: Implement new features or fix bugs
 - **Documentation**: Improve documentation, add examples, or fix typos
@@ -57,8 +57,8 @@ There are many ways to contribute to Forever:
 1. **Fork the Repository**
    ```bash
    # Fork on GitHub first, then clone your fork
-   git clone https://github.com/your-username/Forever.git
-   cd Forever
+   git clone https://github.com/your-username/4ever.git
+   cd 4ever
    ```
 
 2. **Set Up the Build Environment**
@@ -99,8 +99,8 @@ For advanced users who want to build with specific features:
 
 ```bash
 # Clone with submodules
-git clone --recursive https://github.com/Forever/Forever.git
-cd Forever
+git clone --recursive https://github.com/4ever/4ever.git
+cd 4ever
 
 # Configure the build
 mkdir -p build && cd build
@@ -237,7 +237,7 @@ When reporting issues, please include:
 4. **Environment**
    - OS and version
    - Rust version
-   - Forever version
+   - 4ever version
 5. **Additional Context**
    - Logs
    - Screenshots
@@ -279,11 +279,11 @@ When reporting issues, please include:
 
 ## Community
 
-- **Discord**: [Join our community](https://discord.gg/Forever)
-- **Twitter**: [@ForeverLang](https://twitter.com/ForeverLang)
-- **Email**: [contact@Forever.org](mailto:contact@Forever.org)
+- **Discord**: [Join our community](https://discord.gg/4ever)
+- **Twitter**: [@4everlang](https://twitter.com/4everlang)
+- **Email**: [contact@4ever.dev](mailto:contact@4ever.dev)
 - **Weekly Meetings**: Tuesdays at 3 PM UTC
 
 ## License
 
-By contributing to Forever, you agree that your contributions will be licensed under the [MIT License](LICENSE).
+By contributing to 4ever, you agree that your contributions will be licensed under the [MIT License](LICENSE).
