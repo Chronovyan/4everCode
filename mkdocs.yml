@@ -1,19 +1,19 @@
 # Project information
-site_name: Forever
+site_name: 4ever
 site_description: 'A Modern C++ Library for Time Series Analysis and Temporal Data Processing'
-site_author: 'Forever Team'
-site_url: https://forevercode.Forever.com
+site_author: '4ever Team'
+site_url: https://4ever.dev
 
 docs_dir: docs
 site_dir: site
 
 # Repository
-repo_name: 'Forever/ForeverCode'
-repo_url: https://github.com/Forever/ForeverCode
+repo_name: '4ever/4ever'
+repo_url: https://github.com/4ever/4ever
 edit_uri: edit/main/docs/
 
 # Copyright
-copyright: 'Copyright &copy; 2025 Forever Code Team'
+copyright: 'Copyright &copy; 2025 4ever Team'
 
 # Extra configuration
 extra:
@@ -25,6 +25,10 @@ extra:
 theme:
   name: material
   custom_dir: docs/overrides
+  icon:
+    logo: font/logo
+  logo: assets/branding/svg/logo-primary.svg
+  favicon: assets/favicon.ico
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -109,7 +113,7 @@ extra_javascript:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/ForeverCode/forevercode
+      link: https://github.com/4ever/4ever
       name: GitHub
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/forevercode
@@ -236,46 +240,78 @@ exclude_docs: |
 # Navigation
 nav:
   - Home: index.md
+  
+  # Getting Started
   - Getting Started:
     - Installation: getting-started/installation.md
     - First Program: getting-started/first-program.md
-  - Core: core/index.md
+    - Core Concepts: core/01_core_concepts.md
+    - Language Tour: core/02_language_tour.md
+  
+  # Core Documentation
+  - Language Reference:
+    - Variables: core/03_variables.md
+    - Control Flow: core/04_control_flow.md
+    - Functions: core/05_functions.md
+    - Types: core/06_types.md
+    - Resource Management: core/07_resource_management.md
+  
+  # Guides
   - Guides:
-    - Path of the Conformist: guides/Path of the Conformist - Foundational Guide.md
-    - The Rebel's Handbook: guides/The Rebel's Handbook - Advanced Temporal Weaving.md
-    - Style Guide: guides/Style Guide - The Art of Temporal Expression.md
-    - Temporal Synchronization: guides/Temporal Synchronization - The Art of Temporal Harmony.md
-    - Standard Library Guide: guides/standard_library_guide.md
-    - Timezones: guides/timezones.md
-    - Performance: guides/performance.md
-    - Choosing Optimization Strategies: guides/choosing_optimization_strategies.md
-    - Advanced:
-      - Primer: guides/advanced/primer.md
-      - Advanced Mechanics: guides/advanced/advanced-mechanics.md
-      - Optimization Algorithms: guides/advanced/optimization-algorithms.md
+    - Branding: guides/branding.md
+    - Best Practices: guides/best_practices.md
+    - Temporal Patterns: guides/temporal_patterns.md
+  
+  # Standard Library
+  - Standard Library:
+    - Overview: stdlib/00_overview.md
+    - Temporal Types: stdlib/01_temporal_types.md
+    - Containers: stdlib/02_containers.md
+    - Algorithms: stdlib/03_algorithms.md
+  
+  # Advanced Topics
+  - Advanced:
+    - Quantum Computing: advanced/quantum_computing.md
+    - Performance Tuning: advanced/performance.md
+    - Memory Management: advanced/memory_management.md
+  
+  # Tutorials
+  - Tutorials:
+    - Interactive Tutorials: tutorials/Interactive Tutorials - The Hands-on Path to Mastery.md
+    - Prologue:
+      - Phase 0: tutorials/prologue/phase0_accidental_catalyst.md
+    - Act 1:
+      - Chapter 1: tutorials/act1/chapter1_variables.md
+      - Chapter 2: tutorials/act1/chapter2_conditionals.md
+      - Chapter 3: tutorials/act1/chapter3_loops.md
+      - Chapter 4: tutorials/act1/chapter4_functions.md
+      - Chapter 5: tutorials/act1/chapter5_stabilizing_core.md
+  - Advanced Topics:
+    - Quantum Entanglement: docs/Advanced Quantum Entanglement - The Art of Temporal Interconnection.md
+    - Complex Operations: docs/Complex Quantum Operations - The Art of Temporal Mastery.md
+    - Advanced Features: docs/advanced_features_design.md
+    - Optimization: docs/advanced_optimization_algorithms.md
   - Reference:
-    - Language Specification: reference/language/specification.md
-    - API Reference: api/index.md
-  - 'Tutorials':
-    - 'Interactive Tutorials': 'tutorials/Interactive Tutorials - The Hands-on Path to Mastery.md'
-    - 'Prologue':
-      - 'Phase 0': 'tutorials/prologue/phase0_accidental_catalyst.md'
-    - 'Act 1':
-      - 'Chapter 1': 'tutorials/act1/chapter1_variables.md'
-      - 'Chapter 2': 'tutorials/act1/chapter2_conditionals.md'
-      - 'Chapter 3': 'tutorials/act1/chapter3_loops.md'
-      - 'Chapter 4': 'tutorials/act1/chapter4_functions.md'
-      - 'Chapter 5': 'tutorials/act1/chapter5_stabilizing_coras_power_core.md'
-  - Roadmap:
-    - Overview: roadmap/index.md
-    - Compiler Implementation: roadmap/compiler-implementation.md
+    - API Reference: api_reference.md
+    - Standard Library: docs/Chronoscript Standard Library Reference.md
+    - Language Specification: docs/Chronoscript Language Specification.md
+  - Tools & Development:
+    - Development Tools: docs/tools/Development Tools - The Art of Temporal Crafting.md
+    - File Extensions: docs/tools/File Extensions - The Art of Temporal Expression.md
+  - Troubleshooting:
+    - FAQ: docs/troubleshooting/FAQ - Common Questions and Answers.md
+    - Debugging Guide: docs/troubleshooting/Advanced Debugging - The Art of Temporal Analysis.md
+  - Community:
+    - Contributing: CONTRIBUTING.md
+    - Roadmap: ROADMAP.md
+    - Changelog: CHANGELOG.md
 
 # Customization
 extra:
   social:
-    - { icon: fontawesome/brands/github, link: 'https://github.com/Forever/Forever', name: GitHub }
-    - { icon: fontawesome/brands/twitter, link: 'https://twitter.com/Forever', name: Twitter }
-    - { icon: fontawesome/brands/discord, link: 'https://discord.gg/Forever', name: Discord }
+    - { icon: fontawesome/brands/github, link: 'https://github.com/4ever/4ever', name: GitHub }
+    - { icon: fontawesome/brands/twitter, link: 'https://twitter.com/4ever', name: Twitter }
+    - { icon: fontawesome/brands/discord, link: 'https://discord.gg/4ever', name: Discord }
 
 # Extra CSS/JS
 extra_css:
