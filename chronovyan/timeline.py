@@ -51,37 +51,79 @@ class Timeline:
             max_time: Maximum time to run the timeline (in seconds).
                      If None, runs until all events are processed.
         """
-        if self._running:
-            raise RuntimeError("Timeline is already running")
-            
         self._running = True
         self._start_time = time.monotonic()
+        self._current_time = 0.0
         
         try:
-            while self._events and (max_time is None or self._current_time < max_time):
-                now = time.monotonic() - self._start_time
+            while self._events and self._running:
+                # Get the current time since start
+                current_time = time.monotonic() - self._start_time
                 
-                # Process all events that should have happened by now
-                while self._events and self._events[0].time <= now:
-                    scheduled_event = heapq.heappop(self._events)
-                    self._current_time = max(self._current_time, scheduled_event.time)
-                    scheduled_event()
+                # Check if we've reached max_time
+                if max_time is not None and current_time >= max_time:
+                    break
                 
-                # If we have more events to process but haven't reached max_time,
-                # wait until the next event is due
-                if self._events and (max_time is None or self._events[0].time < max_time):
-                    time_to_wait = self._events[0].time - now
-                    if time_to_wait > 0:
-                        time.sleep(time_to_wait)
-                else:
+                # Get the next event
+                if not self._events:
                     break
                     
-                # Update current time after waiting
-                now = time.monotonic() - self._start_time
-                self._current_time = now
+                next_event = self._events[0]
+                
+                # If next event is in the future beyond max_time, stop
+                if max_time is not None and next_event.time > max_time:
+                    break
+                
+                # If the next event is in the future, sleep until it's time
+                if next_event.time > current_time:
+                    time_to_wait = next_event.time - current_time
+                    time.sleep(time_to_wait)
+                    current_time = time.monotonic() - self._start_time
+                
+                # Process all events that are due
+                while self._events and self._events[0].time <= current_time:
+                    scheduled_event = heapq.heappop(self._events)
+                    self._current_time = scheduled_event.time
+                    scheduled_event()
                 
         finally:
             self._running = False
+            self._last_elapsed_time = time.monotonic() - self._start_time if hasattr(self, '_start_time') and self._start_time is not None else 0.0
+            self._start_time = None
+    
+    @property
+    def elapsed_time(self) -> float:
+        """
+        Get the time elapsed since the timeline was started.
+        
+        Returns:
+            The time in seconds since the timeline was started, or 0 if not running.
+        """
+        if not hasattr(self, '_start_time') or self._start_time is None:
+            return 0.0
+        
+        if self._running:
+            return time.monotonic() - self._start_time
+        else:
+            # If not running, return the last recorded elapsed time
+            return getattr(self, '_last_elapsed_time', 0.0)
+    
+    def clear(self) -> None:
+        """
+        Clear all events from the timeline.
+        """
+        self._events = []
+    
+    def get_next_event_time(self) -> Optional[float]:
+        """
+        Get the time of the next scheduled event.
+        
+        Returns:
+            The time of the next event, or None if there are no events.
+        """
+        if not self._events:
+            return None
+        return self._events[0].time
     
     def pause(self) -> None:
         """Pause the timeline."""

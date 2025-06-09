@@ -57,6 +57,18 @@ class Event:
         return self._trigger_time
     
     @property
+    def elapsed_time(self) -> Optional[float]:
+        """
+        Get the time elapsed since the event was created.
+        
+        Returns:
+            The time in seconds since the event was created, or None if not yet triggered.
+        """
+        if not hasattr(self, '_creation_time'):
+            return None
+        return time.monotonic() - self._creation_time
+    
+    @property
     def age(self) -> float:
         """
         Get the age of the event in seconds.
