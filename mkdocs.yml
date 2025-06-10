@@ -2,7 +2,9 @@
 site_name: 4ever
 site_description: 'A Modern C++ Library for Temporal Programming'
 site_author: '4ever Team'
-site_url: https://4ever.dev
+# For GitHub Pages, site_url should be set to the repository name if using project site
+# or to the custom domain if configured
+site_url: ''  # Will be set automatically by GitHub Pages
 
 # Build Configuration
 docs_dir: docs
@@ -14,6 +16,11 @@ use_directory_urls: true
 repo_name: '4ever/4ever'
 repo_url: https://github.com/4ever/4ever
 edit_uri: edit/main/docs/
+# Add repository information for GitHub Pages
+repo:
+  provider: github
+  repo: 4ever/4ever
+  branch: gh-pages  # The branch GitHub Pages will deploy from
 
 # Copyright
 copyright: 'Copyright &u00A9 2025 4ever Team. All rights reserved.'
@@ -205,8 +212,24 @@ markdown_extensions:
 
 # Build options
 docs_dir: docs
+site_dir: site  # This will be built by the GitHub Actions workflow
 use_directory_urls: true
 strict: false  # Temporarily disabled to see validation warnings
+
+# GitHub Pages configuration
+theme:
+  name: material
+  features:
+    - navigation.tracking
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - toc.integrate
+    - header.autohide
+    - content.code.copy
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
 
 # Exclude patterns for files and directories
 exclude_docs: |

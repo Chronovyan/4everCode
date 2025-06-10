@@ -1,52 +1,92 @@
 ---
-title: The 4ever Programming Language Documentation
-description: Comprehensive documentation for the 4ever Temporal Programming Language
-weight: 100
-draft: false
+title: Welcome to 4ever Documentation
+description: The definitive guide to the 4ever temporal programming language
+weight: 10
 ---
 
-# The 4ever Programming Language
+# ⏳ 4ever: Time as a First-Class Citizen
+
+> "The only programming language where time is a native concept, not an afterthought."
+
+## 🚀 Quick Start
+
+New to 4ever? Start here:
+
+1. [Install 4ever](getting-started/installation.md) - Get up and running in minutes
+2. [Take the Tutorial](tutorials/index.md) - Learn through guided examples
+3. [Explore Examples](examples/index.md) - See 4ever in action
+
+## 📚 Core Documentation
+
+- [Language Tour](core/02_language_tour.md) - Quick introduction to 4ever syntax
+- [Temporal Programming](concepts/temporal-programming.md) - Master time-based programming
+- [Standard Library](reference/stdlib/index.md) - Built-in functions and types
+- [Error Handling](concepts/error-handling.md) - Robust error management in temporal contexts
+
+## 🎓 Learning Paths
+
+### For Beginners
+- [Your First Temporal Program](tutorials/first-program.md)
+- [Understanding Aethel and Chronon](core/04_aethel_and_chronon.md)
+- [Temporal Data Management](core/Variables%20-%20Temporal%20Data%20Management.md)
+
+### For Experienced Developers
+- [Advanced Temporal Patterns](advanced/temporal-patterns.md)
+- [Distributed Systems](advanced/distributed.md)
+- [Performance Optimization](advanced/performance.md)
+
+## 🔍 Key Concepts
+
+<div class="grid cards" markdown>
+  <div markdown>
+  ### ⏱️ Temporal Programming
+  - Native time handling
+  - Deterministic execution
+  - Built-in concurrency
+  </div>
+  
+  <div markdown>
+  🌐 Distributed First
+  - Seamless scaling
+  - Automatic conflict resolution
+  - Network transparency
+  </div>
+  
+  <div markdown>
+  🛡️ Safety Guarantees
+  - No data races
+  - Deadlock prevention
+  - Predictable performance
+  </div>
+</div>
+
+## 🛠️ Tools & Resources
+
+- [Command Line Interface](tools/cli.md)
+- [IDE Integration](tools/ide.md)
+- [Debugging Tools](tools/debugging.md)
+- [Package Manager](tools/package-manager.md)
+
+## 📚 Advanced Topics
+
+- [Quantum Temporal Manipulation](advanced/Advanced%20Quantum%20Operations%20-%20The%20Art%20of%20Temporal%20Manipulation.md)
+- [Resource Management](advanced/resource_management/Advanced%20Resource%20Management%20-%20The%20Art%20of%20Temporal%20Optimization.md)
+- [Timeline Visualization](advanced/Unified%20Visualization%20Dashboard%20-%20The%20Art%20of%20Temporal%20Visualization.md)
+- [Performance Tuning](advanced/system_management/Advanced%20Performance%20Optimization%20-%20The%20Art%20of%20Temporal%20Efficiency.md)
+
+## 🤝 Community & Support
+
+- [Join Our Discord](https://discord.gg/4ever)
+- [Contribution Guide](community/contributing.md)
+- [FAQ](community/faq.md)
+- [Report an Issue](https://github.com/4ever/4ever/issues)
+
+---
+
+*"In 4ever, time isn't just a measurement—it's your most powerful tool."*
 
 > **Version**: 1.0.0  
-> **Last Updated**: 2025-06-09  
-> **Status**: Active
-
-Welcome to the official documentation for 4ever, a revolutionary temporal programming language that treats time as a first-class citizen. This documentation will guide you through the language's philosophy, core concepts, and practical applications.
-
-## Core Documentation
-
-- [The Art of Temporal Programming](core/Core%20Documentation%20-%20The%20Art%20of%20Temporal%20Programming.md) - Comprehensive guide to 4ever's temporal programming model
-- [The 4ever Manifesto](core/Manifesto.md) - Philosophical foundation and vision
-- [Core Concepts](core/01_core_concepts.md) - Fundamental principles of 4ever
-- [Language Tour](core/02_language_tour.md) - Quick introduction to 4ever syntax and features
-
-## Getting Started
-
-- [Practical Applications](core/Practical%20Applications%20-%20The%20Living%20Narrative%20of%20Code.md) - Real-world use cases and examples
-- [Aethel and Chronon](core/04_aethel_and_chronon.md) - Understanding the fundamental resources
-- [Resource Management](core/Resource%20Management%20-%20The%20Battle%20for%20Temporal%20Control.md) - Managing temporal resources effectively
-- [Variables and Data Management](core/Variables%20-%20Temporal%20Data%20Management.md) - Working with temporal data
-
-## Style and Best Practices
-
-- [Style Guide](core/03_style_guide.md) - Writing clean and idiomatic 4ever code
-- [Temporal Programming Patterns](core/Core%20Documentation%20-%20The%20Art%20of%20Temporal%20Programming.md#best-practices) - Proven patterns for effective temporal programming
-- [Error Handling](core/Core%20Documentation%20-%20The%20Art%20of%20Temporal%20Programming.md#error-handling) - Strategies for robust temporal applications
-
-## Advanced Topics
-
-- [Advanced Quantum Operations - The Art of Temporal Manipulation](advanced/Advanced%20Quantum%20Operations%20-%20The%20Art%20of%20Temporal%20Manipulation.md)
-- [Aethel & Chronon Economy - A Programmer's Guide to Temporal Resources](advanced/resource_management/Aethel%20%26%20Chronon%20Economy%20-%20A%20Programmer%27s%20Guide%20to%20Temporal%20Resources.md)
-- [Advanced Resource Management - The Art of Temporal Optimization](advanced/resource_management/Advanced%20Resource%20Management%20-%20The%20Art%20of%20Temporal%20Optimization.md)
-- [Advanced Resource Optimization - The Art of Temporal Efficiency](advanced/resource_management/Advanced%20Resource%20Optimization%20-%20The%20Art%20of%20Temporal%20Efficiency.md)
-- [Advanced Stability Management - The Art of Temporal Balance](advanced/system_management/Advanced%20Stability%20Management%20-%20The%20Art%20of%20Temporal%20Balance.md)
-- [Advanced Timeline Manipulation - The Art of Temporal Control](advanced/system_management/Advanced%20Timeline%20Manipulation%20-%20The%20Art%20of%20Temporal%20Control.md)
-- [Advanced Performance Optimization - The Art of Temporal Efficiency](advanced/system_management/Advanced%20Performance%20Optimization%20-%20The%20Art%20of%20Temporal%20Efficiency.md)
-
-## Visualization and Debugging
-
-- [Unified Visualization Dashboard - The Art of Temporal Visualization](advanced/Unified%20Visualization%20Dashboard%20-%20The%20Art%20of%20Temporal%20Visualization.md)
-- [Advanced Debugging and Monitoring - The Art of Temporal Analysis](advanced/visualization_monitoring/Advanced%20Debugging%20and%20Monitoring%20-%20The%20Art%20of%20Temporal%20Analysis.md)
+> **Last Updated**: 2025-06-09
 
 ## Error Handling and Recovery
 
