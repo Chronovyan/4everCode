@@ -29,11 +29,11 @@ This file tracks which original documentation files have been consolidated into 
 
 |---------------|-------------------|--------|-------|
 
-| docs/core/Core Documentation - The Art of Temporal Programming.md | implementation_guide.md | Complete | Core concepts section |
+| docs/core/05_temporal_programming_guide.md | implementation_guide.md | Complete | Core concepts section |
 
 | docs/core/Getting Started - The Path to Temporal Mastery.md | implementation_guide.md | Complete | Getting Started section |
 
-| docs/core/Resource Management - The Battle for Temporal Control.md | api_reference.md | Complete | Resource Management section |
+| docs/core/07_resource_management.md | api_reference.md | Complete | Resource Management section |
 
 | docs/core/Variable System - The Duality of Data.md | api_reference.md | Complete | Core Types section |
 
@@ -91,7 +91,7 @@ This file tracks which original documentation files have been consolidated into 
 
 | docs/core/Coding Philosophies - The Art of Temporal Expression.md | implementation_guide.md | Complete | Included as Coding Philosophies section |
 
-| docs/core/Practical Applications - The Living Narrative of Code.md | implementation_guide.md | Complete | Included as Practical Applications section |
+| docs/core/06_practical_applications.md | implementation_guide.md | Complete | Included as Practical Applications section |
 
 | docs/core/Loot System - The Rewards of Temporal Mastery.md | implementation_guide.md | Complete | Included as Loot System section |
 

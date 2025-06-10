@@ -34,6 +34,50 @@ This style guide provides conventions for writing clear and consistent 4ever cod
 
 ## Code Organization
 
+### File Naming Conventions
+
+1. **Documentation Files**
+   - Use lowercase with underscores (`_`) as word separators
+   - For core documentation, use numeric prefixes for ordering:
+     ```
+     01_core_concepts.md
+     02_language_tour.md
+     03_style_guide.md
+     04_aethel_and_chronon.md
+     05_temporal_programming_guide.md
+     06_practical_applications.md
+     07_resource_management.md
+     08_variables_and_data.md
+     ```
+   - Special documents (like the Manifesto) use lowercase without numbers:
+     ```
+     manifesto.md
+     ```
+   - Keep filenames concise but descriptive (40 chars max)
+   - Avoid special characters except underscores and hyphens
+   - Never use spaces in filenames
+
+2. **Source Code Files**
+   - Use lowercase with underscores for all filenames
+   - Use `.4v` extension for 4ever source files
+   - Use descriptive names that indicate the file's purpose
+   - Group related files in appropriate directories
+   - Example structure:
+     ```
+     my_module/
+     ├── module.4v           # Main module file
+     ├── types.4v            # Type definitions
+     ├── operations.4v       # Core operations
+     └── tests/              # Test files
+         ├── module_test.4v
+         └── test_utils.4v
+     ```
+
+3. **Asset Files**
+   - Images: `descriptive_name.png` or `descriptive_name.svg`
+   - Stylesheets: `module_name.css`
+   - Scripts: `purpose.js` or `module_name.js`
+
 ### File Structure
 
 ```
@@ -44,6 +88,25 @@ my_module/
 └── tests/              # Test files
     ├── module_test.4v
     └── test_utils.4v
+```
+
+### Project Structure
+
+Organize your project with a clear directory structure:
+
+```
+project/
+├── docs/                   # Documentation
+│   ├── core/              # Core documentation
+│   ├── guides/            # Tutorials and how-tos
+│   └── api/               # API reference
+├── src/                   # Source code
+│   ├── core/              # Core language features
+│   ├── stdlib/            # Standard library
+│   └── examples/          # Example programs
+└── tests/                 # Test files
+    ├── unit/             # Unit tests
+    └── integration/      # Integration tests
 ```
 
 ### Module Declarations

@@ -58,17 +58,17 @@ The core directory contains fundamental documentation on 4ever concepts, syntax,
 
 #### Content for Consolidation
 
-1. **Core Documentation - The Art of Temporal Programming.md**: Already consolidated into implementation_guide.md
+1. **05_temporal_programming_guide.md**: Already consolidated into implementation_guide.md
 2. **Variable System - The Duality of Data.md**: Already consolidated into api_reference.md
 3. **Resource System - The Battle for Temporal Control.md**: Already consolidated into api_reference.md
 4. **Loop Mechanics - The Art of Temporal Iteration.md**: ✅ Already consolidated into api_reference.md
 5. **File Extensions - The Art of Temporal Expression.md**: ✅ Already consolidated into implementation_guide.md
 6. **Coding Philosophies - The Art of Temporal Expression.md**: Should be consolidated into implementation_guide.md
-7. **Practical Applications - The Living Narrative of Code.md**: Should be consolidated into implementation_guide.md
+7. **06_practical_applications.md**: Should be consolidated into implementation_guide.md
 8. **Loot System - The Rewards of Temporal Mastery.md**: ✅ Already consolidated into implementation_guide.md
 9. **Variable Flags - The Art of Temporal Expression.md**: ✅ Already consolidated into api_reference.md
 10. **Program Lifecycle - The Weaver's Journey.md**: ✅ Already consolidated into api_reference.md
-11. **Resource Management - The Battle for Temporal Control.md**: Already consolidated into api_reference.md
+11. **07_resource_management.md**: Already consolidated into api_reference.md
 12. **Variables - The Duality of Data.md**: Already consolidated into api_reference.md
 
 #### Updates Needed
@@ -191,7 +191,7 @@ We have successfully completed all high-priority consolidations identified in th
 2. ✅ Updated "The Great Duality - Order and Flux.md" to align with the Concept-Implementation Mapping (Version 1.1.0)
 3. ✅ Enhanced "Advanced Quantum Operations - The Art of Temporal Manipulation.md" with comprehensive content and implementation details (Version 1.0.0)
 4. ✅ Consolidated "Coding Philosophies - The Art of Temporal Expression.md" into implementation_guide.md
-5. ✅ Consolidated "Practical Applications - The Living Narrative of Code.md" into implementation_guide.md
+5. ✅ Consolidated "06_practical_applications.md" into implementation_guide.md
 6. ✅ Consolidated "Loot System - The Rewards of Temporal Mastery.md" into implementation_guide.md
 7. ✅ Consolidated "Variable Flags - The Art of Temporal Expression.md" into api_reference.md
 8. ✅ Enhanced documentation for advanced resource management by adding a comprehensive section (3.1.1) to the implementation_guide.md with cross-references to the detailed documentation

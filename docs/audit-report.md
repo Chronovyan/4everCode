@@ -103,19 +103,19 @@ draft: true
 | concepts\Coding Philosophies - The Art of Temporal Expression.md | 205 | 574 | ❌ |
 | concepts\Git_Included.md | 73 | 1040 | ❌ |
 | concepts\Loot System - The Rewards of Temporal Mastery.md | 230 | 597 | ❌ |
-| concepts\Practical Applications - The Living Narrative of Code.md | 201 | 460 | ❌ |
-| concepts\Resource Management - The Battle for Temporal Control.md | 216 | 591 | ❌ |
+| concepts\06_practical_applications.md | 201 | 460 | ❌ |
+| concepts\07_resource_management.md | 216 | 591 | ❌ |
 | concepts\Variable Flags - The Art of Temporal Expression.md | 194 | 623 | ❌ |
 | contributing\documentation-guide.md | 97 | 363 | ❌ |
 | contributing\style-guide.md | 110 | 523 | ❌ |
 | core\Coding Philosophies - The Art of Temporal Expression.md | 162 | 388 | ❌ |
-| core\Core Documentation - The Art of Temporal Programming.md | 286 | 599 | ❌ |
+| core\05_temporal_programming_guide.md | 286 | 599 | ❌ |
 | core\Core Syntax & Constructs.md | 539 | 1964 | ❌ |
 | core\Manifesto.md | 101 | 2766 | ❌ |
 | core\Phase1_Completion_Summary.md | 94 | 782 | ❌ |
-| core\Practical Applications - The Living Narrative of Code.md | 163 | 352 | ❌ |
+| core\06_practical_applications.md | 163 | 352 | ❌ |
 | core\Programming as Temporal Weaving.md | 228 | 1855 | ❌ |
-| core\Resource Management - The Battle for Temporal Control.md | 130 | 365 | ❌ |
+| core\07_resource_management.md | 130 | 365 | ❌ |
 | core\The Great Duality - Order and Flux.md | 354 | 2310 | ❌ |
 | core\Variable System - The Duality of Data.md | 172 | 681 | ❌ |
 | core\Variables - The Duality of Data.md | 113 | 364 | ❌ |

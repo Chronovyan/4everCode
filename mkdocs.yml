@@ -260,8 +260,8 @@ nav:
     - Language Tour: core/02_language_tour.md
     - Style Guide: core/03_style_guide.md
     - Aethel & Chronon: core/04_aethel_and_chronon.md
-    - Variables: core/Variables - Temporal Data Management.md
-    - Resource Management: core/Resource Management - The Battle for Temporal Control.md
+    - Variables: core/08_variables_and_data.md
+    - Resource Management: core/07_resource_management.md
     - Manifesto: core/Manifesto.md
     - Types: core/06_types.md
     - Resource Management: core/07_resource_management.md
