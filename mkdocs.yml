@@ -2,28 +2,17 @@
 site_name: 4ever
 site_description: 'A Modern Temporal Programming Language'
 site_author: '4ever Team'
-repo_name: '4ever/4ever'
-repo_url: https://github.com/4ever/4ever
+
 # GitHub Pages configuration
 site_url: https://4ever.dev
-repo_url: https://github.com/4ever/4ever/
-repo_name: 4ever/4ever
+repo_url: https://github.com/4ever/4ever
+edit_uri: edit/main/docs/
 
 # Build Configuration
 docs_dir: docs
-site_dir: site
-strict: true
+site_dir: public
+strict: false
 use_directory_urls: true
-
-# Repository
-repo_name: '4ever/4ever'
-repo_url: https://github.com/4ever/4ever
-edit_uri: edit/main/docs/
-# Add repository information for GitHub Pages
-repo:
-  provider: github
-  repo: 4ever/4ever
-  branch: gh-pages  # The branch GitHub Pages will deploy from
 
 # Copyright
 copyright: 'Copyright &u00A9 2025 4ever Team. All rights reserved.'
