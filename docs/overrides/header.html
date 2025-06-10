@@ -1,0 +1,14 @@
+<!-- Logo in header -->
+<a href="{{ config.site_url | default(nav.homepage.url, true) | url }}" 
+   class="md-header__button md-logo" 
+   aria-label="{{ config.site_name }}" 
+   data-md-component="logo">
+  {% if config.theme.logo.icon %}
+    <svg class="md-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="{{ config.theme.logo.icon }}"></path>
+    </svg>
+  {% else %}
+    <img src="{{ 'assets/branding/svg/logo-primary.svg' | url }}" alt="{{ config.site_name }}" class="logo-light">
+    <img src="{{ 'assets/branding/svg/logo-dark.svg' | url }}" alt="{{ config.site_name }}" class="logo-dark">
+  {% endif %}
+</a>

@@ -1,6 +1,6 @@
-# Forever Release Process
+# 4ever Release Process
 
-This document outlines the process for creating new releases of the Forever programming language. Following this process ensures consistent, high-quality releases.
+This document outlines the process for creating new releases of the 4ever programming language. Following this process ensures consistent, high-quality releases.
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@ This document outlines the process for creating new releases of the Forever prog
 
 ## Release Schedule
 
-Forever follows [Semantic Versioning](https://semver.org/) (SemVer) for version numbers: `MAJOR.MINOR.PATCH`.
+4ever follows [Semantic Versioning](https://semver.org/) (SemVer) for version numbers: `MAJOR.MINOR.PATCH`.
 
 ### Regular Release Cadence
 
@@ -217,14 +217,14 @@ All releases are cryptographically signed using GPG:
 
 ```bash
 # Verify release signature
-gpg --verify Forever-X.Y.Z.tar.gz.asc
+gpg --verify 4ever-X.Y.Z.tar.gz.asc
 ```
 
 ## Security Releases
 
 For security-related issues:
 
-1. Report to security@Forever.org
+1. Report to security@4ever.dev
 2. Embargo period for fixes
 3. Coordinated disclosure
 4. Security advisories
@@ -260,9 +260,9 @@ Current release managers:
 
 ### Emergency Contacts
 
-- Security: security@Forever.org
-- Infrastructure: infra@Forever.org
-- Community: community@Forever.org
+- Security: security@4ever.dev
+- Infrastructure: infra@4ever.dev
+- Community: community@4ever.dev
 
 ---
 
