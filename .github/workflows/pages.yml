@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -37,8 +37,11 @@ jobs:
       - name: Build
         run: mkdocs build --site-dir public
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: './public'
 
