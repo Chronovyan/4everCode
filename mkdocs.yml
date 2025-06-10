@@ -1,7 +1,9 @@
 # Project Information
 site_name: 4ever
-site_description: 'A Modern C++ Library for Temporal Programming'
+site_description: 'A Modern Temporal Programming Language'
 site_author: '4ever Team'
+repo_name: '4ever/4ever'
+repo_url: https://github.com/4ever/4ever
 # For GitHub Pages, site_url should be set to the repository name if using project site
 # or to the custom domain if configured
 site_url: ''  # Will be set automatically by GitHub Pages
