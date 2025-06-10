@@ -1,30 +1,37 @@
 ---
 title: The 4ever Programming Language Documentation
-description: Documentation for README.md
+description: Comprehensive documentation for the 4ever Temporal Programming Language
 weight: 100
-draft: true
+draft: false
 ---
 
-# The 4ever Programming Language Documentation
+# The 4ever Programming Language
 
-Welcome to the 4ever Programming Language documentation repository. This archive contains the guiding texts, specifications, and wisdom for mastering the art of temporal weaving through code.
+> **Version**: 1.0.0  
+> **Last Updated**: 2025-06-09  
+> **Status**: Active
 
-## Philosophy and Foundations
+Welcome to the official documentation for 4ever, a revolutionary temporal programming language that treats time as a first-class citizen. This documentation will guide you through the language's philosophy, core concepts, and practical applications.
 
-- [Manifesto](core/Manifesto.md)
-- [Core Syntax & Constructs](core/Core%20Syntax%20%26%20Constructs.md)
-- [Core Concepts - The Foundation of Temporal Programming](core/Core%20Concepts%20-%20The%20Foundation%20of%20Temporal%20Programming.md)
+## Core Documentation
+
+- [The Art of Temporal Programming](core/Core%20Documentation%20-%20The%20Art%20of%20Temporal%20Programming.md) - Comprehensive guide to 4ever's temporal programming model
+- [The 4ever Manifesto](core/Manifesto.md) - Philosophical foundation and vision
+- [Core Concepts](core/01_core_concepts.md) - Fundamental principles of 4ever
+- [Language Tour](core/02_language_tour.md) - Quick introduction to 4ever syntax and features
 
 ## Getting Started
 
-- [Getting Started - The Path to Temporal Mastery](core/Getting%20Started%20-%20The%20Path%20to%20Temporal%20Mastery.md)
-- [Path of the Conformist - Foundational Guide](guides/Path%20of%20the%20Conformist%20-%20Foundational%20Guide.md)
-- [The Rebel's Handbook - Advanced Temporal Weaving](guides/The%20Rebel%27s%20Handbook%20-%20Advanced%20Temporal%20Weaving.md)
+- [Practical Applications](core/Practical%20Applications%20-%20The%20Living%20Narrative%20of%20Code.md) - Real-world use cases and examples
+- [Aethel and Chronon](core/04_aethel_and_chronon.md) - Understanding the fundamental resources
+- [Resource Management](core/Resource%20Management%20-%20The%20Battle%20for%20Temporal%20Control.md) - Managing temporal resources effectively
+- [Variables and Data Management](core/Variables%20-%20Temporal%20Data%20Management.md) - Working with temporal data
 
 ## Style and Best Practices
 
-- [Style Guide - The Art of Temporal Expression](guides/Style%20Guide%20-%20The%20Art%20of%20Temporal%20Expression.md)
-- [Temporal Synchronization - The Art of Temporal Harmony](guides/Temporal%20Synchronization%20-%20The%20Art%20of%20Temporal%20Harmony.md)
+- [Style Guide](core/03_style_guide.md) - Writing clean and idiomatic 4ever code
+- [Temporal Programming Patterns](core/Core%20Documentation%20-%20The%20Art%20of%20Temporal%20Programming.md#best-practices) - Proven patterns for effective temporal programming
+- [Error Handling](core/Core%20Documentation%20-%20The%20Art%20of%20Temporal%20Programming.md#error-handling) - Strategies for robust temporal applications
 
 ## Advanced Topics
 
