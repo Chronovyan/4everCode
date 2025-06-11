@@ -1,0 +1,42 @@
+name: Deploy Documentation
+
+on:
+  push:
+    branches: [ main ]  # Change this if your main branch has a different name
+    paths:
+      - 'docs/html/**'  # Only trigger when files in docs/html change
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # Required for git history
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+    
+    - name: Copy documentation files
+      run: |
+        # Create docs directory if it doesn't exist
+        mkdir -p docs
+        # Copy all files from docs/html to docs/
+        cp -r docs/html/* docs/
+        # Add CNAME if it exists (for custom domains)
+        if [ -f CNAME ]; then cp CNAME docs/; fi
+    
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages
+        folder: docs
+        clean: true
+        clean-exclude: |
+          .nojekyll
+          CNAME
+        commit-message: "Deploy docs: $(date +'%Y-%m-%d %H:%M:%S')"
