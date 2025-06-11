@@ -83,6 +83,11 @@ vcpkg_installed/
 site/
 chronovyan_docs/
 
+# Allow docs/html directory for GitHub Pages
+!docs/html/
+docs/html/*
+!docs/html/**/*
+
 # Test artifacts
 test_*
 *.test
