@@ -1,10 +1,11 @@
 name: Deploy Documentation
 
 on:
+  # Trigger on push to main
   push:
-    branches: [ main ]  # Change this if your main branch has a different name
-    paths:
-      - 'docs/html/**'  # Only trigger when files in docs/html change
+    branches: [ main ]
+  # Allow manual trigger from GitHub UI
+  workflow_dispatch:
 
 jobs:
   deploy:
